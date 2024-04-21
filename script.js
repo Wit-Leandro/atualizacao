@@ -246,6 +246,8 @@ btn_negar_compra_add.addEventListener("click", function () {
   const objectPedido = JSON.parse(getPedido)
   const userPedido = objectPedido.limit
   limite = userPedido
+  const adiciona = {vlr: 0, obs:""}
+  sessionStorage.setItem("adiciona",JSON.stringify(adiciona))
   resadicao.innerHTML =
     dic[0] + " Voce tem " + limite + " adiconais para seu açai";
   adicao.style.display = "none";
