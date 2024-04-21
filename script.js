@@ -56,6 +56,7 @@ btn_enviar_dados.addEventListener("click", function (e) {
   const person = { name: n, endereco: endereco, ncasa: ncasa, telefone: fone };
   localStorage.setItem("person", JSON.stringify(person));
   checkUser();
+  location.reload();
 });
 
 function checkUser() {
@@ -208,7 +209,7 @@ btn_compra_add.addEventListener("click", function () {
     const objectPedido = JSON.parse(getPedido)
     const userPedido = objectPedido.limit
     limite = userPedido + 1;
-    const adiciona = {vlr: 3, obs:" Com mais 1 adicional no valor de R $3,00 Reais" }
+    const adiciona = {vlr: 3, obs:" Com mais 1 adicional no valor de R$3,00 Reais" }
     sessionStorage.setItem("adiciona",JSON.stringify(adiciona))
   } 
   else if (selecao_adicao == "2") {
@@ -216,7 +217,7 @@ btn_compra_add.addEventListener("click", function () {
     const objectPedido = JSON.parse(getPedido)
     const userPedido = objectPedido.limit
     limite = userPedido + 2;
-    const adiciona = {vlr: 6, obs:" Com mais 2 adicional no valor de R $6,00 Reais" }
+    const adiciona = {vlr: 6, obs:" Com mais 2 adicional no valor de R$6,00 Reais" }
     sessionStorage.setItem("adiciona",JSON.stringify(adiciona))
   } 
   else if (selecao_adicao == "3") {
@@ -224,7 +225,7 @@ btn_compra_add.addEventListener("click", function () {
     const objectPedido = JSON.parse(getPedido)
     const userPedido = objectPedido.limit
     limite = userPedido + 3;
-    const adiciona = {vlr: 9, obs:" Com mais 3 adicional no valor de R $9,00 Reais"}
+    const adiciona = {vlr: 9, obs:" Com mais 3 adicional no valor de R$9,00 Reais"}
     sessionStorage.setItem("adiciona",JSON.stringify(adiciona))
   } 
   else {
