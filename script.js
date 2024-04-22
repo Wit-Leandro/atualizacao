@@ -33,10 +33,10 @@ var resadicao = document.getElementById("resadicao");
 var respd = document.getElementById("respd");
 var dataAtual = new Date();
 var msgcadastro = document.getElementById("msgcadastro");
-
-
-
 var cabecalho = document.querySelector(".cabecalho");
+
+const adiciona = {vlr: 0, obs:'Sem adicionais'}
+sessionStorage.setItem("adiciona",JSON.stringify(adiciona))
 
 /*--------- inicio das funçoes -----*/
 
@@ -209,9 +209,32 @@ function exibirMarmitas() {
 
   }
 }
+/* Compra de adicionais por unidade */
+var tadd = 0
+var ad = 0
+var custo = 3
+msg = ''
 
+btn_compra_add.addEventListener('click', function(){
+  ad = ad + 1
+  tadd = custo * ad
+  const getPedido = sessionStorage.getItem("pedido")
+  const objectPedido = JSON.parse(getPedido)
+  const userPedido = objectPedido.limit
+  limite = limite + 1;
+  msg = " Com mais "+ ad +" adicional no valor de R$"+tadd + " Reais"
+  const adiciona = {vlr: 3, obs: msg}
+  sessionStorage.setItem("adiciona",JSON.stringify(adiciona))
+
+  alert("Sucesso!! foram adicionados + 1 \u{1F60A}");
+  resadicao.innerHTML = " Voce tem " + limite + " adiconais para seu açai";
+  adicao.style.display = "none";
+  adicionais.style.display = "block";
+
+
+})
 /*------------Adiçao de adicionais--------*/
-
+/*
 btn_compra_add.addEventListener("click", function () {
   var selecao_adicao = select_adicao.value;
   if (selecao_adicao == "1") {
@@ -250,7 +273,7 @@ btn_compra_add.addEventListener("click", function () {
   resadicao.innerHTML = " Voce tem " + limite + " adiconais para seu açai";
   adicao.style.display = "none";
   adicionais.style.display = "block";
-});
+});*/
 btn_negar_compra_add.addEventListener("click", function () {
   const getPedido = sessionStorage.getItem("pedido")
   const objectPedido = JSON.parse(getPedido)
@@ -288,6 +311,7 @@ btn_valores.addEventListener("click", function () {
     }
     final.style.display = "block";
     adicionais.style.display='none'
+    adicao.style.display='none'
   });
 
   const getPedido = sessionStorage.getItem("pedido")
@@ -306,7 +330,7 @@ btn_valores.addEventListener("click", function () {
   resnome.innerHTML = "Cliente: " + dic[0];
   resendereco.innerHTML = "Endereço: " + dic[1] + "," + dic[2];
   resfone.innerHTML = "Telefone: " + dic[3];
-  respd.innerHTML = "Seu pedido foi: " + userAcai + ','+ userObs
+  respd.innerHTML = "Seu pedido foi: " + userAcai + ',' + userObs
   respreco.innerHTML = "Valor total R$ " + totalCompra + " Reais";
   var listacontainer = document.getElementById("listaitem");
   var lista = document.createElement("ul");
@@ -352,15 +376,16 @@ function horadia() {
   var faltaminutos = 60 - minutos;
   if (faltaminutos < 10) faltaminutos = "0" + faltaminutos;
 
-  if (hora < 14) {
-    reshora.innerHTML = "Fechado";
-    reshora2.innerHTML = "Abriremos em " + faltahoras + ":" + faltaminutos;
-  } else if (hora > 23) {
-    reshora.innerHTML = "Fechado";
-    reshora2.innerHTML = "Nosso horario de antendimento e de ter a domingo";
+  if (hora > 14 || minutos >= 1) {
+    reshora.innerHTML = "Aberto:";
+    reshora2.innerHTML = "DEUS ABENÇOE";
+  } else if (hora > 23 || minutos >= 1) {
+    reshora.innerHTML = "Fechado:";
+    reshora2.innerHTML = "Antendimento de ter a dom das 14hs as 23hs";
   } else {
-    reshora.innerHTML = "Aberto";
-  }
+    reshora.innerHTML = "Fechado:"
+    reshora2.innerHTML = "Abriremos em " + faltahoras + ":" + faltaminutos;
+    }
   hdia.innerHTML = hora + ":" + minutos;
 }
 

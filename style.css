@@ -2,7 +2,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #cc82e1;
+  background:radial-gradient(#cc82e1, #a92fca);
   margin: 0;
   padding: 0;
   font-family: "Lucida Sans", Verdana, sans-serif;
@@ -33,14 +33,14 @@ h5 {
   font-style: italic;
 }
 .container {
-  border: solid 2px #440456;
   border-radius: 20px;
   width: 375px;
   padding-left: 10px;
+  box-shadow: 4px 4px 50px #370246;
 }
 header {
   height: 130px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 input:hover {
@@ -85,8 +85,8 @@ btns:hover {
 #adicao {
   margin-top: 10px;
   display: none;
-  border: solid 2px #fff;
-  border-radius: 20px;
+  border-bottom: solid 2px #440456;
+  border-top: solid 2px #440456;
   width: 350px;
   padding-left: 10px;
   justify-content: center;
@@ -115,12 +115,10 @@ footer {
 }
 #final {
   display: none;
+  margin: 0;
 }
 
-#btn_negar_compra_add {
-  display: flex;
-  margin-left: 117px;
-}
+
 #welcome {
   display: none;
   padding-left: 60px;
@@ -234,4 +232,50 @@ footer {
   font-family: 'Lucida Sans';
   color: rgb(2, 53, 2);
   font-weight: bold;
+}
+.btn_s_n {
+  display: inline-flex;
+}
+.btn_s_n button{
+  margin: 10px;
+}
+#login{
+  padding: 0 80px 0 80px;  
+}
+#usuario{
+  border-top: solid 1px #44274c;
+  margin-right: 5px;
+}
+#usuario h5 {
+  margin-left: 115px;
+}
+#enviar_dados{
+  margin-left: 15px;
+}
+#imagem_copo{
+  background-color: #a92fca;
+  box-shadow: 10px 10px 100px #210129;
+  width: 320px;
+  border-radius: 20px;
+  margin-left: 10px;
+
+}
+#imagem_copo img{
+  border-radius: 20px 20px 20px 20px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+#imagem_marmita{
+  background-color: #a92fca;
+  box-shadow: 10px 10px 100px #210129;
+  width: 320px;
+  border-radius: 20px;
+  margin-left: 10px;
+}
+
+#imagem_marmita img{
+  border-radius: 20px 20px 20px 20px;
+  margin-top: 5px;
+  margin-right: 10px;
 }
