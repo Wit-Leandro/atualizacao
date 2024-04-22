@@ -119,7 +119,12 @@ btn_copo.addEventListener("click", function (e) {
     passar_limite.innerHTML='Seu limite de adicionais é de 5'
   }
   escolha.style.display='none'
-  adicao.style.display='block'
+  adicionais.style.display = "block";
+  const getPedido = sessionStorage.getItem("pedido")
+  const objectPedido = JSON.parse(getPedido)
+  const userPedido = objectPedido.limit
+  limite = userPedido; 
+  resadicao.innerHTML = " Voce tem " + limite + " adiconais para seu açai";
 
 });
 
@@ -140,12 +145,17 @@ btn_marmita.addEventListener("click", function (e) {
     passar_limite.innerHTML='Seu limite de adicionais é de 5'
   
   } else if (meu_marmita === "1200ml") {
-    const pedido = {acai:'Marmita de 1200ml',limit:5,valor:40}
+    const pedido = {acai:'Marmita de 1200ml',limit:6,valor:40}
     sessionStorage.setItem("pedido",JSON.stringify(pedido)) 
     passar_limite.innerHTML='Seu limite de adicionais é de 6'   
   }
   escolha.style.display='none'
-  adicao.style.display='block'
+  adicionais.style.display = "block";
+  const getPedido = sessionStorage.getItem("pedido")
+  const objectPedido = JSON.parse(getPedido)
+  const userPedido = objectPedido.limit
+  limite = userPedido;
+  resadicao.innerHTML = " Voce tem " + limite + " adiconais para seu açai";
 });
 
 /* -----função para exibir os copos por abas------ */
@@ -208,7 +218,7 @@ btn_compra_add.addEventListener("click", function () {
     const getPedido = sessionStorage.getItem("pedido")
     const objectPedido = JSON.parse(getPedido)
     const userPedido = objectPedido.limit
-    limite = userPedido + 1;
+    limite = limite + 1;
     const adiciona = {vlr: 3, obs:" Com mais 1 adicional no valor de R$3,00 Reais" }
     sessionStorage.setItem("adiciona",JSON.stringify(adiciona))
   } 
@@ -216,7 +226,7 @@ btn_compra_add.addEventListener("click", function () {
     const getPedido = sessionStorage.getItem("pedido")
     const objectPedido = JSON.parse(getPedido)
     const userPedido = objectPedido.limit
-    limite = userPedido + 2;
+    limite = limite + 2;
     const adiciona = {vlr: 6, obs:" Com mais 2 adicional no valor de R$6,00 Reais" }
     sessionStorage.setItem("adiciona",JSON.stringify(adiciona))
   } 
@@ -224,7 +234,7 @@ btn_compra_add.addEventListener("click", function () {
     const getPedido = sessionStorage.getItem("pedido")
     const objectPedido = JSON.parse(getPedido)
     const userPedido = objectPedido.limit
-    limite = userPedido + 3;
+    limite = limite + 3;
     const adiciona = {vlr: 9, obs:" Com mais 3 adicional no valor de R$9,00 Reais"}
     sessionStorage.setItem("adiciona",JSON.stringify(adiciona))
   } 
@@ -232,7 +242,7 @@ btn_compra_add.addEventListener("click", function () {
     const getPedido = sessionStorage.getItem("pedido")
     const objectPedido = JSON.parse(getPedido)
     const userPedido = objectPedido.limit
-    limite = userPedido + 4;
+    limite = limite + 4;
     const adiciona = {vlr: 12, obs:" Com mais 4 adicional no valor de R $12,00 Reais"}
     sessionStorage.setItem("adiciona",JSON.stringify(adiciona))
   }
@@ -246,7 +256,12 @@ btn_negar_compra_add.addEventListener("click", function () {
   const objectPedido = JSON.parse(getPedido)
   const userPedido = objectPedido.limit
   limite = userPedido
-  const adiciona = {vlr: 0, obs:""}
+
+  const getAdciona = sessionStorage.getItem("adiciona")
+  const objectAdciona = JSON.parse(getAdciona)
+  const userVlr = objectAdciona.vlr
+  const userObs = objectAdciona.obs
+  const adiciona = {vlr: userVlr, obs:userObs}
   sessionStorage.setItem("adiciona",JSON.stringify(adiciona))
   resadicao.innerHTML =
     dic[0] + " Voce tem " + limite + " adiconais para seu açai";
@@ -260,6 +275,7 @@ checkboxes.forEach(function (checkbox) {
     if (selecionados.length > limite) {
       this.checked = false;
       alert("Desculpe Ja foram escolhidos " + limite + " adiconais");
+      adicao.style.display='block'
     }
   });
 });
@@ -270,8 +286,8 @@ btn_valores.addEventListener("click", function () {
     if (checkbox.checked) {
       valores.push(checkbox.value);
     }
-    adicionais.style.display = "none";
     final.style.display = "block";
+    adicionais.style.display='none'
   });
 
   const getPedido = sessionStorage.getItem("pedido")
@@ -286,6 +302,7 @@ btn_valores.addEventListener("click", function () {
   const userObs = objectAdciona.obs
   
   var totalCompra = userVlr + userValor
+  console.log(totalCompra)
   resnome.innerHTML = "Cliente: " + dic[0];
   resendereco.innerHTML = "Endereço: " + dic[1] + "," + dic[2];
   resfone.innerHTML = "Telefone: " + dic[3];

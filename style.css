@@ -12,12 +12,12 @@ img {
   width: 200px;
 }
 h1 {
-  color: white;
+  color: rgb(128, 32, 78);
   margin: 5px;
 }
 h2 {
   margin: 5px;
-  color: white;
+  color: rgb(128, 32, 78);
 }
 h3 {
   margin: 5px;
@@ -28,8 +28,9 @@ h4 {
   color: white;
 }
 h5 {
-  color: white;
+  color: black;
   margin: 5px;
+  font-style: italic;
 }
 .container {
   border: solid 2px #440456;
@@ -122,6 +123,8 @@ footer {
 }
 #welcome {
   display: none;
+  padding-left: 60px;
+  font-weight: bold;
 }
 .cabecalho {
   padding: 10px 10px 10px 10px;
@@ -136,7 +139,7 @@ footer {
 
 .enderecocabeca {
   font-size: 8pt;
-  font: bolder;
+  font-weight: bolder;
   margin: 0;
   padding: 0;
   grid-row: 1 /-1;
@@ -224,4 +227,11 @@ footer {
   display: flex;
   padding: 5px;
 }
-
+.horas{
+  margin-bottom: 5px;
+  padding-left: 10px;
+  font: bold;
+  font-family: 'Lucida Sans';
+  color: rgb(2, 53, 2);
+  font-weight: bold;
+}
