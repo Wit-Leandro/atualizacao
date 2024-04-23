@@ -397,15 +397,17 @@ function horadia() {
   var faltaminutos = 60 - minutos;
   if (faltaminutos < 10) faltaminutos = "0" + faltaminutos;
 
-  if (hora > 14 || minutos >= 1) {
-    reshora.innerHTML = "Aberto:";
-    reshora2.innerHTML = "DEUS ABENÇOE";
-  } else if (hora > 23 || minutos >= 1) {
+  if (hora < 13 ) {
+    reshora.style.color='red'
+    reshora.innerHTML = "Fechado";
+    reshora2.innerHTML = "Abriremos em " + faltahoras + ":" + faltaminutos;
+  } else if (hora > 22) {
+    reshora.style.color='red'
     reshora.innerHTML = "Fechado:";
     reshora2.innerHTML = "Antendimento de ter a dom das 14hs as 23hs";
   } else {
-    reshora.innerHTML = "Fechado:"
-    reshora2.innerHTML = "Abriremos em " + faltahoras + ":" + faltaminutos;
+    reshora.innerHTML = "Aberto:"
+    reshora2.innerHTML = "Deus Abençoe";
     }
   hdia.innerHTML = hora + ":" + minutos;
 }
@@ -416,7 +418,7 @@ function atualizarContagem(){
   
   var contador = document.getElementById('contador')
   var comprimento = campo.value.length
-  var letras = 50
+  var letras = 31
 
   contador.textContent = comprimento + '/' + letras + 'caracteres'
 
