@@ -34,6 +34,8 @@ var respd = document.getElementById("respd");
 var dataAtual = new Date();
 var msgcadastro = document.getElementById("msgcadastro");
 var cabecalho = document.querySelector(".cabecalho");
+var clearr = document.getElementById('limpar')
+var montar = document.getElementById('montar')
 
 const adiciona = {vlr: 0, obs:'Sem adicionais'}
 sessionStorage.setItem("adiciona",JSON.stringify(adiciona))
@@ -53,10 +55,25 @@ btn_enviar_dados.addEventListener("click", function (e) {
   var endereco = document.getElementById("endereco").value;
   var ncasa = document.getElementById("ncasa").value;
   var fone = document.getElementById("fone").value;
-  const person = { name: n, endereco: endereco, ncasa: ncasa, telefone: fone };
-  localStorage.setItem("person", JSON.stringify(person));
-  checkUser();
-  location.reload();
+  
+  if (n && endereco && ncasa && fone){
+    if (/\(\d{2}\)\d{5}-\d{4}/.test(fone)){
+      const person = { name: n, endereco: endereco, ncasa: ncasa, telefone: fone };
+      localStorage.setItem("person", JSON.stringify(person));
+      checkUser();
+      location.reload();   
+    }
+    else{
+      alert('numero de telefone invalido, tente exemplo (xx)12345-1234')
+      checkUser();
+      location.reload();
+    }
+  }
+
+  else{
+    alert("Existe campos sem preencher")
+    location.reload();
+  }
 });
 
 function checkUser() {
@@ -77,6 +94,7 @@ function checkUser() {
     formulario.style.display = "none";
     welcome.style.display = "block";
     nome_cliente.innerHTML = username + " \u{1F609}";
+    clearr.style.display='block'
   } else {
     msgcadastro.style.display = "block";
     formulario.style.display = "block";
@@ -309,7 +327,7 @@ btn_valores.addEventListener("click", function () {
     if (checkbox.checked) {
       valores.push(checkbox.value);
     }
-    final.style.display = "block";
+    mensagem.style.display='block'
     adicionais.style.display='none'
     adicao.style.display='none'
   });
@@ -324,6 +342,9 @@ btn_valores.addEventListener("click", function () {
   const objectAdciona = JSON.parse(getAdciona)
   const userVlr = objectAdciona.vlr
   const userObs = objectAdciona.obs
+
+
+
   
   var totalCompra = userVlr + userValor
   console.log(totalCompra)
@@ -389,7 +410,45 @@ function horadia() {
   hdia.innerHTML = hora + ":" + minutos;
 }
 
+/*----Sujestão do cliente*/
+function atualizarContagem(){
+  var campo = document.getElementById('campo')
+  
+  var contador = document.getElementById('contador')
+  var comprimento = campo.value.length
+  var letras = 50
 
+  contador.textContent = comprimento + '/' + letras + 'caracteres'
+
+  if (comprimento > letras){
+    contador.style.color = 'red'
+  }
+  else {
+    contador.style.color=''
+  }
+}
+document.getElementById('campo').addEventListener('input', atualizarContagem)
+
+var mensagem = document.getElementById('mensagem')
+var btn_sujestao = document.getElementById('btn_sujestao')
+
+btn_sujestao.addEventListener('click', function(e){
+  e.preventDefault()
+  var clienteDigitou = document.getElementById('campo').value
+  var digitou = {textoDigitado: clienteDigitou}
+  sessionStorage.setItem("digitou", JSON.stringify(digitou))
+
+  const getDigitou = sessionStorage.getItem("digitou")
+  const objectDigitou = JSON.parse(getDigitou)
+  const userDigitou = objectDigitou.textoDigitado
+
+  montar.innerHTML = userDigitou  
+
+  mensagem.style.display='none'
+  final.style.display='block'
+
+})
+/*------------------------------------------------------------------------- */
 
 
 

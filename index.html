@@ -68,7 +68,9 @@
               <input
                 type="text"
                 id="fone"
-                placeholder="fone pref whatsapp"
+                placeholder="telefone no (99)98888-8888"
+                pattern="\(\d{2}\)\d{5}-\d{4}"
+                title="(99)98888-8888"
                 required
               /><br />
               <input
@@ -411,12 +413,22 @@
         <button class="btns" id="btn_valores">Ja Escolhi!</button>
       </div>
 
+      <div class="sujestao" id="mensagem">
+        <h3>Sujestão?</h3>
+        <h5>Para a montagem do seu açai</h5>
+        <textarea name="campo" id="campo" cols="35" rows="5"></textarea>
+        <input class="btns" type="submit" id="btn_sujestao">
+        <span id="contador">0/50 caracteres</span>
+      </div>
+
 
       <div id="final">
         <h1>Pedido finalizado</h1>
         <p id="respreco"></p>
         <p id="maisum"></p>
         <p id="respd"></p>
+        <h4>Preferencia de montagem cliente:</h4>
+        <p id="montar"></p>
         <h3>Adicionais do pedido</h3>
         <p id="listaitem"></p>
         <h3>Dados Cliente</h3>

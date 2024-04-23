@@ -279,3 +279,12 @@ footer {
   margin-top: 5px;
   margin-right: 10px;
 }
+#limpar{
+  display: none;
+}
+.sujestao{
+  border: solid 2px #a92fca;
+}
+#mensagem{
+  display: none;
+}
