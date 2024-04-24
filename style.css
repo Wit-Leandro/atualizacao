@@ -2,7 +2,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background:radial-gradient(#cc82e1, #a92fca);
+  background: radial-gradient(#cc82e1, #a92fca);
   margin: 0;
   padding: 0;
   font-family: "Lucida Sans", Verdana, sans-serif;
@@ -61,7 +61,7 @@ button:hover {
 #login {
   display: flex;
 }
-#login input{
+#login input {
   padding-top: 2px;
   margin-top: 3px;
   margin-bottom: 3px;
@@ -117,7 +117,15 @@ footer {
   display: none;
   margin: 0;
 }
-
+#final span{
+  font-size: 9pt;
+  position: relative;
+  bottom: 3px;
+  margin: 0;
+}
+#final h1{
+  padding-left: 25px;
+}
 
 #welcome {
   display: none;
@@ -225,66 +233,89 @@ footer {
   display: flex;
   padding: 5px;
 }
-.horas{
+.horas {
   margin-bottom: 5px;
-  padding-left: 10px;
-  font: bold;
-  font-family: 'Lucida Sans';
+  padding-left: 5px;
+  font-weight: bolder;
+  font-family: "Lucida Sans";
   color: rgb(2, 53, 2);
   font-weight: bold;
+  font-size: 8pt;
 }
 .btn_s_n {
   display: inline-flex;
 }
-.btn_s_n button{
+.btn_s_n button {
   margin: 10px;
 }
-#login{
-  padding: 0 80px 0 80px;  
+#login {
+  padding: 0 80px 0 80px;
 }
-#usuario{
+#usuario {
   border-top: solid 1px #44274c;
   margin-right: 5px;
 }
 #usuario h5 {
   margin-left: 115px;
 }
-#enviar_dados{
+#enviar_dados {
   margin-left: 15px;
 }
-#imagem_copo{
-  background-color: #a92fca;
-  box-shadow: 10px 10px 100px #210129;
-  width: 320px;
-  border-radius: 20px;
-  margin-left: 10px;
-
-}
-#imagem_copo img{
-  border-radius: 20px 20px 20px 20px;
-  margin-top: 5px;
-  margin-right: 10px;
-}
-
-#imagem_marmita{
+#imagem_copo {
   background-color: #a92fca;
   box-shadow: 10px 10px 100px #210129;
   width: 320px;
   border-radius: 20px;
   margin-left: 10px;
 }
-
-#imagem_marmita img{
+#imagem_copo img {
   border-radius: 20px 20px 20px 20px;
   margin-top: 5px;
   margin-right: 10px;
 }
-#limpar{
+
+#imagem_marmita {
+  background-color: #a92fca;
+  box-shadow: 10px 10px 100px #210129;
+  width: 320px;
+  border-radius: 20px;
+  margin-left: 10px;
+}
+
+#imagem_marmita img {
+  border-radius: 20px 20px 20px 20px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+#limpar {
   display: none;
 }
-.sujestao{
+.sujestao {
   border: solid 2px #a92fca;
 }
-#mensagem{
+#mensagem {
   display: none;
+}
+.regiao{
+  margin-bottom: 10px;
+  margin-top: 3px;
+}
+#regiao_mensagem{
+  color: #fff;
+  font-weight: bold;
+  background-color: black;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#escolha_regiao{
+  display: none;
+
+}
+#escolha_regiao span{
+  font-size: 8pt;
+  position: relative;
+  bottom:  2px;
+}
+#escolha_regiao #regiao_mensagem{
+  font-size: 10pt;
 }
