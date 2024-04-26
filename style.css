@@ -34,8 +34,8 @@ h5 {
 }
 .container {
   border-radius: 20px;
-  width: 375px;
-  padding-left: 10px;
+  width: 400px;
+  padding-left: 5px;
   box-shadow: 4px 4px 50px #370246;
 }
 header {
@@ -113,19 +113,6 @@ footer {
 #esconde_comprar_mais {
   display: none;
 }
-#final {
-  display: none;
-  margin: 0;
-}
-#final span{
-  font-size: 9pt;
-  position: relative;
-  bottom: 3px;
-  margin: 0;
-}
-#final h1{
-  padding-left: 25px;
-}
 
 #welcome {
   display: none;
@@ -179,10 +166,9 @@ footer {
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
-  width: 90px;
+  width: 100px;
   height: 25px;
   border: solid 1px;
-  margin-left: 2px;
   border-radius: 20px 10px 20px 0;
 }
 .tab:hover {
@@ -299,6 +285,7 @@ footer {
 .regiao{
   margin-bottom: 10px;
   margin-top: 3px;
+  
 }
 #regiao_mensagem{
   color: #fff;
@@ -307,10 +294,7 @@ footer {
   padding-left: 10px;
   padding-right: 10px;
 }
-#escolha_regiao{
-  display: none;
 
-}
 #escolha_regiao span{
   font-size: 8pt;
   position: relative;
@@ -318,4 +302,57 @@ footer {
 }
 #escolha_regiao #regiao_mensagem{
   font-size: 10pt;
+}
+#esconde_finalizar_carrinho{
+  display: none;
+}
+#esconde_carrinho{
+  display: none;
+}
+#carrinho{
+  margin-top: 5px;
+  border: solid 1px black;
+  border-radius: 10px;
+  display: block;
+}
+#carrinho ul{
+  padding-left: 20px;
+
+}
+#carrinho li{
+  padding-right: 10px;
+}
+#final {
+  font-family: Cambria;
+  display: none;
+  margin: 0;
+}
+#final span{
+  font-size: 9pt;
+  position: relative;
+  bottom: 3px;
+  margin: 0;
+  left: 10px;
+}
+#final h1{
+  padding-left: 65px;
+}
+#final p{
+  margin: 5px;
+}
+#mostrar_carrinho{
+  display: inline-flex;
+  position: relative;
+  left: 50px;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-top: 10px;
+  box-shadow: 4px 4px 50px #370246;
+}
+#contCarrinho{
+  color: red;
+  position: relative;
+  top: 8px;
 }

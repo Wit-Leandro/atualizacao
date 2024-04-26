@@ -25,7 +25,6 @@ var resfone = document.getElementById("resfone");
 var respreco = document.getElementById("respreco");
 var passar_limite = document.getElementById("limite");
 var btn_comprar_mais = document.getElementById("btncomprarmais");
-var mais_um = document.getElementById("maisum");
 var esconde_comprar_mais = document.getElementById("esconde_comprar_mais");
 var imprimir = document.getElementById("imprimir");
 var btn_compra_add = document.getElementById("btn_compra_add");
@@ -44,9 +43,14 @@ var regiao_mensagem = document.getElementById('regiao_mensagem')
 var res_regiao = document.getElementById('resregiao')
 var taxa = document.getElementById('taxa')
 var resads = document.getElementById('resads')
-
+var carrinhoCompras = document.getElementById('carrinho')
+const listaCarrinho = document.getElementById('lista_carrinho')
+const adicionais_carrinho = document.getElementById("adicionais_carrinho")
+var esconde_carrinho = document.getElementById('esconde_carrinho')
+var esconde_finalizar_carrinho = document.getElementById('esconde_finalizar_carrinho')
 const adiciona = { vlr: 0, obs: "Sem adicionais" };
 sessionStorage.setItem("adiciona", JSON.stringify(adiciona));
+var total_Compra = 0
 
 /*--------- inicio das funçoes -----*/
 
@@ -64,27 +68,16 @@ btn_enviar_dados.addEventListener("click", function (e) {
   var endereco = document.getElementById("endereco").value;
   var ncasa = document.getElementById("ncasa").value;
   var fone = document.getElementById("fone").value;
-
-  if (n && endereco && ncasa && fone) {
-    if (/\(\d{2}\)\d{5}-\d{4}/.test(fone)) {
-      const person = {
-        name: n,
-        endereco: endereco,
-        ncasa: ncasa,
-        telefone: fone,
-      };
-      localStorage.setItem("person", JSON.stringify(person));
-      checkUser();
-      location.reload();
-    } else {
-      alert("numero de telefone invalido, tente exemplo (xx)12345-1234");
-      checkUser();
-      location.reload();
-    }
-  } else {
-    alert("Existe campos sem preencher");
-    location.reload();
-  }
+  const person = {
+  name: n,
+  endereco: endereco,
+  ncasa: ncasa,
+  telefone: fone,
+  }      
+  localStorage.setItem("person", JSON.stringify(person));
+  checkUser();
+  location.reload();
+    
 });
 /*
 function formatarTelefone(){
@@ -412,7 +405,7 @@ function verificarRegiao(){
       }    
     })
   }
-  console.log(dic[5])
+
 }
 
 /*--------- finalizaçao e exibiçao do pedido -----*/
@@ -437,38 +430,42 @@ btn_valores.addEventListener("click", function () {
   const objectAdciona = JSON.parse(getAdciona);
   const userVlr = objectAdciona.vlr;
   const userObs = objectAdciona.obs;
-  var totalCompra = userVlr + userValor;
 
+  const getTotal = sessionStorage.getItem("total")
+  const objectTotal = JSON.parse(getTotal)
+  const userTotal = objectTotal.total
 
-  if(totalCompra < 20 && dic[4] === 'Tarumã') {
+  var t = userTotal 
+
+  if(t < 20 && dic[4] === 'Tarumã') {
     taxa.innerHTML = 'Taxa de entrega R$'+ dic[5] +',00'
-    totalCompra = totalCompra + dic[5]
+    t = t + dic[5]
   }
-  else if(totalCompra < 150 && dic[4] === 'Usina Nova America') {
+  else if(t < 150 && dic[4] === 'Usina Nova America') {
     taxa.innerHTML = 'Taxa de entrega R$'+ dic[5] +',00'
-    totalCompra = totalCompra + dic[5]
+    t = t + dic[5]
   }
-  else if(totalCompra < 50 && dic[4] === 'Usina Agua Bonita') {
+  else if(t < 50 && dic[4] === 'Usina Agua Bonita') {
     taxa.innerHTML = 'Taxa de entrega R$'+ dic[5] +',00'
-    totalCompra = totalCompra + dic[5]
+    t = t + dic[5]
   }
-  else if(totalCompra < 50 && dic[4] === 'Posto Pioneiro') {
+  else if(t < 50 && dic[4] === 'Posto Pioneiro') {
     taxa.innerHTML = 'Taxa de entrega R$'+ dic[5] +',00'
-    totalCompra = totalCompra + dic[5]
+    t = t + dic[5]
   }
   else{
     taxa.innerHTML = 'Taxa de entrega isento' 
   }
 
   
-  console.log(totalCompra);
   resnome.innerHTML = "Cliente: " + dic[0];
   resendereco.innerHTML = "Endereço: " + dic[1] + "," + dic[2];
   resfone.innerHTML = "Telefone: " + dic[3];
-  respd.innerHTML = "Seu pedido foi: " + userAcai
-  resads.innerHTML = userObs
-  respreco.innerHTML = "Valor total R$" + totalCompra + ",00 Reais";
+  respreco.innerHTML = "Valor total R$" + t + ",00 Reais";
   res_regiao.innerHTML = "Região de entrega: " + dic[4]
+  
+
+/*
   var listacontainer = document.getElementById("listaitem");
   var lista = document.createElement("ul");
   valores.forEach(function (item) {
@@ -476,8 +473,11 @@ btn_valores.addEventListener("click", function () {
     listitem.textContent = item;
     lista.appendChild(listitem);
   });
-  listacontainer.appendChild(lista);
+  listacontainer.appendChild(lista);*/
+
 });
+
+
 
 imprimir.addEventListener("click", function () {
   window.print();
@@ -586,14 +586,120 @@ btn_sujestao.addEventListener("click", function (e) {
   var clienteDigitou = document.getElementById("campo").value;
   var digitou = { textoDigitado: clienteDigitou };
   sessionStorage.setItem("digitou", JSON.stringify(digitou));
+/*
+  const getDigitou = sessionStorage.getItem("digitou");
+  const objectDigitou = JSON.parse(getDigitou);
+  const userDigitou = objectDigitou.textoDigitado;
+
+  montar.innerHTML = userDigitou;*/
+  esconde_carrinho.style.display='block'
+  mensagem.style.display = "none";
+  
+});
+/*-------------------------Adicionar ao carrinho--------------------------------------------- */
+/* nome  - regiao - obs - pedido - adicionais - valor total */
+let carrinho = []
+let valorCompra = []
+
+function adicionarCarrinho(){
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  const userAcai = objectPedido.acai;
+  const userValor = objectPedido.valor;
+
+  const getAdciona = sessionStorage.getItem("adiciona");
+  const objectAdciona = JSON.parse(getAdciona);
+  const userVlr = objectAdciona.vlr;
+  const userObs = objectAdciona.obs;
+  var totalCompra = userVlr + userValor;
 
   const getDigitou = sessionStorage.getItem("digitou");
   const objectDigitou = JSON.parse(getDigitou);
   const userDigitou = objectDigitou.textoDigitado;
 
-  montar.innerHTML = userDigitou;
 
-  mensagem.style.display = "none";
+
+  const adCarrinho = [userAcai,userDigitou,valores]
+  valorCompra.push(totalCompra)
+  carrinho.push(adCarrinho)
+
+  atualizarCarrinho()
+
+}
+function atualizarCarrinho(){
+  valores = []
+  esconde_comprar_mais.style.display='block'
+  esconde_finalizar_carrinho.style.display='block'
+  esconde_carrinho.style.display='none'  
+  contarCarrinho()
+}
+
+
+function finalizarCarrinho(){  
+  criarListaArrays(carrinho)  
+  n = somarArray(valorCompra)
+  var total = { total: n};
+  sessionStorage.setItem("total", JSON.stringify(total));
+  
+  esconde_comprar_mais.style.display='none'
+  esconde_finalizar_carrinho.style.display='none'
   final.style.display = "block";
-});
-/*------------------------------------------------------------------------- */
+  carrinhoCompras.style.display='block'
+  escolha.style.display = 'none';
+  console.log(carrinho.length)
+  
+}
+
+esconde_comprar_mais.addEventListener('click', function(){
+  escolha.style.display = "block";
+  esconde_comprar_mais.style.display='none'
+  esconde_finalizar_carrinho.style.display='none'
+})
+
+function criarListaArrays(arrays){  
+  const ul = document.createElement('ul')
+
+  arrays.forEach(subArray =>{
+    const li = document.createElement('li')
+    const subul = document.createElement('ul')
+
+    subArray.forEach(elemento =>{
+      const subli = document.createElement('li')
+
+      if(Array.isArray(elemento)){
+        const subsubul = document.createElement('ul')
+        elemento.forEach(subElemento =>{
+          const subsubli = document.createElement('li')
+          subsubli.textContent = subElemento
+          subsubul.appendChild(subsubli)
+        })
+        subli.appendChild(subsubul)
+      }
+      else{
+        subli.textContent = elemento
+      }
+      subul.appendChild(subli)
+    })
+    li.appendChild(subul)
+    ul.appendChild(li)
+  })
+  carrinhoCompras.appendChild(ul)
+}
+function somarArray(array){
+  let soma = 0
+  array.forEach(e => {
+    soma += e
+  })
+  return soma
+}
+
+function contarCarrinho(){
+  var contCarrinho = document.getElementById('contCarrinho')
+  contCarrinho.innerHTML = carrinho.length
+
+}
+document.addEventListener('DOMContentLoaded', function(){
+  contarCarrinho()
+})
+

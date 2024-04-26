@@ -27,6 +27,10 @@
         <span id="reshora2"></span>
         <span id="resdia"></span>
         <span id="resdia2"></span>
+        <div id="mostrar_carrinho">
+          <span id="contCarrinho"></span>
+          <span id="logCarrinho">&#128722</span>          
+        </div>
       </div>
       <div id="ocutar">
         <div class="tab-container">
@@ -39,7 +43,7 @@
           <button class="tab" onclick="openCategory('evt', 'login')">
             Login
           </button>
-          <button class="tab" id="limpar">Sair</button>
+          <button class="tab" id="limpar">Mudar dados</button>
         </div>
 
         <div id="usuario">
@@ -125,6 +129,16 @@
             <img src="imagens/marmita500ml.jpg" alt="marmita_açai" />
           </div>
         </div>
+      </div>
+      <div id="esconde_carrinho"><button class="btns" id="add_carrinho" onclick="adicionarCarrinho()">Adicionar &#128722</button></div>
+      <div id="esconde_finalizar_carrinho"><button class="btns" id="finlizar_carrinho" onclick="finalizarCarrinho()">Finalizar Carrinho</button></div>
+      <div id="esconde_comprar_mais">
+        <input
+          class="btns"
+          type="button"
+          id="btncomprarmais"
+          value="Quero mais UM !!"
+        />
       </div>
 
       <div id="escolha_regiao">
@@ -461,31 +475,26 @@
         <span id="contador">0/30 caracteres</span>
       </div>
 
+      
+
       <div id="final">
         <h1>Pedido finalizado</h1>
-        <p id="respreco"></p><span id="taxa"></span>
-        <p id="maisum"></p>
-        <p id="respd"></p><span id="resads"></span>
-        <h4>Preferencia de montagem cliente:</h4>
-        <p id="montar"></p>
-        <h3>Adicionais do pedido</h3>
-        <p id="listaitem"></p>
         <h3>Dados Cliente</h3>
         <p id="resnome"></p>
         <p id="resendereco"></p>
         <p id="resncasa"></p>
         <p id="resfone"></p>
         <p id="resregiao"></p>
-        <button class="btns" id="imprimir">Imprimir</button>
-      </div>
+        <p id="respreco"></p><span id="taxa"></span>
 
-      <div id="esconde_comprar_mais">
-        <input
-          class="btns"
-          type="button"
-          id="btncomprarmais"
-          value="Quero mais UM !!"
-        />
+        <div id="carrinho"></div>
+
+       <!-- <p id="respd"></p><span id="resads"></span>
+        <h4>Preferencia de montagem cliente:</h4>
+        <p id="montar"></p>
+        <p id="listaitem"></p>-->
+
+        <button class="btns" id="imprimir">Imprimir</button>
       </div>
 
       <div id="informativo">
