@@ -306,6 +306,12 @@ checkboxes.forEach(function (checkbox) {
     }
   });
 });
+/*-------REMOVER SELEÇÃO DOS CHECKBOXES----- */
+function removeTicks(){
+  checkboxes.forEach(function(checkbox){
+    checkbox.checked = false
+  })
+}
 
 /*------escolha das regioes------------- */
 regiao.forEach(function (checkbox) {
@@ -528,14 +534,12 @@ var btn_sujestao = document.getElementById("btn_sujestao");
 btn_sujestao.addEventListener("click", function (e) {
   e.preventDefault();
   var clienteDigitou = document.getElementById("campo").value;
-  var digitou = { textoDigitado: clienteDigitou };
+  if (clienteDigitou == ''){
+    var digitou = { textoDigitado: 'Sem Sujestão de montagem' };
   sessionStorage.setItem("digitou", JSON.stringify(digitou));
-  /*
-  const getDigitou = sessionStorage.getItem("digitou");
-  const objectDigitou = JSON.parse(getDigitou);
-  const userDigitou = objectDigitou.textoDigitado;
-
-  montar.innerHTML = userDigitou;*/
+  }else{
+  var digitou = { textoDigitado: clienteDigitou };
+  sessionStorage.setItem("digitou", JSON.stringify(digitou));}
   esconde_carrinho.style.display = "block";
   mensagem.style.display = "none";
 });
@@ -589,6 +593,7 @@ btn_finalizar_carrinho.addEventListener('click', function(){
 
 
 btn_comprar_mais.addEventListener("click", function () {
+  removeTicks()
   escolha.style.display = "block";
   esconde_comprar_mais.style.display = "none";
   esconde_finalizar_carrinho.style.display = "none";
