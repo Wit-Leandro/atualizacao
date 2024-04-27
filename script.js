@@ -2,7 +2,8 @@ var preco = [];
 var dic = [];
 var vlr_final = [];
 var x = [];
-var regiao_escolhida = []
+var total = {}
+var regiao_escolhida = [];
 var res = document.getElementById("res");
 var escolha = document.getElementById("ocutar");
 var dados_cliente = document.getElementById("login");
@@ -37,20 +38,22 @@ var msgcadastro = document.getElementById("msgcadastro");
 var cabecalho = document.querySelector(".cabecalho");
 var clearr = document.getElementById("limpar");
 var montar = document.getElementById("montar");
-var btn_regiao = document.getElementById('btn_regiao')
-var escolha_regiao = document.getElementById('escolha_regiao')
-var regiao_mensagem = document.getElementById('regiao_mensagem')
-var res_regiao = document.getElementById('resregiao')
-var taxa = document.getElementById('taxa')
-var resads = document.getElementById('resads')
-var carrinhoCompras = document.getElementById('carrinho')
-const listaCarrinho = document.getElementById('lista_carrinho')
-const adicionais_carrinho = document.getElementById("adicionais_carrinho")
-var esconde_carrinho = document.getElementById('esconde_carrinho')
-var esconde_finalizar_carrinho = document.getElementById('esconde_finalizar_carrinho')
+var btn_regiao = document.getElementById("btn_regiao");
+var escolha_regiao = document.getElementById("escolha_regiao");
+var regiao_mensagem = document.getElementById("regiao_mensagem");
+var res_regiao = document.getElementById("resregiao");
+var taxa = document.getElementById("taxa");
+var resads = document.getElementById("resads");
+var carrinhoCompras = document.getElementById("carrinho");
+const listaCarrinho = document.getElementById("lista_carrinho");
+const adicionais_carrinho = document.getElementById("adicionais_carrinho");
+var esconde_carrinho = document.getElementById("esconde_carrinho");
+var esconde_finalizar_carrinho = document.getElementById(
+  "esconde_finalizar_carrinho"
+);
 const adiciona = { vlr: 0, obs: "Sem adicionais" };
 sessionStorage.setItem("adiciona", JSON.stringify(adiciona));
-var total_Compra = 0
+var total_Compra = 0;
 
 /*--------- inicio das funçoes -----*/
 
@@ -69,15 +72,15 @@ btn_enviar_dados.addEventListener("click", function (e) {
   var ncasa = document.getElementById("ncasa").value;
   var fone = document.getElementById("fone").value;
   const person = {
-  name: n,
-  endereco: endereco,
-  ncasa: ncasa,
-  telefone: fone,
-  }      
+    name: n,
+    endereco: endereco,
+    ncasa: ncasa,
+    telefone: fone,
+  };
   localStorage.setItem("person", JSON.stringify(person));
+  escolha_regiao.style.display = "block";
   checkUser();
   location.reload();
-    
 });
 /*
 function formatarTelefone(){
@@ -107,35 +110,35 @@ function checkUser() {
   dic.push(userncasa);
   const usertelefone = objecPerson.telefone;
   dic.push(usertelefone);
+  const userRegiao = objecPerson.regiao;
+  dic.push(userRegiao);
 
   if (username) {
     var nome_cliente = document.getElementById("nome_cliente");
     msgcadastro.style.display = "none";
     formulario.style.display = "none";
-    escolha_regiao.style.display='block'
     welcome.style.display = "block";
     nome_cliente.innerHTML = username + " \u{1F609}";
     clearr.style.display = "block";
-    escolha.style.display = "none";
   } else {
     msgcadastro.style.display = "block";
     formulario.style.display = "block";
     welcome.style.display = "none";
   }
 }
-/*
+
 function checkRegiao() {
   const getPerson = localStorage.getItem("person");
   const objecPerson = JSON.parse(getPerson);
   const userRegiao = objecPerson.regiao;
-  dic.push(userRegiao);
-
   if (userRegiao) {
-    escolha_regiao.style.display='none'
+    escolha_regiao.style.display = "none";
+    escolha.style.display = "block";
   } else {
-    escolha_regiao.style.display='block'
+    escolha_regiao.style.display = "block";
   }
-}*/
+  calcTaxa();
+}
 
 var limpar = document.getElementById("limpar");
 limpar.addEventListener("click", () => {
@@ -145,11 +148,7 @@ limpar.addEventListener("click", () => {
 });
 
 checkUser();
-
-/*checkRegiao()*/
-
-
-
+checkRegiao();
 
 /*--------- Escolha do copo -----*/
 
@@ -278,47 +277,7 @@ btn_compra_add.addEventListener("click", function () {
   adicao.style.display = "none";
   adicionais.style.display = "block";
 });
-/*------------Adiçao de adicionais--------*/
-/*
-btn_compra_add.addEventListener("click", function () {
-  var selecao_adicao = select_adicao.value;
-  if (selecao_adicao == "1") {
-    const getPedido = sessionStorage.getItem("pedido")
-    const objectPedido = JSON.parse(getPedido)
-    const userPedido = objectPedido.limit
-    limite = limite + 1;
-    const adiciona = {vlr: 3, obs:" Com mais 1 adicional no valor de R$3,00 Reais" }
-    sessionStorage.setItem("adiciona",JSON.stringify(adiciona))
-  } 
-  else if (selecao_adicao == "2") {
-    const getPedido = sessionStorage.getItem("pedido")
-    const objectPedido = JSON.parse(getPedido)
-    const userPedido = objectPedido.limit
-    limite = limite + 2;
-    const adiciona = {vlr: 6, obs:" Com mais 2 adicional no valor de R$6,00 Reais" }
-    sessionStorage.setItem("adiciona",JSON.stringify(adiciona))
-  } 
-  else if (selecao_adicao == "3") {
-    const getPedido = sessionStorage.getItem("pedido")
-    const objectPedido = JSON.parse(getPedido)
-    const userPedido = objectPedido.limit
-    limite = limite + 3;
-    const adiciona = {vlr: 9, obs:" Com mais 3 adicional no valor de R$9,00 Reais"}
-    sessionStorage.setItem("adiciona",JSON.stringify(adiciona))
-  } 
-  else {
-    const getPedido = sessionStorage.getItem("pedido")
-    const objectPedido = JSON.parse(getPedido)
-    const userPedido = objectPedido.limit
-    limite = limite + 4;
-    const adiciona = {vlr: 12, obs:" Com mais 4 adicional no valor de R $12,00 Reais"}
-    sessionStorage.setItem("adiciona",JSON.stringify(adiciona))
-  }
-  alert("Sucesso!! foram adicionados + " + selecao_adicao + " \u{1F60A}");
-  resadicao.innerHTML = " Voce tem " + limite + " adiconais para seu açai";
-  adicao.style.display = "none";
-  adicionais.style.display = "block";
-});*/
+
 btn_negar_compra_add.addEventListener("click", function () {
   const getPedido = sessionStorage.getItem("pedido");
   const objectPedido = JSON.parse(getPedido);
@@ -359,53 +318,55 @@ regiao.forEach(function (checkbox) {
   });
 });
 
-function verificarRegiao(){
-  var taruma = document.getElementById('taruma')
-  var america = document.getElementById('america')
-  var bonita = document.getElementById('bonita')
-  var pioneiro = document.getElementById('pioneiro')
-  var chico = document.getElementById('chico')
+btn_regiao.addEventListener("click", function () {
+  var taruma = document.getElementById("taruma");
+  var america = document.getElementById("america");
+  var bonita = document.getElementById("bonita");
+  var pioneiro = document.getElementById("pioneiro");
+  var chico = document.getElementById("chico");
 
-  if (!taruma && !america && !bonita && !pioneiro && !chico){
-    regiao_mensagem.style.display='block'
-    
+  if (!taruma && !america && !bonita && !pioneiro && !chico) {
+    regiao_mensagem.style.display = "block";
+  } else {
+    regiao.forEach(function (checkbox) {
+      if (checkbox.checked) {
+        var personRegiao = JSON.parse(localStorage.getItem("person"));
+        personRegiao.regiao = checkbox.value;
+        localStorage.setItem("person", JSON.stringify(personRegiao));
+        dic.push(checkbox.value);
+        if (dic[4] === "Tarumã") {
+          escolha_regiao.style.display = "none";
+          escolha.style.display = "block";
+        } else if (dic[4] === "Usina Nova America") {
+          escolha_regiao.style.display = "none";
+          escolha.style.display = "block";
+        } else if (dic[4] === "Usina Agua Bonita") {
+          escolha_regiao.style.display = "none";
+          escolha.style.display = "block";
+        } else if (dic[4] === "Posto Pioneiro") {
+          escolha_regiao.style.display = "none";
+          escolha.style.display = "block";
+        } else if (dic[4] === "Retirar no Tio-Chico") {
+          escolha_regiao.style.display = "none";
+          escolha.style.display = "block";
+        }
+      }
+    });
   }
-  else{    
-    regiao.forEach(function (checkbox){
-      if (checkbox.checked){
-        var personRegiao = JSON.parse(localStorage.getItem('person'))
-        personRegiao.regiao = checkbox.value
-        localStorage.setItem("person", JSON.stringify(personRegiao))
-        dic.push(checkbox.value)
-        if (dic[4] === 'Tarumã'){
-          dic.push(2)
-          escolha_regiao.style.display='none'
-          escolha.style.display = "block";
-        }
-        else if (dic[4] === 'Usina Nova America'){
-        dic.push(10)
-        escolha_regiao.style.display='none'
-        escolha.style.display = "block";
-        }
-        else if (dic[4] === 'Usina Agua Bonita'){
-          dic.push(5)
-          escolha_regiao.style.display='none'
-          escolha.style.display = "block";
-        }
-        else if (dic[4] === 'Posto Pioneiro'){
-          dic.push(5)
-          escolha_regiao.style.display='none'
-          escolha.style.display = "block";
-        }
-        else if (dic[4] === 'Retirar no Tio-Chico'){
-          dic.push(0)
-          escolha_regiao.style.display='none'
-          escolha.style.display = "block";
-        }
-      }    
-    })
+  location.reload();
+});
+function calcTaxa() {
+  if (dic[4] === "Tarumã") {
+    dic.push(2);
+  } else if (dic[4] === "Usina Nova America") {
+    dic.push(10);
+  } else if (dic[4] === "Usina Agua Bonita") {
+    dic.push(5);
+  } else if (dic[4] === "Posto Pioneiro") {
+    dic.push(5);
+  } else if (dic[4] === "Retirar no Tio-Chico") {
+    dic.push(0);
   }
-
 }
 
 /*--------- finalizaçao e exibiçao do pedido -----*/
@@ -419,6 +380,12 @@ btn_valores.addEventListener("click", function () {
     adicionais.style.display = "none";
     adicao.style.display = "none";
   });
+});
+
+function mostrarDados(){
+ /* const getTotal = sessionStorage.getItem("total");
+  const objectTotal = JSON.parse(getTotal);
+  const userTotal = objectTotal.total;*/
 
   const getPedido = sessionStorage.getItem("pedido");
   const objectPedido = JSON.parse(getPedido);
@@ -431,52 +398,29 @@ btn_valores.addEventListener("click", function () {
   const userVlr = objectAdciona.vlr;
   const userObs = objectAdciona.obs;
 
-  const getTotal = sessionStorage.getItem("total")
-  const objectTotal = JSON.parse(getTotal)
-  const userTotal = objectTotal.total
+  var t = somarArray(valorCompra);
 
-  var t = userTotal 
-
-  if(t < 20 && dic[4] === 'Tarumã') {
-    taxa.innerHTML = 'Taxa de entrega R$'+ dic[5] +',00'
-    t = t + dic[5]
+  if (t < 20 && dic[4] === "Tarumã") {
+    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00";
+    t = t + dic[5];
+  } else if (t < 150 && dic[4] === "Usina Nova America") {
+    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00";
+    t = t + dic[5];
+  } else if (t < 50 && dic[4] === "Usina Agua Bonita") {
+    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00";
+    t = t + dic[5];
+  } else if (t < 50 && dic[4] === "Posto Pioneiro") {
+    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00";
+    t = t + dic[5];
+  } else {
+    taxa.innerHTML = "Taxa de entrega isento";
   }
-  else if(t < 150 && dic[4] === 'Usina Nova America') {
-    taxa.innerHTML = 'Taxa de entrega R$'+ dic[5] +',00'
-    t = t + dic[5]
-  }
-  else if(t < 50 && dic[4] === 'Usina Agua Bonita') {
-    taxa.innerHTML = 'Taxa de entrega R$'+ dic[5] +',00'
-    t = t + dic[5]
-  }
-  else if(t < 50 && dic[4] === 'Posto Pioneiro') {
-    taxa.innerHTML = 'Taxa de entrega R$'+ dic[5] +',00'
-    t = t + dic[5]
-  }
-  else{
-    taxa.innerHTML = 'Taxa de entrega isento' 
-  }
-
-  
   resnome.innerHTML = "Cliente: " + dic[0];
   resendereco.innerHTML = "Endereço: " + dic[1] + "," + dic[2];
   resfone.innerHTML = "Telefone: " + dic[3];
   respreco.innerHTML = "Valor total R$" + t + ",00 Reais";
-  res_regiao.innerHTML = "Região de entrega: " + dic[4]
-  
-
-/*
-  var listacontainer = document.getElementById("listaitem");
-  var lista = document.createElement("ul");
-  valores.forEach(function (item) {
-    var listitem = document.createElement("li");
-    listitem.textContent = item;
-    lista.appendChild(listitem);
-  });
-  listacontainer.appendChild(lista);*/
-
-});
-
+  res_regiao.innerHTML = "Região de entrega: " + dic[4];
+}
 
 
 imprimir.addEventListener("click", function () {
@@ -586,22 +530,21 @@ btn_sujestao.addEventListener("click", function (e) {
   var clienteDigitou = document.getElementById("campo").value;
   var digitou = { textoDigitado: clienteDigitou };
   sessionStorage.setItem("digitou", JSON.stringify(digitou));
-/*
+  /*
   const getDigitou = sessionStorage.getItem("digitou");
   const objectDigitou = JSON.parse(getDigitou);
   const userDigitou = objectDigitou.textoDigitado;
 
   montar.innerHTML = userDigitou;*/
-  esconde_carrinho.style.display='block'
+  esconde_carrinho.style.display = "block";
   mensagem.style.display = "none";
-  
 });
 /*-------------------------Adicionar ao carrinho--------------------------------------------- */
 /* nome  - regiao - obs - pedido - adicionais - valor total */
-let carrinho = []
-let valorCompra = []
+let carrinho = [];
+let valorCompra = [];
 
-function adicionarCarrinho(){
+function adicionarCarrinho() {
   const getPedido = sessionStorage.getItem("pedido");
   const objectPedido = JSON.parse(getPedido);
   const userPedido = objectPedido.limit;
@@ -618,88 +561,87 @@ function adicionarCarrinho(){
   const objectDigitou = JSON.parse(getDigitou);
   const userDigitou = objectDigitou.textoDigitado;
 
+  const adCarrinho = [userAcai, userDigitou, valores];
+  valorCompra.push(totalCompra);
+  carrinho.push(adCarrinho);
 
-
-  const adCarrinho = [userAcai,userDigitou,valores]
-  valorCompra.push(totalCompra)
-  carrinho.push(adCarrinho)
-
-  atualizarCarrinho()
-
+  atualizarCarrinho();
 }
-function atualizarCarrinho(){
-  valores = []
-  esconde_comprar_mais.style.display='block'
-  esconde_finalizar_carrinho.style.display='block'
-  esconde_carrinho.style.display='none'  
-  contarCarrinho()
+function atualizarCarrinho() {
+  valores = [];
+  esconde_comprar_mais.style.display = "block";
+  esconde_finalizar_carrinho.style.display = "block";
+  esconde_carrinho.style.display = "none";
+  contarCarrinho();
 }
+var btn_finalizar_carrinho = document.getElementById('finalizar_carrinho')
+btn_finalizar_carrinho.addEventListener('click', function(){
+  mostrarDados()
+  criarListaArrays(carrinho);
 
-
-function finalizarCarrinho(){  
-  criarListaArrays(carrinho)  
-  n = somarArray(valorCompra)
-  var total = { total: n};
-  sessionStorage.setItem("total", JSON.stringify(total));
-  
-  esconde_comprar_mais.style.display='none'
-  esconde_finalizar_carrinho.style.display='none'
+  esconde_comprar_mais.style.display = "none";
+  esconde_finalizar_carrinho.style.display = "none";
   final.style.display = "block";
-  carrinhoCompras.style.display='block'
-  escolha.style.display = 'none';
-  console.log(carrinho.length)
-  
-}
+  carrinhoCompras.style.display = "block";
+  escolha.style.display = "none";
+  console.log(carrinho.length);
+})
 
-esconde_comprar_mais.addEventListener('click', function(){
+
+btn_comprar_mais.addEventListener("click", function () {
   escolha.style.display = "block";
-  esconde_comprar_mais.style.display='none'
-  esconde_finalizar_carrinho.style.display='none'
-})
+  esconde_comprar_mais.style.display = "none";
+  esconde_finalizar_carrinho.style.display = "none";
+});
 
-function criarListaArrays(arrays){  
-  const ul = document.createElement('ul')
+function criarListaArrays(arrays) {
+  const ul = document.createElement("ul");
 
-  arrays.forEach(subArray =>{
-    const li = document.createElement('li')
-    const subul = document.createElement('ul')
+  arrays.forEach((subArray) => {
+    const li = document.createElement("li");
+    const subul = document.createElement("ul");
 
-    subArray.forEach(elemento =>{
-      const subli = document.createElement('li')
+    subArray.forEach((elemento) => {
+      const subli = document.createElement("li");
 
-      if(Array.isArray(elemento)){
-        const subsubul = document.createElement('ul')
-        elemento.forEach(subElemento =>{
-          const subsubli = document.createElement('li')
-          subsubli.textContent = subElemento
-          subsubul.appendChild(subsubli)
-        })
-        subli.appendChild(subsubul)
+      if (Array.isArray(elemento)) {
+        const subsubul = document.createElement("ul");
+        elemento.forEach((subElemento) => {
+          const subsubli = document.createElement("li");
+          subsubli.textContent = subElemento;
+          subsubul.appendChild(subsubli);
+        });
+        subli.appendChild(subsubul);
+      } else {
+        subli.textContent = elemento;
       }
-      else{
-        subli.textContent = elemento
-      }
-      subul.appendChild(subli)
-    })
-    li.appendChild(subul)
-    ul.appendChild(li)
-  })
-  carrinhoCompras.appendChild(ul)
+      subul.appendChild(subli);
+    });
+    li.appendChild(subul);
+    ul.appendChild(li);
+  });
+  carrinhoCompras.appendChild(ul);
 }
-function somarArray(array){
-  let soma = 0
-  array.forEach(e => {
-    soma += e
-  })
-  return soma
+function somarArray(array) {
+  let soma = 0;
+  array.forEach((e) => {
+    soma += e;
+  });
+  return soma;
 }
 
-function contarCarrinho(){
-  var contCarrinho = document.getElementById('contCarrinho')
-  contCarrinho.innerHTML = carrinho.length
-
+function contarCarrinho() {
+  var contCarrinho = document.getElementById("contCarrinho");
+  contCarrinho.innerHTML = carrinho.length;
 }
-document.addEventListener('DOMContentLoaded', function(){
-  contarCarrinho()
-})
+document.addEventListener("DOMContentLoaded", function () {
+  contarCarrinho();
+});
+
+/*---BOTAO HOME-PAGE---*/
+var btn_home = document.getElementById("home_page");
+btn_home.addEventListener("click", function () {
+  location.reload();
+});
+
 

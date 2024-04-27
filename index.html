@@ -130,18 +130,19 @@
           </div>
         </div>
       </div>
-      <div id="esconde_carrinho"><button class="btns" id="add_carrinho" onclick="adicionarCarrinho()">Adicionar &#128722</button></div>
-      <div id="esconde_finalizar_carrinho"><button class="btns" id="finlizar_carrinho" onclick="finalizarCarrinho()">Finalizar Carrinho</button></div>
+      <div id="esconde_carrinho"><button class="btns" onclick="adicionarCarrinho()">Adicionar &#128722</button></div>
+      <div id="esconde_finalizar_carrinho"><button class="btns" id="finalizar_carrinho">Finalizar Carrinho</button></div>
       <div id="esconde_comprar_mais">
         <input
           class="btns"
           type="button"
           id="btncomprarmais"
           value="Quero mais UM !!"
+          
         />
       </div>
 
-      <div id="escolha_regiao">
+      <div id="escolha_regiao" style="display: none;">
         <h3>Região</h3>
         <h5>Informe sua sua região:</h5>
         <input type="checkbox" id="taruma" class="regiao" value="Tarumã" />
@@ -190,15 +191,16 @@
 
       <div id="adicionais">
         <p id="resadicao"></p>
+        <div class="btn_escolha"><button class="btns" id="btn_valores">Escolhi! &#128077</button></div>
         <div class="cx_add1">
-          <h3>Frutas</h3>
+          <h3 class="grid_titulo">FRUTAS</h3>
           <input
             type="checkbox"
             id="checkbox1"
             class="checkbox"
             value="Morango"
           />
-          <label for="checkbox1">Morango</label>
+          <label for="checkbox1" id="check_grid" class="check1">Morango</label>
           <br />
           <input
             type="checkbox"
@@ -206,10 +208,10 @@
             class="checkbox"
             value="Banana"
           />
-          <label for="checkbox2">Banana</label>
+          <label for="checkbox2" id="check_grid" class="check2">Banana</label>
           <br />
           <input type="checkbox" id="checkbox3" class="checkbox" value="Kiwi" />
-          <label for="checkbox3">Kiwi</label>
+          <label for="checkbox3" id="check_grid" class="check3">Kiwi</label>
           <br />
           <input
             type="checkbox"
@@ -217,7 +219,7 @@
             class="checkbox"
             value="Abacaxi"
           />
-          <label for="checkbox4">Abacaxi</label>
+          <label for="checkbox4" id="check_grid" class="check4">Abacaxi</label>
           <br />
           <input
             type="checkbox"
@@ -225,7 +227,7 @@
             class="checkbox"
             value="Manga"
           />
-          <label for="checkbox5">Manga</label>
+          <label for="checkbox5" id="check_grid" class="check5">Manga</label>
           <br />
           <input
             type="checkbox"
@@ -233,7 +235,7 @@
             class="checkbox"
             value="Uva_Verde"
           />
-          <label for="checkbox6">Uva Verde</label>
+          <label for="checkbox6" id="check_grid" class="check6">Uva Verde</label>
           <br />
           <input
             type="checkbox"
@@ -241,10 +243,9 @@
             class="checkbox"
             value="Uva_Roxa"
           />
-          <label for="checkbox7">Uva Roxa</label>
-        </div>
-        <div class="cx_add2">
-          <h3>Caldas</h3>
+          <label for="checkbox7" id="check_grid" class="check7">Uva Roxa</label>
+
+          <h3 class="grid_title2">CALDAS</h3>
 
           <input
             type="checkbox"
@@ -252,7 +253,7 @@
             class="checkbox"
             value="Leite_Condençado"
           />
-          <label for="checkbox8">Leite Condençado</label>
+          <label for="checkbox8" id="check_grid" class="check8">Leite Condençado</label>
           <br />
           <input
             type="checkbox"
@@ -260,7 +261,7 @@
             class="checkbox"
             value="Cr_Nutella"
           />
-          <label for="checkbox9">Cr. Nutella</label>
+          <label for="checkbox9" id="check_grid" class="check9">Cr. Nutella</label>
           <br />
           <input
             type="checkbox"
@@ -268,7 +269,7 @@
             class="checkbox"
             value="Cr_Leite_Ninho"
           />
-          <label for="checkbox10">Cr. Leite Ninho</label>
+          <label for="checkbox10" id="check_grid" class="check10">Cr. Leite Ninho</label>
           <br />
           <input
             type="checkbox"
@@ -276,7 +277,7 @@
             class="checkbox"
             value="Cr_Morango"
           />
-          <label for="checkbox11">Cr. Morango</label>
+          <label for="checkbox11" id="check_grid" class="check11">Cr. Morango</label>
           <br />
           <input
             type="checkbox"
@@ -284,7 +285,7 @@
             class="checkbox"
             value="Cr_Bombom"
           />
-          <label for="checkbox12">Cr. Bombom</label>
+          <label for="checkbox12" id="check_grid" class="check12">Cr. Bombom</label>
           <br />
           <input
             type="checkbox"
@@ -292,7 +293,7 @@
             class="checkbox"
             value="Cr_Chocobis"
           />
-          <label for="checkbox13">Cr. Chocobis</label>
+          <label for="checkbox13" id="check_grid" class="check13">Cr. Chocobis</label>
           <br />
           <input
             type="checkbox"
@@ -300,7 +301,7 @@
             class="checkbox"
             value="Cr_Pacoca"
           />
-          <label for="checkbox14">Cr. Paçoca</label>
+          <label for="checkbox14" id="check_grid" class="check14">Cr. Paçoca</label>
           <br />
           <input
             type="checkbox"
@@ -308,10 +309,10 @@
             class="checkbox"
             value="Cr_Ovo_Maltine"
           />
-          <label for="checkbox15">Cr. Ovo Maltine</label>
+          <label for="checkbox15" id="check_grid" class="check15">Cr. Ovo Maltine</label>
         </div>
         <div class="cx_add3">
-          <h3>--Complementos--</h3>
+          <h3 id="grid_title">COMPLEMENTOS</h3>
 
           <input
             type="checkbox"
@@ -319,7 +320,7 @@
             class="checkbox"
             value="Confete"
           />
-          <label for="checkbox16">Confete</label>
+          <label for="checkbox16" id="check_grid" class="check16">Confete</label>
           <br />
           <input
             type="checkbox"
@@ -327,7 +328,7 @@
             class="checkbox"
             value="Mini_Chocoball"
           />
-          <label for="checkbox17">Mini Chocoball</label>
+          <label for="checkbox17" id="check_grid" class="check17">Mini Chocoball</label>
           <br />
           <input
             type="checkbox"
@@ -335,7 +336,7 @@
             class="checkbox"
             value="ChocoBall"
           />
-          <label for="checkbox18">ChocoBall</label>
+          <label for="checkbox18" id="check_grid" class="check18">ChocoBall</label>
           <br />
           <input
             type="checkbox"
@@ -343,7 +344,7 @@
             class="checkbox"
             value="Power_Ball"
           />
-          <label for="checkbox19">Power Ball</label>
+          <label for="checkbox19" id="check_grid" class="check19">Power Ball</label>
           <br />
           <input
             type="checkbox"
@@ -351,7 +352,7 @@
             class="checkbox"
             value="Sucrilhos"
           />
-          <label for="checkbox20">Sucrilhos</label>
+          <label for="checkbox20" id="check_grid" class="check20">Sucrilhos</label>
           <br />
           <input
             type="checkbox"
@@ -359,7 +360,7 @@
             class="checkbox"
             value="Leite_em_Po"
           />
-          <label for="checkbox21">Leite em Po</label>
+          <label for="checkbox21" id="check_grid" class="check21">Leite em Po</label>
           <br />
           <input
             type="checkbox"
@@ -367,7 +368,7 @@
             class="checkbox"
             value="Ouro_Branco"
           />
-          <label for="checkbox22">Ouro Branco</label>
+          <label for="checkbox22" id="check_grid" class="check22">Ouro Branco</label>
           <br />
           <input
             type="checkbox"
@@ -375,7 +376,7 @@
             class="checkbox"
             value="Amendoin"
           />
-          <label for="checkbox23">Amendoin</label>
+          <label for="checkbox23" id="check_grid" class="check23">Amendoin</label>
           <br />
           <input
             type="checkbox"
@@ -383,23 +384,17 @@
             class="checkbox"
             value="Farofa_de_Paçoca"
           />
-          <label for="checkbox24">Farofa de Paçoca</label>
-          <br />
-          <input
-            type="checkbox"
-            id="checkbox25"
-            class="checkbox"
-            value="Granola"
-          />
-          <label for="checkbox25">Granola</label>
-          <br />
+          <label for="checkbox24" id="check_grid" class="check24">Farofa de Paçoca</label> <br/>
+          <input type="checkbox" id="checkbox25" class="checkbox" value="Granola"/>
+          <label for="checkbox25" id="check_grid" class="check25">Granola</label>
+          <br/>
           <input
             type="checkbox"
             id="checkbox26"
             class="checkbox"
             value="Bis_Preto"
           />
-          <label for="checkbox26">Bis Preto</label>
+          <label for="checkbox26" id="check_grid" class="check26">Bis Preto</label>
           <br />
           <input
             type="checkbox"
@@ -407,7 +402,7 @@
             class="checkbox"
             value="Bis_Branco"
           />
-          <label for="checkbox27">Bis Branco</label>
+          <label for="checkbox27" id="check_grid" class="check27">Bis Branco</label>
           <br />
           <input
             type="checkbox"
@@ -415,7 +410,7 @@
             class="checkbox"
             value="Paçoca_com_Chocolate"
           />
-          <label for="checkbox28">Paçoca com Chocolate</label>
+          <label for="checkbox28" id="check_grid" class="check28">Paçoca com Chocolate</label>
           <br />
           <input
             type="checkbox"
@@ -423,7 +418,7 @@
             class="checkbox"
             value="Paçoca_com_Chocolate_Branco"
           />
-          <label for="checkbox29">Paçoca com Chocolate Branco</label>
+          <label for="checkbox29" id="check_grid" class="check29">Paçoca com Chocolate Branco</label>
           <br />
           <input
             type="checkbox"
@@ -431,7 +426,7 @@
             class="checkbox"
             value="Ovo_Maltine"
           />
-          <label for="checkbox30">Ovo Maltine</label>
+          <label for="checkbox30" id="check_grid" class="check30">Ovo Maltine</label>
           <br />
           <input
             type="checkbox"
@@ -439,7 +434,7 @@
             class="checkbox"
             value="Canudos"
           />
-          <label for="checkbox31">Canudos</label>
+          <label for="checkbox31" id="check_grid" class="check31">Canudos</label>
           <br />
           <input
             type="checkbox"
@@ -447,7 +442,7 @@
             class="checkbox"
             value="Mashomallons"
           />
-          <label for="checkbox32">Mashomallons</label>
+          <label for="checkbox32" id="check_grid" class="check32">Mashomallons</label>
           <br />
           <input
             type="checkbox"
@@ -455,10 +450,9 @@
             class="checkbox"
             value="Gotas_de_Chocolate"
           />
-          <label for="checkbox33">Gotas de Chocolate</label>
+          <label for="checkbox33" id="check_grid" class="check33">Gotas de Chocolate</label>
           <br />
         </div>
-        <button class="btns" id="btn_valores">Ja Escolhi!</button>
       </div>
 
       <div class="sujestao" id="mensagem">
@@ -472,10 +466,8 @@
           id="btn_sujestao"
           title="Ex: coloque o recheio apenas em cima"
         />
-        <span id="contador">0/30 caracteres</span>
+        <span id="contador">0/30 caracteres &#9993</span>
       </div>
-
-      
 
       <div id="final">
         <h1>Pedido finalizado</h1>
@@ -495,6 +487,7 @@
         <p id="listaitem"></p>-->
 
         <button class="btns" id="imprimir">Imprimir</button>
+        <button class="btns" id="home_page">Voltar ao Inicio &#8617</button>
       </div>
 
       <div id="informativo">
