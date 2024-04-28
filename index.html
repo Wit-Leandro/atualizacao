@@ -130,16 +130,15 @@
           </div>
         </div>
       </div>
+
       <div id="esconde_carrinho"><button class="btns" onclick="adicionarCarrinho()">Adicionar &#128722</button></div>
-      <div id="esconde_finalizar_carrinho"><button class="btns" id="finalizar_carrinho">Finalizar Carrinho</button></div>
-      <div id="esconde_comprar_mais">
-        <input
-          class="btns"
-          type="button"
-          id="btncomprarmais"
-          value="Quero mais UM !!"
-          
-        />
+      
+      <div class="grid_botoes">
+        <div id="esconde_finalizar_carrinho"><button class="btns" id="finalizar_carrinho">&#9989-Finalizar Carrinho</button></div>
+        <div id="esconde_comprar_mais">
+          <button class="btns" id="btncomprarmais">&#128159-Montar Outro</button>
+         <!-- <input class="btns" type="button" id="btncomprarmais" value="Quero mais UM !!"/>-->
+        </div>
       </div>
 
       <div id="escolha_regiao" style="display: none;">
@@ -478,6 +477,9 @@
         <p id="resfone"></p>
         <p id="resregiao"></p>
         <p id="respreco"></p><span id="taxa"></span>
+        <p id="res_pagamento"></p>
+        <p id="obs_pagamento"></p>
+        <p id="res_colher1">Precisa de colherzinha?</p><span id="res_colher"></span>
 
         <div id="carrinho"></div>
 
@@ -486,16 +488,63 @@
         <p id="montar"></p>
         <p id="listaitem"></p>-->
 
-        <button class="btns" id="imprimir">Imprimir</button>
+        <button class="btns" id="imprimir">&#128424 - Imprimir</button>
         <button class="btns" id="home_page">Voltar ao Inicio &#8617</button>
       </div>
 
+      <div class="pagamento" id="pagamento">
+        <h1>Forma de Pagamento</h1>
+        <h4 id="valor_pagamentos"></h4>
+
+        <div class="grid_pgto" id="pgto">
+          <button id="btn_pix">PIX</button>
+          <button id="btn_cartao">CARTÃO</button>
+          <button id="btn_dinheiro">DINHEIRO</button>
+        </div>
+
+        <div class="res_pix" id="res_pix">
+          <h3>PIX selecionado &#128242</h3>
+          <h5>Chave Pix: CNPJ:</h5>
+
+          <div class="grid_cnpj">
+            <p id="cnpj">43227642000130</p>
+            <button class="btns" id="copiar_chave">Copiar chave!</button>
+          </div>
+
+          <p>Nome: Wanderlei</p>
+          <p>Tio Chico Agradece a preferencia! &#129309</p>
+          <p>Deus Abençoe! &#128591</p>
+          <button class="btns" id="env_pix">Enviar - Whats-app</button>
+        </div>
+
+        <div class="res_cartao" id="res_cartao">
+          <h3>CARTÃO selecionado &#128179</h3>
+          <p>Tio Chico Agradece a preferencia! &#129309</p>
+          <p>Deus Abençoe! &#128591</p>
+          <button class="btns" id="env_cartao" >Enviar - Whats-app</button>
+        </div>
+
+        <div class="res_dinheiro" id="res_dinheiro">
+          <h3>DINHEIRO selecionado &#128181</h3>
+          <label for="troco">Informe se precisa de troco ou não! &#129300</label>
+          <input type="text" name="troco" id="troco" placeholder="Exemplo: Troco para 100">
+          
+          <input class="btns" id="env_dinheiro" type="submit" value="Enviar - Whats-app">
+          <p>Tio Chico Agradece a preferencia! &#129309</p>
+          <p>Deus Abençoe! &#128591</p>
+        </div>
+
+
+      </div>
+
+
       <div id="informativo">
-        <p>Favor informar se precisa de colherzinha</p>
-        <p>Taxa de entrega R$ 2,00</p>
-        <p>Taxa de entrega GRATIS a partir de R$ 20,00</p>
-        <p>Adiional (porçao 50ml) R$ 3,00</p>
-        <p>Tempo para entrega de 50 a 60 minutos</p>
+        <h2>Precisa de colherzinha?</h2>
+        <div class="grid_colher">
+          <button id="colher_sim">&#129348-SIM</button>
+          <button id="colher_nao">&#10060-NÃO</button>
+        </div>
+
       </div>
 
       <footer>

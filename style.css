@@ -93,25 +93,14 @@ btns:hover {
   align-items: center;
 }
 
-
-#informativo {
-  padding-left: 10px;
-  border: solid 1px #440456;
-  border-radius: 20px 500px 500px 20px;
-  font-size: 8pt;
-  display: none;
-}
 footer {
+  border-top: solid 2px #370246;
   padding: 0px 10px 0 10px;
-  display: none;
   font-size: 8pt;
-  margin: 0;
+  margin-top: 20px;
   font: bold;
 }
-#esconde_comprar_mais {
-  display: none;
 
-}
 
 #welcome {
   display: none;
@@ -303,9 +292,7 @@ footer {
 #escolha_regiao #regiao_mensagem{
   font-size: 10pt;
 }
-#esconde_finalizar_carrinho{
-  display: none;
-}
+
 #esconde_carrinho{
   display: none;
 }
@@ -675,5 +662,189 @@ footer {
 .btn_escolha{
   padding-left: 100px;
   margin-bottom: 10px;
+}
+.pagamento{
+  display: none;
+  padding-right: 5px;
+}
+.pagamento h1{
+  padding-left: 25px;
+  border-bottom: solid 2px #210129;
+  margin-bottom: 10px;
+}
+.pagamento h4{
+  padding-left: 25px;
+  border-bottom: solid 2px #210129;
+  margin-bottom: 10px;
+  color: black;
+  font-weight: bold;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+}
+.res_pix{
+  display: none;
+  border-radius: 20px;
+  box-shadow: 4px 4px 50px #370246;
+}
+.res_pix h3{
+  color: #210129;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.res_pix h5{
+  color: #210129;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+}
+.res_pix p{
+  padding-left: 10px;
+}
 
+.res_cartao{
+  display: none;
+  border-radius: 20px;
+  
+}
+.res_cartao h3{
+  color: #210129;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.res_cartao p{
+  padding-left: 10px;
+}
+
+.res_dinheiro{
+  display: none;
+  border-radius: 20px;
+  box-shadow: 4px 4px 50px #370246;
+  padding-left: 20px;
+}
+.res_dinheiro h3{
+  color: #210129;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+
+/*-------grid forma de pagamento-----*/
+.grid_pgto{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 25px 25px;
+  column-gap: 5px;
+  margin-bottom: 5px;
+}
+#btn_pix{
+  border-radius: 30px;
+  grid-column: 1;
+  grid-row: 1 / -1;
+}
+#btn_cartao{
+  border-radius: 30px;
+  grid-column: 2;
+  grid-row: 1 / -1;
+}
+#btn_dinheiro{
+  border-radius: 30px;
+  grid-column: 3;
+  grid-row: 1 / -1;
+}
+/* ------------grid CNPJ-------------*/
+.grid_cnpj{
+  display: grid;
+  grid-column: 1fr 1fr;
+  column-gap: 10px;
+}
+#cnpj{
+  grid-column: 1;
+  align-items: end;
+  text-align: end;
+  align-self: self-end;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+
+}
+#copiar_chave{
+  grid-column: 2;
+
+}
+
+#informativo {
+  padding-left: 10px;
+  border-radius: 20px;
+  width: 250px;
+  font-size: 8pt;
+  display: none;
+  box-shadow: 4px 4px 50px #370246;
+  margin-bottom: 10px;
+  align-self: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 60px;
+  height: 50px;
+}
+.grid_colher{
+  display: grid;
+  grid-template-columns: 110px 110px;
+  grid-template-rows: 10px 10px;
+  column-gap: 10px;
+}
+#colher_sim{
+  grid-column: 1;
+  grid-row: 1 / -1;
+
+}
+#colher_nao{
+  grid-column: 2;
+  grid-row: 1 / -1;
+  
+}
+#informativo button{
+  border-radius: 10px;
+  background-color: rgb(128, 32, 78);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+}
+#informativo h2{
+  color: #210129;
+}
+#res_colher1{
+  display: inline-block;
+}
+#res_colher{
+  display: inline-block;
+}
+.grid_botoes{
+  display: grid;
+  grid-template-columns: 200px 200px;
+  grid-template-rows: 10px 10px;
+  column-gap: 10px;
+  padding-left: 10px;
+}
+#esconde_comprar_mais {
+  display: none;
+  grid-row: 1 / -1;
+  grid-column: 1;
+
+}
+#esconde_finalizar_carrinho{
+  display: none;
+  grid-row: 1/ -1;
+  grid-column: 2;
 }

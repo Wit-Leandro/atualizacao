@@ -2,7 +2,7 @@ var preco = [];
 var dic = [];
 var vlr_final = [];
 var x = [];
-var total = {}
+var total = {};
 var regiao_escolhida = [];
 var res = document.getElementById("res");
 var escolha = document.getElementById("ocutar");
@@ -261,6 +261,7 @@ var ad = 0;
 var custo = 3;
 msg = "";
 
+/*-----------compra de adicionais----------------- */
 btn_compra_add.addEventListener("click", function () {
   ad = ad + 1;
   tadd = custo * ad;
@@ -269,8 +270,9 @@ btn_compra_add.addEventListener("click", function () {
   const userPedido = objectPedido.limit;
   limite = limite + 1;
   msg = " Com mais " + ad + " adicional no valor de R$" + tadd + " Reais";
-  const adiciona = { vlr: 3, obs: msg };
+  const adiciona = { vlr: 0, obs: msg };
   sessionStorage.setItem("adiciona", JSON.stringify(adiciona));
+  valorCompra.push(3);
 
   alert("Sucesso!! foram adicionados + 1 \u{1F60A}");
   resadicao.innerHTML = " Voce tem " + limite + " adiconais para seu açai";
@@ -307,10 +309,10 @@ checkboxes.forEach(function (checkbox) {
   });
 });
 /*-------REMOVER SELEÇÃO DOS CHECKBOXES----- */
-function removeTicks(){
-  checkboxes.forEach(function(checkbox){
-    checkbox.checked = false
-  })
+function removeTicks() {
+  checkboxes.forEach(function (checkbox) {
+    checkbox.checked = false;
+  });
 }
 
 /*------escolha das regioes------------- */
@@ -388,8 +390,8 @@ btn_valores.addEventListener("click", function () {
   });
 });
 
-function mostrarDados(){
- /* const getTotal = sessionStorage.getItem("total");
+function mostrarDados() {
+  /* const getTotal = sessionStorage.getItem("total");
   const objectTotal = JSON.parse(getTotal);
   const userTotal = objectTotal.total;*/
 
@@ -425,9 +427,9 @@ function mostrarDados(){
   resendereco.innerHTML = "Endereço: " + dic[1] + "," + dic[2];
   resfone.innerHTML = "Telefone: " + dic[3];
   respreco.innerHTML = "Valor total R$" + t + ",00 Reais";
+  valor_pagamento.innerHTML = 'VALOR DO PEDIDO - R$'+t+',00'
   res_regiao.innerHTML = "Região de entrega: " + dic[4];
 }
-
 
 imprimir.addEventListener("click", function () {
   window.print();
@@ -534,12 +536,13 @@ var btn_sujestao = document.getElementById("btn_sujestao");
 btn_sujestao.addEventListener("click", function (e) {
   e.preventDefault();
   var clienteDigitou = document.getElementById("campo").value;
-  if (clienteDigitou == ''){
-    var digitou = { textoDigitado: 'Sem Sujestão de montagem' };
-  sessionStorage.setItem("digitou", JSON.stringify(digitou));
-  }else{
-  var digitou = { textoDigitado: clienteDigitou };
-  sessionStorage.setItem("digitou", JSON.stringify(digitou));}
+  if (clienteDigitou == "") {
+    var digitou = { textoDigitado: "Sem Sujestão de montagem" };
+    sessionStorage.setItem("digitou", JSON.stringify(digitou));
+  } else {
+    var digitou = { textoDigitado: clienteDigitou };
+    sessionStorage.setItem("digitou", JSON.stringify(digitou));
+  }
   esconde_carrinho.style.display = "block";
   mensagem.style.display = "none";
 });
@@ -578,22 +581,21 @@ function atualizarCarrinho() {
   esconde_carrinho.style.display = "none";
   contarCarrinho();
 }
-var btn_finalizar_carrinho = document.getElementById('finalizar_carrinho')
-btn_finalizar_carrinho.addEventListener('click', function(){
-  mostrarDados()
+var btn_finalizar_carrinho = document.getElementById("finalizar_carrinho");
+btn_finalizar_carrinho.addEventListener("click", function () {
+  mostrarDados();
   criarListaArrays(carrinho);
 
+  info.style.display = 'block'
   esconde_comprar_mais.style.display = "none";
   esconde_finalizar_carrinho.style.display = "none";
-  final.style.display = "block";
   carrinhoCompras.style.display = "block";
   escolha.style.display = "none";
   console.log(carrinho.length);
-})
-
+});
 
 btn_comprar_mais.addEventListener("click", function () {
-  removeTicks()
+  removeTicks();
   escolha.style.display = "block";
   esconde_comprar_mais.style.display = "none";
   esconde_finalizar_carrinho.style.display = "none";
@@ -649,4 +651,86 @@ btn_home.addEventListener("click", function () {
   location.reload();
 });
 
+/*-----COPIAR CNPJ------ */
+var btn_copiar_cnpj = document.getElementById("copiar_chave");
+btn_copiar_cnpj.addEventListener("click", function () {
+  const cnpj = document.getElementById("cnpj").innerText;
+  navigator.clipboard.writeText(cnpj).then(
+    function () {
+      alert("Pix copiado para a area de transferencia");
+    },
+    function (err) {
+      alert("Erro ao copiar texto para a area de transferencia");
+    }
+  );
+});
+/*----funcionalidades dos botoes de pagamentos---- */
+var pagamentos = document.getElementById('pagamento')
+var btn_pix = document.getElementById('btn_pix')
+var btn_cartao = document.getElementById('btn_cartao')
+var btn_dinheiro = document.getElementById('btn_dinheiro')
+var res_pix = document.getElementById('res_pix')
+var res_cartao = document.getElementById('res_cartao')
+var res_dinheiro = document.getElementById('res_dinheiro')
+var env_pix = document.getElementById('env_pix')
+var env_cartao = document.getElementById('env_cartao')
+var env_dinheiro = document.getElementById('env_dinheiro')
+var res_pagamento = document.getElementById('res_pagamento')
+var obs_pagamento = document.getElementById('obs_pagamento')
+var valor_pagamento = document.getElementById('valor_pagamentos')
+
+env_pix.addEventListener('click', function(){
+  res_pagamento.innerHTML = 'Pagamento via - PIX'
+  obs_pagamento.innerHTML = 'Pix'
+  pagamentos.style.display='none'
+  final.style.display = "block";
+})
+env_cartao.addEventListener('click', function(){
+  res_pagamento.innerHTML = 'Pagamento via - CARTÃO'
+  obs_pagamento.innerHTML = 'Levar a maquininha!!'
+  pagamentos.style.display='none'
+  final.style.display = "block";
+})
+env_dinheiro.addEventListener('click', function(e){
+  e.preventDefault()
+  var troco = document.getElementById('troco').value
+  res_pagamento.innerHTML = 'Pagamento no DINHEIRO'
+  obs_pagamento.innerHTML = troco
+  pagamentos.style.display='none'
+  final.style.display = "block";
+})
+
+btn_pix.addEventListener('click', function(){
+  res_pix.style.display='block'
+  res_cartao.style.display='none'
+  res_dinheiro.style.display='none'
+})
+btn_cartao.addEventListener('click', function(){
+  res_pix.style.display='none'
+  res_cartao.style.display='block'
+  res_dinheiro.style.display='none'
+})
+btn_dinheiro.addEventListener('click', function(){
+  res_pix.style.display='none'
+  res_cartao.style.display='none'
+  res_dinheiro.style.display='block'
+})
+
+/* ---informativo da colherzinha---- */
+var info = document.getElementById('informativo')
+var btn_colher_sim = document.getElementById('colher_sim')
+var btn_colher_nao = document.getElementById('colher_nao')
+var res_colher = document.getElementById('res_colher')
+
+
+btn_colher_sim.addEventListener('click', function(){
+  res_colher.innerHTML='SIM'
+  pagamentos.style.display='block'
+  info.style.display='none'
+})
+btn_colher_nao.addEventListener('click', function(){
+  res_colher.innerHTML='NÃO'
+  pagamentos.style.display='block'
+  info.style.display='none'
+})
 
