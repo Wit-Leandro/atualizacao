@@ -349,8 +349,8 @@ footer {
 #mostrar_carrinho {
   display: inline-flex;
   position: relative;
-  left: 30px;
-  bottom: 5px;
+  left: 200px;
+  bottom: 55px;
   width: 35px;
   height: 35px;
   border-radius: 10px;
@@ -993,7 +993,7 @@ footer {
     padding-left: 10px;
   }
   #mostrar_carrinho {
-    left: 300px;
-    bottom: 55px;
+    left: 150px;
+    bottom: 60px;
   }
 }
