@@ -23,7 +23,10 @@ header {
 }
 .cabecalho {
   display: grid;
-  grid-auto-columns: 2;
+  grid-auto-columns: 3;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  column-gap: 10px;
 }
 .imgcabeca {
   grid-row: 1 / -1;
@@ -39,6 +42,16 @@ header {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr;
+}
+#mostrar_carrinho {
+  grid-column: 3;
+  display: inline-flex;
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  padding: 2px;
+  box-shadow: 4px 4px 50px #340142;
+
 }
 
 #msgcadastro{
@@ -346,17 +359,7 @@ footer {
 #final p {
   margin: 5px;
 }
-#mostrar_carrinho {
-  display: inline-flex;
-  position: relative;
-  left: 200px;
-  bottom: 55px;
-  width: 35px;
-  height: 35px;
-  border-radius: 10px;
-  padding: 2px;
-  box-shadow: 4px 4px 50px #340142;
-}
+
 #contCarrinho {
   color: #370246;
   position: relative;
@@ -875,8 +878,8 @@ footer {
   header {
     margin: 0;
     grid-row: 1;
-    height: 130px;
-    margin-bottom: 15px;
+    height: 95px;
+    margin-bottom: 5px;
   }
 
   .horas {
@@ -922,12 +925,7 @@ footer {
     padding-left: 60px;
     font-weight: bold;
   }
-  .cabecalho {
-    padding: 10px 10px 10px 10px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-row: 1fr 1fr;
-  }
+
   .imgcabeca {
     display: inline-flex;
 
@@ -937,6 +935,11 @@ footer {
   .tab {
     width: 86px;
     font-size: 8pt;
+  }
+  .cabecalho {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    column-gap: 5px;
   }
 
 
@@ -992,8 +995,11 @@ footer {
     column-gap: 5px;
     padding-left: 10px;
   }
-  #mostrar_carrinho {
-    left: 150px;
-    bottom: 60px;
+  #usuario h2{
+    font-size: 20px;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
+
 }
