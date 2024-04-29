@@ -573,6 +573,8 @@ function adicionarCarrinho() {
   carrinho.push(adCarrinho);
 
   atualizarCarrinho();
+  mostrarValorNaTela();
+  
 }
 function atualizarCarrinho() {
   valores = [];
@@ -734,3 +736,33 @@ btn_colher_nao.addEventListener('click', function(){
   info.style.display='none'
 })
 
+/*-----mostrar valor tela-------- */
+function mostrarValorNaTela(){
+var valor_tela = document.getElementById('valor_tela')
+var res_valor_tela = document.getElementById('res_valor_tela')
+
+var t = somarArray(valorCompra)
+var falta = 0
+
+if (t < 20 && dic[4] === "Tarumã") {
+  falta = 20 - t
+  alert('Total pedido R$'+ t + ',00')
+  alert('faltam apenas R$'+ falta + ',00 para ficar isento da taxa de entrega R$'+dic[5]+',00')
+} else if (t < 150 && dic[4] === "Usina Nova America") {
+  falta = 150 - t
+  alert('Total pedido R$'+ t + ',00')
+  alert('faltam apenas R$'+ falta + ',00 para ficar isento da taxa de entrega R$'+dic[5]+',00')
+} else if (t < 50 && dic[4] === "Usina Agua Bonita") {
+  falta = 50 - t
+  alert('Total pedido R$'+ t + ',00')
+  alert('faltam apenas R$'+ falta + ',00 para ficar isento da taxa de entrega R$'+dic[5]+',00')
+} else if (t < 50 && dic[4] === "Posto Pioneiro") {
+  falta = 50 - t
+  alert('Total pedido R$'+ t + ',00')
+  alert('falta apenas R$'+ falta + ',00 para ficar isento da taxa de entrega R$'+dic[5]+',00')
+} else {
+  alert('Total pedido R$'+ t + ',00')
+  alert('Você está isento da taxa de entrega R$'+dic[5]+',00')
+}
+
+}

@@ -43,8 +43,12 @@ header {
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr;
 }
-#mostrar_carrinho {
+.canto_tela{
   grid-column: 3;
+  display: grid;
+  grid-auto-rows: 1fr 1fr;
+}
+#mostrar_carrinho {
   display: inline-flex;
   width: 35px;
   height: 35px;
@@ -841,19 +845,24 @@ footer {
 .grid_botoes {
   display: grid;
   grid-template-columns: 200px 200px;
-  grid-template-rows: 10px 10px;
+  grid-template-rows: 10px 10px 1fr;
   column-gap: 10px;
   padding-left: 10px;
+  row-gap: 20px;
 }
 #esconde_comprar_mais {
   display: none;
-  grid-row: 1 / -1;
+  grid-row: 1 / 2;
   grid-column: 1;
 }
 #esconde_finalizar_carrinho {
   display: none;
-  grid-row: 1/ -1;
+  grid-row: 1/ 2;
   grid-column: 2;
+}
+.valor_na_tela{
+  grid-row: 3;
+  grid-column: 1 / -1;
 }
 
 @media (max-width: 500px) {
