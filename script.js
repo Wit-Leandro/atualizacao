@@ -429,7 +429,7 @@ function mostrarDados() {
   }
   resnome.innerHTML = "Cliente: " + dic[0];
   resendereco.innerHTML = "Endereço: " + dic[1] + "," + dic[2];
-  resfone.innerHTML = "Telefone: " + ajustarTelefone(dic[3]);
+  resfone.innerHTML = "Telefone: " + dic[3];
   respreco.innerHTML = "Valor total R$" + t + ",00 Reais";
   valor_pagamento.innerHTML = 'VALOR DO PEDIDO - R$'+t+',00'
   res_regiao.innerHTML = "Região de entrega: " + dic[4];
@@ -773,7 +773,7 @@ if (t < 20 && dic[4] === "Tarumã") {
 }
 
 }
-
+/*
 function ajustarTelefone(numeroFone){
   numeroFone = numeroFone.replace(/\D/g, '');
   const cCode = numeroFone.substring(0,2)
@@ -782,4 +782,4 @@ function ajustarTelefone(numeroFone){
   const sParte = numeroFone.substring(7)
   return '('+cCode+')'+aCode+''+ pParte +'-'+sParte
 
-}
+}*/
