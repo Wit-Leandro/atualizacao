@@ -24,7 +24,6 @@ var resendereco = document.getElementById("resendereco");
 var resncasa = document.getElementById("resncasa");
 var resfone = document.getElementById("resfone");
 var respreco = document.getElementById("respreco");
-var passar_limite = document.getElementById("limite");
 var btn_comprar_mais = document.getElementById("btncomprarmais");
 var esconde_comprar_mais = document.getElementById("esconde_comprar_mais");
 var imprimir = document.getElementById("imprimir");
@@ -159,19 +158,19 @@ btn_copo.addEventListener("click", function (e) {
   if (meu_select_copo === "300ml") {
     const pedido = { acai: "Copo de 300ml", limit: 4, valor: 13 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    passar_limite.innerHTML = "Seu limite de adicionais é de 4";
+    
   } else if (meu_select_copo === "400ml") {
     const pedido = { acai: "Copo de 400ml", limit: 5, valor: 16 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    passar_limite.innerHTML = "Seu limite de adicionais é de 5";
+    
   } else if (meu_select_copo === "500ml") {
     const pedido = { acai: "Copo de 500ml", limit: 5, valor: 18 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    passar_limite.innerHTML = "Seu limite de adicionais é de 5";
+    
   } else if (meu_select_copo === "700ml") {
     const pedido = { acai: "Copo de 700ml", limit: 5, valor: 28 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    passar_limite.innerHTML = "Seu limite de adicionais é de 5";
+    
   }
   escolha.style.display = "none";
   adicionais.style.display = "block";
@@ -179,7 +178,7 @@ btn_copo.addEventListener("click", function (e) {
   const objectPedido = JSON.parse(getPedido);
   const userPedido = objectPedido.limit;
   limite = userPedido;
-  resadicao.innerHTML = " Voce tem " + limite + " adiconais para seu açai";
+  resadicao.innerHTML = dic[0]+" Escolha " + limite + " adiconais para seu açai";
 });
 
 /*--------- escolha marmita -----*/
@@ -191,15 +190,15 @@ btn_marmita.addEventListener("click", function (e) {
   if (meu_marmita === "500ml") {
     const pedido = { acai: "Marmita de 500ml", limit: 5, valor: 20 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    passar_limite.innerHTML = "Seu limite de adicionais é de 5";
+    
   } else if (meu_marmita === "750ml") {
     const pedido = { acai: "Marmita de 750ml", limit: 5, valor: 30 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    passar_limite.innerHTML = "Seu limite de adicionais é de 5";
+    
   } else if (meu_marmita === "1200ml") {
     const pedido = { acai: "Marmita de 1200ml", limit: 6, valor: 40 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    passar_limite.innerHTML = "Seu limite de adicionais é de 6";
+    
   }
   escolha.style.display = "none";
   adicionais.style.display = "block";
@@ -207,7 +206,7 @@ btn_marmita.addEventListener("click", function (e) {
   const objectPedido = JSON.parse(getPedido);
   const userPedido = objectPedido.limit;
   limite = userPedido;
-  resadicao.innerHTML = " Voce tem " + limite + " adiconais para seu açai";
+  resadicao.innerHTML = dic[0]+", Escolha " + limite + " adiconais para seu açai";
 });
 
 /* -----função para exibir os copos por abas------ */
@@ -255,13 +254,12 @@ function exibirMarmitas() {
     imagem_marmita.appendChild(imagem_marmita_1200ml);
   }
 }
-/* Compra de adicionais por unidade */
+/*-----------compra de adicionais----------------- */
 var tadd = 0;
 var ad = 0;
 var custo = 3;
 msg = "";
 
-/*-----------compra de adicionais----------------- */
 btn_compra_add.addEventListener("click", function () {
   ad = ad + 1;
   tadd = custo * ad;
@@ -275,7 +273,7 @@ btn_compra_add.addEventListener("click", function () {
   valorCompra.push(3);
 
   alert("Sucesso!! foram adicionados + 1 \u{1F60A}");
-  resadicao.innerHTML = " Voce tem " + limite + " adiconais para seu açai";
+  resadicao.innerHTML = dic[0]+", Escolha " + limite + " adiconais para seu açai";
   adicao.style.display = "none";
   adicionais.style.display = "block";
 });
@@ -314,6 +312,12 @@ function removeTicks() {
     checkbox.checked = false;
   });
 }
+/*-----limpar area da sujestão------- */
+function limpaSujestao(){
+  var campo = document.getElementById('campo').value = '';
+}
+
+
 
 /*------escolha das regioes------------- */
 regiao.forEach(function (checkbox) {
@@ -425,7 +429,7 @@ function mostrarDados() {
   }
   resnome.innerHTML = "Cliente: " + dic[0];
   resendereco.innerHTML = "Endereço: " + dic[1] + "," + dic[2];
-  resfone.innerHTML = "Telefone: " + dic[3];
+  resfone.innerHTML = "Telefone: " + ajustarTelefone(dic[3]);
   respreco.innerHTML = "Valor total R$" + t + ",00 Reais";
   valor_pagamento.innerHTML = 'VALOR DO PEDIDO - R$'+t+',00'
   res_regiao.innerHTML = "Região de entrega: " + dic[4];
@@ -470,21 +474,23 @@ function horadia() {
   if (diaSemana == 1) {
     reshora.style.color = "red";
     reshora.innerHTML = "Fechado";
-    reshora2.innerHTML = "Abriremos amanhã as 14hs.";
+    reshora2.innerHTML = "Abriremos amanhã as 14hs. - ";
+   /* ocutar.style.display = 'none' */
   } else {
     if (hora < 14) {
       reshora.style.color = "red";
       reshora.innerHTML = "Fechado";
-      reshora2.innerHTML = "Abriremos em " + faltahoras + ":" + faltaminutos;
+     /* ocutar.style.display = 'none'   */ 
     } else if (hora > 23) {
       reshora.style.color = "red";
       reshora.innerHTML = "Fechado:";
-      reshora2.innerHTML = "Antendimento de ter a dom das 14hs as 23hs";
+     /* ocutar.style.display = 'none' */
     } else {
       reshora.innerHTML = "Aberto:";
       reshora2.innerHTML = "Deus Abençoe";
+      /*ocutar.style.display = 'block' */
     }
-    hdia.innerHTML = hora + ":" + minutos;
+    hdia.innerHTML = hora + ":" + minutos + ' - ';
   }
 }
 
@@ -598,6 +604,7 @@ btn_finalizar_carrinho.addEventListener("click", function () {
 
 btn_comprar_mais.addEventListener("click", function () {
   removeTicks();
+  limpaSujestao()
   escolha.style.display = "block";
   esconde_comprar_mais.style.display = "none";
   esconde_finalizar_carrinho.style.display = "none";
@@ -762,7 +769,17 @@ if (t < 20 && dic[4] === "Tarumã") {
   alert('falta apenas R$'+ falta + ',00 para ficar isento da taxa de entrega R$'+dic[5]+',00')
 } else {
   alert('Total pedido R$'+ t + ',00')
-  alert('Você está isento da taxa de entrega R$'+dic[5]+',00')
+  alert(dic[0]+' está isento da taxa de entrega R$'+dic[5]+',00')
 }
+
+}
+
+function ajustarTelefone(numeroFone){
+  numeroFone = numeroFone.replace(/\D/g, '');
+  const cCode = numeroFone.substring(0,2)
+  const aCode = numeroFone.substring(2,3)
+  const pParte = numeroFone.substring(3,7)
+  const sParte = numeroFone.substring(7)
+  return '('+cCode+')'+aCode+''+ pParte +'-'+sParte
 
 }

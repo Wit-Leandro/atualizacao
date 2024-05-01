@@ -54,9 +54,16 @@ header {
   height: 35px;
   border-radius: 10px;
   padding: 2px;
-  box-shadow: 4px 4px 50px #340142;
 
 }
+#meu_select_copo{
+  margin-left: 30px;
+}
+#meu_select_marmita{
+  margin-left: 30px;
+}
+
+
 
 #msgcadastro{
   margin: 0;
@@ -335,7 +342,7 @@ footer {
 }
 #carrinho {
   margin-top: 5px;
-  border: solid 1px black;
+  box-shadow: 4px 4px 50px #370246;
   border-radius: 10px;
   display: block;
 }
