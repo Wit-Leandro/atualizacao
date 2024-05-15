@@ -53,6 +53,8 @@ var esconde_finalizar_carrinho = document.getElementById(
 const adiciona = { vlr: 0, obs: "Sem adicionais" };
 sessionStorage.setItem("adiciona", JSON.stringify(adiciona));
 var total_Compra = 0;
+var numeroDoPedido = ''
+var whats_colher = ''
 
 
 /*--------- inicio das funçoes -----*/
@@ -724,11 +726,13 @@ btn_colher_sim.addEventListener('click', function(){
   res_colher.innerHTML='SIM'
   pagamentos.style.display='block'
   info.style.display='none'
+  whats_colher = 'SIM'
 })
 btn_colher_nao.addEventListener('click', function(){
   res_colher.innerHTML='NÃO'
   pagamentos.style.display='block'
   info.style.display='none'
+  whats_colher = 'NÃO'
 })
 
 /*-----mostrar valor tela-------- */
@@ -808,10 +812,12 @@ env_pix.addEventListener('click', function(){
 
   
   var mensagemCarrinho = ''
+  var contped = 0
   
   carrinho.forEach(function(element){
     if (Array.isArray(element)){
-      mensagemCarrinho += 'Pedido:\n'
+      contped += 1
+      mensagemCarrinho += 'Pedido:' + contped + '\n'
       element.forEach(function(item){
         mensagemCarrinho += ' - ' + item + '\n'
       })
@@ -819,9 +825,29 @@ env_pix.addEventListener('click', function(){
         mensagemCarrinho += '- '+ element + '\n'
       }   
   })
-  var detalhesPedido = 'Cliente: '+ dic[0] + '\nEndereço: ' + dic[1] +','+ dic[2]+'\nTelefone: '+dic[3] + '\nRegião de entrega: ' + dic[4] + '\n'+ mensagemCarrinho
+  
+
+  var tw = somarArray(valorCompra);
+  var te = ''
 
 
+  if (tw < 20 && dic[4] === "Tarumã") {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else if (tw < 150 && dic[4] === "Usina Nova America") {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else if (tw < 50 && dic[4] === "Usina Agua Bonita") {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else if (tw < 50 && dic[4] === "Posto Pioneiro") {
+    te= "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else {
+    te = "Taxa de entrega isento";
+  }
+
+  var detalhesPedido = 'Pedido: '+ numeroDoPedido +'\nCliente: '+ dic[0] + '\nEndereço: ' + dic[1] +','+ dic[2]+'\nTelefone: '+dic[3] + '\nRegião de entrega: ' + dic[4] + '\nValor total: '+ tw + '\nTaxa entrega: '+ te + '\nPagamento via Pix' + '\nColherzinha? ' + whats_colher + '\n' + mensagemCarrinho
   var numeroWhatsApp = '5518996772619'
   var mensagemWhatsApp = encodeURIComponent('Ola, esse é meu pedido \n' + detalhesPedido)
   var linkWhatsApp = 'https://wa.me/' + numeroWhatsApp + '?text='+ mensagemWhatsApp
