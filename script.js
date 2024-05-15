@@ -596,7 +596,7 @@ var btn_finalizar_carrinho = document.getElementById("finalizar_carrinho");
 btn_finalizar_carrinho.addEventListener("click", function () {
   mostrarDados();
   criarListaArrays(carrinho);
-  var numeroDoPedido = gerarNumeroPedido()
+  numeroDoPedido = gerarNumeroPedido()
   npedido.innerHTML = 'Numero do Pedido: '+ numeroDoPedido
 
 
@@ -816,6 +816,7 @@ env_pix.addEventListener('click', function(){
 
   carrinho.forEach(function(element){
     if (Array.isArray(element)){
+      mensagemCarrinho += 'Pedido: '+ contped + '\n'
       mensagemCarrinho += formatarArrayWhats(element)
     }else{
       mensagemCarrinho += '- ' + element + '\n'
@@ -889,7 +890,6 @@ function formatarArrayWhats(array){
   var mensagem = ''
   array.forEach(function(element){
     if (Array.isArray(element)){
-      mensagem += 'Pedido:\n'
       mensagem += formatarArrayWhats(element).replace(/\n$/,'')
     }else{
       mensagem += ' - ' + element + '\n'
