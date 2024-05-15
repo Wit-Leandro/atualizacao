@@ -806,7 +806,9 @@ env_pix.addEventListener('click', function(){
   pagamentos.style.display='none'
   final.style.display = "block";
 
-  var detalhesPedido = 'dados do pedido aqui'
+  var detalhesPedido = 'Cliente: '+ dic[0] + '<br> Endereço: ' + dic[1] +','+ dic[2]+'<br> Telefone: '+dic[3] + '<br> Região de entrega: ' + dic[4] + '<br>'+ criarListaArrays(carrinho)
+
+
   var numeroWhatsApp = '5518996772619'
   var mensagemWhatsApp = 'Ola, esse é meu pedido' + detalhesPedido
   var linkWhatsApp = 'https://wa.me/' + numeroWhatsApp + '?text='+ mensagemWhatsApp
@@ -815,6 +817,9 @@ env_pix.addEventListener('click', function(){
 
 
 })
+
+
+
 env_cartao.addEventListener('click', function(){
   res_pagamento.innerHTML = 'Pagamento via - CARTÃO'
   obs_pagamento.innerHTML = 'Levar a maquininha!!'
