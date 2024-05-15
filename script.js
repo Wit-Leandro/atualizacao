@@ -823,7 +823,7 @@ env_pix.addEventListener('click', function(){
 
 
   var numeroWhatsApp = '5518996772619'
-  var mensagemWhatsApp = 'Ola, esse é meu pedido' + detalhesPedido
+  var mensagemWhatsApp = encodeURIComponent('Ola, esse é meu pedido \n' + detalhesPedido)
   var linkWhatsApp = 'https://wa.me/' + numeroWhatsApp + '?text='+ mensagemWhatsApp
 
   window.open(linkWhatsApp)
