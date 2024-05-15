@@ -809,7 +809,7 @@ env_pix.addEventListener('click', function(){
   var detalhesPedido = 'dados do pedido aqui'
   var numeroWhatsApp = '5518996772619'
   var mensagemWhatsApp = 'Ola, esse é meu pedido' + detalhesPedido
-  var linkWhatsApp = 'https:/wa.me/' + numeroWhatsApp + '?text='+ mensagemWhatsApp
+  var linkWhatsApp = 'https://wa.me/' + numeroWhatsApp + '?text='+ mensagemWhatsApp
 
   window.open(linkWhatsApp)
 
