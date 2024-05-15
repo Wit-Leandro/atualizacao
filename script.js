@@ -806,7 +806,20 @@ env_pix.addEventListener('click', function(){
   pagamentos.style.display='none'
   final.style.display = "block";
 
-  var detalhesPedido = 'Cliente: '+ dic[0] + '<br> Endereço: ' + dic[1] +','+ dic[2]+'<br> Telefone: '+dic[3] + '<br> Região de entrega: ' + dic[4] + '<br>'+ criarListaArrays(carrinho)
+  
+  var mensagemCarrinho = ''
+  
+  carrinho.forEach(function(element){
+    if (Array.isArray(element)){
+      mensagemCarrinho += 'Pedido:\n'
+      element.forEach(function(item){
+        mensagemCarrinho += ' - ' + item + '\n'
+      })
+      }else{
+        mensagemCarrinho += '- '+ element + '\n'
+      }   
+  })
+  var detalhesPedido = 'Cliente: '+ dic[0] + '\nEndereço: ' + dic[1] +','+ dic[2]+'\nTelefone: '+dic[3] + '\nRegião de entrega: ' + dic[4] + '\n'+ mensagemCarrinho
 
 
   var numeroWhatsApp = '5518996772619'
@@ -834,5 +847,4 @@ env_dinheiro.addEventListener('click', function(e){
   pagamentos.style.display='none'
   final.style.display = "block";
 })
-
 
