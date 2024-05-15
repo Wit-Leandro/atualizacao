@@ -819,7 +819,7 @@ env_pix.addEventListener('click', function(){
       contped += 1
       mensagemCarrinho += 'Pedido:' + contped + '\n'
       element.forEach(function(item){
-        mensagemCarrinho += formatarArrayWhats(element)
+        mensagemCarrinho += formatarArrayWhats(item)
       })
       }else{
         mensagemCarrinho += '- '+ element + '\n'
