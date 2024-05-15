@@ -819,7 +819,7 @@ env_pix.addEventListener('click', function(){
       contped += 1
       mensagemCarrinho += 'Pedido:' + contped + '\n'
       element.forEach(function(item){
-        mensagemCarrinho += ' - ' + item + '\n'
+        mensagemCarrinho += formatarArrayWhats(element)
       })
       }else{
         mensagemCarrinho += '- '+ element + '\n'
@@ -846,8 +846,9 @@ env_pix.addEventListener('click', function(){
   } else {
     te = "Taxa de entrega isento";
   }
+  var vlr_total_whats = 'R$' + tw + ',00'
 
-  var detalhesPedido = 'Pedido: '+ numeroDoPedido +'\nCliente: '+ dic[0] + '\nEndereço: ' + dic[1] +','+ dic[2]+'\nTelefone: '+dic[3] + '\nRegião de entrega: ' + dic[4] + '\nValor total: '+ tw + '\nTaxa entrega: '+ te + '\nPagamento via Pix' + '\nColherzinha? ' + whats_colher + '\n' + mensagemCarrinho
+  var detalhesPedido = 'Pedido: '+ numeroDoPedido +'\nCliente: '+ dic[0] + '\nEndereço: ' + dic[1] +','+ dic[2]+'\nTelefone: '+dic[3] + '\nRegião de entrega: ' + dic[4] + '\nValor total: '+ vlr_total_whats + '\nTaxa entrega: '+ te + '\nPagamento via Pix' + '\nColherzinha? ' + whats_colher + '\n' + mensagemCarrinho
   var numeroWhatsApp = '5518996772619'
   var mensagemWhatsApp = encodeURIComponent('Ola, esse é meu pedido \n' + detalhesPedido)
   var linkWhatsApp = 'https://wa.me/' + numeroWhatsApp + '?text='+ mensagemWhatsApp
@@ -874,3 +875,15 @@ env_dinheiro.addEventListener('click', function(e){
   final.style.display = "block";
 })
 
+function formatarArrayWhats(array){
+  var mensagem = ''
+  array.forEach(function(element){
+    if (Array.isArray(element)){
+      mensagem += 'Pedido:\n'
+      mensagem += formatarArrayWhats(element).replace(/\n$/,'')
+    }else{
+      mensagem += ' - ' + element + '\n'
+    }
+  })
+  return mensagem
+}
