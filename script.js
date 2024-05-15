@@ -54,6 +54,7 @@ const adiciona = { vlr: 0, obs: "Sem adicionais" };
 sessionStorage.setItem("adiciona", JSON.stringify(adiciona));
 var total_Compra = 0;
 
+
 /*--------- inicio das funçoes -----*/
 
 /*--------- Atualizar a hora -----*/
@@ -593,6 +594,9 @@ var btn_finalizar_carrinho = document.getElementById("finalizar_carrinho");
 btn_finalizar_carrinho.addEventListener("click", function () {
   mostrarDados();
   criarListaArrays(carrinho);
+  var numeroDoPedido = gerarNumeroPedido()
+  npedido.innerHTML = 'Numero do Pedido: '+ numeroDoPedido
+
 
   info.style.display = 'block'
   esconde_comprar_mais.style.display = "none";
@@ -688,27 +692,6 @@ var res_pagamento = document.getElementById('res_pagamento')
 var obs_pagamento = document.getElementById('obs_pagamento')
 var valor_pagamento = document.getElementById('valor_pagamentos')
 
-env_pix.addEventListener('click', function(){
-  res_pagamento.innerHTML = 'Pagamento via - PIX'
-  obs_pagamento.innerHTML = 'Pix'
-  pagamentos.style.display='none'
-  final.style.display = "block";
-})
-env_cartao.addEventListener('click', function(){
-  res_pagamento.innerHTML = 'Pagamento via - CARTÃO'
-  obs_pagamento.innerHTML = 'Levar a maquininha!!'
-  pagamentos.style.display='none'
-  final.style.display = "block";
-})
-env_dinheiro.addEventListener('click', function(e){
-  e.preventDefault()
-  var troco = document.getElementById('troco').value
-  res_pagamento.innerHTML = 'Pagamento no DINHEIRO'
-  obs_pagamento.innerHTML = troco
-  pagamentos.style.display='none'
-  final.style.display = "block";
-})
-
 btn_pix.addEventListener('click', function(){
   res_pix.style.display='block'
   res_cartao.style.display='none'
@@ -724,6 +707,11 @@ btn_dinheiro.addEventListener('click', function(){
   res_cartao.style.display='none'
   res_dinheiro.style.display='block'
 })
+
+
+
+
+
 
 /* ---informativo da colherzinha---- */
 var info = document.getElementById('informativo')
@@ -783,3 +771,63 @@ function ajustarTelefone(numeroFone){
   return '('+cCode+')'+aCode+''+ pParte +'-'+sParte
 
 }*/
+
+/*----numero do pedido----- */
+var npedido = document.getElementById('npedido')
+
+function gerarNumeroPedido(){
+  var datahoraatual = new Date()
+  var anoatual = datahoraatual.getFullYear()
+  var diaDoAno = obterDiaDoAno(datahoraatual)
+  var horaAtual = pad(datahoraatual.getHours(), 2) + pad(datahoraatual.getMinutes(), 2) + pad(datahoraatual.getSeconds(), 2)
+  var numeroPedido = anoatual.toString() + diaDoAno.toString() + horaAtual
+  return numeroPedido
+}
+function obterDiaDoAno(data){
+  var inicioAno = new Date(data.getFullYear(), 0, 0)
+  var diff = data - inicioAno
+  var umDia = 1000 * 60 * 60 * 24
+  var diaDoAno = Math.floor(diff / umDia)
+  return diaDoAno
+}
+function pad(numero, tamanho){
+  var numeroString = numero.toString()
+  while (numeroString.length < tamanho){
+    numeroString = '0' + numeroString
+  }
+  return numeroString
+}
+
+/*---Envair pedido para o whatsApp--- */
+
+env_pix.addEventListener('click', function(){
+  res_pagamento.innerHTML = 'Pagamento via - PIX'
+  obs_pagamento.innerHTML = 'Pix'
+  pagamentos.style.display='none'
+  final.style.display = "block";
+
+  var detalhesPedido = 'dados do pedido aqui'
+  var numeroWhatsApp = '5518996772619'
+  var mensagemWhatsApp = 'Ola, esse é meu pedido' + detalhesPedido
+  var linkWhatsApp = 'https:/wa.me/' + numeroWhatsApp + '?text='+ mensagemWhatsApp
+
+  window.open(linkWhatsApp)
+
+
+})
+env_cartao.addEventListener('click', function(){
+  res_pagamento.innerHTML = 'Pagamento via - CARTÃO'
+  obs_pagamento.innerHTML = 'Levar a maquininha!!'
+  pagamentos.style.display='none'
+  final.style.display = "block";
+})
+env_dinheiro.addEventListener('click', function(e){
+  e.preventDefault()
+  var troco = document.getElementById('troco').value
+  res_pagamento.innerHTML = 'Pagamento no DINHEIRO'
+  obs_pagamento.innerHTML = troco
+  pagamentos.style.display='none'
+  final.style.display = "block";
+})
+
+
