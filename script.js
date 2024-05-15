@@ -816,7 +816,8 @@ env_pix.addEventListener('click', function(){
 
   carrinho.forEach(function(element){
     if (Array.isArray(element)){
-      mensagemCarrinho += 'Pedido: '+ contped + '\n'
+      contped += 1
+      mensagemCarrinho += '\nMontagem N° '+ contped + '\n'
       mensagemCarrinho += formatarArrayWhats(element)
     }else{
       mensagemCarrinho += '- ' + element + '\n'
@@ -859,7 +860,7 @@ env_pix.addEventListener('click', function(){
   }
   var vlr_total_whats = 'R$' + tw + ',00'
 
-  var detalhesPedido = 'Pedido: '+ numeroDoPedido +'\nCliente: '+ dic[0] + '\nEndereço: ' + dic[1] +','+ dic[2]+'\nTelefone: '+dic[3] + '\nRegião de entrega: ' + dic[4] + '\nValor total: '+ vlr_total_whats + '\nTaxa entrega: '+ te + '\nPagamento via Pix' + '\nColherzinha? ' + whats_colher + '\n' + mensagemCarrinho
+  var detalhesPedido = 'N° Pedido: '+ numeroDoPedido +'\nCliente: '+ dic[0] + '\nEndereço: ' + dic[1] +','+ dic[2]+'\nTelefone: '+dic[3] + '\nRegião de entrega: ' + dic[4] + '\nValor total: '+ vlr_total_whats + '\nTaxa entrega: '+ te + '\nPagamento via Pix' + '\nColherzinha? ' + whats_colher + '\n<br>' + mensagemCarrinho
   var numeroWhatsApp = '5518996772619'
   var mensagemWhatsApp = encodeURIComponent('Ola, esse é meu pedido \n' + detalhesPedido)
   var linkWhatsApp = 'https://wa.me/' + numeroWhatsApp + '?text='+ mensagemWhatsApp
