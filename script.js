@@ -813,18 +813,28 @@ env_pix.addEventListener('click', function(){
   
   var mensagemCarrinho = ''
   var contped = 0
-  
+
+  carrinho.forEach(function(element){
+    if (Array.isArray(element)){
+      mensagemCarrinho += formatarArrayWhats(element)
+    }else{
+      mensagemCarrinho += '- ' + element + '\n'
+    }
+  })
+
+  /*
   carrinho.forEach(function(element){
     if (Array.isArray(element)){
       contped += 1
       mensagemCarrinho += 'Pedido:' + contped + '\n'
       element.forEach(function(item){
-        mensagemCarrinho += formatarArrayWhats(item)
+        mensagemCarrinho += ' - ' + item + '\n'
       })
       }else{
         mensagemCarrinho += '- '+ element + '\n'
       }   
   })
+   */
   
 
   var tw = somarArray(valorCompra);
