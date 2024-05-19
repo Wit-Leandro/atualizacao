@@ -53,9 +53,8 @@ var esconde_finalizar_carrinho = document.getElementById(
 const adiciona = { vlr: 0, obs: "Sem adicionais" };
 sessionStorage.setItem("adiciona", JSON.stringify(adiciona));
 var total_Compra = 0;
-var numeroDoPedido = ''
-var whats_colher = ''
-
+var numeroDoPedido = "";
+var whats_colher = "";
 
 /*--------- inicio das funçoes -----*/
 
@@ -161,19 +160,15 @@ btn_copo.addEventListener("click", function (e) {
   if (meu_select_copo === "300ml") {
     const pedido = { acai: "Copo de 300ml", limit: 4, valor: 13 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    
   } else if (meu_select_copo === "400ml") {
     const pedido = { acai: "Copo de 400ml", limit: 5, valor: 16 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    
   } else if (meu_select_copo === "500ml") {
     const pedido = { acai: "Copo de 500ml", limit: 5, valor: 18 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    
   } else if (meu_select_copo === "700ml") {
     const pedido = { acai: "Copo de 700ml", limit: 5, valor: 28 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    
   }
   escolha.style.display = "none";
   adicionais.style.display = "block";
@@ -181,7 +176,8 @@ btn_copo.addEventListener("click", function (e) {
   const objectPedido = JSON.parse(getPedido);
   const userPedido = objectPedido.limit;
   limite = userPedido;
-  resadicao.innerHTML = dic[0]+" Escolha " + limite + " adiconais para seu açai";
+  resadicao.innerHTML =
+    dic[0] + " Escolha " + limite + " adiconais para seu açai";
 });
 
 /*--------- escolha marmita -----*/
@@ -193,15 +189,12 @@ btn_marmita.addEventListener("click", function (e) {
   if (meu_marmita === "500ml") {
     const pedido = { acai: "Marmita de 500ml", limit: 5, valor: 20 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    
   } else if (meu_marmita === "750ml") {
     const pedido = { acai: "Marmita de 750ml", limit: 5, valor: 30 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    
   } else if (meu_marmita === "1200ml") {
     const pedido = { acai: "Marmita de 1200ml", limit: 6, valor: 40 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    
   }
   escolha.style.display = "none";
   adicionais.style.display = "block";
@@ -209,7 +202,8 @@ btn_marmita.addEventListener("click", function (e) {
   const objectPedido = JSON.parse(getPedido);
   const userPedido = objectPedido.limit;
   limite = userPedido;
-  resadicao.innerHTML = dic[0]+", Escolha " + limite + " adiconais para seu açai";
+  resadicao.innerHTML =
+    dic[0] + ", Escolha " + limite + " adiconais para seu açai";
 });
 
 /* -----função para exibir os copos por abas------ */
@@ -257,7 +251,9 @@ function exibirMarmitas() {
     imagem_marmita.appendChild(imagem_marmita_1200ml);
   }
 }
+
 /*-----------compra de adicionais----------------- */
+
 var tadd = 0;
 var ad = 0;
 var custo = 3;
@@ -274,9 +270,9 @@ btn_compra_add.addEventListener("click", function () {
   const adiciona = { vlr: 0, obs: msg };
   sessionStorage.setItem("adiciona", JSON.stringify(adiciona));
   valorCompra.push(3);
-
   alert("Sucesso!! foram adicionados + 1 \u{1F60A}");
-  resadicao.innerHTML = dic[0]+", Escolha " + limite + " adiconais para seu açai";
+  resadicao.innerHTML =
+    dic[0] + ", Escolha " + limite + " adiconais para seu açai";
   adicao.style.display = "none";
   adicionais.style.display = "block";
 });
@@ -316,11 +312,9 @@ function removeTicks() {
   });
 }
 /*-----limpar area da sujestão------- */
-function limpaSujestao(){
-  var campo = document.getElementById('campo').value = '';
+function limpaSujestao() {
+  var campo = (document.getElementById("campo").value = "");
 }
-
-
 
 /*------escolha das regioes------------- */
 regiao.forEach(function (checkbox) {
@@ -328,7 +322,7 @@ regiao.forEach(function (checkbox) {
     var regiao_selecionados = document.querySelectorAll(".regiao:checked");
     if (regiao_selecionados.length > 1) {
       this.checked = false;
-      alert("Ops, So pode escolher uma Região!!");
+      alert("Ops, Escolha apenas uma Região!!");
     }
   });
 });
@@ -434,7 +428,7 @@ function mostrarDados() {
   resendereco.innerHTML = "Endereço: " + dic[1] + "," + dic[2];
   resfone.innerHTML = "Telefone: " + dic[3];
   respreco.innerHTML = "Valor total R$" + t + ",00 Reais";
-  valor_pagamento.innerHTML = 'VALOR DO PEDIDO - R$'+t+',00'
+  valor_pagamento.innerHTML = "VALOR DO PEDIDO - R$" + t + ",00";
   res_regiao.innerHTML = "Região de entrega: " + dic[4];
 }
 
@@ -478,22 +472,22 @@ function horadia() {
     reshora.style.color = "red";
     reshora.innerHTML = "Fechado";
     reshora2.innerHTML = "Abriremos amanhã as 14hs. - ";
-   /* ocutar.style.display = 'none' */
+    /* ocutar.style.display = 'none' */
   } else {
     if (hora < 14) {
       reshora.style.color = "red";
       reshora.innerHTML = "Fechado";
-     /* ocutar.style.display = 'none'   */ 
+      /* ocutar.style.display = 'none'   */
     } else if (hora > 23) {
       reshora.style.color = "red";
       reshora.innerHTML = "Fechado:";
-     /* ocutar.style.display = 'none' */
+      /* ocutar.style.display = 'none' */
     } else {
       reshora.innerHTML = "Aberto:";
       reshora2.innerHTML = "Deus Abençoe";
       /*ocutar.style.display = 'block' */
     }
-    hdia.innerHTML = hora + ":" + minutos + ' - ';
+    hdia.innerHTML = hora + ":" + minutos + " - ";
   }
 }
 
@@ -583,7 +577,6 @@ function adicionarCarrinho() {
 
   atualizarCarrinho();
   mostrarValorNaTela();
-  
 }
 function atualizarCarrinho() {
   valores = [];
@@ -596,11 +589,10 @@ var btn_finalizar_carrinho = document.getElementById("finalizar_carrinho");
 btn_finalizar_carrinho.addEventListener("click", function () {
   mostrarDados();
   criarListaArrays(carrinho);
-  numeroDoPedido = gerarNumeroPedido()
-  npedido.innerHTML = 'Numero do Pedido: '+ numeroDoPedido
+  numeroDoPedido = gerarNumeroPedido();
+  npedido.innerHTML = "Numero do Pedido: " + numeroDoPedido;
 
-
-  info.style.display = 'block'
+  info.style.display = "block";
   esconde_comprar_mais.style.display = "none";
   esconde_finalizar_carrinho.style.display = "none";
   carrinhoCompras.style.display = "block";
@@ -610,7 +602,7 @@ btn_finalizar_carrinho.addEventListener("click", function () {
 
 btn_comprar_mais.addEventListener("click", function () {
   removeTicks();
-  limpaSujestao()
+  limpaSujestao();
   escolha.style.display = "block";
   esconde_comprar_mais.style.display = "none";
   esconde_finalizar_carrinho.style.display = "none";
@@ -680,90 +672,107 @@ btn_copiar_cnpj.addEventListener("click", function () {
   );
 });
 /*----funcionalidades dos botoes de pagamentos---- */
-var pagamentos = document.getElementById('pagamento')
-var btn_pix = document.getElementById('btn_pix')
-var btn_cartao = document.getElementById('btn_cartao')
-var btn_dinheiro = document.getElementById('btn_dinheiro')
-var res_pix = document.getElementById('res_pix')
-var res_cartao = document.getElementById('res_cartao')
-var res_dinheiro = document.getElementById('res_dinheiro')
-var env_pix = document.getElementById('env_pix')
-var env_cartao = document.getElementById('env_cartao')
-var env_dinheiro = document.getElementById('env_dinheiro')
-var res_pagamento = document.getElementById('res_pagamento')
-var obs_pagamento = document.getElementById('obs_pagamento')
-var valor_pagamento = document.getElementById('valor_pagamentos')
+var pagamentos = document.getElementById("pagamento");
+var btn_pix = document.getElementById("btn_pix");
+var btn_cartao = document.getElementById("btn_cartao");
+var btn_dinheiro = document.getElementById("btn_dinheiro");
+var res_pix = document.getElementById("res_pix");
+var res_cartao = document.getElementById("res_cartao");
+var res_dinheiro = document.getElementById("res_dinheiro");
+var env_pix = document.getElementById("env_pix");
+var env_cartao = document.getElementById("env_cartao");
+var env_dinheiro = document.getElementById("env_dinheiro");
+var res_pagamento = document.getElementById("res_pagamento");
+var obs_pagamento = document.getElementById("obs_pagamento");
+var valor_pagamento = document.getElementById("valor_pagamentos");
 
-btn_pix.addEventListener('click', function(){
-  res_pix.style.display='block'
-  res_cartao.style.display='none'
-  res_dinheiro.style.display='none'
-})
-btn_cartao.addEventListener('click', function(){
-  res_pix.style.display='none'
-  res_cartao.style.display='block'
-  res_dinheiro.style.display='none'
-})
-btn_dinheiro.addEventListener('click', function(){
-  res_pix.style.display='none'
-  res_cartao.style.display='none'
-  res_dinheiro.style.display='block'
-})
-
-
-
-
-
+btn_pix.addEventListener("click", function () {
+  res_pix.style.display = "block";
+  res_cartao.style.display = "none";
+  res_dinheiro.style.display = "none";
+});
+btn_cartao.addEventListener("click", function () {
+  res_pix.style.display = "none";
+  res_cartao.style.display = "block";
+  res_dinheiro.style.display = "none";
+});
+btn_dinheiro.addEventListener("click", function () {
+  res_pix.style.display = "none";
+  res_cartao.style.display = "none";
+  res_dinheiro.style.display = "block";
+});
 
 /* ---informativo da colherzinha---- */
-var info = document.getElementById('informativo')
-var btn_colher_sim = document.getElementById('colher_sim')
-var btn_colher_nao = document.getElementById('colher_nao')
-var res_colher = document.getElementById('res_colher')
+var info = document.getElementById("informativo");
+var btn_colher_sim = document.getElementById("colher_sim");
+var btn_colher_nao = document.getElementById("colher_nao");
+var res_colher = document.getElementById("res_colher");
 
-
-btn_colher_sim.addEventListener('click', function(){
-  res_colher.innerHTML='SIM'
-  pagamentos.style.display='block'
-  info.style.display='none'
-  whats_colher = 'SIM'
-})
-btn_colher_nao.addEventListener('click', function(){
-  res_colher.innerHTML='NÃO'
-  pagamentos.style.display='block'
-  info.style.display='none'
-  whats_colher = 'NÃO'
-})
+btn_colher_sim.addEventListener("click", function () {
+  res_colher.innerHTML = "SIM";
+  pagamentos.style.display = "block";
+  info.style.display = "none";
+  whats_colher = "SIM";
+});
+btn_colher_nao.addEventListener("click", function () {
+  res_colher.innerHTML = "NÃO";
+  pagamentos.style.display = "block";
+  info.style.display = "none";
+  whats_colher = "NÃO";
+});
 
 /*-----mostrar valor tela-------- */
-function mostrarValorNaTela(){
-var valor_tela = document.getElementById('valor_tela')
-var res_valor_tela = document.getElementById('res_valor_tela')
+function mostrarValorNaTela() {
+  var valor_tela = document.getElementById("valor_tela");
+  var res_valor_tela = document.getElementById("res_valor_tela");
 
-var t = somarArray(valorCompra)
-var falta = 0
+  var t = somarArray(valorCompra);
+  var falta = 0;
 
-if (t < 20 && dic[4] === "Tarumã") {
-  falta = 20 - t
-  alert('Total pedido R$'+ t + ',00')
-  alert('faltam apenas R$'+ falta + ',00 para ficar isento da taxa de entrega R$'+dic[5]+',00')
-} else if (t < 150 && dic[4] === "Usina Nova America") {
-  falta = 150 - t
-  alert('Total pedido R$'+ t + ',00')
-  alert('faltam apenas R$'+ falta + ',00 para ficar isento da taxa de entrega R$'+dic[5]+',00')
-} else if (t < 50 && dic[4] === "Usina Agua Bonita") {
-  falta = 50 - t
-  alert('Total pedido R$'+ t + ',00')
-  alert('faltam apenas R$'+ falta + ',00 para ficar isento da taxa de entrega R$'+dic[5]+',00')
-} else if (t < 50 && dic[4] === "Posto Pioneiro") {
-  falta = 50 - t
-  alert('Total pedido R$'+ t + ',00')
-  alert('falta apenas R$'+ falta + ',00 para ficar isento da taxa de entrega R$'+dic[5]+',00')
-} else {
-  alert('Total pedido R$'+ t + ',00')
-  alert(dic[0]+' está isento da taxa de entrega R$'+dic[5]+',00')
-}
-
+  if (t < 20 && dic[4] === "Tarumã") {
+    falta = 20 - t;
+    alert("Total pedido R$" + t + ",00");
+    alert(
+      "faltam apenas R$" +
+        falta +
+        ",00 para ficar isento da taxa de entrega R$" +
+        dic[5] +
+        ",00"
+    );
+  } else if (t < 150 && dic[4] === "Usina Nova America") {
+    falta = 150 - t;
+    alert("Total pedido R$" + t + ",00");
+    alert(
+      "faltam apenas R$" +
+        falta +
+        ",00 para ficar isento da taxa de entrega R$" +
+        dic[5] +
+        ",00"
+    );
+  } else if (t < 50 && dic[4] === "Usina Agua Bonita") {
+    falta = 50 - t;
+    alert("Total pedido R$" + t + ",00");
+    alert(
+      "faltam apenas R$" +
+        falta +
+        ",00 para ficar isento da taxa de entrega R$" +
+        dic[5] +
+        ",00"
+    );
+  } else if (t < 50 && dic[4] === "Posto Pioneiro") {
+    falta = 50 - t;
+    alert("Total pedido R$" + t + ",00");
+    alert(
+      "falta apenas R$" +
+        falta +
+        ",00 para ficar isento da taxa de entrega R$" +
+        dic[5] +
+        ",00"
+    );
+  } else {
+    alert("Total pedido R$" + t + ",00");
+    alert(dic[0] + " está isento da taxa de entrega R$" + dic[5] + ",00");
+  }
 }
 /*
 function ajustarTelefone(numeroFone){
@@ -777,53 +786,56 @@ function ajustarTelefone(numeroFone){
 }*/
 
 /*----numero do pedido----- */
-var npedido = document.getElementById('npedido')
+var npedido = document.getElementById("npedido");
 
-function gerarNumeroPedido(){
-  var datahoraatual = new Date()
-  var anoatual = datahoraatual.getFullYear()
-  var diaDoAno = obterDiaDoAno(datahoraatual)
-  var horaAtual = pad(datahoraatual.getHours(), 2) + pad(datahoraatual.getMinutes(), 2) + pad(datahoraatual.getSeconds(), 2)
-  var numeroPedido = anoatual.toString() + diaDoAno.toString() + horaAtual
-  return numeroPedido
+function gerarNumeroPedido() {
+  var datahoraatual = new Date();
+  var anoatual = datahoraatual.getFullYear();
+  var diaDoAno = obterDiaDoAno(datahoraatual);
+  var horaAtual =
+    pad(datahoraatual.getHours(), 2) +
+    pad(datahoraatual.getMinutes(), 2) +
+    pad(datahoraatual.getSeconds(), 2);
+  var numeroPedido = anoatual.toString() + diaDoAno.toString() + horaAtual;
+  return numeroPedido;
 }
-function obterDiaDoAno(data){
-  var inicioAno = new Date(data.getFullYear(), 0, 0)
-  var diff = data - inicioAno
-  var umDia = 1000 * 60 * 60 * 24
-  var diaDoAno = Math.floor(diff / umDia)
-  return diaDoAno
+function obterDiaDoAno(data) {
+  var inicioAno = new Date(data.getFullYear(), 0, 0);
+  var diff = data - inicioAno;
+  var umDia = 1000 * 60 * 60 * 24;
+  var diaDoAno = Math.floor(diff / umDia);
+  return diaDoAno;
 }
-function pad(numero, tamanho){
-  var numeroString = numero.toString()
-  while (numeroString.length < tamanho){
-    numeroString = '0' + numeroString
+function pad(numero, tamanho) {
+  var numeroString = numero.toString();
+  while (numeroString.length < tamanho) {
+    numeroString = "0" + numeroString;
   }
-  return numeroString
+  return numeroString;
 }
 
 /*---Envair pedido para o whatsApp--- */
 
-env_pix.addEventListener('click', function(){
-  res_pagamento.innerHTML = 'Pagamento via - PIX'
-  obs_pagamento.innerHTML = 'Pix'
-  pagamentos.style.display='none'
+env_pix.addEventListener("click", function () {
+  res_pagamento.innerHTML = "Pagamento via - PIX";
+  obs_pagamento.innerHTML = "Pix";
+  pagamentos.style.display = "none";
   final.style.display = "block";
 
-  var mensagemCarrinho = ''
-  var contped = 0
-  carrinho.forEach(function(element){
-    if (Array.isArray(element)){
-      contped += 1
-      mensagemCarrinho += '\n\nMontagem N° '+ contped + '\n'
-      mensagemCarrinho += formatarArrayWhats(element)
-    }else{
-      mensagemCarrinho += '- ' + element + '\n'
+  var mensagemCarrinho = "";
+  var contped = 0;
+  carrinho.forEach(function (element) {
+    if (Array.isArray(element)) {
+      contped += 1;
+      mensagemCarrinho += "\n\nMontagem N° " + contped + "\n";
+      mensagemCarrinho += formatarArrayWhats(element);
+    } else {
+      mensagemCarrinho += "- " + element + "\n";
     }
-  })
+  });
 
   var tw = somarArray(valorCompra);
-  var te = ''
+  var te = "";
 
   if (tw < 20 && dic[4] === "Tarumã") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
@@ -835,42 +847,64 @@ env_pix.addEventListener('click', function(){
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
   } else if (tw < 50 && dic[4] === "Posto Pioneiro") {
-    te= "Taxa de entrega R$" + dic[5] + ",00";
+    te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
   } else {
     te = "Taxa de entrega isento";
   }
-  var vlr_total_whats = 'R$' + tw + ',00'
+  var vlr_total_whats = "R$" + tw + ",00";
 
-  var detalhesPedido = 'N° Pedido: '+ numeroDoPedido +'\nCliente: '+ dic[0] + '\nEndereço: ' + dic[1] +','+ dic[2]+'\nTelefone: '+dic[3] + '\nRegião de entrega: ' + dic[4] + '\nValor total: '+ vlr_total_whats + '\nTaxa entrega: '+ te + '\nPagamento via Pix' + '\nColherzinha? ' + whats_colher + '\n' + mensagemCarrinho
-  var numeroWhatsApp = '5518996772619'
-  var mensagemWhatsApp = encodeURIComponent('Olá!, esse é meu pedido \u{1F609} \n' + detalhesPedido)
-  var linkWhatsApp = 'https://wa.me/' + numeroWhatsApp + '?text='+ mensagemWhatsApp
+  var detalhesPedido =
+    "N° Pedido: " +
+    numeroDoPedido +
+    "\nCliente: " +
+    dic[0] +
+    "\nEndereço: " +
+    dic[1] +
+    "," +
+    dic[2] +
+    "\nTelefone: " +
+    dic[3] +
+    "\nRegião de entrega: " +
+    dic[4] +
+    "\nValor total: " +
+    vlr_total_whats +
+    "\nTaxa entrega: " +
+    te +
+    "\nPagamento via Pix" +
+    "\nColherzinha? " +
+    whats_colher +
+    "" +
+    mensagemCarrinho;
+  var numeroWhatsApp = "5518996772619";
+  var mensagemWhatsApp = encodeURIComponent(
+    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido
+  );
+  var linkWhatsApp =
+    "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
 
-  window.open(linkWhatsApp)
-
-
-})
-env_cartao.addEventListener('click', function(){
-  res_pagamento.innerHTML = 'Pagamento via - CARTÃO'
-  obs_pagamento.innerHTML = 'Levar a maquininha!!'
-  pagamentos.style.display='none'
+  window.open(linkWhatsApp);
+});
+env_cartao.addEventListener("click", function () {
+  res_pagamento.innerHTML = "Pagamento via - CARTÃO";
+  obs_pagamento.innerHTML = "Levar a maquininha!!";
+  pagamentos.style.display = "none";
   final.style.display = "block";
 
-  var mensagemCarrinho = ''
-  var contped = 0
-  carrinho.forEach(function(element){
-    if (Array.isArray(element)){
-      contped += 1
-      mensagemCarrinho += '\n\nMontagem N° '+ contped + '\n'
-      mensagemCarrinho += formatarArrayWhats(element)
-    }else{
-      mensagemCarrinho += '- ' + element + '\n'
+  var mensagemCarrinho = "";
+  var contped = 0;
+  carrinho.forEach(function (element) {
+    if (Array.isArray(element)) {
+      contped += 1;
+      mensagemCarrinho += "\n\nMontagem N° " + contped + "\n";
+      mensagemCarrinho += formatarArrayWhats(element);
+    } else {
+      mensagemCarrinho += "- " + element + "\n";
     }
-  })
+  });
 
   var tw = somarArray(valorCompra);
-  var te = ''
+  var te = "";
 
   if (tw < 20 && dic[4] === "Tarumã") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
@@ -882,42 +916,66 @@ env_cartao.addEventListener('click', function(){
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
   } else if (tw < 50 && dic[4] === "Posto Pioneiro") {
-    te= "Taxa de entrega R$" + dic[5] + ",00";
+    te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
   } else {
     te = "Taxa de entrega isento";
   }
-  var vlr_total_whats = 'R$' + tw + ',00'
+  var vlr_total_whats = "R$" + tw + ",00";
 
-  var detalhesPedido = 'N° Pedido: '+ numeroDoPedido +'\nCliente: '+ dic[0] + '\nEndereço: ' + dic[1] +','+ dic[2]+'\nTelefone: '+dic[3] + '\nRegião de entrega: ' + dic[4] + '\nValor total: '+ vlr_total_whats + '\nTaxa entrega: '+ te + '\nLevar a maquininha' + '\nColherzinha? ' + whats_colher + '\n' + mensagemCarrinho
-  var numeroWhatsApp = '5518996772619'
-  var mensagemWhatsApp = encodeURIComponent('Olá!, esse é meu pedido \u{1F609} \n' + detalhesPedido)
-  var linkWhatsApp = 'https://wa.me/' + numeroWhatsApp + '?text='+ mensagemWhatsApp
+  var detalhesPedido =
+    "N° Pedido: " +
+    numeroDoPedido +
+    "\nCliente: " +
+    dic[0] +
+    "\nEndereço: " +
+    dic[1] +
+    "," +
+    dic[2] +
+    "\nTelefone: " +
+    dic[3] +
+    "\nRegião de entrega: " +
+    dic[4] +
+    "\nValor total: " +
+    vlr_total_whats +
+    "\nTaxa entrega: " +
+    te +
+    "\nLevar a maquininha" +
+    "\nColherzinha? " +
+    whats_colher +
+    "" +
+    mensagemCarrinho;
+  var numeroWhatsApp = "5518996772619";
+  var mensagemWhatsApp = encodeURIComponent(
+    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido
+  );
+  var linkWhatsApp =
+    "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
 
-  window.open(linkWhatsApp)
-})
-env_dinheiro.addEventListener('click', function(e){
-  e.preventDefault()
-  var troco = document.getElementById('troco').value
-  res_pagamento.innerHTML = 'Pagamento no DINHEIRO'
-  obs_pagamento.innerHTML = troco
-  pagamentos.style.display='none'
+  window.open(linkWhatsApp);
+});
+env_dinheiro.addEventListener("click", function (e) {
+  e.preventDefault();
+  var troco = document.getElementById("troco").value;
+  res_pagamento.innerHTML = "Pagamento no DINHEIRO";
+  obs_pagamento.innerHTML = troco;
+  pagamentos.style.display = "none";
   final.style.display = "block";
 
-  var mensagemCarrinho = ''
-  var contped = 0
-  carrinho.forEach(function(element){
-    if (Array.isArray(element)){
-      contped += 1
-      mensagemCarrinho += '\n\nMontagem N° '+ contped + '\n'
-      mensagemCarrinho += formatarArrayWhats(element)
-    }else{
-      mensagemCarrinho += '- ' + element + '\n'
+  var mensagemCarrinho = "";
+  var contped = 0;
+  carrinho.forEach(function (element) {
+    if (Array.isArray(element)) {
+      contped += 1;
+      mensagemCarrinho += "\n\nMontagem N° " + contped + "\n";
+      mensagemCarrinho += formatarArrayWhats(element);
+    } else {
+      mensagemCarrinho += "- " + element + "\n";
     }
-  })
+  });
 
   var tw = somarArray(valorCompra);
-  var te = ''
+  var te = "";
 
   if (tw < 20 && dic[4] === "Tarumã") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
@@ -929,29 +987,60 @@ env_dinheiro.addEventListener('click', function(e){
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
   } else if (tw < 50 && dic[4] === "Posto Pioneiro") {
-    te= "Taxa de entrega R$" + dic[5] + ",00";
+    te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
   } else {
     te = "Taxa de entrega isento";
   }
-  var vlr_total_whats = 'R$' + tw + ',00'
+  var vlr_total_whats = "R$" + tw + ",00";
 
-  var detalhesPedido = 'N° Pedido: '+ numeroDoPedido +'\nCliente: '+ dic[0] + '\nEndereço: ' + dic[1] +','+ dic[2]+'\nTelefone: '+dic[3] + '\nRegião de entrega: ' + dic[4] + '\nValor total: '+ vlr_total_whats + '\nTaxa entrega: '+ te + '\nPagamento no dinheiro troco para R$'+ troco + ',00' + '\nColherzinha? ' + whats_colher + '\n' + mensagemCarrinho
-  var numeroWhatsApp = '5518996772619'
-  var mensagemWhatsApp = encodeURIComponent('Olá!, esse é meu pedido \u{1F609} \n' + detalhesPedido)
-  var linkWhatsApp = 'https://wa.me/' + numeroWhatsApp + '?text='+ mensagemWhatsApp
+  var detalhesPedido =
+    "N° Pedido: " +
+    numeroDoPedido +
+    "\nCliente: " +
+    dic[0] +
+    "\nEndereço: " +
+    dic[1] +
+    "," +
+    dic[2] +
+    "\nTelefone: " +
+    dic[3] +
+    "\nRegião de entrega: " +
+    dic[4] +
+    "\nValor total: " +
+    vlr_total_whats +
+    "\nTaxa entrega: " +
+    te +
+    "\nDinheiro: Precisa de troco? " +
+    troco +
+    "\nColherzinha? " +
+    whats_colher +
+    "" +
+    mensagemCarrinho;
+  var numeroWhatsApp = "5518996772619";
+  var mensagemWhatsApp = encodeURIComponent(
+    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido
+  );
+  var linkWhatsApp =
+    "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
 
-  window.open(linkWhatsApp)
-})
+  window.open(linkWhatsApp);
+});
 
-function formatarArrayWhats(array){
-  var mensagem = ''
-  array.forEach(function(element){
-    if (Array.isArray(element)){
-      mensagem += formatarArrayWhats(element).replace(/\n$/,'')
-    }else{
-      mensagem += ' - ' + element + '\n'
+function formatarArrayWhats(array) {
+  var mensagem = "";
+  array.forEach(function (element) {
+    if (Array.isArray(element)) {
+      mensagem += formatarArrayWhats(element).replace(/\n$/, "");
+    } else {
+      mensagem += " - " + element + "\n";
     }
-  })
-  return mensagem
+  });
+  return mensagem;
 }
+
+/*------Direcionar para o google maps------ */
+var local = document.getElementById('local')
+local.addEventListener('click', function(){
+  window.open(url,"https://maps.app.goo.gl/mHvD2JghLmRjR9A78")
+})

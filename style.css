@@ -48,6 +48,36 @@ header {
   display: grid;
   grid-auto-rows: 1fr 1fr;
 }
+#local:hover{
+  cursor: pointer;
+  position: relative;
+  color: blue;
+  text-decoration: underline;
+}
+.tooltip::after{
+  content: 'Ir para o Google maps';
+  position: absolute;
+  left:50%;
+  bottom: 125%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+  font-size: 12px;
+  pointer-events: none;
+  z-index: 10;
+}
+.tooltip:hover::after{
+  opacity: 1;
+  visibility: visible;
+
+}
+
 #mostrar_carrinho {
   display: inline-flex;
   width: 35px;
@@ -763,6 +793,9 @@ footer {
   text-align: center;
   margin-bottom: 10px;
 }
+.res_dinheiro label{
+  display: block;
+}
 
 /*-------grid forma de pagamento-----*/
 .grid_pgto {
@@ -787,6 +820,7 @@ footer {
   grid-column: 3;
   grid-row: 1 / -1;
 }
+
 /* ------------grid CNPJ-------------*/
 .grid_cnpj {
   display: grid;
