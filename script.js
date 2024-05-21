@@ -119,7 +119,7 @@ function checkUser() {
     msgcadastro.style.display = "none";
     formulario.style.display = "none";
     welcome.style.display = "block";
-    nome_cliente.innerHTML = username + " \u{1F609}";
+    nome_cliente.innerHTML = username.split(' ')[0] + " \u{1F609}";
     clearr.style.display = "block";
   } else {
     msgcadastro.style.display = "block";
@@ -177,7 +177,7 @@ btn_copo.addEventListener("click", function (e) {
   const userPedido = objectPedido.limit;
   limite = userPedido;
   resadicao.innerHTML =
-    dic[0] + " Escolha " + limite + " adiconais para seu açai";
+    dic[0].split(' ')[0] + " Escolha " + limite + " adiconais para seu açai";
 });
 
 /*--------- escolha marmita -----*/
@@ -203,7 +203,7 @@ btn_marmita.addEventListener("click", function (e) {
   const userPedido = objectPedido.limit;
   limite = userPedido;
   resadicao.innerHTML =
-    dic[0] + ", Escolha " + limite + " adiconais para seu açai";
+    dic[0].split(' ')[0] + ", Escolha " + limite + " adiconais para seu açai";
 });
 
 /* -----função para exibir os copos por abas------ */
@@ -272,7 +272,7 @@ btn_compra_add.addEventListener("click", function () {
   valorCompra.push(3);
   alert("Sucesso!! foram adicionados + 1 \u{1F60A}");
   resadicao.innerHTML =
-    dic[0] + ", Escolha " + limite + " adiconais para seu açai";
+    dic[0].split(' ')[0] + ", Escolha " + limite + " adiconais para seu açai";
   adicao.style.display = "none";
   adicionais.style.display = "block";
 });
@@ -289,8 +289,7 @@ btn_negar_compra_add.addEventListener("click", function () {
   const userObs = objectAdciona.obs;
   const adiciona = { vlr: userVlr, obs: userObs };
   sessionStorage.setItem("adiciona", JSON.stringify(adiciona));
-  resadicao.innerHTML =
-    dic[0] + " Voce tem " + limite + " adiconais para seu açai";
+  resadicao.innerHTML = "Sem problema fique a vontade! ";
   adicao.style.display = "none";
   adicionais.style.display = "block";
 });
@@ -771,7 +770,7 @@ function mostrarValorNaTela() {
     );
   } else {
     alert("Total pedido R$" + t + ",00");
-    alert(dic[0] + " está isento da taxa de entrega R$" + dic[5] + ",00");
+    alert(dic[0].split(' ')[0] + " está isento da taxa de entrega R$" + dic[5] + ",00");
   }
 }
 /*
