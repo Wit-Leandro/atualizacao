@@ -480,21 +480,21 @@ function horadia() {
     reshora.style.color = "red";
     reshora.innerHTML = "Fechado";
     reshora2.innerHTML = "Voltamos amanhã as 14hs. - ";
-    ocutar.style.display = "none";
+  
   } else {
     if (hora < 14) {
       reshora.style.color = "red";
       reshora.innerHTML = "Fechado";
       reshora2.innerHTML = "Abrirmos as 14hs. - ";
-      ocutar.style.display = "none";
+     
     } else if (hora > 23) {
       reshora.style.color = "red";
       reshora.innerHTML = "Fechado:";
-      ocutar.style.display = "none";
+     
     } else {
       reshora.innerHTML = "Aberto:";
       reshora2.innerHTML = "Deus Abençoe";
-      ocutar.style.display = "block";
+    
     }
     hdia.innerHTML = hora + ":" + minutos + " - ";
   }
