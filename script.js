@@ -119,7 +119,7 @@ function checkUser() {
     msgcadastro.style.display = "none";
     formulario.style.display = "none";
     welcome.style.display = "block";
-    nome_cliente.innerHTML = username.split(' ')[0] + " \u{1F609}";
+    nome_cliente.innerHTML = username.split(" ")[0] + " \u{1F609}";
     clearr.style.display = "block";
   } else {
     msgcadastro.style.display = "block";
@@ -177,7 +177,7 @@ btn_copo.addEventListener("click", function (e) {
   const userPedido = objectPedido.limit;
   limite = userPedido;
   resadicao.innerHTML =
-    dic[0].split(' ')[0] + " Escolha " + limite + " adiconais para seu açai";
+    dic[0].split(" ")[0] + " Escolha " + limite + " adiconais para seu açai";
 });
 
 /*--------- escolha marmita -----*/
@@ -203,7 +203,7 @@ btn_marmita.addEventListener("click", function (e) {
   const userPedido = objectPedido.limit;
   limite = userPedido;
   resadicao.innerHTML =
-    dic[0].split(' ')[0] + ", Escolha " + limite + " adiconais para seu açai";
+    dic[0].split(" ")[0] + ", Escolha " + limite + " adiconais para seu açai";
 });
 
 /* -----função para exibir os copos por abas------ */
@@ -272,9 +272,10 @@ btn_compra_add.addEventListener("click", function () {
   valorCompra.push(3);
   alert("Sucesso!! foram adicionados + 1 \u{1F60A}");
   resadicao.innerHTML =
-    dic[0].split(' ')[0] + ", Escolha " + limite + " adiconais para seu açai";
+    dic[0].split(" ")[0] + ", Escolha " + limite + " adiconais para seu açai";
   adicao.style.display = "none";
   adicionais.style.display = "block";
+  btn_volta_esolha.style.display = "none";
 });
 
 btn_negar_compra_add.addEventListener("click", function () {
@@ -387,7 +388,15 @@ btn_valores.addEventListener("click", function () {
     mensagem.style.display = "block";
     adicionais.style.display = "none";
     adicao.style.display = "none";
+    console.log(valores);
   });
+});
+var btn_volta_esolha = document.getElementById("btn_voltar_escolha");
+btn_volta_esolha.addEventListener("click", function () {
+  escolha.style.display = "block";
+  adicionais.style.display = "none";
+  removeTicks();
+  console.log(valores);
 });
 
 function mostrarDados() {
@@ -470,21 +479,22 @@ function horadia() {
   if (diaSemana == 1) {
     reshora.style.color = "red";
     reshora.innerHTML = "Fechado";
-    reshora2.innerHTML = "Abriremos amanhã as 14hs. - ";
-    /* ocutar.style.display = 'none' */
+    reshora2.innerHTML = "Voltamos amanhã as 14hs. - ";
+    ocutar.style.display = "none";
   } else {
     if (hora < 14) {
       reshora.style.color = "red";
       reshora.innerHTML = "Fechado";
-      /* ocutar.style.display = 'none'   */
+      reshora2.innerHTML = "Abrirmos as 14hs. - ";
+      ocutar.style.display = "none";
     } else if (hora > 23) {
       reshora.style.color = "red";
       reshora.innerHTML = "Fechado:";
-      /* ocutar.style.display = 'none' */
+      ocutar.style.display = "none";
     } else {
       reshora.innerHTML = "Aberto:";
       reshora2.innerHTML = "Deus Abençoe";
-      /*ocutar.style.display = 'block' */
+      ocutar.style.display = "block";
     }
     hdia.innerHTML = hora + ":" + minutos + " - ";
   }
@@ -770,7 +780,12 @@ function mostrarValorNaTela() {
     );
   } else {
     alert("Total pedido R$" + t + ",00");
-    alert(dic[0].split(' ')[0] + " está isento da taxa de entrega R$" + dic[5] + ",00");
+    alert(
+      dic[0].split(" ")[0] +
+        " está isento da taxa de entrega R$" +
+        dic[5] +
+        ",00"
+    );
   }
 }
 /*
@@ -1039,7 +1054,7 @@ function formatarArrayWhats(array) {
 }
 
 /*------Direcionar para o google maps------ */
-var local = document.getElementById('local')
-local.addEventListener('click', function(){
-  window.open(url,"https://maps.app.goo.gl/mHvD2JghLmRjR9A78")
-})
+var local = document.getElementById("local");
+local.addEventListener("click", function () {
+  window.open(url, "https://maps.app.goo.gl/mHvD2JghLmRjR9A78");
+});

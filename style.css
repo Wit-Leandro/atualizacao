@@ -248,6 +248,7 @@ footer {
   margin: 0;
   display: inline-flex;
 }
+
 #imagem_copo {
   margin-top: 10px;
 }
@@ -721,7 +722,7 @@ footer {
 }
 .btn_escolha {
   padding-left: 100px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .pagamento {
   display: none;
