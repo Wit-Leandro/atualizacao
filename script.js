@@ -10,6 +10,7 @@ var dados_cliente = document.getElementById("login");
 var welcome = document.getElementById("welcome");
 var select_marmita = document.getElementById("meu_select_marmita").value;
 var select_adicao = document.getElementById("meu_select_adicao");
+var meu_select_salada = document.getElementById("meu_select_salada");
 var adicionais = document.getElementById("adicionais");
 var limite = 0;
 var checkboxes = document.querySelectorAll(".checkbox");
@@ -55,6 +56,11 @@ sessionStorage.setItem("adiciona", JSON.stringify(adiciona));
 var total_Compra = 0;
 var numeroDoPedido = "";
 var whats_colher = "";
+var shake_tradicional = document.getElementById("shake_tradicional");
+var shake_especial = document.getElementById("shake_especial");
+var adicionais_salada = document.getElementById("adicionais_salada");
+var complemento_salada = document.getElementById("complemento_salada");
+var sabor_trad = document.getElementById("sabor_trad");
 
 /*--------- inicio das funçoes -----*/
 
@@ -150,6 +156,108 @@ limpar.addEventListener("click", () => {
 
 checkUser();
 checkRegiao();
+/*--------------AÇAI TRADICIONAIS---------- */
+var btn_trad_copo = document.getElementById("btn_trad_copo");
+btn_trad_copo.addEventListener("click", function (e) {
+  e.preventDefault();
+  var meu_select_trad_copo = document.getElementById(
+    "meu_select_trad_copo"
+  ).value;
+  if (meu_select_trad_copo === "300ml") {
+    const pedido = { acai: "Copo tradicional de 300ml", limit: 10, valor: 9 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_trad_copo === "400ml") {
+    const pedido = { acai: "Copo tradicional de 400ml", limit: 10, valor: 12 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_trad_copo === "500ml") {
+    const pedido = { acai: "Copo tradicional de 500ml", limit: 10, valor: 15 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_trad_copo === "700ml") {
+    const pedido = { acai: "Copo tradicional de 700ml", limit: 10, valor: 24 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  }
+  escolha.style.display = "none";
+  mensagem.style.display = "block";
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite = userPedido;
+});
+
+var btn_trad_marmita = document.getElementById("btn_trad_marmita");
+btn_trad_marmita.addEventListener("click", function (e) {
+  e.preventDefault();
+  var meu_select_trad_marmita = document.getElementById(
+    "meu_select_trad_marmita"
+  ).value;
+  if (meu_select_trad_marmita === "500ml") {
+    const pedido = {
+      acai: "Marmita tradicional de 500ml",
+      limit: 10,
+      valor: 16,
+    };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_trad_marmita === "750ml") {
+    const pedido = {
+      acai: "Marmita tradicional de 750ml",
+      limit: 10,
+      valor: 24,
+    };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_trad_marmita === "1200ml") {
+    const pedido = {
+      acai: "Marmita tradicional de 1200ml",
+      limit: 10,
+      valor: 34,
+    };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  }
+  escolha.style.display = "none";
+  mensagem.style.display = "block";
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite = userPedido;
+});
+
+var btn_trad_pote = document.getElementById("btn_trad_pote");
+btn_trad_pote.addEventListener("click", function (e) {
+  e.preventDefault();
+  var meu_select_trad_pote = document.getElementById(
+    "meu_select_trad_pote"
+  ).value;
+  if (meu_select_trad_pote === "900ml") {
+    const pedido = { acai: "Pote tradicional de 900ml", limit: 10, valor: 26 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_trad_pote === "2 Litros") {
+    const pedido = {
+      acai: "Pote tradicional de 2 Litros",
+      limit: 10,
+      valor: 40,
+    };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_trad_pote === "5 Litros") {
+    const pedido = {
+      acai: "Pote tradicional de 5 Litros",
+      limit: 10,
+      valor: 90,
+    };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_trad_pote === "10 Litros") {
+    const pedido = {
+      acai: "Pote tradicional de 10 Litros",
+      limit: 10,
+      valor: 160,
+    };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  }
+  escolha.style.display = "none";
+  mensagem.style.display = "block";
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite = userPedido;
+});
 
 /*--------- Escolha do copo -----*/
 
@@ -249,6 +357,269 @@ function exibirMarmitas() {
     var imagem_marmita_1200ml = document.createElement("img");
     imagem_marmita_1200ml.src = "imagens/marmita1200ml.jpg";
     imagem_marmita.appendChild(imagem_marmita_1200ml);
+  }
+}
+/*----------------MILK SHAKE------------------- */
+var btn_shake = document.getElementById("btn_shake");
+btn_shake.addEventListener("click", function (e) {
+  e.preventDefault();
+  var meu_select_shake = document.getElementById("meu_select_shake").value;
+  if (meu_select_shake === "T300ml") {
+    milk_shake = "T";
+    sabor_trad.style.display = "block";
+    const pedido = { acai: "Shake Tradiconal de 300ml", limit: 10, valor: 10 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_shake === "T400ml") {
+    milk_shake = "T";
+    sabor_trad.style.display = "block";
+    const pedido = { acai: "Shake Tradiconal de 400ml", limit: 10, valor: 12 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_shake === "T500ml") {
+    milk_shake = "T";
+    sabor_trad.style.display = "block";
+    const pedido = { acai: "Shake Tradiconal de 500ml", limit: 10, valor: 14 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_shake === "T700ml") {
+    milk_shake = "T";
+    sabor_trad.style.display = "block";
+    const pedido = { acai: "Shake Tradiconal de 700ml", limit: 10, valor: 18 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_shake === "S300ml") {
+    milk_shake = "S";
+    sabor_especial.style.display = "block";
+    const pedido = { acai: "Shake Especial de 300ml", limit: 10, valor: 12 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_shake === "S400ml") {
+    milk_shake = "S";
+    sabor_especial.style.display = "block";
+    const pedido = { acai: "Shake Especial de 400ml", limit: 10, valor: 14 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_shake === "S500ml") {
+    milk_shake = "S";
+    sabor_especial.style.display = "block";
+    const pedido = { acai: "Shake Especial de 500ml", limit: 10, valor: 16 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_shake === "S700ml") {
+    milk_shake = "S";
+    sabor_especial.style.display = "block";
+    const pedido = { acai: "Shake Especial de 700ml", limit: 10, valor: 20 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  }
+
+  escolha.style.display = "none";
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite = userPedido;
+  resadicao.innerHTML =
+    dic[0].split(" ")[0] + " Escolha sabor do seu Milk-Shake";
+});
+var sabor_especial = document.getElementById("sabor_especial");
+var btn_escolha_especial = document.getElementById("btn_escolha_especial");
+btn_escolha_especial.addEventListener("click", function () {
+  sabor_especial.style.display = "none";
+  coberturas.style.display = "block";
+});
+
+var milk_shake = "";
+
+var coberturas = document.getElementById("coberturas");
+var btn_escolha_shake = document.getElementById("btn_escolha_shake");
+btn_escolha_shake.addEventListener("click", function () {
+  sabor_trad.style.display = "none";
+  coberturas.style.display = "block";
+});
+var complemento_shake = document.getElementById("complemento_shake");
+var btn_escolha_cobertura = document.getElementById("btn_escolha_cobertura");
+btn_escolha_cobertura.addEventListener("click", function () {
+  checkboxes.forEach(function (checkbox) {
+    if (checkbox.checked) {
+      comp_cobertura.push(checkbox.value);
+    }
+    coberturas.style.display = "none";
+    complemento_shake.style.display = "block";
+  });
+});
+
+var comp_cobertura = [];
+var comp_shake = [];
+var proc_shake = [
+  "Leite_Condençado",
+  "Cr_Nutella",
+  "Cr_Leite_Ninho",
+  "Cr_Morango",
+  "Cr_Bombom",
+  "Cr_Chocobis",
+  "Cr_Pacoca",
+  "Cr_Ovo_Maltine",
+  "Confete",
+  "Mini_Chocoball",
+  "ChocoBall",
+  "Power_Ball",
+  "Sucrilhos",
+  "Leite_em_Po",
+  "Ouro_Branco",
+  "Amendoin",
+  "Farofa_de_Paçoca",
+  "Granola",
+  "Bis_Preto",
+  "Bis_Branco",
+  "Paçoca_com_Chocolate",
+  "Paçoca_com_Chocolate_Branco",
+  "Ovo_Maltine",
+  "Canudos",
+  "Mashomallons",
+  "Gotas_de_Chocolate",
+];
+var proc_cobertura = [
+  "Cobertura:Caramelo",
+  "Cobertura:Goiaba",
+  "Cobertura:Chocolate",
+  "Cobertura:Maracuja",
+  "Cobertura:Frutas Vermelhas",
+  "Cobertura:Brigadeiro",
+  "Cobertura:Morango",
+  "Cobertura:Leite_Condençado",
+  "Cobertura:Coco",
+  "Cobertura:Chiclete",
+  "Cobertura:Doce de Leite",
+  "Cobertura:Abacaxi",
+  "Cobertura:Limão Galego",
+  "Cobertura:Amora",
+];
+
+var btn_escolha_complemento_shake = document.getElementById(
+  "btn_escolha_complemento_shake"
+);
+btn_escolha_complemento_shake.addEventListener("click", function () {
+  checkboxes.forEach(function (checkbox) {
+    if (checkbox.checked) {
+      valores.push(checkbox.value);
+      comp_shake.push(checkbox.value);
+    }
+    complemento_shake.style.display = "none";
+    mensagem.style.display = "block";
+    adicao.style.display = "none";
+    console.log(comp_shake);
+  });
+});
+
+/*-----exibir salada de frutas---------- */
+function exibirSalada() {
+  var imagem_salada = document.getElementById("imagem_salada");
+  var meu_salada = document.querySelector(".select_salada").value;
+  imagem_salada.innerHTML = "";
+  if (meu_salada === "300ml") {
+    var imagem_salada_300ml = document.createElement("img");
+    imagem_salada_300ml.src = "imagens/salada300ml.png";
+    imagem_salada.appendChild(imagem_salada_300ml);
+  } else if (meu_salada === "400ml") {
+    var imagem_salada_400ml = document.createElement("img");
+    imagem_salada_400ml.src = "imagens/salada400ml.png";
+    imagem_salada.appendChild(imagem_salada_400ml);
+  } else if (meu_salada === "500ml") {
+    var imagem_salada_500ml = document.createElement("png");
+    imagem_salada_500ml.src = "imagens/salada500ml.jpg";
+    imagem_salada.appendChild(imagem_salada_500ml);
+  } else if (meu_salada === "700ml") {
+    var imagem_salada_700ml = document.createElement("img");
+    imagem_salada_700ml.src = "imagens/salada700ml.png";
+    imagem_salada.appendChild(imagem_salada_700ml);
+  }
+}
+
+var btn_salada = document.getElementById("btn_salada");
+btn_salada.addEventListener("click", function (e) {
+  e.preventDefault();
+  var meu_select_salada = document.getElementById("meu_select_salada").value;
+  if (meu_select_salada === "300ml") {
+    const pedido = { acai: "Salada Frutas de 300ml", limit: 16, valor: 9 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_salada === "400ml") {
+    const pedido = { acai: "Salada Frutas de 400ml", limit: 16, valor: 12 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_salada === "500ml") {
+    const pedido = { acai: "Salada Frutas de 500ml", limit: 16, valor: 14 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_salada === "700ml") {
+    const pedido = { acai: "Salada Frutas de 700ml", limit: 16, valor: 18 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  }
+  escolha.style.display = "none";
+  adicionais_salada.style.display = "block";
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite = userPedido;
+  resadicao.innerHTML =
+    dic[0].split(" ")[0] + " Escolha no minimo 4 frutas para sua salada";
+});
+var btn_escolha_frutas = document.getElementById("btn_escolha_frutas");
+btn_escolha_frutas.addEventListener("click", function () {
+  checkboxes.forEach(function (checkbox) {
+    complemento_salada.style.display = "block";
+    adicionais_salada.style.display = "none";
+    adicao.style.display = "none";
+    console.log(valores);
+  });
+});
+var result = 0;
+var procurar = [
+  "Leite_Condençado",
+  "Calda_Avela",
+  "Creme_Nutella",
+  "Cr_Leite_Ninho",
+  "Granola",
+  "Amendoin",
+  "Leite_em_Po",
+  "Farofa_de_Paçoca",
+  "Sucrilhos",
+];
+var procure_aqui = [];
+var btn_escolha_complemento_frutas = document.getElementById(
+  "btn_escolha_complemento_frutas"
+);
+btn_escolha_complemento_frutas.addEventListener("click", function () {
+  checkboxes.forEach(function (checkbox) {
+    if (checkbox.checked) {
+      valores.push(checkbox.value);
+      procure_aqui.push(checkbox.value);
+    }
+    complemento_salada.style.display = "none";
+    mensagem.style.display = "block";
+    adicao.style.display = "none";
+    console.log(procure_aqui);
+  });
+});
+
+function procurarCobrar(find, proc) {
+  if (milk_shake === "T") {
+    find.forEach(function (v) {
+      if (proc.includes(v.toString())) {
+        valorCompra.push(2);
+      }
+    });
+  } else if (milk_shake === "S") {
+    if (find.length > 1) {
+      valorCompra.push(-2);
+      find.forEach(function (v) {
+        if (proc.includes(v.toString())) {
+          valorCompra.push(2);
+        }
+      });
+    }
+  }
+}
+function procurarCobrarCobbertura(find, proc) {
+  if (find.length > 2) {
+    valorCompra.push(-4);
+    find.forEach(function (v) {
+      if (proc.includes(v.toString())) {
+        valorCompra.push(2);
+      }
+    });
+  } else {
+    valorCompra.push(0);
   }
 }
 
@@ -458,6 +829,19 @@ function openCategory(evt, categoryName) {
   evt.currentTarget.classList.add("active");
 }
 
+function openSubCategory(sub_evt, sub_categoryName) {
+  const sub_category = document.querySelectorAll(".sub_category");
+  sub_category.forEach((sub_category) => {
+    sub_category.style.display = "none";
+  });
+  const sub_tabs = document.querySelectorAll("sub_tab");
+  sub_tabs.forEach((sub_tab) => {
+    sub_tab.classList.remove("active");
+  });
+  document.getElementById(sub_categoryName).style.display = "block";
+  sub_evt.currentTarget.classList.add("active");
+}
+
 /*-----------pegar hora--------------*/
 function horadia() {
   var hora = dataAtual.getHours();
@@ -480,21 +864,17 @@ function horadia() {
     reshora.style.color = "red";
     reshora.innerHTML = "Fechado";
     reshora2.innerHTML = "Voltamos amanhã as 14hs. - ";
-  
   } else {
     if (hora < 14) {
       reshora.style.color = "red";
       reshora.innerHTML = "Fechado";
       reshora2.innerHTML = "Abrirmos as 14hs. - ";
-     
     } else if (hora > 23) {
       reshora.style.color = "red";
       reshora.innerHTML = "Fechado:";
-     
     } else {
       reshora.innerHTML = "Aberto:";
       reshora2.innerHTML = "Deus Abençoe";
-    
     }
     hdia.innerHTML = hora + ":" + minutos + " - ";
   }
@@ -555,6 +935,9 @@ btn_sujestao.addEventListener("click", function (e) {
     var digitou = { textoDigitado: clienteDigitou };
     sessionStorage.setItem("digitou", JSON.stringify(digitou));
   }
+  procurarCobrar(procure_aqui, procurar);
+  procurarCobrar(comp_shake, proc_shake);
+  procurarCobrarCobbertura(comp_cobertura, proc_cobertura);
   esconde_carrinho.style.display = "block";
   mensagem.style.display = "none";
 });
@@ -612,6 +995,9 @@ btn_finalizar_carrinho.addEventListener("click", function () {
 btn_comprar_mais.addEventListener("click", function () {
   removeTicks();
   limpaSujestao();
+  procure_aqui = [];
+  comp_cobertura = [];
+  comp_shake = [];
   escolha.style.display = "block";
   esconde_comprar_mais.style.display = "none";
   esconde_finalizar_carrinho.style.display = "none";
@@ -668,6 +1054,20 @@ btn_home.addEventListener("click", function () {
 });
 
 /*-----COPIAR CNPJ------ */
+function copiarCnpj(){
+  var cop_cnpj = '43227642000130'
+  navigator.clipboard.writeText(cop_cnpj).then(
+    function () {
+      alert("Pix copiado para a area de transferencia");
+    },
+    function (err) {
+      alert("Erro ao copiar texto para a area de transferencia");
+    }
+  )
+}
+
+
+/*
 var btn_copiar_cnpj = document.getElementById("copiar_chave");
 btn_copiar_cnpj.addEventListener("click", function () {
   const cnpj = document.getElementById("cnpj").innerText;
@@ -679,7 +1079,7 @@ btn_copiar_cnpj.addEventListener("click", function () {
       alert("Erro ao copiar texto para a area de transferencia");
     }
   );
-});
+});*/
 /*----funcionalidades dos botoes de pagamentos---- */
 var pagamentos = document.getElementById("pagamento");
 var btn_pix = document.getElementById("btn_pix");
@@ -699,6 +1099,7 @@ btn_pix.addEventListener("click", function () {
   res_pix.style.display = "block";
   res_cartao.style.display = "none";
   res_dinheiro.style.display = "none";
+  generateQRCode()
 });
 btn_cartao.addEventListener("click", function () {
   res_pix.style.display = "none";
@@ -1058,3 +1459,131 @@ var local = document.getElementById("local");
 local.addEventListener("click", function () {
   window.open(url, "https://maps.app.goo.gl/mHvD2JghLmRjR9A78");
 });
+
+/*----varrer checkbox e contar adicionais------ */
+function contagemValores() {
+  const checkboxes = document.querySelectorAll('input[name"checkbox"]:checked');
+  const valores_procurados = ["Leite_Condençado", "Calda_Avela"];
+  checkboxes.forEach(function (checkbox) {
+    if (valores_procurados.includes(checkbox.value)) {
+      valorCompra.push(2);
+    }
+  });
+}
+
+/*----GERAR QRCODE-------------- */
+const cnpjPixKey = "43227642000130"; // Substitua pelo seu CNPJ fixo
+
+function padStart(str, targetLength, padString) {
+  targetLength = targetLength >> 0; // Truncate if number, or convert non-number to 0;
+  padString = String(padString || " ");
+  if (str.length > targetLength) {
+    return String(str);
+  } else {
+    targetLength = targetLength - str.length;
+    if (targetLength > padString.length) {
+      padString += padString.repeat(targetLength / padString.length); // Append to original to ensure we are longer than needed
+    }
+    return padString.slice(0, targetLength) + String(str);
+  }
+}
+
+function calculateCRC(payload) {
+  let polinomio = 0x1021;
+  let resultado = 0xffff;
+
+  for (let byte of payload) {
+    resultado ^= byte.charCodeAt(0) << 8;
+    for (let bit = 0; bit < 8; bit++) {
+      if ((resultado <<= 1) & 0x10000) resultado ^= polinomio;
+      resultado &= 0xffff;
+    }
+  }
+
+  return padStart(resultado.toString(16).toUpperCase(), 4, "0");
+}
+
+function formatField(id, value) {
+  const length = value.length.toString().padStart(2, "0");
+  return id + length + value;
+}
+
+function generateQRCode() {
+  const amount = parseFloat(valorTotalFrete()).toFixed(2);
+
+  const payloadFormatIndicator = formatField("00", "01");
+  const pointOfInitiationMethod = formatField("01", "12");
+  const merchantAccountInformation = formatField(
+    "26",
+    formatField("00", "BR.GOV.BCB.PIX") + formatField("01", cnpjPixKey)
+  );
+  const merchantCategoryCode = formatField("52", "0000");
+  const transactionCurrency = formatField("53", "986");
+  const transactionAmount = formatField("54", amount);
+  const countryCode = formatField("58", "BR");
+  const merchantName = formatField("59", "Wanderlei Junior");
+  const merchantCity = formatField("60", "TARUMA");
+  const additionalDataFieldTemplate = formatField(
+    "62",
+    formatField("05", "***")
+  );
+
+  let pixPayload =
+    payloadFormatIndicator +
+    pointOfInitiationMethod +
+    merchantAccountInformation +
+    merchantCategoryCode +
+    transactionCurrency +
+    transactionAmount +
+    countryCode +
+    merchantName +
+    merchantCity +
+    additionalDataFieldTemplate +
+    "6304";
+
+  const crc = calculateCRC(pixPayload);
+  pixPayload += crc;
+
+  // Gerar QR Code
+  QRCode.toCanvas(
+    document.getElementById("qrcode"),
+    pixPayload,
+    function (error) {
+      if (error) console.error(error);
+      console.log("QR code gerado!");
+    }
+  );
+
+  // Exibir payload para copiar e colar
+  document.getElementById("pixCopyPaste").value = pixPayload;
+}
+
+function copyToClipboard() {
+  const copyText = document.getElementById("pixCopyPaste");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // Para dispositivos móveis
+
+  document.execCommand("copy");
+  alert("Qrcode copiado" + copyText.value);
+}
+
+function valorTotalFrete(){
+  var t = somarArray(valorCompra);
+
+  if (t < 20 && dic[4] === "Tarumã") {
+    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00";
+    t = t + dic[5];
+  } else if (t < 150 && dic[4] === "Usina Nova America") {
+    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00";
+    t = t + dic[5];
+  } else if (t < 50 && dic[4] === "Usina Agua Bonita") {
+    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00";
+    t = t + dic[5];
+  } else if (t < 50 && dic[4] === "Posto Pioneiro") {
+    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00";
+    t = t + dic[5];
+  } else {
+    taxa.innerHTML = "Taxa de entrega isento";
+  }
+  return t
+}

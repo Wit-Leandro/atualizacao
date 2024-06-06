@@ -1,0 +1,25 @@
+var btn_trad_pote = document.getElementById("btn_trad_pote");
+btn_trad_pote.addEventListener("click", function (e) {
+  e.preventDefault();
+  var meu_select_trad_pote = document.getElementById("meu_select_pote").value;
+  if (meu_select_trad_pote === "300ml") {
+    const pedido = { acai: "pote tradicional de 300ml", limit: 10, valor: 9 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_trad_pote === "400ml") {
+    const pedido = { acai: "pote tradicional de 400ml", limit: 10, valor: 12 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_trad_pote === "500ml") {
+    const pedido = { acai: "pote tradicional de 500ml", limit: 10, valor: 15 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_trad_pote === "700ml") {
+    const pedido = { acai: "pote tradicional de 700ml", limit: 10, valor: 24 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  }
+  escolha.style.display = "none";
+  mensagem.style.display = "block";
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite = userPedido;
+
+});
