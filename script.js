@@ -444,7 +444,7 @@ btn_escolha_cobertura.addEventListener("click", function () {
 var comp_cobertura = [];
 var comp_shake = [];
 var proc_shake = [
-  "Leite_Condençado",
+  "Leite_condensado",
   "Cr_Nutella",
   "Cr_Leite_Ninho",
   "Cr_Morango",
@@ -479,7 +479,7 @@ var proc_cobertura = [
   "Cobertura:Frutas Vermelhas",
   "Cobertura:Brigadeiro",
   "Cobertura:Morango",
-  "Cobertura:Leite_Condençado",
+  "Cobertura:Leite_condensado",
   "Cobertura:Coco",
   "Cobertura:Chiclete",
   "Cobertura:Doce de Leite",
@@ -565,7 +565,7 @@ btn_escolha_frutas.addEventListener("click", function () {
 });
 var result = 0;
 var procurar = [
-  "Leite_Condençado",
+  "Leite_condensado",
   "Calda_Avela",
   "Creme_Nutella",
   "Cr_Leite_Ninho",
@@ -1142,51 +1142,17 @@ function mostrarValorNaTela() {
   if (t < 20 && dic[4] === "Tarumã") {
     falta = 20 - t;
     alert("Total pedido R$" + t + ",00");
-    alert(
-      "faltam apenas R$" +
-        falta +
-        ",00 para ficar isento da taxa de entrega R$" +
-        dic[5] +
-        ",00"
-    );
   } else if (t < 150 && dic[4] === "Usina Nova America") {
     falta = 150 - t;
     alert("Total pedido R$" + t + ",00");
-    alert(
-      "faltam apenas R$" +
-        falta +
-        ",00 para ficar isento da taxa de entrega R$" +
-        dic[5] +
-        ",00"
-    );
   } else if (t < 50 && dic[4] === "Usina Agua Bonita") {
     falta = 50 - t;
     alert("Total pedido R$" + t + ",00");
-    alert(
-      "faltam apenas R$" +
-        falta +
-        ",00 para ficar isento da taxa de entrega R$" +
-        dic[5] +
-        ",00"
-    );
   } else if (t < 50 && dic[4] === "Posto Pioneiro") {
     falta = 50 - t;
     alert("Total pedido R$" + t + ",00");
-    alert(
-      "falta apenas R$" +
-        falta +
-        ",00 para ficar isento da taxa de entrega R$" +
-        dic[5] +
-        ",00"
-    );
   } else {
     alert("Total pedido R$" + t + ",00");
-    alert(
-      dic[0].split(" ")[0] +
-        " está isento da taxa de entrega R$" +
-        dic[5] +
-        ",00"
-    );
   }
 }
 /*
@@ -1463,7 +1429,7 @@ local.addEventListener("click", function () {
 /*----varrer checkbox e contar adicionais------ */
 function contagemValores() {
   const checkboxes = document.querySelectorAll('input[name"checkbox"]:checked');
-  const valores_procurados = ["Leite_Condençado", "Calda_Avela"];
+  const valores_procurados = ["Leite_condensado", "Calda_Avela"];
   checkboxes.forEach(function (checkbox) {
     if (valores_procurados.includes(checkbox.value)) {
       valorCompra.push(2);
@@ -1521,7 +1487,7 @@ function generateQRCode() {
   const transactionCurrency = formatField("53", "986");
   const transactionAmount = formatField("54", amount);
   const countryCode = formatField("58", "BR");
-  const merchantName = formatField("59", "Wanderlei Junior");
+  const merchantName = formatField("59", "WanderleiJunior");
   const merchantCity = formatField("60", "TARUMA");
   const additionalDataFieldTemplate = formatField(
     "62",
