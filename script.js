@@ -361,6 +361,7 @@ function exibirMarmitas() {
 }
 /*----------------MILK SHAKE------------------- */
 var btn_shake = document.getElementById("btn_shake");
+var res_comp_shake = document.getElementById('res_complemento_shake')
 btn_shake.addEventListener("click", function (e) {
   e.preventDefault();
   var meu_select_shake = document.getElementById("meu_select_shake").value;
@@ -369,41 +370,49 @@ btn_shake.addEventListener("click", function (e) {
     sabor_trad.style.display = "block";
     const pedido = { acai: "Shake Tradiconal de 300ml", limit: 10, valor: 10 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
+    res_comp_shake.innerHTML = 'R$ 2,00 Cada'
   } else if (meu_select_shake === "T400ml") {
     milk_shake = "T";
     sabor_trad.style.display = "block";
     const pedido = { acai: "Shake Tradiconal de 400ml", limit: 10, valor: 12 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
+    res_comp_shake.innerHTML = 'R$ 2,00 Cada'
   } else if (meu_select_shake === "T500ml") {
     milk_shake = "T";
     sabor_trad.style.display = "block";
     const pedido = { acai: "Shake Tradiconal de 500ml", limit: 10, valor: 14 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
+    res_comp_shake.innerHTML = 'R$ 2,00 Cada'
   } else if (meu_select_shake === "T700ml") {
     milk_shake = "T";
     sabor_trad.style.display = "block";
     const pedido = { acai: "Shake Tradiconal de 700ml", limit: 10, valor: 18 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
+    res_comp_shake.innerHTML = 'R$ 2,00 Cada'
   } else if (meu_select_shake === "S300ml") {
     milk_shake = "S";
     sabor_especial.style.display = "block";
     const pedido = { acai: "Shake Especial de 300ml", limit: 10, valor: 12 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
+    res_comp_shake.innerHTML = 'Você possui 1 sem o acréscimo \nR$ 2,00 Cada'
   } else if (meu_select_shake === "S400ml") {
     milk_shake = "S";
     sabor_especial.style.display = "block";
     const pedido = { acai: "Shake Especial de 400ml", limit: 10, valor: 14 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
+    res_comp_shake.innerHTML = 'Você possui 1 sem o acréscimo \nR$ 2,00 Cada'
   } else if (meu_select_shake === "S500ml") {
     milk_shake = "S";
     sabor_especial.style.display = "block";
     const pedido = { acai: "Shake Especial de 500ml", limit: 10, valor: 16 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
+    res_comp_shake.innerHTML = 'Você possui 1 sem o acréscimo \nR$ 2,00 Cada'
   } else if (meu_select_shake === "S700ml") {
     milk_shake = "S";
     sabor_especial.style.display = "block";
     const pedido = { acai: "Shake Especial de 700ml", limit: 10, valor: 20 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
+    res_comp_shake.innerHTML = 'Você possui 1 sem o acréscimo R$ 2,00 Cada'
   }
 
   escolha.style.display = "none";

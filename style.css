@@ -25,13 +25,16 @@ body {
 #sabor_trad {
   padding-left: 10px;
   display: none;
-
 }
+
 #sabor_especial {
   padding-left: 10px;
   display: none;
-
 }
+#meu_select_salada {
+  margin-left: 30px;
+}
+
 
 
 #coberturas {
@@ -39,6 +42,37 @@ body {
   display: none;
   
 }
+#acai_tradicional{
+  padding: 10px;
+  box-shadow: 4px 4px 50px #370246;
+  justify-content: center;
+  justify-items: center;
+  border-radius: 20px;
+}
+#acai_tradicional h4 {
+  font-size: medium;
+  color: #370246;
+  margin-left: 80px;
+}
+#acai_tradicional p {
+  margin-left: 105px;
+}
+#acai_tradicional div {
+  margin-left: 30px;
+}
+#trad_copo div {
+  margin-top: 20px;
+}
+#trad_marmita div {
+  margin-top: 20px;
+}
+#trad_pote div {
+  margin-top: 20px;
+}
+#res_complemento_shake{
+  font-size: smaller;
+}
+
 
 
 .container {
@@ -259,6 +293,7 @@ footer {
   display: flex;
   margin-top: 5px;
 }
+
 .tab {
   background-color: rgb(128, 32, 78);
   color: #fff;
