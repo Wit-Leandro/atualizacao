@@ -242,8 +242,7 @@ btns:hover {
 #adicao {
   margin-top: 10px;
   display: none;
-  border-bottom: solid 2px #440456;
-  border-top: solid 2px #440456;
+  box-shadow: 10px 10px 100px #210129;
   width: 350px;
   padding-left: 5px;
   justify-content: center;
@@ -393,9 +392,10 @@ footer {
 }
 .btn_s_n {
   display: inline-flex;
+  padding-left: 80px;
 }
 .btn_s_n button {
-  margin: 10px;
+  margin: 10px 10px 0px 15px;
 }
 #login {
   padding: 0 80px 0 80px;
@@ -1786,6 +1786,7 @@ footer {
 .res_dinheiro label{
   display: block;
 }
+
 
 /*-------grid forma de pagamento-----*/
 .grid_pgto {

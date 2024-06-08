@@ -50,7 +50,7 @@
         <div class="tab-container2">
           <button class="tab" onclick="openCategory('evt','salada')">Salada Frutas</button>
           <button class="tab" onclick="openCategory('evt','shake')">Milk Shake</button>
-          <button class="tab" onclick="openCategory('evt','acai_tradicional')">Tradicional</button>
+          <button class="tab" onclick="openCategory('evt','acai_tradicional')">Sem Recheio</button>
         </div>
 
         <div id="usuario">
@@ -327,7 +327,7 @@
         </select>-->
         <div class="btn_s_n">
           <button class="btns" id="btn_compra_add">Quero mais 1!</button>
-          <button class="btns" id="btn_negar_compra_add">Não, Obrigado!</button>
+          <!--<button class="btns" id="btn_negar_compra_add">Não, Obrigado!</button>-->
         </div>
         <p id="res_add_cliente"></p>
       </div>
@@ -335,7 +335,7 @@
       <div id="adicionais">
         <p id="resadicao"></p>
         <div class="btn_escolha">
-          <button class="btns" id="btn_voltar_escolha">Voltar para seleção</button>
+          <!--<button class="btns" id="btn_voltar_escolha">Voltar para seleção</button>-->
           <button class="btns" id="btn_valores">Escolhi! &#128077</button>
         </div>
         <div class="cx_add1">
@@ -603,6 +603,7 @@
 
       <div class="sabor_trad" id="sabor_trad">
         <h1>-*- SABOR -*-</h1>
+        <p>Escolha apenas 2</p>
         <button class="btns" id="btn_escolha_shake">Avançar!</button>
         <div class="cx_add_shake">
           <h3 class="grid_titulo_shake">Sabores</h3>
@@ -670,6 +671,7 @@
 
       <div class="sabor_especial" id="sabor_especial">
         <h1>-*- SABOR -*-</h1>
+        <p>Escolha apenas 2</p>
         <button class="btns" id="btn_escolha_especial">Avançar!</button>
         <div class="cx_add_especial">
           <h3 class="grid_titulo_especial">Sabores</h3>
@@ -708,7 +710,7 @@
 
       <div id="coberturas">
         <p>-*- COBERTURAS -*-</p>
-        <p>Até 2 sem acréscimo</p>
+        <p>Escolha apenas 2</p>
         <button class="btns" id="btn_escolha_cobertura">Avançar!</button>
         <div class="cx_add_cobertura">
           <h3 class="grid_titulo_cobertura">coberturas</h3>
@@ -761,6 +763,7 @@
       <div id="complemento_shake">
         <p>-*- COMPLEMENTOS -*-</p>
         <p id="res_complemento_shake"></p>
+        <p>Escolha apenas 2</p>
         <button class="btns" id="btn_escolha_complemento_shake">Avançar!</button>
         <div class="cx_add_complemento_shake">
           <h3 class="grid_titulo_complemento_shake">coberturas</h3>
@@ -1032,7 +1035,7 @@
 
       </div>
 
-      <footer>
+      <footer id="rodape">
         <p>
           Taxa de entrega é cobrada de acordo com cada entrega, o valor minimo é R$2,00.
         </p>
