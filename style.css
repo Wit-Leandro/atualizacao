@@ -1697,7 +1697,17 @@ footer {
 .res_pix p {
   padding-left: 10px;
 }
-
+.res_qrcode{
+  padding-left: 50px;
+  margin-top: 10px;
+}
+.res_btn_pix{
+  padding-left: 20px;
+}
+.img_whats{
+  width: 15px;
+  margin-left: 5px;
+}
 .res_cartao {
   display: none;
   border-radius: 20px;
@@ -1712,6 +1722,7 @@ footer {
 }
 .cliqueaqui{
   color: blue;
+  margin-bottom: 10px;
 }
 .res_cartao h3 {
   color: #210129;

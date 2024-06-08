@@ -1095,6 +1095,7 @@ var res_pagamento = document.getElementById("res_pagamento");
 var obs_pagamento = document.getElementById("obs_pagamento");
 var valor_pagamento = document.getElementById("valor_pagamentos");
 
+
 btn_pix.addEventListener("click", function () {
   res_pix.style.display = "block";
   res_cartao.style.display = "none";
@@ -1528,9 +1529,16 @@ function copyToClipboard() {
   const copyText = document.getElementById("pixCopyPaste");
   copyText.select();
   copyText.setSelectionRange(0, 99999); // Para dispositivos móveis
-
   document.execCommand("copy");
-  alert("Qrcode copiado" + copyText.value);
+
+  navigator.clipboard.writeText(copyText.value).then(
+    function () {
+      alert("Qrcode copiado");
+    },
+    function (err) {
+      alert("Erro ao copiar");
+    }
+  )
 }
 
 function valorTotalFrete(){
@@ -1553,3 +1561,4 @@ function valorTotalFrete(){
   }
   return t
 }
+

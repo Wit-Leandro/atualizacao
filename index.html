@@ -991,10 +991,14 @@
           <h3>PIX selecionado &#128242</h3>
           <h5 onclick="copiarCnpj()" class="cliqueaqui">Wanderlei Junior chave Pix: CNPJ:43227642000130</h5>
           <!--<button class="btns" id="copiar_chave">Copiar CNPJ!</button>-->
-          <button class="btns" id="env_pix">Enviar - Whats-app</button>
-          <button class="btns" onclick="copyToClipboard()">Copiar Qrcode</button>
+
           <canvas id="qrcode"></canvas>
-          <textarea id="pixCopyPaste" rows="1" cols="13" readonly></textarea>
+          <div class="res_qrcode"><textarea id="pixCopyPaste" rows="1" cols="33" readonly></textarea></div>
+          <div class="res_btn_pix">
+            <button class="btns" id="env_pix">Enviar Whatsapp <img class="img_whats" src="imagens/whatsapp.png" alt="img-whats"></button>
+            <button class="btns" onclick="copyToClipboard()">Copiar Qrcode</button>
+          </div>
+
         
         </div>
 
