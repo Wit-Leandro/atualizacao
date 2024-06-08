@@ -1283,6 +1283,7 @@ env_pix.addEventListener("click", function () {
     "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
 
   window.open(linkWhatsApp);
+  alert('"ENVIAR COMPROVANTE DO PIX VIA WHATSAPP"')
 });
 env_cartao.addEventListener("click", function () {
   res_pagamento.innerHTML = "Pagamento via - CARTÃO";

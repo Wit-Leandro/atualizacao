@@ -12,6 +12,12 @@ body {
   display: none;
 
 }
+.alerta_pgto {
+  font-size: small;
+  font-weight: bold;
+  color: red;
+  padding: 20px 0 20px 0;
+}
 #complemento_salada{
   padding-left: 10px;
   display: none;
