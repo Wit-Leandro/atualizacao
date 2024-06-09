@@ -126,7 +126,7 @@ function checkUser() {
     msgcadastro.style.display = "none";
     formulario.style.display = "none";
     welcome.style.display = "block";
-    nome_cliente.innerHTML = username.split(" ")[0] + " \u{1F609}";
+    nome_cliente.innerHTML = username.split(" ")[0];
     clearr.style.display = "block";
   } else {
     msgcadastro.style.display = "block";
@@ -606,12 +606,14 @@ btn_salada.addEventListener("click", function (e) {
 });
 var btn_escolha_frutas = document.getElementById("btn_escolha_frutas");
 btn_escolha_frutas.addEventListener("click", function () {
-  checkboxes.forEach(function (checkbox) {
+  if (contarSelecionados() <= 3){
+    alert('Por favor, selecione pelo menos 4 frutas')
+  }
+  else {
     complemento_salada.style.display = "block";
     adicionais_salada.style.display = "none";
     adicao.style.display = "none";
-    console.log(valores);
-  });
+  }
 });
 var result = 0;
 var procurar = [
@@ -660,6 +662,21 @@ function procurarCobrar(find, proc) {
     }
   }
 }
+
+function procurarCobrarfrutas(find, proc) {
+    find.forEach(function (v) {
+      if (proc.includes(v.toString())) {
+        valorCompra.push(2);
+      }
+      else {
+        valorCompra.push(0)
+      }
+    });
+  } 
+
+
+
+
 /*
 function procurarCobrarCobbertura(find, proc) {
   if (find.length > 2) {
@@ -692,7 +709,7 @@ btn_compra_add.addEventListener("click", function () {
   const adiciona = { vlr: 0, obs: msg };
   sessionStorage.setItem("adiciona", JSON.stringify(adiciona));
   valorCompra.push(3);
-  alert("Sucesso!! foram adicionados + 1 \u{1F60A}");
+  alert("Sucesso!! Você comprou + 1 adiconal \u{1F60A}");
   resadicao.innerHTML =
     dic[0].split(" ")[0] + ", Escolha " + somarArray(limite) + " adiconais para seu açai";
   adicionais.style.display = "block";
@@ -809,6 +826,10 @@ function calcTaxa() {
 /*--------- finalizaçao e exibiçao do pedido -----*/
 
 btn_valores.addEventListener("click", function () {
+  if (contarSelecionados() == 0) {
+    alert('Nehum adcional ou complemento selecionado')
+  }
+  else {
   checkboxes.forEach(function (checkbox) {
     if (checkbox.checked) {
       valores.push(checkbox.value);
@@ -818,6 +839,7 @@ btn_valores.addEventListener("click", function () {
     adicao.style.display = "none";
     console.log(valores);
   });
+}
 });
 /*
 var btn_volta_esolha = document.getElementById("btn_voltar_escolha");
@@ -993,7 +1015,7 @@ btn_sujestao.addEventListener("click", function (e) {
     var digitou = { textoDigitado: clienteDigitou };
     sessionStorage.setItem("digitou", JSON.stringify(digitou));
   }
-  procurarCobrar(procure_aqui, procurar);
+  procurarCobrarfrutas(procure_aqui, procurar);
   procurarCobrar(comp_shake, proc_shake);
   esconde_carrinho.style.display = "block";
   mensagem.style.display = "none";
