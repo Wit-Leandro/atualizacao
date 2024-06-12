@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class="container">
-      <header>
+      <header id="oct_header">
         <div class="cabecalho">
           <div class="imgcabeca">
             <img class="imgdcab" src="imagens/logo2.png" alt="logo-tio-chico" />
@@ -31,7 +31,7 @@
 
       </header>
 
-      <div class="horas">
+      <div id="oct_hora" class="horas">
         <span id="reshora"></span>
         <p id="hdia"></p>
         <span id="reshora2"></span>
@@ -133,17 +133,28 @@
         </div>
 
         <div class="category" id="salada">
+          <p>Selecione o copo desejado!</p>
           <select id="meu_select_salada" onchange="exibirSalada()" class="select_salada">
   
-          <option value="300ml">300ml R$ 9,00</option>
-          <option value="400ml">400ml R$ 12,00</option>
-          <option value="500ml">500ml R$ 14,00</option>
-          <option value="700ml">700ml R$ 18,00</option>  
+          <option value="300ml">COPO 300ml R$ 9,00</option>
+          <option value="400ml">COPO 400ml R$ 12,00</option>
+          <option value="500ml">COPO 500ml R$ 14,00</option>
+          <option value="700ml">COPO 700ml R$ 18,00</option>  
         </select>
 
         <button class="btns" id="btn_salada">Quero esse copo!</button>  
         <div id="imagem_salada">
-          <img src="imagens/salada300ml.png" alt="copo_salada" />
+          <p>Frutas Disponiveis</p>
+          <ul>
+            <li>MORANGO</li>
+            <li>BANANA</li>
+            <li>KIWI</li>
+            <li>ABACAXI</li>
+            <li>MANGA</li>
+            <li>UVA VERDE</li>
+            <li>UVA ROXA</li>
+          </ul>
+        
         </div>
 
         </div>
@@ -271,12 +282,16 @@
       </div>
 
       <div id="esconde_carrinho">
-        <button class="btns" onclick="adicionarCarrinho()">Adicionar &#128722</button>
+        <p>Adicione seu Pedido ao carrinho!</p>
+        <button id="btn_carrinho" class="btns" onclick="adicionarCarrinho()">Adicionar &#128722</button>
         <p id="carrinho_atualizado"></p>
 
       </div>
       
       <div class="grid_botoes">
+        <div id="esconde_p">
+          <p>O que gostaria de fazer agora?</p>
+        </div>
         <div id="esconde_finalizar_carrinho">
           <button class="btns" id="finalizar_carrinho">&#9989-Finalizar Carrinho</button>
         </div>
@@ -608,62 +623,62 @@
         <button class="btns" id="btn_escolha_shake">Avançar!</button>
         <div class="cx_add_shake">
           <h3 class="grid_titulo_shake">Sabores</h3>
-          <input type="checkbox" id="checkbox300" class="checkbox" value="Abacaxi"/>
+          <input type="checkbox" id="checkbox300" class="checkbox" value="Sabor: Abacaxi"/>
           <label for="checkbox300" id="check_grid_300" class="check300">Abacaxi</label>
           <br/>
-          <input type="checkbox" id="checkbox301" class="checkbox" value="Abacaxi ao vinho"/>
+          <input type="checkbox" id="checkbox301" class="checkbox" value="Sabor: Abacaxi ao vinho"/>
           <label for="checkbox301" id="check_grid_301" class="check301">Abacaxi ao vinho</label>
           <br/>
-          <input type="checkbox" id="checkbox302" class="checkbox" value="Brownie" />
+          <input type="checkbox" id="checkbox302" class="checkbox" value="Sabor: Brownie" />
           <label for="checkbox302" id="check_grid_302" class="check302">Brownie</label>
           <br/>
-          <input type="checkbox" id="checkbox303" class="checkbox" value="Maracuja"/>
+          <input type="checkbox" id="checkbox303" class="checkbox" value="Sabor: Maracuja"/>
           <label for="checkbox303" id="check_grid_303" class="check303">Maracuja</label>
           <br/>
-          <input type="checkbox" id="checkbox304" class="checkbox" value="Ceu Azul"/>
+          <input type="checkbox" id="checkbox304" class="checkbox" value="Sabor: Ceu Azul"/>
           <label for="checkbox304" id="check_grid_304" class="check304">Céu Azul</label>
           <br/>
-          <input type="checkbox" id="checkbox305" class="checkbox" value="Chocolate"/>
+          <input type="checkbox" id="checkbox305" class="checkbox" value="Sabor: Chocolate"/>
           <label for="checkbox305" id="check_grid_305" class="check305">Chocolate</label>
           <br/>
-          <input type="checkbox" id="checkbox306" class="checkbox" value="Chocomenta"/>
+          <input type="checkbox" id="checkbox306" class="checkbox" value="Sabor: Chocomenta"/>
           <label for="checkbox306" id="check_grid_306" class="check306">Chocomenta</label>
 
           <br/>
-          <input type="checkbox" id="checkbox307" class="checkbox" value="Sensação"/>
+          <input type="checkbox" id="checkbox307" class="checkbox" value="Sabor: Sensação"/>
           <label for="checkbox307" id="check_grid_307" class="check307">Sensação</label>
           <br/>
-          <input type="checkbox" id="checkbox308" class="checkbox" value="Coco Branco" />
+          <input type="checkbox" id="checkbox308" class="checkbox" value="Sabor: Coco Branco" />
           <label for="checkbox308" id="check_grid_308" class="check308">Coco Branco</label>
           <br/>
-          <input type="checkbox" id="checkbox309" class="checkbox" value="Flocos"/>
+          <input type="checkbox" id="checkbox309" class="checkbox" value="Sabor: Flocos"/>
           <label for="checkbox309" id="check_grid_309" class="check309">Flocos</label>
           <br/>
-          <input type="checkbox" id="checkbox310" class="checkbox" value="Ferrero Roche"/>
+          <input type="checkbox" id="checkbox310" class="checkbox" value="Sabor: Ferrero Roche"/>
           <label for="checkbox310" id="check_grid_310" class="check310">Ferrero Roche</label>
           <br/>
-          <input type="checkbox" id="checkbox311" class="checkbox" value="Lacta"/>
+          <input type="checkbox" id="checkbox311" class="checkbox" value="Sabor: Lacta"/>
           <label for="checkbox311" id="check_grid_311" class="check311">Lacta</label>
           <br/>
-          <input type="checkbox" id="checkbox312" class="checkbox" value="Leite condensado"/>
+          <input type="checkbox" id="checkbox312" class="checkbox" value="Sabor: Leite condensado"/>
           <label for="checkbox312" id="check_grid_312" class="check312">Leite condensado</label>
           <br/>
-          <input type="checkbox" id="checkbox313" class="checkbox" value="Leite Ninho"/>
+          <input type="checkbox" id="checkbox313" class="checkbox" value="Sabor: Leite Ninho"/>
           <label for="checkbox313" id="check_grid_313" class="check313">Leite Ninho</label>
           <br/>
-          <input type="checkbox" id="checkbox314" class="checkbox" value="Morango" />
+          <input type="checkbox" id="checkbox314" class="checkbox" value="Sabor: Morango" />
           <label for="checkbox314" id="check_grid_314" class="check314">Morango</label>
           <br/>
-          <input type="checkbox" id="checkbox315" class="checkbox" value="Ovo Maltine">
+          <input type="checkbox" id="checkbox315" class="checkbox" value="Sabor: Ovo Maltine">
           <label for="checkbox315" id="check_grid_315" class="check315">Ovo Maltine</label>
           <br/>
-          <input type="checkbox" id="checkbox316" class="checkbox" value="Passas ao Rum"/>
+          <input type="checkbox" id="checkbox316" class="checkbox" value="Sabor: Passas ao Rum"/>
           <label for="checkbox316" id="check_grid_316" class="check316">Passas ao Rum</label>
           <br/>
-          <input type="checkbox" id="checkbox317" class="checkbox" value="Torta de Limão"/>
+          <input type="checkbox" id="checkbox317" class="checkbox" value="Sabor: Torta de Limão"/>
           <label for="checkbox317" id="check_grid_317" class="check317">Torta de Limão</label>
           <br/>
-          <input type="checkbox" id="checkbox318" class="checkbox" value="Uva"/>
+          <input type="checkbox" id="checkbox318" class="checkbox" value="Sabor: Uva"/>
           <label for="checkbox318" id="check_grid_318" class="check318">Uva</label>
 
       </div>
@@ -676,32 +691,32 @@
         <button class="btns" id="btn_escolha_especial">Avançar!</button>
         <div class="cx_add_especial">
           <h3 class="grid_titulo_especial">Sabores</h3>
-          <input type="checkbox" id="checkbox600" class="checkbox" value="Açai Tradicional"/>
+          <input type="checkbox" id="checkbox600" class="checkbox" value="Sabor: Açai Tradicional"/>
           <label for="checkbox600" id="check_grid_600" class="check600">Açai Tradicional</label>
           <br/>
-          <input type="checkbox" id="checkbox601" class="checkbox" value="Açai com Leite Ninho"/>
+          <input type="checkbox" id="checkbox601" class="checkbox" value="Sabor: Açai com Leite Ninho"/>
           <label for="checkbox601" id="check_grid_601" class="check601">Açai com Leite Ninho</label>
           <br/>
-          <input type="checkbox" id="checkbox602" class="checkbox" value="Açai com Nutella" />
+          <input type="checkbox" id="checkbox602" class="checkbox" value="Sabor: Açai com Nutella" />
           <label for="checkbox602" id="check_grid_602" class="check602">Açai com Nutella</label>
           <br/>
-          <input type="checkbox" id="checkbox603" class="checkbox" value="Chocolate com Nutella"/>
+          <input type="checkbox" id="checkbox603" class="checkbox" value="Sabor: Chocolate com Nutella"/>
           <label for="checkbox603" id="check_grid_603" class="check603">Chocolate com Nutella</label>
           <br/>
-          <input type="checkbox" id="checkbox604" class="checkbox" value="Cupuaçu"/>
+          <input type="checkbox" id="checkbox604" class="checkbox" value="Sabor: Cupuaçu"/>
           <label for="checkbox604" id="check_grid_604" class="check604">Cupuaçu</label>
           <br/>
-          <input type="checkbox" id="checkbox605" class="checkbox" value="KinderOvo Trunfado"/>
+          <input type="checkbox" id="checkbox605" class="checkbox" value="Sabor: KinderOvo Trunfado"/>
           <label for="checkbox605" id="check_grid_605" class="check605">KinderOvo Trunfado</label>
           <br/>
-          <input type="checkbox" id="checkbox606" class="checkbox" value="Leite Ninho Trunfado"/>
+          <input type="checkbox" id="checkbox606" class="checkbox" value="Sabor: Leite Ninho Trunfado"/>
           <label for="checkbox606" id="check_grid_606" class="check606">Leite Ninho Trunfado</label>
 
           <br/>
-          <input type="checkbox" id="checkbox607" class="checkbox" value="Prata Oereo"/>
+          <input type="checkbox" id="checkbox607" class="checkbox" value="Sabor: Prata Oereo"/>
           <label for="checkbox607" id="check_grid_607" class="check607">Prata Oereo</label>
           <br/>
-          <input type="checkbox" id="checkbox608" class="checkbox" value="Banoffe" />
+          <input type="checkbox" id="checkbox608" class="checkbox" value="Sabor: Banoffe" />
           <label for="checkbox608" id="check_grid_608" class="check608">Banoffe</label>
           
 
@@ -880,25 +895,25 @@
         <button class="btns" id="btn_escolha_frutas">Avançar!</button>
         <div class="cx_add_salada">
           <h3 class="grid_titulo_salada">FRUTAS</h3>
-          <input type="checkbox" id="checkbox200" class="checkbox" value="Morango"/>
+          <input type="checkbox" id="checkbox200" class="checkbox" value="Fruta: Morango"/>
           <label for="checkbox200" id="check_grid_200" class="check200">Morango</label>
           <br/>
-          <input type="checkbox" id="checkbox201" class="checkbox" value="Banana"/>
+          <input type="checkbox" id="checkbox201" class="checkbox" value="Fruta: Banana"/>
           <label for="checkbox201" id="check_grid_201" class="check201">Banana</label>
           <br/>
-          <input type="checkbox" id="checkbox202" class="checkbox" value="Kiwi" />
+          <input type="checkbox" id="checkbox202" class="checkbox" value="Fruta: Kiwi" />
           <label for="checkbox202" id="check_grid_202" class="check202">Kiwi</label>
           <br/>
-          <input type="checkbox" id="checkbox203" class="checkbox" value="Abacaxi"/>
+          <input type="checkbox" id="checkbox203" class="checkbox" value="Fruta: Abacaxi"/>
           <label for="checkbox203" id="check_grid_203" class="check203">Abacaxi</label>
           <br/>
-          <input type="checkbox" id="checkbox204" class="checkbox" value="Manga"/>
+          <input type="checkbox" id="checkbox204" class="checkbox" value="Fruta: Manga"/>
           <label for="checkbox204" id="check_grid_204" class="check204">Manga</label>
           <br/>
-          <input type="checkbox" id="checkbox205" class="checkbox" value="Uva_Verde"/>
+          <input type="checkbox" id="checkbox205" class="checkbox" value="Fruta: Uva_Verde"/>
           <label for="checkbox205" id="check_grid_205" class="check205">Uva Verde</label>
           <br/>
-          <input type="checkbox" id="checkbox206" class="checkbox" value="Uva_Roxa"/>
+          <input type="checkbox" id="checkbox206" class="checkbox" value="Fruta: Uva_Roxa"/>
           <label for="checkbox206" id="check_grid_206" class="check206">Uva Roxa</label>
 
       </div>
@@ -949,17 +964,12 @@
         <h5>Para a montagem desse item em específico?</h5>
         <p>"Ex: coloque o recheio apenas em cima"</p>
         <textarea name="campo" id="campo" cols="35" rows="5"></textarea>
-        <input
-          class="btns"
-          type="submit"
-          id="btn_sujestao"
-          title="Ex: coloque o recheio apenas em cima"
-        />
+        <input class="btns" type="submit" id="btn_sujestao" title="Ex: coloque o recheio apenas em cima">
         <span id="contador">0/30 caracteres &#9993</span>
       </div>
 
       <div id="final">
-        <h1>Pedido finalizado</h1>
+        <h1>Resumo do Pedido</h1>
         <h3>Dados Cliente</h3>
         <p id="npedido"></p>
         <p id="resnome"></p>

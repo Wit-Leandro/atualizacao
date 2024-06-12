@@ -62,6 +62,9 @@ var adicionais_salada = document.getElementById("adicionais_salada");
 var complemento_salada = document.getElementById("complemento_salada");
 var sabor_trad = document.getElementById("sabor_trad");
 var rodape = document.getElementById('rodape')
+var esconde_p = document.getElementById('esconde_p')
+var oct_header = document.getElementById('oct_header')
+var oct_hora = document.getElementById('oct_hora')
 
 /*--------- inicio das funçoes -----*/
 
@@ -522,7 +525,6 @@ btn_escolha_complemento_shake.addEventListener("click", function () {
     complemento_shake.style.display = "none";
     mensagem.style.display = "block";
     adicao.style.display = "none";
-    console.log(comp_shake);
   });
 });
 /*----------------FUNÇOES DE CONTAGEN DOS CHECKBOX DO MILK SHAKE----------------- */
@@ -554,7 +556,9 @@ function contarComplemento(){
   }
 }
 
-/*-----exibir salada de frutas---------- */
+/*
+-----exibir salada de frutas---------- 
+
 function exibirSalada() {
   var imagem_salada = document.getElementById("imagem_salada");
   var meu_salada = document.querySelector(".select_salada").value;
@@ -577,6 +581,7 @@ function exibirSalada() {
     imagem_salada.appendChild(imagem_salada_700ml);
   }
 }
+*/
 
 var btn_salada = document.getElementById("btn_salada");
 btn_salada.addEventListener("click", function (e) {
@@ -640,7 +645,6 @@ btn_escolha_complemento_frutas.addEventListener("click", function () {
     complemento_salada.style.display = "none";
     mensagem.style.display = "block";
     adicao.style.display = "none";
-    console.log(procure_aqui);
   });
 });
 
@@ -837,7 +841,6 @@ btn_valores.addEventListener("click", function () {
     mensagem.style.display = "block";
     adicionais.style.display = "none";
     adicao.style.display = "none";
-    console.log(valores);
   });
 }
 });
@@ -847,7 +850,6 @@ btn_volta_esolha.addEventListener("click", function () {
   escolha.style.display = "block";
   adicionais.style.display = "none";
   removeTicks();
-  console.log(valores);
 });*/
 
 function mostrarDados() {
@@ -1017,6 +1019,7 @@ btn_sujestao.addEventListener("click", function (e) {
   }
   procurarCobrarfrutas(procure_aqui, procurar);
   procurarCobrar(comp_shake, proc_shake);
+  
   esconde_carrinho.style.display = "block";
   mensagem.style.display = "none";
 });
@@ -1053,6 +1056,7 @@ function atualizarCarrinho() {
   valores = [];
   esconde_comprar_mais.style.display = "block";
   esconde_finalizar_carrinho.style.display = "block";
+  esconde_p.style.display = 'block'
   esconde_carrinho.style.display = "none";
   contarCarrinho();
 }
@@ -1066,9 +1070,9 @@ btn_finalizar_carrinho.addEventListener("click", function () {
   info.style.display = "block";
   esconde_comprar_mais.style.display = "none";
   esconde_finalizar_carrinho.style.display = "none";
+  esconde_p.style.display = 'none'
   carrinhoCompras.style.display = "block";
   escolha.style.display = "none";
-  console.log(carrinho.length);
 });
 
 btn_comprar_mais.addEventListener("click", function () {
@@ -1081,6 +1085,7 @@ btn_comprar_mais.addEventListener("click", function () {
   escolha.style.display = "block";
   esconde_comprar_mais.style.display = "none";
   esconde_finalizar_carrinho.style.display = "none";
+  esconde_p.style.display = 'none'
 });
 
 function criarListaArrays(arrays) {
@@ -1283,6 +1288,8 @@ env_pix.addEventListener("click", function () {
   obs_pagamento.innerHTML = "Pix";
   pagamentos.style.display = "none";
   final.style.display = "block";
+  oct_header.style.display = 'none'
+  oct_hora.style.display = 'none'
 
   var mensagemCarrinho = "";
   var contped = 0;
@@ -1353,6 +1360,8 @@ env_cartao.addEventListener("click", function () {
   obs_pagamento.innerHTML = "Levar a maquininha!!";
   pagamentos.style.display = "none";
   final.style.display = "block";
+  oct_header.style.display = 'none'
+  oct_hora.style.display = 'none'
 
   var mensagemCarrinho = "";
   var contped = 0;
@@ -1424,6 +1433,8 @@ env_dinheiro.addEventListener("click", function (e) {
   obs_pagamento.innerHTML = troco;
   pagamentos.style.display = "none";
   final.style.display = "block";
+  oct_header.style.display = 'none'
+  oct_hora.style.display = 'none'
 
   var mensagemCarrinho = "";
   var contped = 0;
@@ -1598,7 +1609,6 @@ function generateQRCode() {
     pixPayload,
     function (error) {
       if (error) console.error(error);
-      console.log("QR code gerado!");
     }
   );
 

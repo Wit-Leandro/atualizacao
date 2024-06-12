@@ -28,11 +28,13 @@ body {
 #complemento_shake{
   padding-left: 10px;
   display: none;
+  grid-row: 3;
 
 }
 #sabor_trad {
   padding-left: 10px;
   display: none;
+  grid-row: 3;
 }
 #copos {
   box-shadow: 4px 4px 50px #370246;
@@ -52,16 +54,27 @@ body {
   justify-items: center;
   border-radius: 20px;
 }
+#salada p {
+  margin: 0 0 0 80px;
+  font-weight: bolder;
+}
 #shake{
   box-shadow: 4px 4px 50px #370246;
   justify-content: center;
   justify-items: center;
   border-radius: 20px;
 }
+#btn_carrinho {
+  margin-left: 60px;
+}
+#esconde_carrinho p {
+  font-weight: bolder;
+}
 
 #sabor_especial {
   padding-left: 10px;
   display: none;
+  grid-row: 3;
 }
 #meu_select_salada {
   margin-left: 30px;
@@ -75,6 +88,7 @@ body {
 #coberturas {
   padding-left: 20px;
   display: none;
+  grid-row: 3;
   
 }
 #acai_tradicional{
@@ -87,7 +101,7 @@ body {
 #acai_tradicional h4 {
   font-size: medium;
   color: #370246;
-  margin-left: 80px;
+  margin-left: 90px;
 }
 #acai_tradicional p {
   margin-left: 105px;
@@ -388,11 +402,16 @@ footer {
 }
 
 #imagem_salada {
-  margin-top: 10px;
+  margin: 10px;
+
 }
-#imagem_salada img {
+#imagem_salada ul {
   padding-left: 30px;
   width: 300px;
+}
+#imagem_salada p {
+  font-weight: bolder
+
 }
 
 #imagem_marmita {
@@ -532,6 +551,7 @@ footer {
   font-family: Cambria;
   display: none;
   margin: 0;
+  grid-row: 1;
 }
 #final span {
   font-size: 9pt;
@@ -1921,20 +1941,29 @@ footer {
 .grid_botoes {
   display: grid;
   grid-template-columns: 200px 200px;
-  grid-template-rows: 10px 10px 1fr;
-  column-gap: 10px;
-  padding-left: 10px;
+  grid-template-rows: 10px 10px 10px 1fr;
+  column-gap: 20px;
+  padding-left: 20px;
   row-gap: 20px;
 }
 #esconde_comprar_mais {
   display: none;
-  grid-row: 1 / 2;
+  grid-row: 2 / 3;
   grid-column: 1;
+  margin-left: 20px;
 }
 #esconde_finalizar_carrinho {
   display: none;
-  grid-row: 1/ 2;
+  grid-row: 2/ 3;
   grid-column: 2;
+}
+#esconde_p{
+  display: none;
+  grid-row: 1 / 1;
+  grid-column: 1 / -1;
+  font-weight: bolder;
+  margin-left: 65px;
+
 }
 .valor_na_tela{
   grid-row: 3;
@@ -2046,7 +2075,7 @@ footer {
     font-family: Cambria;
     display: none;
     margin: 0;
-    grid-row: 3;
+    grid-row: 1;
   }
   #final h1 {
     padding-left: 2px;
@@ -2076,14 +2105,14 @@ footer {
   #informativo {
     grid-row: 3;
   }
-
+/*
   .grid_botoes {
     display: grid;
     grid-template-columns: 180px 180px;
     grid-template-rows: 10px 10px;
     column-gap: 5px;
     padding-left: 10px;
-  }
+  }*/
   #usuario h2{
     font-size: 20px;
     padding-left: 20px;
