@@ -43,18 +43,20 @@
         <div class="tab-container">
           <button class="tab" onclick="openCategory('evt', 'copos')">Copos</button>
           <button class="tab" onclick="openCategory('evt', 'marmitas')">Marmitas</button>
+          <button class="tab" onclick="openCategory('evt','salada')">Salada Frutas</button>
+          <button class="tab" onclick="openCategory('evt','shake')">Milk Shake</button>
+
+          <!--
           <button class="tab" onclick="openCategory('evt', 'login')">Login</button>
-          <button class="tab" id="limpar">Mudar dados</button>
+          <button class="tab" id="limpar">Mudar dados</button>-->
         </div>
 
         <div class="tab-container2">
-          <button class="tab" onclick="openCategory('evt','salada')">Salada Frutas</button>
-          <button class="tab" onclick="openCategory('evt','shake')">Milk Shake</button>
-          <button class="tab" onclick="openCategory('evt','acai_tradicional')">Sem Recheio</button>
+          <button class="tab2" onclick="openCategory('evt','acai_tradicional')">Açai Tradicional - Sem Recheio</button>
         </div>
 
         <div id="welcome">
-          <p>Bem Vindo(a)! <span id="nome_cliente"></span></p>
+          <p>&#127848 Tio-Chico Sorvetes &#127846</p>
         </div>
 
         <div id="usuario">
@@ -345,11 +347,11 @@
           <button class="btns" id="btn_compra_add">Comprar adicional!</button>
           <!--<button class="btns" id="btn_negar_compra_add">Não, Obrigado!</button>-->
         </div>
-        <p id="res_add_cliente"></p>
+        <p id="res_add_cliente" class="res_css"></p>
       </div>
 
       <div id="adicionais">
-        <p id="resadicao"></p>
+        <p id="resadicao" class="res_css"></p>
         <div class="btn_escolha">
           <!--<button class="btns" id="btn_voltar_escolha">Voltar para seleção</button>-->
           <button class="btns" id="btn_valores">Avançar!</button>

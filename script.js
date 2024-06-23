@@ -68,12 +68,28 @@ var oct_hora = document.getElementById('oct_hora')
 
 /*--------- inicio das funçoes -----*/
 
+window.addEventListener('load', function(){
+  var nome = 'Cliente'
+  var endereco = 'Rua Tal'
+  var ncasa = 'N° 999'
+  var fone = '(99)9 9999-9999'
+  var local = 'chico'
+  dic.push(nome,endereco,ncasa,fone,local)
+
+})
+
+
+
+
+
 /*--------- Atualizar a hora -----*/
 horadia();
 setInterval(horadia, 1000);
 dataDia();
 
+
 /*----------pegar dados do cliente---------*/
+/*
 var btn_enviar_dados = document.getElementById("enviar_dados");
 btn_enviar_dados.addEventListener("click", function (e) {
   e.preventDefault();
@@ -92,7 +108,7 @@ btn_enviar_dados.addEventListener("click", function (e) {
   escolha_regiao.style.display = "block";
   checkUser();
   location.reload();
-});
+});*/
 /*
 function formatarTelefone(){
   var telefone = document.getElementById("fone")
@@ -109,7 +125,7 @@ function formatarTelefone(){
   }
   telefone.value = formatoTelefone
 }*/
-
+/*
 function checkUser() {
   const getPerson = localStorage.getItem("person");
   const objecPerson = JSON.parse(getPerson);
@@ -136,8 +152,9 @@ function checkUser() {
     formulario.style.display = "block";
     welcome.style.display = "none";
   }
-}
+}*/
 
+/*
 function checkRegiao() {
   const getPerson = localStorage.getItem("person");
   const objecPerson = JSON.parse(getPerson);
@@ -149,17 +166,17 @@ function checkRegiao() {
     escolha_regiao.style.display = "block";
   }
   calcTaxa();
-}
+}*/
 
+/*
 var limpar = document.getElementById("limpar");
 limpar.addEventListener("click", () => {
   localStorage.clear();
   location.reload();
   checkUser();
-});
+});*/
 
-checkUser();
-checkRegiao();
+
 /*--------------AÇAI TRADICIONAIS---------- */
 var btn_trad_copo = document.getElementById("btn_trad_copo");
 btn_trad_copo.addEventListener("click", function (e) {
@@ -289,8 +306,7 @@ btn_copo.addEventListener("click", function (e) {
   const objectPedido = JSON.parse(getPedido);
   const userPedido = objectPedido.limit;
   limite.push(userPedido)
-  resadicao.innerHTML =
-    dic[0].split(" ")[0] + " Escolha " + limite + " adiconais para seu açai";
+  resadicao.innerHTML = "Escolha " + limite + " adiconais para seu açai";
 });
 
 /*--------- escolha marmita -----*/
@@ -316,8 +332,7 @@ btn_marmita.addEventListener("click", function (e) {
   const objectPedido = JSON.parse(getPedido);
   const userPedido = objectPedido.limit;
   limite.push(userPedido)
-  resadicao.innerHTML =
-    dic[0].split(" ")[0] + ", Escolha " + limite + " adiconais para seu açai";
+  resadicao.innerHTML ="Escolha " + limite + " adiconais para seu açai";
 });
 
 /* -----função para exibir os copos por abas------ */
@@ -606,8 +621,7 @@ btn_salada.addEventListener("click", function (e) {
   const objectPedido = JSON.parse(getPedido);
   const userPedido = objectPedido.limit;
   limite.push(userPedido);
-  resadicao.innerHTML =
-    dic[0].split(" ")[0] + " Escolha no minimo 4 frutas para sua salada";
+  resadicao.innerHTML = " Escolha no minimo 4 frutas para sua salada";
 });
 var btn_escolha_frutas = document.getElementById("btn_escolha_frutas");
 btn_escolha_frutas.addEventListener("click", function () {
@@ -714,8 +728,7 @@ btn_compra_add.addEventListener("click", function () {
   sessionStorage.setItem("adiciona", JSON.stringify(adiciona));
   valorCompra.push(3);
   alert("Sucesso!! Você comprou + 1 adiconal \u{1F60A}");
-  resadicao.innerHTML =
-    dic[0].split(" ")[0] + ", Escolha " + somarArray(limite) + " adiconais para seu açai";
+  resadicao.innerHTML ="Escolha " + somarArray(limite) + " adiconais para seu açai";
   adicionais.style.display = "block";
   btn_volta_esolha.style.display = "none";
 });
@@ -788,44 +801,39 @@ btn_regiao.addEventListener("click", function () {
   } else {
     regiao.forEach(function (checkbox) {
       if (checkbox.checked) {
-        var personRegiao = JSON.parse(localStorage.getItem("person"));
-        personRegiao.regiao = checkbox.value;
-        localStorage.setItem("person", JSON.stringify(personRegiao));
-        dic.push(checkbox.value);
+        dic[4] = checkbox.value;
         if (dic[4] === "Tarumã") {
-          escolha_regiao.style.display = "none";
-          escolha.style.display = "block";
+          dic.push(2);
         } else if (dic[4] === "Usina Nova America") {
-          escolha_regiao.style.display = "none";
-          escolha.style.display = "block";
+          dic.push(10);
         } else if (dic[4] === "Usina Agua Bonita") {
-          escolha_regiao.style.display = "none";
-          escolha.style.display = "block";
+          dic.push(5);
         } else if (dic[4] === "Posto Pioneiro") {
-          escolha_regiao.style.display = "none";
-          escolha.style.display = "block";
+          dic.push(5);
         } else if (dic[4] === "Retirar no Tio-Chico") {
-          escolha_regiao.style.display = "none";
-          escolha.style.display = "block";
+          dic.push(0);
         }
       }
     });
   }
-  location.reload();
+  info.style.display = 'block'
+  escolha_regiao.style.display = "none";
 });
-function calcTaxa() {
-  if (dic[4] === "Tarumã") {
-    dic.push(2);
-  } else if (dic[4] === "Usina Nova America") {
-    dic.push(10);
-  } else if (dic[4] === "Usina Agua Bonita") {
-    dic.push(5);
-  } else if (dic[4] === "Posto Pioneiro") {
-    dic.push(5);
-  } else if (dic[4] === "Retirar no Tio-Chico") {
-    dic.push(0);
+/*
+function calcTaxa(localiza) {
+  if (localiza === "Tarumã") {
+    valorCompra.push(2);
+  } else if (localiza === "Usina Nova America") {
+    valorCompra.push(10);
+  } else if (localiza === "Usina Agua Bonita") {
+    valorCompra.push(5);
+  } else if (localiza === "Posto Pioneiro") {
+    valorCompra.push(5);
+  } else if (localiza === "Retirar no Tio-Chico") {
+    valorCompra.push(0);
   }
-}
+}*/
+
 
 /*--------- finalizaçao e exibiçao do pedido -----*/
 
@@ -871,23 +879,20 @@ function mostrarDados() {
   var t = somarArray(valorCompra);
 
   if (t < 20 && dic[4] === "Tarumã") {
-    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00";
+    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00 Já incluso no valor total";
     t = t + dic[5];
   } else if (t < 150 && dic[4] === "Usina Nova America") {
-    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00";
+    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00 Já incluso no valor total";
     t = t + dic[5];
   } else if (t < 50 && dic[4] === "Usina Agua Bonita") {
-    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00";
+    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00 Já incluso no valor total";
     t = t + dic[5];
   } else if (t < 50 && dic[4] === "Posto Pioneiro") {
-    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00";
+    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00 Já incluso no valor total";
     t = t + dic[5];
   } else {
     taxa.innerHTML = "Taxa de entrega isento";
   }
-  resnome.innerHTML = "Cliente: " + dic[0];
-  resendereco.innerHTML = "Endereço: " + dic[1] + "," + dic[2];
-  resfone.innerHTML = "Telefone: " + dic[3];
   respreco.innerHTML = "Valor total R$" + t + ",00 Reais";
   valor_pagamento.innerHTML = "VALOR DO PEDIDO - R$" + t + ",00";
   res_regiao.innerHTML = "Região de entrega: " + dic[4];
@@ -944,21 +949,19 @@ function horadia() {
 
   if (diaSemana == 1) {
     reshora.style.color = "red";
-    reshora.innerHTML = "Fechado";
-    reshora2.innerHTML = "Voltamos amanhã as 14hs. - ";
+    reshora.innerHTML = "* FECHADO, ";
   } else {
     if (hora < 14) {
       reshora.style.color = "red";
-      reshora.innerHTML = "Fechado";
-      reshora2.innerHTML = "Abrirmos as 14hs. - ";
+      reshora.innerHTML = "* FECHADO, ";
     } else if (hora > 23) {
       reshora.style.color = "red";
-      reshora.innerHTML = "Fechado:";
+      reshora.innerHTML = "* FECHADO, ";
     } else {
-      reshora.innerHTML = "Aberto:";
+      reshora.innerHTML = "* ABERTO:";
       reshora2.innerHTML = "Deus Abençoe";
     }
-    hdia.innerHTML = hora + ":" + minutos + " - ";
+    hdia.innerHTML = 'Agora são '+ hora + ":" + minutos + " - ";
   }
 }
 
@@ -983,7 +986,7 @@ function dataDia() {
   var hoje = dia + "/" + mes + "/" + ano;
 
   resdia.innerHTML = diaDaSemana[diaSemana];
-  resdia2.innerHTML = hoje;
+  resdia2.innerHTML = hoje + ' *';
 }
 
 /*----Sujestão do cliente*/
@@ -1062,17 +1065,21 @@ function atualizarCarrinho() {
 }
 var btn_finalizar_carrinho = document.getElementById("finalizar_carrinho");
 btn_finalizar_carrinho.addEventListener("click", function () {
-  mostrarDados();
+  
   criarListaArrays(carrinho);
   numeroDoPedido = gerarNumeroPedido();
   npedido.innerHTML = "Numero do Pedido: " + numeroDoPedido;
+  escolha_regiao.style.display = 'block'
 
-  info.style.display = "block";
+
   esconde_comprar_mais.style.display = "none";
   esconde_finalizar_carrinho.style.display = "none";
   esconde_p.style.display = 'none'
   carrinhoCompras.style.display = "block";
   escolha.style.display = "none";
+  dic[0] = prompt('Seu nome: ')
+  dic[1] = prompt('endereço:')
+  dic[2] = prompt('Numero da residencia com complento se tiver')
 });
 
 btn_comprar_mais.addEventListener("click", function () {
@@ -1209,38 +1216,25 @@ btn_colher_sim.addEventListener("click", function () {
   pagamentos.style.display = "block";
   info.style.display = "none";
   whats_colher = "SIM";
+  mostrarDados();
+
 });
 btn_colher_nao.addEventListener("click", function () {
   res_colher.innerHTML = "NÃO";
   pagamentos.style.display = "block";
   info.style.display = "none";
   whats_colher = "NÃO";
+  mostrarDados();
+
 });
 
 /*-----mostrar valor tela-------- */
+
 function mostrarValorNaTela() {
-  var valor_tela = document.getElementById("valor_tela");
-  var res_valor_tela = document.getElementById("res_valor_tela");
-
   var t = somarArray(valorCompra);
-  var falta = 0;
-
-  if (t < 20 && dic[4] === "Tarumã") {
-    falta = 20 - t;
-    alert("Total pedido R$" + t + ",00");
-  } else if (t < 150 && dic[4] === "Usina Nova America") {
-    falta = 150 - t;
-    alert("Total pedido R$" + t + ",00");
-  } else if (t < 50 && dic[4] === "Usina Agua Bonita") {
-    falta = 50 - t;
-    alert("Total pedido R$" + t + ",00");
-  } else if (t < 50 && dic[4] === "Posto Pioneiro") {
-    falta = 50 - t;
-    alert("Total pedido R$" + t + ",00");
-  } else {
-    alert("Total pedido R$" + t + ",00");
-  }
+  alert("Total pedido R$" + t + ",00");
 }
+
 /*
 function ajustarTelefone(numeroFone){
   numeroFone = numeroFone.replace(/\D/g, '');
@@ -1332,8 +1326,6 @@ env_pix.addEventListener("click", function () {
     dic[1] +
     "," +
     dic[2] +
-    "\nTelefone: " +
-    dic[3] +
     "\nRegião de entrega: " +
     dic[4] +
     "\nValor total: " +
@@ -1404,8 +1396,6 @@ env_cartao.addEventListener("click", function () {
     dic[1] +
     "," +
     dic[2] +
-    "\nTelefone: " +
-    dic[3] +
     "\nRegião de entrega: " +
     dic[4] +
     "\nValor total: " +
@@ -1477,8 +1467,6 @@ env_dinheiro.addEventListener("click", function (e) {
     dic[1] +
     "," +
     dic[2] +
-    "\nTelefone: " +
-    dic[3] +
     "\nRegião de entrega: " +
     dic[4] +
     "\nValor total: " +

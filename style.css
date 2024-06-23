@@ -82,7 +82,17 @@ body {
 .atencao_comp_salada{
   margin-left: 90px;
 }
+.res_css{
+  background-color: #cc82e1;
+  font-weight: bolder;
+  padding: 10px;
+  box-shadow: 4px 4px 50px #370246;
+  justify-content: center;
+  justify-items: center;
+  border-radius: 20px;
+  font-family: "Times New Roman", Times, serif;
 
+}
 
 
 #coberturas {
@@ -308,7 +318,6 @@ footer {
 }
 
 #welcome {
-  display: none;
   padding-left: 60px;
   font-weight: bold;
   grid: 4;
@@ -357,6 +366,18 @@ footer {
   border: solid 1px;
   border-radius: 20px 10px 20px 0;
 }
+.tab2 {
+  background-color: rgb(128, 32, 78);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 340px;
+  height: 25px;
+  border: solid 1px;
+  border-radius: 20px 10px 20px 0;
+}
+
 .tab:hover {
   background-color: #b96bcf;
 }
@@ -464,6 +485,7 @@ footer {
   padding: 0 80px 0 80px;
 }
 #usuario {
+  display: none;
   padding-top: 20px;
   border-top: solid 1px #44274c;
   margin-right: 5px;
@@ -1997,6 +2019,7 @@ footer {
   }
 
   .horas {
+    background-color: #cc82e1;
     padding-left: 5px;
     grid-row: 2;
   }
@@ -2008,7 +2031,7 @@ footer {
   
   }
   #escolha_regiao {
-    grid-row: 4;
+    grid-row: 3;
 
   }
   
@@ -2034,7 +2057,6 @@ footer {
   #welcome {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     grid-row: 4;
-    display: none;
     padding-left: 5px;
     font-weight: bold;
   }
