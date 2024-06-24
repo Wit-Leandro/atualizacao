@@ -42,7 +42,6 @@ var btn_regiao = document.getElementById("btn_regiao");
 var escolha_regiao = document.getElementById("escolha_regiao");
 var regiao_mensagem = document.getElementById("regiao_mensagem");
 var res_regiao = document.getElementById("resregiao");
-var taxa = document.getElementById("taxa");
 var resads = document.getElementById("resads");
 var carrinhoCompras = document.getElementById("carrinho");
 const listaCarrinho = document.getElementById("lista_carrinho");
@@ -879,23 +878,16 @@ function mostrarDados() {
   var t = somarArray(valorCompra);
 
   if (t < 20 && dic[4] === "Tarumã") {
-    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00 Já incluso no valor total";
     t = t + dic[5];
   } else if (t < 150 && dic[4] === "Usina Nova America") {
-    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00 Já incluso no valor total";
     t = t + dic[5];
   } else if (t < 50 && dic[4] === "Usina Agua Bonita") {
-    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00 Já incluso no valor total";
     t = t + dic[5];
   } else if (t < 50 && dic[4] === "Posto Pioneiro") {
-    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00 Já incluso no valor total";
     t = t + dic[5];
   } else {
-    taxa.innerHTML = "Taxa de entrega isento";
   }
-  respreco.innerHTML = "Valor total R$" + t + ",00 Reais";
   valor_pagamento.innerHTML = "VALOR DO PEDIDO - R$" + t + ",00";
-  res_regiao.innerHTML = "Região de entrega: " + dic[4];
 }
 
 imprimir.addEventListener("click", function () {
@@ -959,7 +951,6 @@ function horadia() {
       reshora.innerHTML = "* FECHADO, ";
     } else {
       reshora.innerHTML = "* ABERTO:";
-      reshora2.innerHTML = "Deus Abençoe";
     }
     hdia.innerHTML = 'Agora são '+ hora + ":" + minutos + " - ";
   }
@@ -1068,7 +1059,6 @@ btn_finalizar_carrinho.addEventListener("click", function () {
   
   criarListaArrays(carrinho);
   numeroDoPedido = gerarNumeroPedido();
-  npedido.innerHTML = "Numero do Pedido: " + numeroDoPedido;
   escolha_regiao.style.display = 'block'
 
 
@@ -1077,10 +1067,24 @@ btn_finalizar_carrinho.addEventListener("click", function () {
   esconde_p.style.display = 'none'
   carrinhoCompras.style.display = "block";
   escolha.style.display = "none";
+  dados_Branco()
+
+});
+function dados_Branco(){
   dic[0] = prompt('Seu nome: ')
   dic[1] = prompt('endereço:')
   dic[2] = prompt('Numero da residencia com complento se tiver')
-});
+  if (dic[0] == ''){
+    dic[0] = 'Não Infomrado'
+  }
+  else if (dic[1] == ''){
+    dic[1] = 'Não Infomrado'
+  }
+  else if (dic[2] == ''){
+    dic[2] = 'Não Infomrado'
+  }
+}
+
 
 btn_comprar_mais.addEventListener("click", function () {
   removeTicks();
@@ -1212,7 +1216,7 @@ var btn_colher_nao = document.getElementById("colher_nao");
 var res_colher = document.getElementById("res_colher");
 
 btn_colher_sim.addEventListener("click", function () {
-  res_colher.innerHTML = "SIM";
+
   pagamentos.style.display = "block";
   info.style.display = "none";
   whats_colher = "SIM";
@@ -1220,7 +1224,7 @@ btn_colher_sim.addEventListener("click", function () {
 
 });
 btn_colher_nao.addEventListener("click", function () {
-  res_colher.innerHTML = "NÃO";
+
   pagamentos.style.display = "block";
   info.style.display = "none";
   whats_colher = "NÃO";
@@ -1278,12 +1282,8 @@ function pad(numero, tamanho) {
 /*---Envair pedido para o whatsApp--- */
 
 env_pix.addEventListener("click", function () {
-  res_pagamento.innerHTML = "Pagamento via - PIX";
-  obs_pagamento.innerHTML = "Pix";
   pagamentos.style.display = "none";
   final.style.display = "block";
-  oct_header.style.display = 'none'
-  oct_hora.style.display = 'none'
 
   var mensagemCarrinho = "";
   var contped = 0;
@@ -1348,12 +1348,8 @@ env_pix.addEventListener("click", function () {
   alert('"ENVIAR COMPROVANTE DO PIX VIA WHATSAPP"')
 });
 env_cartao.addEventListener("click", function () {
-  res_pagamento.innerHTML = "Pagamento via - CARTÃO";
-  obs_pagamento.innerHTML = "Levar a maquininha!!";
   pagamentos.style.display = "none";
   final.style.display = "block";
-  oct_header.style.display = 'none'
-  oct_hora.style.display = 'none'
 
   var mensagemCarrinho = "";
   var contped = 0;
@@ -1419,12 +1415,8 @@ env_cartao.addEventListener("click", function () {
 env_dinheiro.addEventListener("click", function (e) {
   e.preventDefault();
   var troco = document.getElementById("troco").value;
-  res_pagamento.innerHTML = "Pagamento no DINHEIRO";
-  obs_pagamento.innerHTML = troco;
   pagamentos.style.display = "none";
   final.style.display = "block";
-  oct_header.style.display = 'none'
-  oct_hora.style.display = 'none'
 
   var mensagemCarrinho = "";
   var contped = 0;
@@ -1624,20 +1616,18 @@ function valorTotalFrete(){
   var t = somarArray(valorCompra);
 
   if (t < 20 && dic[4] === "Tarumã") {
-    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00";
+
     t = t + dic[5];
   } else if (t < 150 && dic[4] === "Usina Nova America") {
-    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00";
+
     t = t + dic[5];
   } else if (t < 50 && dic[4] === "Usina Agua Bonita") {
-    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00";
+
     t = t + dic[5];
   } else if (t < 50 && dic[4] === "Posto Pioneiro") {
-    taxa.innerHTML = "Taxa de entrega R$" + dic[5] + ",00";
+
     t = t + dic[5];
-  } else {
-    taxa.innerHTML = "Taxa de entrega isento";
-  }
+  } 
   return t
 }
 

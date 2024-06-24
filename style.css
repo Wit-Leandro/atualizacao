@@ -573,7 +573,7 @@ footer {
   font-family: Cambria;
   display: none;
   margin: 0;
-  grid-row: 1;
+  grid-row: 3;
 }
 #final span {
   font-size: 9pt;
@@ -2097,7 +2097,7 @@ footer {
     font-family: Cambria;
     display: none;
     margin: 0;
-    grid-row: 1;
+    grid-row: 3;
   }
   #final h1 {
     padding-left: 2px;
