@@ -67,17 +67,18 @@ var oct_hora = document.getElementById('oct_hora')
 
 var res_nome = document.getElementById('res_nome')
 var res_end = document.getElementById('res_end')
+var res_end2 = document.getElementById('res_end2')
 var res_reg = document.getElementById('res_regiao') 
 var agradece = document.getElementById('agradece')
 
 /*--------- inicio das funçoes -----*/
 
 window.addEventListener('load', function(){
-  var nome = 'Cliente'
-  var endereco = 'Rua Tal'
-  var ncasa = 'N° 999'
-  var fone = '(99)9 9999-9999'
-  var local = 'chico'
+  var nome = 'Não informado'
+  var endereco = 'Não informado'
+  var ncasa = 'Não informado'
+  var fone = 'Não informado'
+  var local = 'Não informado'
   dic.push(nome,endereco,ncasa,fone,local)
 
 })
@@ -303,7 +304,7 @@ btn_copo.addEventListener("click", function (e) {
     const pedido = { acai: "Copo de 700ml", limit: 5, valor: 28 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   }
-  adicao.style.display = 'block'
+
   escolha.style.display = "none";
   adicionais.style.display = "block";
   const getPedido = sessionStorage.getItem("pedido");
@@ -329,7 +330,7 @@ btn_marmita.addEventListener("click", function (e) {
     const pedido = { acai: "Marmita de 1200ml", limit: 6, valor: 40 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   }
-  adicao.style.display = 'block'
+
   escolha.style.display = "none";
   adicionais.style.display = "block";
   const getPedido = sessionStorage.getItem("pedido");
@@ -734,7 +735,8 @@ btn_compra_add.addEventListener("click", function () {
   alert("Sucesso!! Você comprou + 1 adiconal \u{1F60A}");
   resadicao.innerHTML ="Escolha " + somarArray(limite) + " adiconais para seu açai";
   adicionais.style.display = "block";
-  btn_volta_esolha.style.display = "none";
+  adicao.style.display = 'none'
+  
 });
 /*
 btn_negar_compra_add.addEventListener("click", function () {
@@ -762,6 +764,7 @@ btn_negar_compra_add.addEventListener("click", function () {
       if (selecionados.length > somarArray(limite)) {
         this.checked = false;
         alert("Ops! Limite excedido!! ");
+        adicao.style.display = 'block'
       }
     });
   });
@@ -790,6 +793,13 @@ regiao.forEach(function (checkbox) {
       this.checked = false;
       alert("Ops, Escolha apenas uma Região!!");
     }
+    else if (regiao_selecionados.length == 1){
+      btn_regiao.style.display = 'block'
+    }
+    else if (regiao_selecionados.length == 0){
+      btn_regiao.style.display = 'none'
+    }
+    
   });
 });
 
@@ -1077,9 +1087,9 @@ btn_finalizar_carrinho.addEventListener("click", function () {
 
 });
 function dados_Branco(){
-  dic[0] = prompt('Seu nome: ')
-  dic[1] = prompt('endereço:')
-  dic[2] = prompt('Numero da residencia com complento se tiver')
+  dic[0] = prompt('Seu nome: ').toUpperCase()
+  dic[1] = prompt('endereço: RUA, N° ').toUpperCase()
+  dic[2] = prompt('Complemento: Bairro, ou Ponto de Refencia').toUpperCase()
   if (dic[0] == ''){
     dic[0] = 'Não Infomrado'
   }
@@ -1229,7 +1239,8 @@ var res_colher = document.getElementById("res_colher");
 btn_colher_sim.addEventListener("click", function () {
   final.style.display = "block";
   res_nome.innerHTML = 'Nome: ' + dic[0]
-  res_end.innerHTML = 'Endereço: ' + dic[1] + ', '+ dic[2]
+  res_end.innerHTML = 'Endereço: ' + dic[1]
+  res_end2.innerHTML = 'Complemento: '+ dic[2]
   res_reg.innerHTML = 'Região: ' + dic[4]
   
   info.style.display = "none";
@@ -1240,7 +1251,8 @@ btn_colher_sim.addEventListener("click", function () {
 btn_colher_nao.addEventListener("click", function () {
   final.style.display = "block";
   res_nome.innerHTML = 'Nome: ' + dic[0]
-  res_end.innerHTML = 'Endereço: ' + dic[1] + ', '+ dic[2]
+  res_end.innerHTML = 'Endereço: ' + dic[1]
+  res_end2.innerHTML = 'Complemento: '+ dic[2]
   res_reg.innerHTML = 'Região: ' + dic[4]
 
   info.style.display = "none";
