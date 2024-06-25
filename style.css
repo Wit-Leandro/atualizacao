@@ -327,8 +327,8 @@ footer {
   border-radius: 20px;
 }
 #welcome p {
-  margin-left: 80px;
-  margin-right: 80px;
+  margin-left: 65px;
+  margin-right: 65px;
 
 }
 
@@ -440,6 +440,8 @@ footer {
 
 }
 #oct_hora{
+  padding-left: 10px;
+  font-family: 'Franklin Gothic Medium';
   height: 20px;
   width: 350px;
 }

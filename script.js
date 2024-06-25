@@ -947,18 +947,18 @@ function horadia() {
 
   if (diaSemana == 1) {
     reshora.style.color = "red";
-    reshora.innerHTML = "* FECHADO, ";
+    reshora.innerHTML = " FECHADO, ";
   } else {
     if (hora < 14) {
       reshora.style.color = "red";
-      reshora.innerHTML = "* FECHADO, ";
+      reshora.innerHTML = " FECHADO, ";
     } else if (hora > 23) {
       reshora.style.color = "red";
-      reshora.innerHTML = "* FECHADO, ";
+      reshora.innerHTML = " FECHADO, ";
     } else {
-      reshora.innerHTML = "* ABERTO:";
+      reshora.innerHTML = " ABERTO:";
     }
-    hdia.innerHTML = 'Agora são '+ hora + ":" + minutos + " - ";
+    hdia.innerHTML = 'Hora: '+ hora + ":" + minutos + " - ";
   }
 }
 
@@ -983,7 +983,7 @@ function dataDia() {
   var hoje = dia + "/" + mes + "/" + ano;
 
   resdia.innerHTML = diaDaSemana[diaSemana];
-  resdia2.innerHTML = hoje + ' *';
+  resdia2.innerHTML = hoje + '';
 }
 
 /*----Sujestão do cliente*/
