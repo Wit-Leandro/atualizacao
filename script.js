@@ -1091,13 +1091,13 @@ function dados_Branco(){
   dic[1] = prompt('endereço: RUA, N° ').toUpperCase()
   dic[2] = prompt('Complemento: Bairro, ou Ponto de Refencia').toUpperCase()
   if (dic[0] == ''){
-    dic[0] = 'Não Infomrado'
+    dic[0] = 'Não informado'
   }
   else if (dic[1] == ''){
-    dic[1] = 'Não Infomrado'
+    dic[1] = 'Não informado'
   }
   else if (dic[2] == ''){
-    dic[2] = 'Não Infomrado'
+    dic[2] = 'Não informado'
   }
 }
 
