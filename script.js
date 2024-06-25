@@ -65,6 +65,11 @@ var esconde_p = document.getElementById('esconde_p')
 var oct_header = document.getElementById('oct_header')
 var oct_hora = document.getElementById('oct_hora')
 
+var res_nome = document.getElementById('res_nome')
+var res_end = document.getElementById('res_end')
+var res_reg = document.getElementById('res_regiao') 
+var agradece = document.getElementById('agradece')
+
 /*--------- inicio das funçoes -----*/
 
 window.addEventListener('load', function(){
@@ -891,7 +896,8 @@ function mostrarDados() {
 }
 
 imprimir.addEventListener("click", function () {
-  window.print();
+  final.style.display = "none";
+  pagamentos.style.display = "block";
 });
 
 /* -------------- Funções das abas para mostrar as imagens -------*/
@@ -1148,6 +1154,11 @@ var btn_home = document.getElementById("home_page");
 btn_home.addEventListener("click", function () {
   location.reload();
 });
+var voltar_inicio = document.getElementById('voltar_inicio')
+voltar_inicio.addEventListener('click', function (){
+  location.reload();
+})
+
 
 /*-----COPIAR CNPJ------ */
 function copiarCnpj(){
@@ -1216,16 +1227,22 @@ var btn_colher_nao = document.getElementById("colher_nao");
 var res_colher = document.getElementById("res_colher");
 
 btn_colher_sim.addEventListener("click", function () {
-
-  pagamentos.style.display = "block";
+  final.style.display = "block";
+  res_nome.innerHTML = 'Nome: ' + dic[0]
+  res_end.innerHTML = 'Endereço: ' + dic[1] + ', '+ dic[2]
+  res_reg.innerHTML = 'Região: ' + dic[4]
+  
   info.style.display = "none";
   whats_colher = "SIM";
   mostrarDados();
 
 });
 btn_colher_nao.addEventListener("click", function () {
+  final.style.display = "block";
+  res_nome.innerHTML = 'Nome: ' + dic[0]
+  res_end.innerHTML = 'Endereço: ' + dic[1] + ', '+ dic[2]
+  res_reg.innerHTML = 'Região: ' + dic[4]
 
-  pagamentos.style.display = "block";
   info.style.display = "none";
   whats_colher = "NÃO";
   mostrarDados();
@@ -1283,7 +1300,8 @@ function pad(numero, tamanho) {
 
 env_pix.addEventListener("click", function () {
   pagamentos.style.display = "none";
-  final.style.display = "block";
+  agradece.style.display = 'block'
+
 
   var mensagemCarrinho = "";
   var contped = 0;
@@ -1349,7 +1367,7 @@ env_pix.addEventListener("click", function () {
 });
 env_cartao.addEventListener("click", function () {
   pagamentos.style.display = "none";
-  final.style.display = "block";
+  agradece.style.display = 'block'
 
   var mensagemCarrinho = "";
   var contped = 0;
@@ -1416,7 +1434,8 @@ env_dinheiro.addEventListener("click", function (e) {
   e.preventDefault();
   var troco = document.getElementById("troco").value;
   pagamentos.style.display = "none";
-  final.style.display = "block";
+  agradece.style.display = 'block'
+
 
   var mensagemCarrinho = "";
   var contped = 0;

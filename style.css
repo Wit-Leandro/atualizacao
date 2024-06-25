@@ -326,6 +326,11 @@ footer {
   justify-items: center;
   border-radius: 20px;
 }
+#welcome p {
+  margin-left: 80px;
+  margin-right: 80px;
+
+}
 
 
 
@@ -433,6 +438,10 @@ footer {
 #imagem_salada p {
   font-weight: bolder
 
+}
+#oct_hora{
+  height: 20px;
+  width: 350px;
 }
 
 #imagem_marmita {
@@ -556,6 +565,48 @@ footer {
 
 #esconde_carrinho {
   display: none;
+}
+#voltar_inicio{
+  margin-left: 100px;
+}
+#agradece{
+  display: none;
+  grid-row: 3;
+  padding: 0 5px 0 5px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  box-shadow: 4px 4px 50px #370246;
+  border-radius: 10px;
+}
+.vlt_sempre{
+  margin-left: 90px;
+  font-family:'Lucida Grande';
+  color: black;
+}
+.vlt_grid{
+  display: grid;
+  width: 350px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 10px;
+}
+.img_loja{
+  border-radius: 20px;
+  grid-column: 1;
+  grid-row: 1;
+}
+.vlt_txt{
+  padding-top: 20px;
+  grid-column: 2;
+  grid-row: 1;
+  box-shadow: 4px 4px 50px #370246;
+  border-radius: 10px;
+}
+.vlt_txt p {
+  font-family:'Franklin Gothic Medium';
+  font-style: italic;
+  color: #210129;
 }
 #carrinho {
   margin-top: 5px;
