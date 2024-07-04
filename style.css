@@ -1853,6 +1853,11 @@ footer {
   align-self: center;
   text-align: center;
 }
+.pagamento li {
+  font-size: small;
+  font-weight: bolder;
+  color: black;
+}
 .res_pix {
   display: none;
   border-radius: 20px;
@@ -1888,6 +1893,8 @@ footer {
 .res_cartao {
   display: none;
   border-radius: 20px;
+  box-shadow: 4px 4px 50px #370246;
+  padding-left: 20px;
 }
 #qrcode{
   padding-left: 80px;

@@ -1217,17 +1217,20 @@ btn_pix.addEventListener("click", function () {
   res_pix.style.display = "block";
   res_cartao.style.display = "none";
   res_dinheiro.style.display = "none";
+  antecipar_envio_pix()
   generateQRCode()
 });
 btn_cartao.addEventListener("click", function () {
   res_pix.style.display = "none";
   res_cartao.style.display = "block";
   res_dinheiro.style.display = "none";
+  antecipar_envio_cartao()
 });
 btn_dinheiro.addEventListener("click", function () {
   res_pix.style.display = "none";
   res_cartao.style.display = "none";
   res_dinheiro.style.display = "block";
+  antecipar_envio_dinheiro()
 });
 
 /* ---informativo da colherzinha---- */
@@ -1662,3 +1665,195 @@ function valorTotalFrete(){
   return t
 }
 
+function antecipar_envio_pix(){
+  var mensagemCarrinho = "";
+  var contped = 0;
+  carrinho.forEach(function (element) {
+    if (Array.isArray(element)) {
+      contped += 1;
+      mensagemCarrinho += "\n\nMontagem N° " + contped + "\n";
+      mensagemCarrinho += formatarArrayWhats(element);
+    } else {
+      mensagemCarrinho += "- " + element + "\n";
+    }
+  });
+
+  var tw = somarArray(valorCompra);
+  var te = "";
+
+  if (tw < 20 && dic[4] === "Tarumã") {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else if (tw < 150 && dic[4] === "Usina Nova America") {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else if (tw < 50 && dic[4] === "Usina Agua Bonita") {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else if (tw < 50 && dic[4] === "Posto Pioneiro") {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else {
+    te = "Taxa de entrega isento";
+  }
+  var vlr_total_whats = "R$" + tw + ",00";
+
+  var detalhesPedido =
+    "N° Pedido: " +
+    numeroDoPedido +
+    "\nCliente: " +
+    dic[0] +
+    "\nEndereço: " +
+    dic[1] +
+    "," +
+    dic[2] +
+    "\nRegião de entrega: " +
+    dic[4] +
+    "\nValor total: " +
+    vlr_total_whats +
+    "\nTaxa entrega: " +
+    te +
+    "\nPagamento via Pix" +
+    "\nColherzinha? " +
+    whats_colher +
+    "" +
+    mensagemCarrinho;
+  var numeroWhatsApp = "5518996772619";
+  var mensagemWhatsApp = encodeURIComponent(
+    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido
+  );
+  var linkWhatsApp =
+    "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
+
+  window.open(linkWhatsApp);
+  alert('"ENVIAR COMPROVANTE DO PIX VIA WHATSAPP"')
+}
+
+function antecipar_envio_cartao(){
+  var mensagemCarrinho = "";
+  var contped = 0;
+  carrinho.forEach(function (element) {
+    if (Array.isArray(element)) {
+      contped += 1;
+      mensagemCarrinho += "\n\nMontagem N° " + contped + "\n";
+      mensagemCarrinho += formatarArrayWhats(element);
+    } else {
+      mensagemCarrinho += "- " + element + "\n";
+    }
+  });
+
+  var tw = somarArray(valorCompra);
+  var te = "";
+
+  if (tw < 20 && dic[4] === "Tarumã") {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else if (tw < 150 && dic[4] === "Usina Nova America") {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else if (tw < 50 && dic[4] === "Usina Agua Bonita") {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else if (tw < 50 && dic[4] === "Posto Pioneiro") {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else {
+    te = "Taxa de entrega isento";
+  }
+  var vlr_total_whats = "R$" + tw + ",00";
+
+  var detalhesPedido =
+    "N° Pedido: " +
+    numeroDoPedido +
+    "\nCliente: " +
+    dic[0] +
+    "\nEndereço: " +
+    dic[1] +
+    "," +
+    dic[2] +
+    "\nRegião de entrega: " +
+    dic[4] +
+    "\nValor total: " +
+    vlr_total_whats +
+    "\nTaxa entrega: " +
+    te +
+    "\nLevar a maquininha" +
+    "\nColherzinha? " +
+    whats_colher +
+    "" +
+    mensagemCarrinho;
+  var numeroWhatsApp = "5518996772619";
+  var mensagemWhatsApp = encodeURIComponent(
+    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido
+  );
+  var linkWhatsApp =
+    "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
+
+  window.open(linkWhatsApp);
+
+}
+
+function antecipar_envio_dinheiro(){
+  var mensagemCarrinho = "";
+  var contped = 0;
+  carrinho.forEach(function (element) {
+    if (Array.isArray(element)) {
+      contped += 1;
+      mensagemCarrinho += "\n\nMontagem N° " + contped + "\n";
+      mensagemCarrinho += formatarArrayWhats(element);
+    } else {
+      mensagemCarrinho += "- " + element + "\n";
+    }
+  });
+
+  var tw = somarArray(valorCompra);
+  var te = "";
+
+  if (tw < 20 && dic[4] === "Tarumã") {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else if (tw < 150 && dic[4] === "Usina Nova America") {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else if (tw < 50 && dic[4] === "Usina Agua Bonita") {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else if (tw < 50 && dic[4] === "Posto Pioneiro") {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else {
+    te = "Taxa de entrega isento";
+  }
+  var vlr_total_whats = "R$" + tw + ",00";
+
+  var detalhesPedido =
+    "N° Pedido: " +
+    numeroDoPedido +
+    "\nCliente: " +
+    dic[0] +
+    "\nEndereço: " +
+    dic[1] +
+    "," +
+    dic[2] +
+    "\nRegião de entrega: " +
+    dic[4] +
+    "\nValor total: " +
+    vlr_total_whats +
+    "\nTaxa entrega: " +
+    te +
+    "\nDinheiro: Precisa de troco? " +
+    troco +
+    "\nColherzinha? " +
+    whats_colher +
+    "" +
+    mensagemCarrinho;
+  var numeroWhatsApp = "5518996772619";
+  var mensagemWhatsApp = encodeURIComponent(
+    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido
+  );
+  var linkWhatsApp =
+    "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
+
+  window.open(linkWhatsApp);
+
+}
