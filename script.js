@@ -1224,13 +1224,13 @@ btn_cartao.addEventListener("click", function () {
   res_pix.style.display = "none";
   res_cartao.style.display = "block";
   res_dinheiro.style.display = "none";
-  antecipar_envio_cartao()
+  
 });
 btn_dinheiro.addEventListener("click", function () {
   res_pix.style.display = "none";
   res_cartao.style.display = "none";
   res_dinheiro.style.display = "block";
-  antecipar_envio_dinheiro()
+  
 });
 
 /* ---informativo da colherzinha---- */
@@ -1729,6 +1729,9 @@ function antecipar_envio_pix(){
   alert('"ENVIAR COMPROVANTE DO PIX VIA WHATSAPP"')
 }
 
+
+/* - FUNÇÕES CANCELADAS - */
+/*
 function antecipar_envio_cartao(){
   var mensagemCarrinho = "";
   var contped = 0;
@@ -1857,3 +1860,4 @@ function antecipar_envio_dinheiro(){
   window.open(linkWhatsApp);
 
 }
+  */
