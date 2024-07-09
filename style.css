@@ -1672,7 +1672,7 @@ footer {
 .cx_add3 {
   display: grid;
   grid-template-columns: 25px 160px 25px 160px;
-  grid-template-rows: repeat(10, 1fr);
+  grid-template-rows: repeat(12, 1fr);
   grid-row-gap: 10px;
   grid-column-gap: 5px;
 }
@@ -1829,6 +1829,32 @@ footer {
   grid-row: 10;
   grid-column: 4;
 }
+#checkbox34 {
+  grid-row: 11;
+  grid-column: 1;
+}
+.check34 {
+  grid-row: 11;
+  grid-column: 2;
+}
+#checkbox35 {
+  grid-row: 11;
+  grid-column: 3;
+}
+.check35 {
+  grid-row: 11;
+  grid-column: 4;
+}
+#checkbox36 {
+  grid-row: 12;
+  grid-column: 1;
+}
+.check36 {
+  grid-row: 12;
+  grid-column: 2;
+}
+
+
 .btn_escolha {
   padding-left: 100px;
   margin-bottom: 20px;
