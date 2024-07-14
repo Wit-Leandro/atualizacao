@@ -4,65 +4,84 @@ body {
   align-items: center;
   background: radial-gradient(#cc82e1, #a92fca);
   margin: 0;
-  padding: 0;
-  font-family: "Lucida Sans", Verdana, sans-serif;
-}
-#adicionais_salada{
-  padding-left: 70px;
-  display: none;
-  grid-row: 3;
+  padding-left: 10px;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 16px;
 
 }
+
+
+#adicionais_salada{
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  display: none;
+  grid-row: 3;
+}
+
+#adicionais_salada label{
+  text-align: start;
+}
+
 .alerta_pgto {
-  font-size: small;
   font-weight: bold;
   color: red;
   padding: 20px 0 20px 0;
 }
 #complemento_salada{
-  padding-left: 10px;
   display: none;
   grid-row: 3;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 
 }
+
+#complemento_salada label {
+  text-align: start;
+}
+
 #complemento_shake{
   padding-left: 10px;
   display: none;
   grid-row: 3;
-
 }
+
 #sabor_trad {
-  padding-left: 10px;
   display: none;
   grid-row: 3;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  
+}
+
+#sabor_trad label {
+  text-align: start;
 }
 #copos {
-  box-shadow: 4px 4px 50px #370246;
-  justify-content: center;
-  justify-items: center;
-  border-radius: 20px;
+  align-items: center;
+  align-self: center;
+  text-align: center;
 }
 #marmitas {
-  box-shadow: 4px 4px 50px #370246;
-  justify-content: center;
-  justify-items: center;
-  border-radius: 20px;
+  align-items: center;
+  align-self: center;
+  text-align: center;
 }
 #salada {
-  box-shadow: 4px 4px 50px #370246;
-  justify-content: center;
-  justify-items: center;
-  border-radius: 20px;
+  align-items: center;
+  align-self: center;
+  text-align: center;
 }
 #salada p {
-  margin: 0 0 0 80px;
   font-weight: bolder;
 }
 #shake{
-  box-shadow: 4px 4px 50px #370246;
-  justify-content: center;
-  justify-items: center;
-  border-radius: 20px;
+  align-items: center;
+  align-self: center;
+  text-align: center;
 }
 #btn_carrinho {
   margin-left: 60px;
@@ -77,20 +96,21 @@ body {
   grid-row: 3;
 }
 #meu_select_salada {
-  margin-left: 30px;
+  height: 30px;
 }
-.atencao_comp_salada{
-  margin-left: 90px;
+#meu_select_shake {
+  height: 30px;
+}
+#shake_tradicional{
+  padding-top: 20px;
 }
 .res_css{
-  background-color: #cc82e1;
   font-weight: bolder;
   padding: 10px;
-  box-shadow: 4px 4px 50px #370246;
+
   justify-content: center;
   justify-items: center;
   border-radius: 20px;
-  font-family: "Times New Roman", Times, serif;
 
 }
 
@@ -99,11 +119,17 @@ body {
   padding-left: 20px;
   display: none;
   grid-row: 3;
-  
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+#coberturas label {
+  text-align: start;
 }
 #acai_tradicional{
   padding: 10px;
-  box-shadow: 4px 4px 50px #370246;
+
   justify-content: center;
   justify-items: center;
   border-radius: 20px;
@@ -129,7 +155,7 @@ body {
   margin-top: 20px;
 }
 #res_complemento_shake{
-  font-size: smaller;
+  font-size: 16px;
 }
 
 
@@ -140,36 +166,56 @@ body {
   grid-template-rows: auto 1fr;
   gap: 2px;
   display: grid;
-  box-shadow: 4px 4px 50px #370246;
+  padding-left: 0;
+  margin: 0;
+
   justify-content: center;
   justify-items: center;
+  row-gap: 5px;
+  grid-auto-rows: auto;
+  grid-template-columns: 360px;
 }
+
 header {
   grid-row: 1;
+  margin: 0;
+  grid-row: 1;
+  height: 95px;
+  margin-bottom: 5px;
 }
+
 .cabecalho {
   display: grid;
   grid-auto-columns: 3;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  column-gap: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  column-gap: 5px;
 }
+
+
 .imgcabeca {
   grid-row: 1 / -1;
   grid-column: 1 / 1;
+  display: inline-flex;
 }
 .enderecocabeca {
   font-size: 8pt;
   font-weight: bolder;
   margin: 0;
-  padding: 0;
-  grid-row: 1 /-1;
   grid-column: 2;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
 
 }
+.enderecocabeca p {
+  margin: 0;
+}
+.enderecocabeca h3 {
+  margin: 0;
+}
+
 .canto_tela{
   grid-column: 3;
   display: grid;
@@ -187,7 +233,6 @@ header {
   left:50%;
   bottom: 125%;
   transform: translateX(-50%);
-  background-color: #333;
   color: #fff;
   padding: 5px;
   border-radius: 5px;
@@ -214,10 +259,12 @@ header {
 
 }
 #meu_select_copo{
-  margin-left: 30px;
+  height: 30px;
+  width: 150px;
 }
 #meu_select_marmita{
-  margin-left: 30px;
+  height: 30px;
+  width: 150px;
 }
 
 
@@ -234,8 +281,9 @@ header {
 
 img {
   display: inline-flex;
-  width: 200px;
+  width: 150px;
 }
+
 h1 {
   color: rgb(128, 32, 78);
   margin: 5px;
@@ -301,39 +349,29 @@ btns:hover {
 #adicao {
   margin-top: 10px;
   display: none;
-  box-shadow: 10px 10px 100px #210129;
+
   width: 350px;
   padding-left: 5px;
   justify-content: center;
   align-items: center;
+  grid-row: 3
 }
 
 footer {
+  border-top: solid 2px #370246;
   grid-column: 1 / -1;
   border-top: solid 2px #370246;
   padding: 0px 10px 0 10px;
   font-size: 8pt;
   margin-top: 20px;
   font: bold;
+  grid-row: 5;
 }
 
 #welcome {
-  padding-left: 60px;
-  font-weight: bold;
-  grid: 4;
-  box-shadow: 4px 4px 50px #370246;
-  justify-content: center;
-  justify-items: center;
-  border-radius: 20px;
+  font-size: 20px;
+  text-align: center;
 }
-#welcome p {
-  margin-left: 65px;
-  margin-right: 65px;
-
-}
-
-
-
 
 .cabecatitulo {
   margin: 0;
@@ -366,10 +404,11 @@ footer {
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
-  width: 100px;
+  width: 86px;
   height: 25px;
   border: solid 1px;
   border-radius: 20px 10px 20px 0;
+  font-size: 8pt;
 }
 .tab2 {
   background-color: rgb(128, 32, 78);
@@ -392,10 +431,11 @@ footer {
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
-  width: 100px;
+  width: 86px;
   height: 25px;
   border: solid 1px;
   border-radius: 20px 10px 20px 0;
+  font-size: 8pt
 }
 .sub_tab:hover {
   background-color: #b96bcf;
@@ -426,31 +466,20 @@ footer {
   margin-top: 10px;
 }
 #imagem_copo img {
-  padding-left: 30px;
   width: 300px;
 }
+
+
 
 #imagem_salada {
-  margin: 10px;
-
-}
-#imagem_salada ul {
-  padding-left: 30px;
-  width: 300px;
+  padding-top: 20px;
 }
 #imagem_salada p {
   font-weight: bolder
+}
 
-}
-#oct_hora{
-  padding-left: 10px;
-  font-family: 'Franklin Gothic Medium';
-  height: 20px;
-  width: 350px;
-}
 
 #imagem_marmita {
-  padding-left: 30px;
   margin-top: 10px;
 }
 #imagem_marmita img {
@@ -463,10 +492,7 @@ footer {
   margin-right: 5px;
   border-radius: 10px;
 }
-.enderecocabeca {
-  margin-left: 5px;
-  padding-top: 5px;
-}
+
 #personalizar_pedido {
   margin: 0;
   display: flex;
@@ -475,19 +501,16 @@ footer {
 .horas {
   grid-row: 2;
   grid-column: 1;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 10px 0 10px 0;
   padding-left: 5px;
   font-weight: bolder;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: rgb(2, 53, 2);
   font-weight: bold;
-  font-size: 10pt;
-  box-shadow: 4px 4px 50px #370246;
   justify-content: center;
   justify-items: center;
   border-radius: 20px;
 }
+
 .btn_s_n {
   display: inline-flex;
   padding-left: 80px;
@@ -510,8 +533,6 @@ footer {
   margin-top: 20px;
 }
 #imagem_copo {
-  background-color: #a92fca;
-  box-shadow: 10px 10px 100px #210129;
   width: 320px;
   border-radius: 20px;
   margin-left: 10px;
@@ -523,8 +544,6 @@ footer {
 }
 
 #imagem_marmita {
-  background-color: #a92fca;
-  box-shadow: 10px 10px 100px #210129;
   width: 320px;
   border-radius: 20px;
   margin-left: 10px;
@@ -540,6 +559,7 @@ footer {
 }
 .sujestao {
   border: solid 2px #a92fca;
+  grid-row: 3;
 }
 #mensagem {
   display: none;
@@ -556,17 +576,26 @@ footer {
   padding-right: 10px;
 }
 
-#escolha_regiao span {
-  font-size: 8pt;
-  bottom: 2px;
+#escolha_regiao {
+  font-size: 12px;
+  grid-row: 3;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
-#escolha_regiao label {
-  font-size: 9pt;
-  bottom: 2px;
+#escolha_regiao h2 {
+  font-size: 20px;
 }
-#escolha_regiao #regiao_mensagem {
-  font-size: 8pt;
+#escolha_regiao h5 {
+  font-size: 16px;
 }
+.inpt_regiao {
+  justify-content: start;
+  text-align: start;
+  align-items: start;
+}
+
+
 
 #esconde_carrinho {
   display: none;
@@ -581,12 +610,10 @@ footer {
   justify-content: center;
   align-items: center;
   margin-top: 5px;
-  box-shadow: 4px 4px 50px #370246;
   border-radius: 10px;
 }
 .vlt_sempre{
   margin-left: 90px;
-  font-family:'Lucida Grande';
   color: black;
 }
 .vlt_grid{
@@ -605,17 +632,16 @@ footer {
   padding-top: 20px;
   grid-column: 2;
   grid-row: 1;
-  box-shadow: 4px 4px 50px #370246;
+
   border-radius: 10px;
 }
 .vlt_txt p {
-  font-family:'Franklin Gothic Medium';
   font-style: italic;
   color: #210129;
 }
 #carrinho {
   margin-top: 5px;
-  box-shadow: 4px 4px 50px #370246;
+
   border-radius: 10px;
   display: block;
 }
@@ -626,30 +652,32 @@ footer {
   padding-right: 10px;
 }
 #final {
-  font-family: Cambria;
   display: none;
   margin: 0;
   grid-row: 3;
 }
 #final span {
-  font-size: 9pt;
   position: relative;
   bottom: 3px;
   margin: 0;
   left: 10px;
 }
-#final h1 {
-  padding-left: 65px;
-}
+
 #final p {
   margin: 5px;
 }
+#final h5 {
+  font-size: 10px;
+}
+.seus_dados {
+  margin-top: 20px;
+}
+
 
 #contCarrinho {
   color: #370246;
   position: relative;
   top: 12px;
-  font-size: 15px;
 }
 #logCarrinho {
   position: relative;
@@ -658,6 +686,7 @@ footer {
 #adicionais {
   padding-left: 10px;
   display: none;
+  grid-row: 4;
 }
 
 .cx_add_salada {
@@ -666,6 +695,10 @@ footer {
   grid-template-rows: repeat(9, 1fr);
   grid-row-gap: 10px;
   grid-column-gap: 5px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding-top: 20px;
 }
 
 .grid_titulo_salada {
@@ -745,6 +778,13 @@ footer {
   grid-template-rows: repeat(10, 1fr);
   grid-row-gap: 10px;
   grid-column-gap: 5px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding-top: 20px;
+}
+.cx_add_complemento_salada label {
+  text-align: start;
 }
 
 .grid_titulo_complemento_salada {
@@ -761,7 +801,7 @@ footer {
 .check207 {
   grid-row: 2;
   grid-column: 2;
-  margin-top: 10px;
+
 }
 #checkbox208 {
   grid-row: 3;
@@ -770,7 +810,7 @@ footer {
 .check208 {
   grid-row: 3;
   grid-column: 2;
-  margin-top: 10px;
+
 }
 #checkbox209 {
   grid-row: 4;
@@ -779,7 +819,7 @@ footer {
 .check209 {
   grid-row: 4;
   grid-column: 2;
-  margin-top: 10px;
+
 }
 #checkbox210 {
   grid-row: 5;
@@ -788,7 +828,7 @@ footer {
 .check210 {
   grid-row: 5;
   grid-column: 2;
-  margin-top: 10px;
+
 }
 #checkbox211 {
   grid-row: 6;
@@ -797,7 +837,7 @@ footer {
 .check211 {
   grid-row: 6;
   grid-column: 2;
-  margin-top: 10px;
+
 }
 #checkbox212 {
   grid-row: 7;
@@ -806,7 +846,7 @@ footer {
 .check212 {
   grid-row: 7;
   grid-column: 2;
-  margin-top: 10px;
+
 }
 #checkbox213 {
   grid-row: 8;
@@ -815,7 +855,7 @@ footer {
 .check213 {
   grid-row: 8;
   grid-column: 2;
-  margin-top: 10px;
+
 }
 #checkbox214 {
   grid-row: 9;
@@ -824,7 +864,7 @@ footer {
 .check214 {
   grid-row: 9;
   grid-column: 2;
-  margin-top: 10px;
+
 }
 #checkbox215 {
   grid-row: 10;
@@ -833,9 +873,9 @@ footer {
 .check215 {
   grid-row: 10;
   grid-column: 2;
-  margin-top: 10px;
+
 }
-/*milk-----shake*/
+
 
 .cx_add_shake {
   display: grid;
@@ -843,6 +883,7 @@ footer {
   grid-template-rows: repeat(auto, 1fr);
   grid-row-gap: 10px;
   grid-column-gap: 5px;
+  padding-top: 20px;
 }
 
 .grid_titulo_shake {
@@ -1025,7 +1066,7 @@ footer {
 }
 
 
-/*------Cobertura--------*/
+
 
 .cx_add_cobertura {
   display: grid;
@@ -1033,6 +1074,7 @@ footer {
   grid-template-rows: repeat(auto, 1fr);
   grid-row-gap: 10px;
   grid-column-gap: 5px;
+  padding-top: 20px;
 }
 
 .grid_titulo_cobertura {
@@ -1170,13 +1212,14 @@ footer {
 }
 
 
-/*-------------*/
+
 .cx_add_complemento_shake {
   display: grid;
   grid-template-columns: 25px 200px;
   grid-template-rows: repeat(auto, 1fr);
   grid-row-gap: 10px;
   grid-column-gap: 5px;
+  padding-top: 20px;
 }
 
 .grid_titulo_complemento_shake {
@@ -1423,7 +1466,7 @@ footer {
 }
 
 
-/*--------------*/
+
 
 .cx_add_especial{
   display: grid;
@@ -1431,6 +1474,7 @@ footer {
   grid-template-rows: repeat(auto, 1fr);
   grid-row-gap: 10px;
   grid-column-gap: 5px;
+  padding-top: 20px;
 }
 
 .grid_titulo_especial {
@@ -1523,12 +1567,10 @@ footer {
 }
 
 
-/*------------*/
-
 
 .cx_add1 {
   display: grid;
-  grid-template-columns: 25px 160px 25px 160px;
+  grid-template-columns: 24px 150px 24px 150px;
   grid-template-rows: repeat(9, 1fr);
   grid-row-gap: 10px;
   grid-column-gap: 5px;
@@ -1666,12 +1708,10 @@ footer {
   grid-column: 4;
 }
 
-/**/
 
-/**/
 .cx_add3 {
   display: grid;
-  grid-template-columns: 25px 160px 25px 160px;
+  grid-template-columns: 24px 150px 24px 150px;
   grid-template-rows: repeat(12, 1fr);
   grid-row-gap: 10px;
   grid-column-gap: 5px;
@@ -1861,13 +1901,15 @@ footer {
 }
 .pagamento {
   display: none;
-  padding-right: 5px;
+  grid-row: 3;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
  
 }
 .pagamento h1 {
-  padding-left: 25px;
+  font-size: 25px;
   border-bottom: solid 2px #210129;
-  margin-bottom: 10px;
 }
 .pagamento h4 {
   padding-left: 25px;
@@ -1875,38 +1917,32 @@ footer {
   margin-bottom: 10px;
   color: black;
   font-weight: bold;
-  align-items: center;
-  align-self: center;
-  text-align: center;
+  font-size: 25px;
+
 }
 .pagamento li {
-  font-size: small;
   font-weight: bolder;
   color: black;
+  font-size: 14px;
 }
 .res_pix {
   display: none;
   border-radius: 20px;
-  box-shadow: 4px 4px 50px #370246;
-}
-.res_pix h3 {
-  color: #210129;
   align-items: center;
   align-self: center;
   text-align: center;
+}
+.res_pix h3 {
+  color: #210129;
   margin-bottom: 10px;
 }
 .res_pix h5 {
   color: #210129;
-  align-items: center;
-  align-self: center;
-  text-align: center;
 }
 .res_pix p {
   padding-left: 10px;
 }
 .res_qrcode{
-  padding-left: 50px;
   margin-top: 10px;
 }
 .res_btn_pix{
@@ -1919,12 +1955,11 @@ footer {
 .res_cartao {
   display: none;
   border-radius: 20px;
-  box-shadow: 4px 4px 50px #370246;
-  padding-left: 20px;
+  align-items: center;
+  align-self: center;
+  text-align: center;
 }
-#qrcode{
-  padding-left: 80px;
-}
+
 .cliqueaqui:hover{
   background-color: #44274c;
   cursor: pointer;
@@ -1948,14 +1983,12 @@ footer {
 .res_dinheiro {
   display: none;
   border-radius: 20px;
-  box-shadow: 4px 4px 50px #370246;
-  padding-left: 20px;
-}
-.res_dinheiro h3 {
-  color: #210129;
   align-items: center;
   align-self: center;
   text-align: center;
+}
+.res_dinheiro h3 {
+  color: #210129;
   margin-bottom: 10px;
 }
 .res_dinheiro label{
@@ -1963,7 +1996,7 @@ footer {
 }
 
 
-/*-------grid forma de pagamento-----*/
+
 .grid_pgto {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -1987,7 +2020,7 @@ footer {
   grid-row: 1 / -1;
 }
 
-/* ------------grid CNPJ-------------*/
+
 .grid_cnpj {
   display: grid;
   grid-column: 1fr 1fr;
@@ -1998,7 +2031,6 @@ footer {
   align-items: end;
   text-align: end;
   align-self: self-end;
-  font-family: "Times New Roman", Times, serif;
   font-weight: bold;
 }
 #copiar_chave {
@@ -2006,23 +2038,25 @@ footer {
 }
 
 #informativo {
+  margin: 10px 0 20px 0;
   padding-left: 10px;
   border-radius: 20px;
   width: 250px;
-  font-size: 8pt;
   display: none;
-  box-shadow: 4px 4px 50px #370246;
+
   margin-bottom: 10px;
   align-self: center;
   align-items: center;
   text-align: center;
   height: 50px;
+  grid-row: 3;
 }
 .grid_colher {
   display: grid;
   grid-template-columns: 110px 110px;
-  grid-template-rows: 10px 10px;
-  column-gap: 10px;
+  grid-template-rows: 20px 20px;
+  margin-top: 20px;
+  column-gap: 30px;
 }
 #colher_sim {
   grid-column: 1;
@@ -2051,17 +2085,22 @@ footer {
 }
 .grid_botoes {
   display: grid;
-  grid-template-columns: 200px 200px;
+  grid-template-columns: 180px 180px;
   grid-template-rows: 10px 10px 10px 1fr;
-  column-gap: 20px;
-  padding-left: 20px;
   row-gap: 20px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding-top: 20px;
 }
 #esconde_comprar_mais {
   display: none;
   grid-row: 2 / 3;
   grid-column: 1;
-  margin-left: 20px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
 }
 #esconde_finalizar_carrinho {
   display: none;
@@ -2073,163 +2112,46 @@ footer {
   grid-row: 1 / 1;
   grid-column: 1 / -1;
   font-weight: bolder;
-  margin-left: 65px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 
 }
 .valor_na_tela{
   grid-row: 3;
   grid-column: 1 / -1;
 }
-
-@media (max-width: 500px) {
-  body {
-    display: flex;
-    padding-left: 10px;
-  }
-  .container {
-    display: grid;
-    border-radius: 20px;
-    padding-left: 0;
-    margin: 0;
-    row-gap: 5px;
-    box-shadow: 4px 4px 50px #370246;
-    grid-auto-rows: auto;
-    grid-template-columns: 360px;
-  }
-  img {
-    display: inline-flex;
-    width: 150px;
-  }
-  header {
-    margin: 0;
-    grid-row: 1;
-    height: 95px;
-    margin-bottom: 5px;
-  }
-
-  .horas {
-    background-color: #cc82e1;
-    padding-left: 5px;
-    grid-row: 2;
-  }
-  #adicao {
-    grid-row: 3;
-  }
-  .ocutar{
-    grid-row: 4;
-  
-  }
-  #escolha_regiao {
-    grid-row: 3;
-
-  }
-  
-  #escolha_regiao span {
-    font-size: 8pt;
-    bottom: 2px;
-  }
-  #escolha_regiao label {
-    font-size: 9pt;
-    bottom: 2px;
-  }
-
-
-  footer {
-    border-top: solid 2px #370246;
-    padding: 0px 10px 0 10px;
-    font-size: 8pt;
-    margin-top: 20px;
-    font: bold;
-    grid-row: 5;
-  }
-
-  #welcome {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    grid-row: 4;
-    padding-left: 5px;
-    font-weight: bold;
-  }
-
-  .imgcabeca {
-    display: inline-flex;
-
-  }
-
-
-  .tab {
-    width: 86px;
-    font-size: 8pt;
-  }
-  .sub_tab {
-    width: 86px;
-    font-size: 8pt;
-  }
-
-  .cabecalho {
-    margin-bottom: 5px;
-    margin-top: 5px;
-    column-gap: 5px;
-  }
-
-
-
-
-  .sujestao {
-    grid-row: 3;
-  }
-
-  #escolha_regiao #regiao_mensagem {
-    font-size: 10pt;
-  }
-  
-  #final {
-    font-family: Cambria;
-    display: none;
-    margin: 0;
-    grid-row: 3;
-  }
-  #final h1 {
-    padding-left: 2px;
-  }
-
-  #adicionais {
-    grid-row: 4;
-  }
-
-  .cx_add1 {
-    grid-template-columns: 24px 150px 24px 150px;
-  }
-  .cx_add3 {
-    grid-template-columns: 24px 150px 24px 150px;
-  }
-
-
-  .pagamento {
-    padding-right: 5px;
-    grid-row: 3;
-  }
-  .pagamento h1 {
-    font-size: 20pt;
-  }
-
-
-  #informativo {
-    grid-row: 3;
-  }
-/*
-  .grid_botoes {
-    display: grid;
-    grid-template-columns: 180px 180px;
-    grid-template-rows: 10px 10px;
-    column-gap: 5px;
-    padding-left: 10px;
-  }*/
-  #usuario h2{
-    font-size: 20px;
-    padding-left: 20px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-  }
-
+.ocutar {
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  grid-row: 4;
 }
 
+#usuario h2{
+  padding-left: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.cx_itens {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.cx_itens input[type="text"] {
+  margin-right: 10px;
+  height: 25px;
+  width: 150px;
+}
+.cx_itens input[type="number"] {
+  margin-right: 10px;
+  height: 25px;
+  width: 50px;
+  text-align: center;
+}
+.cx_itens button {
+  width: 50px;
+  height: 25px;
+  margin-right: 10px;
+}

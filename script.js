@@ -764,7 +764,6 @@ btn_negar_compra_add.addEventListener("click", function () {
       if (selecionados.length > somarArray(limite)) {
         this.checked = false;
         alert("Ops! Limite excedido!! ");
-        adicao.style.display = 'block'
       }
     });
   });
@@ -852,10 +851,62 @@ function calcTaxa(localiza) {
 /*--------- finalizaçao e exibiçao do pedido -----*/
 
 btn_valores.addEventListener("click", function () {
-  if (contarSelecionados() == 0) {
-    alert('Nehum adcional ou complemento selecionado')
-  }
-  else {
+    const produtos = [
+      { id: 'item1', quantidadeId: 'quantidade1' },
+      { id: 'item2', quantidadeId: 'quantidade2' },
+      { id: 'item3', quantidadeId: 'quantidade3' },
+      { id: 'item4', quantidadeId: 'quantidade4' },
+      { id: 'item5', quantidadeId: 'quantidade5' },
+      { id: 'item6', quantidadeId: 'quantidade6' },
+      { id: 'item7', quantidadeId: 'quantidade7' },
+      { id: 'item8', quantidadeId: 'quantidade8' },
+      { id: 'item9', quantidadeId: 'quantidade9' },
+      { id: 'item10', quantidadeId: 'quantidade10' },
+      { id: 'item11', quantidadeId: 'quantidade11' },
+      { id: 'item12', quantidadeId: 'quantidade12' },
+      { id: 'item13', quantidadeId: 'quantidade13' },
+      { id: 'item14', quantidadeId: 'quantidade14' },
+      { id: 'item15', quantidadeId: 'quantidade15' },
+      { id: 'item16', quantidadeId: 'quantidade16' },
+      { id: 'item17', quantidadeId: 'quantidade17' },
+      { id: 'item18', quantidadeId: 'quantidade18' },
+      { id: 'item19', quantidadeId: 'quantidade19' },
+      { id: 'item20', quantidadeId: 'quantidade20' },
+      { id: 'item21', quantidadeId: 'quantidade21' },
+      { id: 'item22', quantidadeId: 'quantidade22' },
+      { id: 'item23', quantidadeId: 'quantidade23' },
+      { id: 'item24', quantidadeId: 'quantidade24' },
+      { id: 'item25', quantidadeId: 'quantidade25' },
+      { id: 'item26', quantidadeId: 'quantidade26' },
+      { id: 'item27', quantidadeId: 'quantidade27' },
+      { id: 'item28', quantidadeId: 'quantidade28' },
+      { id: 'item29', quantidadeId: 'quantidade29' },
+      { id: 'item30', quantidadeId: 'quantidade30' },
+      { id: 'item31', quantidadeId: 'quantidade31' },
+      { id: 'item32', quantidadeId: 'quantidade32' },
+      { id: 'item33', quantidadeId: 'quantidade33' },
+      { id: 'item34', quantidadeId: 'quantidade34' },
+      { id: 'item35', quantidadeId: 'quantidade35' }
+
+
+  ];
+
+  produtos.forEach(produto => {
+      const produtoInput = document.getElementById(produto.id);
+      const quantidadeInput = document.getElementById(produto.quantidadeId);
+      const produtoNome = produtoInput.value.trim();
+      const quantidade = parseInt(quantidadeInput.value);
+
+      if (quantidade > 0) {
+          var itens_cx = `${produtoNome} - ${quantidade}x`;
+          valores.push(itens_cx)
+          quantidadeInput.value = "0";
+      }
+  });
+
+  // Reset totalProdutos após adicionar à lista
+  totalProdutos = 0;
+
   checkboxes.forEach(function (checkbox) {
     if (checkbox.checked) {
       valores.push(checkbox.value);
@@ -865,7 +916,8 @@ btn_valores.addEventListener("click", function () {
     adicao.style.display = "none";
   });
 }
-});
+);
+
 /*
 var btn_volta_esolha = document.getElementById("btn_voltar_escolha");
 btn_volta_esolha.addEventListener("click", function () {
@@ -1728,6 +1780,29 @@ function antecipar_envio_pix(){
   window.open(linkWhatsApp);
   alert('"ENVIAR COMPROVANTE DO PIX VIA WHATSAPP"')
 }
+/*-------novas funções de adição de adicionais------------- */
+
+
+let totalProdutos = 0;
+
+function alterarQuantidade(valor, quantidadeId) {
+    const quantidadeInput = document.getElementById(quantidadeId);
+    let quantidadeAtual = parseInt(quantidadeInput.value);
+    let novaQuantidade = quantidadeAtual + valor;
+
+    if (novaQuantidade < 0) novaQuantidade = 0;
+
+    // Verifica se a alteração respeita o limite total de produtos
+    if (totalProdutos + (novaQuantidade - quantidadeAtual) <= somarArray(limite)) {
+        totalProdutos += (novaQuantidade - quantidadeAtual);
+        quantidadeInput.value = novaQuantidade;
+    } else {
+        alert(`O total de produtos não pode exceder ${somarArray(limite)}.`);
+        adicao.style.display = 'block'
+    }
+}
+
+
 
 
 /* - FUNÇÕES CANCELADAS - */
