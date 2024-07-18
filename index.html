@@ -42,21 +42,19 @@
         <span id="resdia2"></span>
       </div>
       <div id="ocutar">
+        <div class="tab-container2">
+          <button class="tab2" onclick="openCategory('evt','acai_tradicional')">Açai - Sem Recheio</button>
+          <button class="tab2" onclick="openCategory('evt','acai_recheio')">Açai - Com Recheio</button>
+        </div>
 
         <div class="tab-container">
-          <button class="tab" onclick="openCategory('evt', 'copos')">Copos</button>
-          <button class="tab" onclick="openCategory('evt', 'marmitas')">Marmitas</button>
+
           <button class="tab" onclick="openCategory('evt','salada')">Salada Frutas</button>
           <button class="tab" onclick="openCategory('evt','shake')">Milk Shake</button>
 
-          <!--
-          <button class="tab" onclick="openCategory('evt', 'login')">Login</button>
-          <button class="tab" id="limpar">Mudar dados</button>-->
         </div>
 
-        <div class="tab-container2">
-          <button class="tab2" onclick="openCategory('evt','acai_tradicional')">Açai Tradicional - Sem Recheio</button>
-        </div>
+
 
         <div id="welcome">
           <p>&#127848 Tio-Chico Sorvetes &#127846</p>
@@ -104,38 +102,7 @@
           </div>
         </div>
 
-        <div id="copos" class="category">
-          <select
-            id="meu_select_copo"
-            onchange="exibirCopos()"
-            class="select_copo"
-          >
-            <option value="300ml">300ml R$ 13,00</option>
-            <option value="400ml">400ml R$ 16,00</option>
-            <option value="500ml">500ml R$ 18,00</option>
-            <option value="700ml">700ml R$ 28,00</option>
-          </select>
-          <button class="btns" id="btn_copo">Quero esse copo!</button>
-          <div id="imagem_copo">
-            <img src="imagens/copo300ml.jpg" alt="copo_açai" />
-          </div>
-        </div>
 
-        <div id="marmitas" class="category">
-          <select
-            id="meu_select_marmita"
-            onchange="exibirMarmitas()"
-            class="select_marmita"
-          >
-            <option value="500ml">500ml R$ 20,00</option>
-            <option value="750ml">750ml R$ 30,00</option>
-            <option value="1200ml">1200ml R$ 40,00</option>
-          </select>
-          <button class="btns" id="btn_marmita">Quero essa marmita!</button>
-          <div id="imagem_marmita">
-            <img src="imagens/marmita500ml.jpg" alt="marmita_açai" />
-          </div>
-        </div>
 
         <div class="category" id="salada">
           <p>Selecione o copo desejado!</p>
@@ -147,7 +114,7 @@
           <option value="700ml">COPO 700ml R$ 18,00</option>  
         </select>
 
-        <button class="btns" id="btn_salada">Quero esse copo!</button>  
+        <button class="btns" id="btn_salada">Montar Copo!</button>  
         <div id="imagem_salada">
           <h2>Frutas Disponiveis</h2>
           <p>MORANGO</p>
@@ -277,6 +244,49 @@
 
 
         </div>
+
+        <div class="category" id="acai_recheio">
+          <h4>AÇAI - (Com Recheio)</h4>
+          <div class="tab-container3">
+            <button class="sub_tab" onclick="openSubCategory('evt', 'copos')">Copos</button>
+            <button class="sub_tab" onclick="openSubCategory('evt', 'marmitas')">Marmitas</button>
+          </div>
+
+          <div id="copos" class="sub_category">
+            <p>Escolha Abaixo e clique no Botão 'MONTAR'!!</p>
+            <select
+              id="meu_select_copo"
+              onchange="exibirCopos()"
+              class="select_copo"
+            >
+              <option value="300ml">300ml R$ 13,00</option>
+              <option value="400ml">400ml R$ 16,00</option>
+              <option value="500ml">500ml R$ 18,00</option>
+              <option value="700ml">700ml R$ 28,00</option>
+            </select>
+            <button class="btns" id="btn_copo">MONTAR!!</button>
+            <div id="imagem_copo">
+              <img src="imagens/copo300ml.jpg" alt="copo_açai" />
+            </div>
+          </div>
+  
+          <div id="marmitas" class="sub_category">
+            <select
+              id="meu_select_marmita"
+              onchange="exibirMarmitas()"
+              class="select_marmita"
+            >
+              <option value="500ml">500ml R$ 20,00</option>
+              <option value="750ml">750ml R$ 30,00</option>
+              <option value="1200ml">1200ml R$ 40,00</option>
+            </select>
+            <button class="btns" id="btn_marmita">MONTAR!!</button>
+            <div id="imagem_marmita">
+              <img src="imagens/marmita500ml.jpg" alt="marmita_açai" />
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <div id="esconde_carrinho">
@@ -907,8 +917,9 @@
         <h3>Sujestão?</h3>
         <h5>Para a montagem desse item em específico?</h5>
         <p>"Ex: coloque o recheio apenas em cima"</p>
+        <p>Se não houver pode deixar em branco</p>
         <textarea name="campo" id="campo" cols="35" rows="5"></textarea>
-        <input class="btns" type="submit" id="btn_sujestao" title="Ex: coloque o recheio apenas em cima">
+        <input value="AVANÇAR!!" class="btns" type="submit" id="btn_sujestao" title="Ex: coloque o recheio apenas em cima">
         <span id="contador">0/30 caracteres &#9993</span>
       </div>
 

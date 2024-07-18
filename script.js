@@ -80,7 +80,7 @@ window.addEventListener('load', function(){
   var fone = 'Não informado'
   var local = 'Não informado'
   dic.push(nome,endereco,ncasa,fone,local)
-
+  alert('CONCLUA TODAS ETAPAS ATÉ ABA PAGAMENTOS PARA FINALIZAR SEU PEDIDO')
 })
 
 
@@ -989,6 +989,22 @@ function openSubCategory(sub_evt, sub_categoryName) {
   sub_evt.currentTarget.classList.add("active");
 }
 
+
+
+
+function openSubCategory2(sub_evt2, sub_categoryName2) {
+  const sub_category2 = document.querySelectorAll(".sub_category2");
+  sub_category2.forEach((sub_category2) => {
+    sub_category2.style.display = "none";
+  });
+  const sub_tabs2 = document.querySelectorAll("sub_tab2");
+  sub_tabs2.forEach((sub_tab2) => {
+    sub_tab2.classList.remove("active");
+  });
+  document.getElementById(sub_categoryName2).style.display = "block";
+  sub_evt2.currentTarget.classList.add("active");
+}
+
 /*-----------pegar hora--------------*/
 function horadia() {
   var hora = dataAtual.getHours();
@@ -1020,7 +1036,7 @@ function horadia() {
     } else {
       reshora.innerHTML = " ABERTO:";
     }
-    hdia.innerHTML = 'Hora: '+ hora + ":" + minutos + " - ";
+    hdia.innerHTML = 'Hora: '+ hora + ":" + minutos + " ";
   }
 }
 
