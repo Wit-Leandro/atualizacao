@@ -1007,6 +1007,7 @@ function openSubCategory2(sub_evt2, sub_categoryName2) {
 
 /*-----------pegar hora--------------*/
 function horadia() {
+  var dataAtual = new Date();
   var hora = dataAtual.getHours();
   var minutos = dataAtual.getMinutes();
   var segundos = dataAtual.getSeconds();
@@ -1018,27 +1019,27 @@ function horadia() {
   if (hora < 10) hora = "0" + hora;
   if (minutos < 10) minutos = "0" + minutos;
   if (segundos < 10) segundos = "0" + segundos;
-  var faltahoras = 14 - hora;
-  if (faltahoras < 10) faltahoras = "0" + faltahoras;
-  var faltaminutos = 60 - minutos;
-  if (faltaminutos < 10) faltaminutos = "0" + faltaminutos;
 
-  if (diaSemana == 1) {
+  if (diaSemana == 1) { // Segunda-feira
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
+    alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')
   } else {
-    if (hora < 14) {
+    if (hora < 14 || hora >= 23) { // Fechado antes das 14h ou depois das 23h
       reshora.style.color = "red";
       reshora.innerHTML = " FECHADO, ";
-    } else if (hora > 23) {
-      reshora.style.color = "red";
-      reshora.innerHTML = " FECHADO, ";
+      alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')
     } else {
-      reshora.innerHTML = " ABERTO:";
+      reshora.style.color = "green";
+      reshora.innerHTML = " ABERTO: ";
     }
-    hdia.innerHTML = 'Hora: '+ hora + ":" + minutos + " ";
   }
+
+  hdia.innerHTML = 'Hora: ' + hora + ":" + minutos + ":" + segundos + " ";
 }
+
+
+
 
 /* funcão para informar data */
 
