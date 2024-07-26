@@ -886,7 +886,8 @@ btn_valores.addEventListener("click", function () {
       { id: 'item32', quantidadeId: 'quantidade32' },
       { id: 'item33', quantidadeId: 'quantidade33' },
       { id: 'item34', quantidadeId: 'quantidade34' },
-      { id: 'item35', quantidadeId: 'quantidade35' }
+      { id: 'item35', quantidadeId: 'quantidade35' },
+      { id: 'item36', quantidadeId: 'quantidade36' }
 
 
   ];
@@ -1743,7 +1744,7 @@ function antecipar_envio_pix(){
       mensagemCarrinho += "\n\nMontagem N° " + contped + "\n";
       mensagemCarrinho += formatarArrayWhats(element);
     } else {
-      mensagemCarrinho += "- " + element + "\n";
+      mensagemCarrinho += "-" + element + "\n";
     }
   });
 
