@@ -342,14 +342,9 @@
       </div>
 
       <div id="adicao">
-        <p>Gostaria de comprar mais? Por R$3,00 cada!</p>
-        <p>Clique no botão abaixo pra comprar!</p>
-
         <div class="btn_s_n">
-          <button class="btns" id="btn_compra_add">Comprar adicional!</button>
-
+          <button class="btns_adicionar" id="btn_compra_add">Comprar adicional por R$3,00!</button>
         </div>
-        <p id="res_add_cliente" class="res_css"></p>
       </div>
 
       <div id="adicionais">
@@ -579,6 +574,12 @@
           <button onclick="alterarQuantidade(1, 'quantidade36')">&#10133</button>
           <button onclick="alterarQuantidade(-1, 'quantidade36')">&#10134</button>
         </div>  
+        <div class="cx_itens">
+          <input type="text" id="item37" value="Suflair" readonly>
+          <input type="number" id="quantidade37" value="0" readonly>
+          <button onclick="alterarQuantidade(1, 'quantidade37')">&#10133</button>
+          <button onclick="alterarQuantidade(-1, 'quantidade37')">&#10134</button>
+        </div> 
       </div>
 
 
@@ -1029,6 +1030,8 @@
         </div>
 
       </div>
+
+      <div id="vazio"></div>
 
       <footer id="rodape">
         <p>

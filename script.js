@@ -70,6 +70,7 @@ var res_end = document.getElementById('res_end')
 var res_end2 = document.getElementById('res_end2')
 var res_reg = document.getElementById('res_regiao') 
 var agradece = document.getElementById('agradece')
+var vazio = document.getElementById('vazio')
 
 /*--------- inicio das funçoes -----*/
 
@@ -307,6 +308,7 @@ btn_copo.addEventListener("click", function (e) {
 
   escolha.style.display = "none";
   adicionais.style.display = "block";
+  vazio.style.display = 'block'
   const getPedido = sessionStorage.getItem("pedido");
   const objectPedido = JSON.parse(getPedido);
   const userPedido = objectPedido.limit;
@@ -333,6 +335,7 @@ btn_marmita.addEventListener("click", function (e) {
 
   escolha.style.display = "none";
   adicionais.style.display = "block";
+  vazio.style.display = 'block'
   const getPedido = sessionStorage.getItem("pedido");
   const objectPedido = JSON.parse(getPedido);
   const userPedido = objectPedido.limit;
@@ -736,6 +739,7 @@ btn_compra_add.addEventListener("click", function () {
   resadicao.innerHTML ="Escolha " + somarArray(limite) + " adiconais para seu açai";
   adicionais.style.display = "block";
   adicao.style.display = 'none'
+  vazio.style.display = 'block'
   
 });
 /*
@@ -887,7 +891,8 @@ btn_valores.addEventListener("click", function () {
       { id: 'item33', quantidadeId: 'quantidade33' },
       { id: 'item34', quantidadeId: 'quantidade34' },
       { id: 'item35', quantidadeId: 'quantidade35' },
-      { id: 'item36', quantidadeId: 'quantidade36' }
+      { id: 'item36', quantidadeId: 'quantidade36' },
+      { id: 'item37', quantidadeId: 'quantidade37' }
 
 
   ];
@@ -915,6 +920,7 @@ btn_valores.addEventListener("click", function () {
     mensagem.style.display = "block";
     adicionais.style.display = "none";
     adicao.style.display = "none";
+    vazio.style.display = 'none'
   });
 }
 );
@@ -1024,12 +1030,14 @@ function horadia() {
   if (diaSemana == 1) { // Segunda-feira
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
+    
     alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')
   } else {
     if (hora < 14 || hora >= 23) { // Fechado antes das 14h ou depois das 23h
       reshora.style.color = "red";
       reshora.innerHTML = " FECHADO, ";
-      alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')
+      
+      alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')  
     } else {
       reshora.style.color = "green";
       reshora.innerHTML = " ABERTO: ";
@@ -1817,6 +1825,7 @@ function alterarQuantidade(valor, quantidadeId) {
     } else {
         alert(`O total de produtos não pode exceder ${somarArray(limite)}.`);
         adicao.style.display = 'block'
+        vazio.style.display = 'none'
     }
 }
 

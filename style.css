@@ -8,9 +8,7 @@ body {
   font-family: "Josefin Sans", sans-serif;
   font-optical-sizing: auto;
   font-size: 16px;
-
 }
-
 
 #adicionais_salada{
   justify-content: center;
@@ -106,12 +104,6 @@ body {
 }
 .res_css{
   font-weight: bolder;
-  padding: 10px;
-
-  justify-content: center;
-  justify-items: center;
-  border-radius: 20px;
-
 }
 
 
@@ -157,7 +149,7 @@ body {
 .container {
   border-radius: 20px;
   grid-template-columns: 500px;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto fr;
   gap: 2px;
   display: grid;
   padding-left: 0;
@@ -333,22 +325,38 @@ button:hover {
   justify-content: center;
   align-items: center;
 }
-btns:hover {
+.btns:hover {
   background-color: rgb(128, 32, 78);
   color: #fff;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
 }
-#adicao {
-  margin-top: 10px;
-  display: none;
 
-  width: 350px;
-  padding-left: 5px;
+.btns_adicionar {
+  display: inline-flex;
+  border-radius: 10px;
+  height: 50px;
+  width: 300px;
   justify-content: center;
   align-items: center;
-  grid-row: 3
+}
+.btns_adicionar:hover {
+  background-color: rgb(128, 32, 78);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#adicao {
+  display: none;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  grid-row: 3;
 }
 
 footer {
@@ -502,13 +510,6 @@ footer {
   align-items: center;
 }
 
-.btn_s_n {
-  display: inline-flex;
-  padding-left: 80px;
-}
-.btn_s_n button {
-  margin: 10px 10px 0px 15px;
-}
 #login {
   padding: 0 80px 0 80px;
 }
@@ -675,9 +676,12 @@ footer {
   font-size: 20px;
 }
 #adicionais {
-  padding-left: 10px;
   display: none;
   grid-row: 4;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
 }
 
 .cx_add_salada {
@@ -1885,9 +1889,7 @@ footer {
   grid-column: 2;
 }
 
-
 .btn_escolha {
-  padding-left: 100px;
   margin-bottom: 20px;
 }
 .pagamento {
@@ -2082,7 +2084,7 @@ footer {
   justify-content: center;
   text-align: center;
   align-items: center;
-  padding-top: 20px;
+  margin-top: 5px;
 }
 #esconde_comprar_mais {
   display: none;
@@ -2145,4 +2147,12 @@ footer {
   width: 50px;
   height: 25px;
   margin-right: 10px;
+}
+
+#vazio{
+  margin: 0;
+  width: 0;
+  height: 0;
+  grid-row: 3;
+  display: none;
 }
