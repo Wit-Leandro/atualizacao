@@ -117,7 +117,7 @@
         <button class="btns" id="btn_salada">Montar Copo!</button>  
         <div id="imagem_salada">
           <h2>Frutas Disponiveis</h2>
-          <p>MORANGO</p>
+        <!--<p>MORANGO</p>-->
           <p>BANANA</p>
           <p>KIWI</p>
           <p>ABACAXI</p>
@@ -354,7 +354,7 @@
         </div>
 
         <h3>FRUTAS</h3>
-        <div class="cx_itens">
+        <div id="bloquear" class="cx_itens">
           <input type="text" id="item1" value="Morango" readonly>
           <input type="number" id="quantidade1" value="0" readonly>
           <button onclick="alterarQuantidade(1, 'quantidade1')">&#10133</button>
@@ -404,7 +404,7 @@
           <button onclick="alterarQuantidade(1, 'quantidade8')">&#10133</button>
           <button onclick="alterarQuantidade(-1, 'quantidade8')">&#10134</button>
         </div>
-        <div class="cx_itens">
+        <div id="bloquear" class="cx_itens">
           <input type="text" id="item9" value="Cr. Nutella" readonly>
           <input type="number" id="quantidade9" value="0" readonly>
           <button onclick="alterarQuantidade(1, 'quantidade9')">&#10133</button>
@@ -749,10 +749,10 @@
           <input type="checkbox" id="checkbox500"  class="checkbox" value="Leite_condensado" />
           <label for="checkbox500" id="check500" class="check500">Leite condensado</label>
           <br/>
-
+<!--
           <input type="checkbox"  id="checkbox501" class="checkbox"  value="Cr_Nutella" />
           <label for="checkbox501" id="check501" class="check501">Cr. Nutella</label>
-          <br />
+          <br />-->
 
           <input type="checkbox" id="checkbox502" class="checkbox" value="Cr_Leite_Ninho" />
           <label for="checkbox502" id="check502" class="check502">Cr. Leite Ninho</label>
@@ -857,8 +857,9 @@
         <button class="btns" id="btn_escolha_frutas">Avançar!</button>
         <div class="cx_add_salada">
           <h2 class="grid_titulo_salada">FRUTAS</h2>
+          <!--
           <input type="checkbox" id="checkbox200" class="checkbox" value="Fruta: Morango"/>
-          <label for="checkbox200" id="check_grid_200" class="check200">Morango</label>
+          <label for="checkbox200" id="check_grid_200" class="check200">Morango</label>-->
           <br/>
           <input type="checkbox" id="checkbox201" class="checkbox" value="Fruta: Banana"/>
           <label for="checkbox201" id="check_grid_201" class="check201">Banana</label>
@@ -897,8 +898,10 @@
           <input type="checkbox" name="checkbox" id="checkbox208" class="checkbox" value="Calda_Avela"/>
           <label for="checkbox208" id="check_grid_208" class="check208">Calda de Avelã</label>
           <br/>
+          <!--
           <input type="checkbox" name="checkbox" id="checkbox209" class="checkbox" value="Creme_Nutella" />
           <label for="checkbox209" id="check_grid_209" class="check209">Creme de Nutella</label>
+          -->
           <br/>
           <input type="checkbox" name="checkbox" id="checkbox210" class="checkbox" value="Cr_Leite_Ninho"/>
           <label for="checkbox210" id="check_grid_210" class="check210">Creme de Leite Ninho</label>
