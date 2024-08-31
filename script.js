@@ -967,6 +967,7 @@ function mostrarDados() {
 imprimir.addEventListener("click", function () {
   final.style.display = "none";
   pagamentos.style.display = "block";
+  generateQRCode()
 });
 
 /* -------------- Funções das abas para mostrar as imagens -------*/
@@ -1296,7 +1297,7 @@ btn_pix.addEventListener("click", function () {
   res_cartao.style.display = "none";
   res_dinheiro.style.display = "none";
   antecipar_envio_pix()
-  generateQRCode()
+  
 });
 btn_cartao.addEventListener("click", function () {
   res_pix.style.display = "none";
@@ -1694,6 +1695,7 @@ function generateQRCode() {
 
   const crc = calculateCRC(pixPayload);
   pixPayload += crc;
+  dic.push(pixPayload)
 
   // Gerar QR Code
   QRCode.toCanvas(
@@ -1798,7 +1800,7 @@ function antecipar_envio_pix(){
     mensagemCarrinho;
   var numeroWhatsApp = "5518996772619";
   var mensagemWhatsApp = encodeURIComponent(
-    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido
+    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido + "\n\n\n\n\nSeu Codigo para pagamento\n\n" + dic[6]
   );
   var linkWhatsApp =
     "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
