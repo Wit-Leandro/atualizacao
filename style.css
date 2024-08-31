@@ -2155,3 +2155,83 @@ footer {
   grid-row: 3;
   display: none;
 }
+
+/*------ESPAÇO DO PATROCIONIO BRAIP-------*/
+.patrocinio{
+  margin-top: 5px;
+  background-color: black;
+  display: grid;
+  grid-template-rows: 25px 1fr;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.patrocinio:hover{
+  cursor: pointer;
+  width: 350px;
+  height: 125px;
+}
+.patrocinio img{
+  border-radius: 10px;
+  width: 160px;
+  height: 90px;
+}
+.pt_titulo {
+  color: #fff;
+  grid-row: 1 / 1;
+  grid-column: 1 / -1;
+}
+.pt_imagem {
+  grid-row: 2 / 2;
+  grid-column: 1 / 1;
+}
+.pt_merchan {
+  grid-row: 2 / 2;
+  grid-column: 2 / 2;
+  text-align: start;
+  color: #fff;
+  padding: 0 0 0 5px;
+}
+/*-------------------------*/
+
+.patrocinio2{
+  margin-top: 5px;
+  display: grid;
+  grid-template-rows: 25px 1fr;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.patrocinio2:hover{
+  cursor: pointer;
+  width: 350px;
+  height: 125px;
+}
+.patrocinio2 img{
+  border-radius: 10px;
+  width: 160px;
+  height: 90px;
+}
+.pt_titulo2 {
+  color: #fff;
+  grid-row: 1 / 1;
+  grid-column: 1 / -1;
+}
+.pt_imagem2 {
+  grid-row: 2 / 2;
+  grid-column: 1 / 1;
+}
+.pt_merchan2 {
+  grid-row: 2 / 2;
+  grid-column: 2 / 2;
+  text-align: start;
+  color: black;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0 0 0 5px;
+}

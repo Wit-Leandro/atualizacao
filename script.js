@@ -308,7 +308,7 @@ btn_copo.addEventListener("click", function (e) {
 
   escolha.style.display = "none";
   adicionais.style.display = "block";
-  vazio.style.display = 'block'
+  vazio.style.display = 'block';
   const getPedido = sessionStorage.getItem("pedido");
   const objectPedido = JSON.parse(getPedido);
   const userPedido = objectPedido.limit;
@@ -1831,7 +1831,14 @@ function alterarQuantidade(valor, quantidadeId) {
     }
 }
 
-
+function openMerchan() {
+  // Abre o site no mesmo guia/janela
+  window.open("https://ev.braip.com/ref?pv=pro44qx1&af=afijpndj1n", "_blank");
+}
+function openMerchan2() {
+  // Abre o site no mesmo guia/janela
+  window.open("https://ev.braip.com/pv/lipxn9op/afi8j24xxy", "_blank");
+}
 
 
 /* - FUNÇÕES CANCELADAS - */
