@@ -1032,13 +1032,13 @@ function horadia() {
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
     
-    alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')
+    alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 15h as 23h')
   } else {
-    if (hora < 14 || hora >= 23) { // Fechado antes das 14h ou depois das 23h
+    if (hora < 15 || hora >= 23) { // Fechado antes das 15h ou depois das 23h
       reshora.style.color = "red";
       reshora.innerHTML = " FECHADO, ";
       
-      alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')  
+      alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 15h as 23h')  
     } else {
       reshora.style.color = "green";
       reshora.innerHTML = " ABERTO: ";
