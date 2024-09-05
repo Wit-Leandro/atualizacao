@@ -9,6 +9,9 @@ body {
   font-optical-sizing: auto;
   font-size: 16px;
 }
+#bloquear {
+  display:none;
+}
 
 #adicionais_salada{
   justify-content: center;
