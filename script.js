@@ -296,7 +296,7 @@ btn_copo.addEventListener("click", function (e) {
     const pedido = { acai: "Copo de 300ml", limit: 4, valor: 13 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_copo === "400ml") {
-    const pedido = { acai: "Copo de 400ml", limit: 5, valor: 16 };
+    const pedido = { acai: "Copo de 400ml", limit: 4, valor: 16 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_copo === "500ml") {
     const pedido = { acai: "Copo de 500ml", limit: 5, valor: 18 };
@@ -968,6 +968,8 @@ imprimir.addEventListener("click", function () {
   final.style.display = "none";
   pagamentos.style.display = "block";
   generateQRCode()
+  horaDelivery()
+  
 });
 
 /* -------------- Funções das abas para mostrar as imagens -------*/
@@ -1032,13 +1034,13 @@ function horadia() {
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
     
-    alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 15h as 23h')
+    alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')
   } else {
-    if (hora < 15 || hora >= 23) { // Fechado antes das 15h ou depois das 23h
+    if (hora < 14 || hora >= 23) { // Fechado antes das 15h ou depois das 23h
       reshora.style.color = "red";
       reshora.innerHTML = " FECHADO, ";
       
-      alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 15h as 23h')  
+      alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')  
     } else {
       reshora.style.color = "green";
       reshora.innerHTML = " ABERTO: ";
@@ -1840,6 +1842,16 @@ function openMerchan2() {
   window.open("https://ev.braip.com/pv/lipxn9op/afi8j24xxy", "_blank");
 }
 
+function horaDelivery() {
+  var hora_delivery = dataAtual.getHours();
+  if (hora_delivery < 15){
+    alert('ATENÇÃO ENTREGAS DELIVERY - COMEÇA A PARTIR DAS 15HS ')
+  }
+  else {
+    alert('AGRADECEMOS PELA PREFERÊNCIA ')
+  }
+
+}
 
 /* - FUNÇÕES CANCELADAS - */
 /*
