@@ -967,6 +967,7 @@ function mostrarDados() {
 imprimir.addEventListener("click", function () {
   final.style.display = "none";
   pagamentos.style.display = "block";
+  gerarImagemPedido()
   generateQRCode()
   horaDelivery()
   
@@ -1033,14 +1034,14 @@ function horadia() {
   if (diaSemana == 1) { // Segunda-feira
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
-    
-    alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')
+    /*
+    alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')*/
   } else {
     if (hora < 14 || hora >= 23) { // Fechado antes das 15h ou depois das 23h
       reshora.style.color = "red";
       reshora.innerHTML = " FECHADO, ";
-      
-      alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')  
+      /*
+      alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')  */
     } else {
       reshora.style.color = "green";
       reshora.innerHTML = " ABERTO: ";
@@ -1747,6 +1748,83 @@ function valorTotalFrete(){
   return t
 }
 
+function gerarImagemPedido() {
+  var mensagemCarrinho = "";
+  var contped = 0;
+  carrinho.forEach(function (element) {
+    if (Array.isArray(element)) {
+      contped += 1;
+      mensagemCarrinho += "\n\nMontagem N° " + contped + "\n";
+      mensagemCarrinho += formatarArrayWhats(element);
+    } else {
+      mensagemCarrinho += "-" + element + "\n";
+    }
+  });
+
+  var tw = somarArray(valorCompra);
+  var te = "";
+
+  if (tw < 20 && dic[4] === "Tarumã") {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else if (tw < 150 && dic[4] === "Usina Nova America") {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else if (tw < 50 && dic[4] === "Usina Agua Bonita") {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else if (tw < 50 && dic[4] === "Posto Pioneiro") {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+    tw = tw + dic[5];
+  } else {
+    te = "Taxa de entrega isento";
+  }
+  var vlr_total_whats = "R$" + tw + ",00";
+
+  var detalhesPedido =
+    "N° Pedido: " +
+    numeroDoPedido +
+    "\nCliente: " +
+    dic[0] +
+    "\nEndereço: " +
+    dic[1] +
+    "," +
+    dic[2] +
+    "\nRegião de entrega: " +
+    dic[4] +
+    "\nValor total: " +
+    vlr_total_whats +
+    "\nTaxa entrega: " +
+    te +
+    "\nPagamento via Pix" +
+    "\nColherzinha? " +
+    whats_colher +
+    "" +
+    mensagemCarrinho;
+
+  // Adiciona os detalhes do pedido em um elemento HTML
+  var pedidoElement = document.createElement("div");
+  pedidoElement.style.background = "white";
+  pedidoElement.style.padding = "20px";
+  pedidoElement.style.border = "1px solid #000";
+  pedidoElement.innerHTML = "<pre>" + detalhesPedido + "</pre>";
+  document.body.appendChild(pedidoElement);
+
+  // Usando html2canvas para capturar o elemento como imagem
+  html2canvas(pedidoElement).then(function(canvas) {
+    // Converte o canvas para um link de download
+    var link = document.createElement("a");
+    link.download = "pedido.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+
+    // Remova o elemento temporário do pedido
+    document.body.removeChild(pedidoElement);
+
+    alert("Pedido gerado! Por favor, envie-a manualmente via WhatsApp.");
+  });
+}
+
 function antecipar_envio_pix(){
   var mensagemCarrinho = "";
   var contped = 0;
@@ -1802,7 +1880,7 @@ function antecipar_envio_pix(){
     mensagemCarrinho;
   var numeroWhatsApp = "5518996772619";
   var mensagemWhatsApp = encodeURIComponent(
-    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido + "\n\n\n\n\nSeu Codigo para pagamento\n\n" + dic[6]
+    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido + "\n\n\n\n\nSeu Codigo para pagamento\n\n" + dic[6] + '\n\n\nClique em enviar - \u{1F53D}\n'
   );
   var linkWhatsApp =
     "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
@@ -1810,6 +1888,7 @@ function antecipar_envio_pix(){
   window.open(linkWhatsApp);
   alert('"ENVIAR COMPROVANTE DO PIX VIA WHATSAPP"')
 }
+
 /*-------novas funções de adição de adicionais------------- */
 
 

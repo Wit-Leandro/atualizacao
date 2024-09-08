@@ -2160,6 +2160,9 @@ footer {
 }
 
 /*------ESPAÇO DO PATROCIONIO BRAIP-------*/
+#pt1{
+  display: none;
+}
 .patrocinio{
   margin-top: 5px;
   background-color: black;
