@@ -2163,6 +2163,9 @@ footer {
 #pt1{
   display: none;
 }
+#pt2{
+  display: none;
+}
 .patrocinio{
   margin-top: 5px;
   background-color: black;
@@ -2240,4 +2243,14 @@ footer {
   font-weight: bold;
   font-size: 12px;
   padding: 0 0 0 5px;
+}
+.pt_imagem3 {
+  width: 350px;
+  border-radius: 60px 0 60px 0;
+
+}
+.pt_imagem3:hover{
+  cursor: pointer;
+  width: 360px;
+
 }

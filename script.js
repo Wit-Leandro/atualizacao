@@ -1034,14 +1034,14 @@ function horadia() {
   if (diaSemana == 1) { // Segunda-feira
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
-    /*
-    alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')*/
+    
+    alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')
   } else {
     if (hora < 14 || hora >= 23) { // Fechado antes das 15h ou depois das 23h
       reshora.style.color = "red";
       reshora.innerHTML = " FECHADO, ";
-      /*
-      alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')  */
+      
+      alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h') 
     } else {
       reshora.style.color = "green";
       reshora.innerHTML = " ABERTO: ";
@@ -1913,6 +1913,17 @@ function openMerchan() {
 function openMerchan2() {
   // Abre o site no mesmo guia/janela
   window.open("https://ev.braip.com/pv/lipxn9op/afi8j24xxy", "_blank");
+}
+
+function openMerchan3() {
+  var numeroWhatsApp = "5519983674375";
+  var mensagemWhatsApp = encodeURIComponent("Olá!, Gostaria de saber como anunciar?" 
+  );
+  var linkWhatsApp =
+    "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
+
+  window.open(linkWhatsApp);
+
 }
 
 function horaDelivery() {
