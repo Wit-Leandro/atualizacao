@@ -1050,9 +1050,26 @@ function horadia() {
 
   hdia.innerHTML = 'Hora: ' + hora + ":" + minutos + ":" + segundos + " ";
 }
+function informarDataHora() {
+  var dataAtual = new Date();
+  var hora = dataAtual.getHours();
+  var minutos = dataAtual.getMinutes();
+  var diaSemana = dataAtual.getDay();
+  var ds = [
+    "Domingo",
+    "Segunda-Feira",
+    "Terça-Feira",
+    "Quarta-Feira",
+    "Quinta-Feira",
+    "Sexta-Feira",
+    "Sabado",
+  ];
 
+  if (hora < 10) hora = "0" + hora;
+  if (minutos < 10) minutos = "0" + minutos;
+  return ds[diaSemana] + ', Hora ' + hora + ':' + minutos
 
-
+}
 
 /* funcão para informar data */
 
@@ -1265,20 +1282,6 @@ function copiarCnpj(){
   )
 }
 
-
-/*
-var btn_copiar_cnpj = document.getElementById("copiar_chave");
-btn_copiar_cnpj.addEventListener("click", function () {
-  const cnpj = document.getElementById("cnpj").innerText;
-  navigator.clipboard.writeText(cnpj).then(
-    function () {
-      alert("Pix copiado para a area de transferencia");
-    },
-    function (err) {
-      alert("Erro ao copiar texto para a area de transferencia");
-    }
-  );
-});*/
 /*----funcionalidades dos botoes de pagamentos---- */
 var pagamentos = document.getElementById("pagamento");
 var btn_pix = document.getElementById("btn_pix");
@@ -1353,16 +1356,6 @@ function mostrarValorNaTela() {
   alert("Total pedido R$" + t + ",00");
 }
 
-/*
-function ajustarTelefone(numeroFone){
-  numeroFone = numeroFone.replace(/\D/g, '');
-  const cCode = numeroFone.substring(0,2)
-  const aCode = numeroFone.substring(2,3)
-  const pParte = numeroFone.substring(3,7)
-  const sParte = numeroFone.substring(7)
-  return '('+cCode+')'+aCode+''+ pParte +'-'+sParte
-
-}*/
 
 /*----numero do pedido----- */
 var npedido = document.getElementById("npedido");
@@ -1780,9 +1773,10 @@ function gerarImagemPedido() {
     te = "Taxa de entrega isento";
   }
   var vlr_total_whats = "R$" + tw + ",00";
+  var informar_data_hora = informarDataHora()
 
-  var detalhesPedido =
-    "N° Pedido: " +
+  var detalhesPedido = "\n" + informar_data_hora +
+    "\n\nN° Pedido: " +
     numeroDoPedido +
     "\nCliente: " +
     dic[0] +
@@ -1932,134 +1926,3 @@ function horaDelivery() {
 
 }
 
-/* - FUNÇÕES CANCELADAS - */
-/*
-function antecipar_envio_cartao(){
-  var mensagemCarrinho = "";
-  var contped = 0;
-  carrinho.forEach(function (element) {
-    if (Array.isArray(element)) {
-      contped += 1;
-      mensagemCarrinho += "\n\nMontagem N° " + contped + "\n";
-      mensagemCarrinho += formatarArrayWhats(element);
-    } else {
-      mensagemCarrinho += "- " + element + "\n";
-    }
-  });
-
-  var tw = somarArray(valorCompra);
-  var te = "";
-
-  if (tw < 20 && dic[4] === "Tarumã") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
-  } else if (tw < 150 && dic[4] === "Usina Nova America") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
-  } else if (tw < 50 && dic[4] === "Usina Agua Bonita") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
-  } else if (tw < 50 && dic[4] === "Posto Pioneiro") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
-  } else {
-    te = "Taxa de entrega isento";
-  }
-  var vlr_total_whats = "R$" + tw + ",00";
-
-  var detalhesPedido =
-    "N° Pedido: " +
-    numeroDoPedido +
-    "\nCliente: " +
-    dic[0] +
-    "\nEndereço: " +
-    dic[1] +
-    "," +
-    dic[2] +
-    "\nRegião de entrega: " +
-    dic[4] +
-    "\nValor total: " +
-    vlr_total_whats +
-    "\nTaxa entrega: " +
-    te +
-    "\nLevar a maquininha" +
-    "\nColherzinha? " +
-    whats_colher +
-    "" +
-    mensagemCarrinho;
-  var numeroWhatsApp = "5518996772619";
-  var mensagemWhatsApp = encodeURIComponent(
-    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido
-  );
-  var linkWhatsApp =
-    "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
-
-  window.open(linkWhatsApp);
-
-}
-
-function antecipar_envio_dinheiro(){
-  var mensagemCarrinho = "";
-  var contped = 0;
-  carrinho.forEach(function (element) {
-    if (Array.isArray(element)) {
-      contped += 1;
-      mensagemCarrinho += "\n\nMontagem N° " + contped + "\n";
-      mensagemCarrinho += formatarArrayWhats(element);
-    } else {
-      mensagemCarrinho += "- " + element + "\n";
-    }
-  });
-
-  var tw = somarArray(valorCompra);
-  var te = "";
-
-  if (tw < 20 && dic[4] === "Tarumã") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
-  } else if (tw < 150 && dic[4] === "Usina Nova America") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
-  } else if (tw < 50 && dic[4] === "Usina Agua Bonita") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
-  } else if (tw < 50 && dic[4] === "Posto Pioneiro") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
-  } else {
-    te = "Taxa de entrega isento";
-  }
-  var vlr_total_whats = "R$" + tw + ",00";
-
-  var detalhesPedido =
-    "N° Pedido: " +
-    numeroDoPedido +
-    "\nCliente: " +
-    dic[0] +
-    "\nEndereço: " +
-    dic[1] +
-    "," +
-    dic[2] +
-    "\nRegião de entrega: " +
-    dic[4] +
-    "\nValor total: " +
-    vlr_total_whats +
-    "\nTaxa entrega: " +
-    te +
-    "\nDinheiro: Precisa de troco? " +
-    troco +
-    "\nColherzinha? " +
-    whats_colher +
-    "" +
-    mensagemCarrinho;
-  var numeroWhatsApp = "5518996772619";
-  var mensagemWhatsApp = encodeURIComponent(
-    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido
-  );
-  var linkWhatsApp =
-    "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
-
-  window.open(linkWhatsApp);
-
-}
-  */
