@@ -1796,7 +1796,7 @@ function gerarImagemPedido() {
     vlr_total_whats +
     "\nTaxa entrega: " +
     te +
-    "\nPagamento via Pix" +
+    "\nHá verificar" +
     "\nColherzinha? " +
     whats_colher +
     "" +
