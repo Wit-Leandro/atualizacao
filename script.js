@@ -85,7 +85,6 @@ window.addEventListener('load', function(){
 })
 
 
-alert('Não estamos realizando entregas hoje, obrigado pela atenção')
 
 
 /*--------- Atualizar a hora -----*/
