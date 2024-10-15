@@ -85,7 +85,7 @@ window.addEventListener('load', function(){
 })
 
 
-
+alert('erro)
 
 /*--------- Atualizar a hora -----*/
 horadia();
