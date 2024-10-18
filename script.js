@@ -81,7 +81,7 @@ window.addEventListener('load', function(){
   var fone = 'Não informado'
   var local = 'Não informado'
   dic.push(nome,endereco,ncasa,fone,local)
-  alert('CONCLUA TODAS AS ETAPAS ATÉ A ABA DE PAGAMENTOS PARA FINALIZAR SEU PEDIDO')
+  alert("CONCLUA TODAS AS ETAPAS ATÉ A ABA DE PAGAMENTOS PARA FINALIZAR SEU PEDIDO")
 })
 
 
