@@ -58,7 +58,7 @@
 
 
 
-        <div id="welcome">
+        <div class="bloquear" id="welcome">
           <p>&#127848 Tio-Chico &#127846</p>
         </div>
 
@@ -107,7 +107,8 @@
 
 
         <div class="category" id="salada">
-          <p>Selecione o copo desejado!</p>
+          <h4 class="estilo_titulo">SALADA DE FRUTAS</h4>
+          <p class="estilo_paragrafo">Selecione o copo desejado!</p>
           <select id="meu_select_salada" onchange="exibirSalada()" class="select_salada">
   
           <option value="300ml">COPO 300ml R$ 9,00</option>
@@ -118,20 +119,22 @@
 
         <button class="btns" id="btn_salada">Montar Copo!</button>  
         <div id="imagem_salada">
-          <h2>Frutas Disponiveis</h2>
-          <p>MORANGO</p>
-          <p>BANANA</p>
-          <p>KIWI</p>
-          <p>ABACAXI</p>
-          <p>MANGA</p>
-          <p>UVA VERDE</p>
-          <p>UVA ROXA</p>
+          <h2 class="estilo_titulo">Frutas Disponiveis</h2>
+          <p class="estilo_paragrafo">MORANGO</p>
+          <p class="estilo_paragrafo">BANANA</p>
+          <p class="estilo_paragrafo">KIWI</p>
+          <p class="estilo_paragrafo">ABACAXI</p>
+          <p class="estilo_paragrafo">MANGA</p>
+          <p class="estilo_paragrafo">UVA VERDE</p>
+          <p class="estilo_paragrafo">UVA ROXA</p>
 
         </div>
 
         </div>
 
         <div class="category" id="shake">
+          <h4 class="estilo_titulo">MILK SHAKE</h4>
+          <p class="estilo_paragrafo">Selecione o copo desejado!</p>
           <select id="meu_select_shake" onchange="exibirShake()" class="select_shake">
   
           <option value="T300ml">Tradicional 300ml R$ 10,00</option>
@@ -149,45 +152,43 @@
         <button class="btns" id="btn_shake">ir para sabor!</button>  
 
         <div id="shake_tradicional">
-          <h2>Sabores tradicional</h2>
-          <p>ABACAXI</p>
-          <p>ABACAXI AO VINHO</p>
-          <!--<p>BROWNIE</p>-->
-          <p>MARACUJA</p>
-          <p>CÉU AZUL</p>
-          <!--<p>CHOCOLATE</p>-->
-          <p>CHOCOMENTA</p>
-          <p>SENSAÇÃO</p>
-          <p>COCO BRANCO</p>
-          <p>FLOCOS</p>
-          <p>FERRERO ROCHE</p>
-          <p>LACTA</p>
-          <p>LEITE CONDENSADO</p>
-          <p>LEITE NINHO</p>
-          <p>MORANGO</p>
-          <p>OVOMALTINE</p>
-          <p>PASSAS AO RUM</p>
-          <p>TORTA DE pMÃO</p>
-          <p>UVA</p>
+          <h2 class="estilo_titulo">Sabores tradicional</h2>
+          <p class="estilo_paragrafo">ABACAXI</p>
+          <p class="estilo_paragrafo">ABACAXI AO VINHO</p>
+          <p class="estilo_paragrafo">MARACUJA</p>
+          <p class="estilo_paragrafo">CÉU AZUL</p>
+          <p class="estilo_paragrafo">CHOCOMENTA</p>
+          <p class="estilo_paragrafo">SENSAÇÃO</p>
+          <p class="estilo_paragrafo">COCO BRANCO</p>
+          <p class="estilo_paragrafo">FLOCOS</p>
+          <p class="estilo_paragrafo">FERRERO ROCHE</p>
+          <p class="estilo_paragrafo">LACTA</p>
+          <p class="estilo_paragrafo">LEITE CONDENSADO</p>
+          <p class="estilo_paragrafo">LEITE NINHO</p>
+          <p class="estilo_paragrafo">MORANGO</p>
+          <p class="estilo_paragrafo">OVOMALTINE</p>
+          <p class="estilo_paragrafo">PASSAS AO RUM</p>
+          <p class="estilo_paragrafo">TORTA DE LIMÃO</p>
+          <p class="estilo_paragrafo">UVA</p>
 
-          <h2>Sabores Especiais</h2>
-          <p>AÇAI TRADICIONAL</p>
-          <p>AÇAI COM LEITE NINHO</p>
-          <p>AÇAI COM NUTELLA</p>
-          <p>CHOCOLATE COM NUTELLA</p>
-          <p>CUPUAÇU</p>
-          <p>KINDEROVO TRUNFADO</p>
-          <p>LEITE NINHO TRUNFADO</p>
-          <p>PRATA OREO</p>
-          <p>BANOFFE</p>
+          <h2 class="estilo_titulo">Sabores Especiais</h2>
+          <p class="estilo_paragrafo">AÇAI TRADICIONAL</p>
+          <p class="estilo_paragrafo">AÇAI COM LEITE NINHO</p>
+          <p class="estilo_paragrafo">AÇAI COM NUTELLA</p>
+          <p class="estilo_paragrafo">CHOCOLATE COM NUTELLA</p>
+          <p class="estilo_paragrafo">CUPUAÇU</p>
+          <p class="estilo_paragrafo">KINDEROVO TRUNFADO</p>
+          <p class="estilo_paragrafo">LEITE NINHO TRUNFADO</p>
+          <p class="estilo_paragrafo">PRATA OREO</p>
+          <p class="estilo_paragrafo">BANOFFE</p>
         </div>
 
 
         </div>
 
         <div class="category" id="acai_tradicional">
-          <h4>AÇAI TRADICIONAL</h4>
-          <p>(Sem Recheio)</p>
+          <h4 class="estilo_titulo">AÇAI TRADICIONAL (Sem Recheio)</h4>
+          <p class="estilo_paragrafo">Escolha abaixo</p>
           <div class="tab-container3">
             <button class="sub_tab" onclick="openSubCategory('evt','trad_copo')">COPOS</button>
             <button class="sub_tab" onclick="openSubCategory('evt','trad_marmita')">MARMITAS</button>
@@ -195,6 +196,7 @@
           </div>
 
           <div id="trad_copo" class="sub_category">
+            <p class="estilo_paragrafo">Selecione o copo desejado!</p>
             <select
               id="meu_select_trad_copo"
               onchange="exibirTradCopos()"
@@ -212,6 +214,7 @@
           </div>
 
           <div id="trad_marmita" class="sub_category">
+            <p class="estilo_paragrafo">Selecione a marmita desejado!</p>
             <select
               id="meu_select_trad_marmita"
               onchange="exibirTradMarmitas()"
@@ -228,6 +231,7 @@
           </div>
 
           <div id="trad_pote" class="sub_category">
+            <p class="estilo_paragrafo">Selecione o pote desejado!</p>
             <select
               id="meu_select_trad_pote"
               onchange="exibirTradpotes()"
@@ -248,14 +252,14 @@
         </div>
 
         <div class="category" id="acai_recheio">
-          <h4>AÇAI - (Com Recheio)</h4>
+          <h4 class="estilo_titulo">AÇAI - (Com Recheio)</h4>
           <div class="tab-container3">
             <button class="sub_tab" onclick="openSubCategory('evt', 'copos')">Copos</button>
             <button class="sub_tab" onclick="openSubCategory('evt', 'marmitas')">Marmitas</button>
           </div>
 
           <div id="copos" class="sub_category">
-            <p>Escolha Abaixo e clique no Botão 'MONTAR'!!</p>
+            <p class="estilo_paragrafo">Escolha Abaixo e clique no Botão 'MONTAR'!!</p>
             <select
               id="meu_select_copo"
               onchange="exibirCopos()"
@@ -273,7 +277,7 @@
           </div>
   
           <div id="marmitas" class="sub_category">
-            <p>Escolha Abaixo e clique no Botão 'MONTAR'!!</p>
+            <p  class="estilo_paragrafo">Escolha Abaixo e clique no Botão 'MONTAR'!!</p>
             <select
               id="meu_select_marmita"
               onchange="exibirMarmitas()"
@@ -293,7 +297,7 @@
       </div>
 
       <div id="esconde_carrinho">
-        <p>Adicione seu Pedido ao carrinho!</p>
+        <p class="estilo_paragrafo">Adicione seu Pedido ao carrinho!</p>
         <button id="btn_carrinho" class="btns" onclick="adicionarCarrinho()">Adicionar &#128722</button>
         <p id="carrinho_atualizado"></p>
 
@@ -301,7 +305,7 @@
       
       <div class="grid_botoes">
         <div id="esconde_p">
-          <p>O que gostaria de fazer agora?</p>
+          <p class="estilo_paragrafo">O que gostaria de fazer agora?</p>
         </div>
         <div id="esconde_finalizar_carrinho">
           <button class="btns" id="finalizar_carrinho">&#9989-Finalizar Carrinho</button>
@@ -313,8 +317,8 @@
 
 
       <div id="escolha_regiao" style="display: none;">
-        <h2>Região</h2>
-        <h5>Informe sua sua região:</h5>
+        <h2 class="estilo_paragrafo">Região</h2>
+        <h5 class="estilo_titulo">Informe sua sua região:</h5>
 
         <div class="inpt_regiao">
           <input type="checkbox" id="taruma" class="regiao" value="Tarumã" />
@@ -350,12 +354,12 @@
       </div>
 
       <div id="adicionais">
-        <p id="resadicao" class="res_css"></p>
+        <p id="resadicao" class="estilo_paragrafo"></p>
         <div class="btn_escolha">
           <button class="btns" id="btn_valores">Avançar!</button>
         </div>
 
-        <h3>FRUTAS</h3>
+        <h3 class="estilo_titulo">FRUTAS</h3>
         <div class="cx_itens">
           <input type="text" id="item1" value="Morango" readonly>
           <input type="number" id="quantidade1" value="0" readonly>
@@ -399,7 +403,7 @@
           <button onclick="alterarQuantidade(-1, 'quantidade7')">&#10134</button>
         </div>  
 
-        <h3>CALDAS</h3>
+        <h3 class="estilo_titulo">CALDAS</h3>
         <div class="cx_itens">
           <input type="text" id="item8" value="Leite Condensado" readonly>
           <input type="number" id="quantidade8" value="0" readonly>
@@ -449,7 +453,7 @@
           <button onclick="alterarQuantidade(-1, 'quantidade15')">&#10134</button>
         </div>
 
-        <h3>COMPLEMENTOS</h3>
+        <h3 class="estilo_titulo">COMPLEMENTOS</h3>
         <div class="cx_itens">
           <input type="text" id="item16" value="Confete" readonly>
           <input type="number" id="quantidade16" value="0" readonly>
@@ -586,10 +590,11 @@
 
 
       <div class="sabor_trad" id="sabor_trad">
-        <p>LIMITE DE 2</p>
+        <p class="estilo_paragrafo">LIMITE DE 2 SABORES</p>
         <button class="btns" id="btn_escolha_shake">Avançar!</button>
+        <h2 class="estilo_titulo">Sabores</h2>
         <div class="cx_add_shake">
-          <h2 class="grid_titulo_shake">Sabores</h2>
+          
           <input type="checkbox" id="checkbox300" class="checkbox" value="Sabor: Abacaxi"/>
           <label for="checkbox300" id="check_grid_300" class="check300">Abacaxi</label>
           <br/>
@@ -655,10 +660,11 @@
       </div>
 
       <div class="sabor_especial" id="sabor_especial">
-        <p>LIMITE DE 2</p>
+        <p class="estilo_paragrafo">LIMITE DE 2 SABORES</p>
         <button class="btns" id="btn_escolha_especial">Avançar!</button>
+        <h2 class="estilo_titulo">Sabores</h2>
         <div class="cx_add_especial">
-          <h2 class="grid_titulo_especial">Sabores</h2>
+          
           <input type="checkbox" id="checkbox600" class="checkbox" value="Sabor: Açai Tradicional"/>
           <label for="checkbox600" id="check_grid_600" class="check600">Açai Tradicional</label>
           <br/>
@@ -693,10 +699,11 @@
       </div>
 
       <div id="coberturas">
-        <p>LIMITE DE 2</p>
+        <p class="estilo_paragrafo">LIMITE DE 2 COBERTURAS</p>
         <button class="btns" id="btn_escolha_cobertura">Avançar!</button>
+        <h2 class="estilo_titulo">Coberturas</h2>
         <div class="cx_add_cobertura">
-          <h2 class="grid_titulo_cobertura">Coberturas</h2>
+          
           <input type="checkbox" id="checkbox400" class="checkbox" value="Cobertura:Caramelo"/>
           <label for="checkbox400" id="check_grid_400" class="check400">Caramelo</label>
           <br/>
@@ -744,12 +751,12 @@
       </div>
 
       <div id="complemento_shake">
-        <p id="res_complemento_shake"></p>
-        <p>LIMITE DE 2</p>
+        <p class="estilo_paragrafo" id="res_complemento_shake"></p>
+        <p class="estilo_paragrafo">LIMITE DE 2 COMPLEMENTOS</p>
         <button class="btns" id="btn_escolha_complemento_shake">Avançar!</button>
+        <h2 class="estilo_titulo">Complementos</h2>
         <div class="cx_add_complemento_shake">
-          <h2 class="grid_titulo_complemento_shake">Complementos</h2>
-
+          
           <input type="checkbox" id="checkbox500"  class="checkbox" value="Leite_condensado" />
           <label for="checkbox500" id="check500" class="check500">Leite condensado</label>
           <br/>
@@ -858,10 +865,9 @@
       </div>
 
       <div id="adicionais_salada">
-        <p>MINIMO 4 FRUTAS</p>
         <button class="btns" id="btn_escolha_frutas">Avançar!</button>
+        <h2 class="estilo_titulo">FRUTAS</h2>
         <div class="cx_add_salada">
-          <h2 class="grid_titulo_salada">FRUTAS</h2>
           <input type="checkbox" id="checkbox200" class="checkbox" value="Fruta: Morango"/>
           <label for="checkbox200" id="check_grid_200" class="check200">Morango</label>
           <br/>
@@ -890,13 +896,14 @@
       </div>
 
       <div id="complemento_salada">
-        <p class="atencao_comp_salada">&#9888 ATENÇÃO &#9888 </p>
-        <p>Adicionais R$2,00 cada - Pote de 50ml</p>
-        <p>Os complementos são enviados a parte</p>
+        <p class="estilo_paragrafo">&#9888 ATENÇÃO &#9888 </p>
+        <p class="estilo_paragrafo">Adicionais R$2,00 cada - Pote de 50ml</p>
+        <p class="estilo_paragrafo">Os complementos são enviados a parte</p>
         <button class="btns" id="btn_escolha_complemento_frutas">Avançar!</button>
+        <h2 class="estilo_titulo">ADICIONAIS</h2>
 
         <div class="cx_add_complemento_salada">
-          <h2 class="grid_titulo_complemento_salada">ADICIONAIS</h2>
+          
           <input type="checkbox" name="checkbox" id="checkbox207" class="checkbox" value="Leite_condensado"/>
           <label for="checkbox207" id="check_grid_207" class="check207">Leite condensado</label>
           <br/>
@@ -930,11 +937,9 @@
       </div>
 
       <div class="sujestao" id="mensagem">
-        <h3>Sujestão?</h3>
-        <h5>Para a montagem desse item em específico?</h5>
-        <p>"Ex: coloque o recheio apenas em cima"</p>
-        <p>Se não houver pode deixar em branco</p>
+        <h3 class="estilo_titulo">Deixe a sua Sujestão?</h3>
         <textarea name="campo" id="campo" cols="35" rows="5"></textarea>
+        <p class="estilo_paragrafo">Se não houver pode deixar em branco</p>
         <input value="AVANÇAR!!" class="btns" type="submit" id="btn_sujestao" title="Ex: coloque o recheio apenas em cima">
         <span id="contador">0/30 caracteres &#9993</span>
       </div>
@@ -1031,7 +1036,7 @@
 
 
       <div id="informativo">
-        <h2>Precisa de colherzinha?</h2>
+        <h2 class="estilo_titulo">Precisa de colherzinha?</h2>
         <div class="grid_colher">
           <button id="colher_sim">&#129348-SIM</button>
           <button id="colher_nao">&#10060-NÃO</button>

@@ -629,6 +629,7 @@ btn_salada.addEventListener("click", function (e) {
   const userPedido = objectPedido.limit;
   limite.push(userPedido);
   resadicao.innerHTML = " Escolha no minimo 4 frutas para sua salada";
+  alert(" Escolha no minimo 4 frutas para sua salada")
 });
 var btn_escolha_frutas = document.getElementById("btn_escolha_frutas");
 btn_escolha_frutas.addEventListener("click", function () {
