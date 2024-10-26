@@ -444,6 +444,16 @@ button:hover {
   transition: background-color 0.3s;
 }
 
+.btns_especial {
+  display: inline-flex;
+  border-radius: 10px;
+  margin-top: 10px;
+  height: 50px;
+  width: 350px;
+  justify-content: center;
+  align-items: center;
+}
+
 .btns_adicionar {
   display: inline-flex;
   border-radius: 10px;
@@ -2353,9 +2363,9 @@ height: 25px;
 }
 .grid_botoes {
   display: grid;
-  grid-template-columns: 180px 180px;
-  grid-template-rows: 10px 10px 10px 1fr;
-  row-gap: 40px;
+  grid-template-columns: 350px;
+  grid-template-rows: 20px 20px 20px 10px;
+  row-gap: 50px;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -2363,17 +2373,18 @@ height: 25px;
 }
 #esconde_comprar_mais {
   display: none;
-  grid-row: 2 / 3;
-  grid-column: 1;
+  grid-row: 2;
   justify-content: center;
   text-align: center;
   align-items: center;
 
 }
 #esconde_finalizar_carrinho {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
   display: none;
-  grid-row: 2/ 3;
-  grid-column: 2;
+  grid-row: 3;
 }
 #esconde_p{
   display: none;
@@ -2552,4 +2563,16 @@ height: 25px;
   cursor: pointer;
   width: 360px;
 
+}
+
+
+.highlight {
+  background-color: yellow;
+}
+#search-input{
+  border-radius: 10px;
+  height: 25px;
+}
+.pesquisa {
+  border-top: solid 1px;
 }

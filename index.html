@@ -304,14 +304,15 @@
       </div>
       
       <div class="grid_botoes">
+
         <div id="esconde_p">
-          <p class="estilo_paragrafo">O que gostaria de fazer agora?</p>
+          <p class="estilo_paragrafo">Continuar Comprando? ou Finalizar Pedido? </p>
         </div>
         <div id="esconde_finalizar_carrinho">
-          <button class="btns" id="finalizar_carrinho">&#9989-Finalizar Carrinho</button>
+          <button class="btns_especial" id="finalizar_carrinho">&#9989-Finalizar Carrinho e Pagamento. AQUI...!</button>
         </div>
         <div id="esconde_comprar_mais">
-          <button class="btns" id="btncomprarmais">&#128159-Montar Outro</button>         
+          <button class="btns_especial" id="btncomprarmais">&#128159-Continue Comprando e Monte outro Açai. AQUI...!</button>         
         </div>
       </div>
 
@@ -357,6 +358,11 @@
         <p id="resadicao" class="estilo_paragrafo"></p>
         <div class="btn_escolha">
           <button class="btns" id="btn_valores">Avançar!</button>
+          <br>
+        </div>
+        <div class="pesquisa">
+          <input type="text" id="search-input" placeholder="Buscar adicional na pagina...">
+          <button class="btns" onclick="highlightText()">Localizar</button>
         </div>
 
         <h3 class="estilo_titulo">FRUTAS</h3>
@@ -1048,37 +1054,15 @@
 
       <footer id="rodape">
         <div>
-          <p>
+          <!--<p>
             Taxa de entrega é cobrada de acordo com cada entrega, o valor minimo é R$2,00.
-          </p>
+          </p>-->
           <p>Tempo médio para entrega é sempre estabelecido a cada pedido.</p>
           <p>
             Massas e açais: densidade de aproximadamente 475g/litro logo o volume
             é maior que o peso, então não podemos dizer que 1 litro é equivalente
             a 1kg
           </p>
-        </div>
-        <div onclick="openMerchan()" class="patrocinio" id="pt1">
-          <h1 class="pt_titulo">Saiba mais...&#128071</h1>
-          <img class="pt_imagem" src="imagens/connect-flix.jpg" alt="connect-flix.jpg">
-          <ul class="pt_merchan">
-            <li>Planos com até 70%.</li> <br>
-            <li>Maior quantidade de conteúdo </li> <br>
-            <li>Suporte humanizado.</li>
-          </ul>
-        </div>
-        <div onclick="openMerchan2()" class="patrocinio2" id="pt2">
-          <h1 class="pt_titulo2">Saiba mais...&#128071</h1>
-          <img class="pt_imagem2" src="imagens/churros.jpg" alt="churros.jpg">
-          <ul class="pt_merchan2">
-            <li>Curso de Churros Gourmet</li> <br>
-            <li>Com Certificado </li> <br>
-            <li>Tenha uma Renda Extra.</li>
-
-          </ul>
-        </div>
-        <div onclick="openMerchan3()" class="patrocinio3" id="pt3">
-          <img class="pt_imagem3" src="imagens/anunciante.png" alt="churros.jpg">
         </div>
       </footer>
       </div>

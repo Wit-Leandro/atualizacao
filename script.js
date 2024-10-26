@@ -1906,25 +1906,6 @@ function alterarQuantidade(valor, quantidadeId) {
     }
 }
 
-function openMerchan() {
-  // Abre o site no mesmo guia/janela
-  window.open("https://ev.braip.com/ref?pv=pro44qx1&af=afijpndj1n", "_blank");
-}
-function openMerchan2() {
-  // Abre o site no mesmo guia/janela
-  window.open("https://ev.braip.com/pv/lipxn9op/afi8j24xxy", "_blank");
-}
-
-function openMerchan3() {
-  var numeroWhatsApp = "5519983674375";
-  var mensagemWhatsApp = encodeURIComponent("Olá!, Gostaria de saber como anunciar?" 
-  );
-  var linkWhatsApp =
-    "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
-
-  window.open(linkWhatsApp);
-
-}
 
 function horaDelivery() {
   var hora_delivery = dataAtual.getHours();
@@ -1935,5 +1916,35 @@ function horaDelivery() {
     alert('AGRADECEMOS PELA PREFERÊNCIA ')
   }
 
+}
+
+/*-----------------------MECANISMO DE BUSCA----------------------------*/
+function highlightText() {
+  const searchInput = document.getElementById('search-input').value.toLowerCase();
+  const inputs = document.querySelectorAll('input[type="text"]:not(#search-input)'); // Exclui o campo de pesquisa
+  let found = false;
+
+  // Remove o destaque anterior nos inputs
+  inputs.forEach(input => input.classList.remove('highlight'));
+
+  // Realiza a busca nos valores dos inputs de texto
+  if (searchInput) {
+      for (let input of inputs) {
+          const inputValue = input.value.toLowerCase();
+          if (inputValue.includes(searchInput)) {
+              input.classList.add("highlight"); // Adiciona o destaque ao input encontrado
+
+              if (!found) {
+                  input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  input.focus(); // Foca no input encontrado
+                  found = true;
+              }
+          }
+      }
+  }
+
+  if (!found) {
+      alert("Não Encontrado.");
+  }
 }
 
