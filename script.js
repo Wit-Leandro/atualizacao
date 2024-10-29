@@ -727,6 +727,7 @@ var tadd = 0;
 var ad = 0;
 var custo = 3;
 msg = "";
+var adicional_comprado = []
 
 btn_compra_add.addEventListener("click", function () {
   ad = ad + 1;
@@ -738,7 +739,7 @@ btn_compra_add.addEventListener("click", function () {
   msg = " Com mais " + ad + " adicional no valor de R$" + tadd + " Reais";
   const adiciona = { vlr: 0, obs: msg };
   sessionStorage.setItem("adiciona", JSON.stringify(adiciona));
-  valorCompra.push(3);
+  adicional_comprado.push(3);
   alert("Sucesso!! Você comprou + 1 adiconal \u{1F60A}");
   resadicao.innerHTML ="Escolha " + somarArray(limite) + " adiconais para seu açai";
   adicionais.style.display = "block";
@@ -1154,7 +1155,8 @@ function adicionarCarrinho() {
   const userVlr = objectAdciona.vlr;
   const userObs = objectAdciona.obs;
   var res_mult = somarArray(mult)
-  var totalCompra = (userVlr + userValor) * res_mult;
+  var res_add_comprado = somarArray(adicional_comprado)
+  var totalCompra = (res_add_comprado + userVlr + userValor) * res_mult;
 
   const getDigitou = sessionStorage.getItem("digitou");
   const objectDigitou = JSON.parse(getDigitou);
