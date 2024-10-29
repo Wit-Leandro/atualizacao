@@ -71,6 +71,9 @@ var res_end2 = document.getElementById('res_end2')
 var res_reg = document.getElementById('res_regiao') 
 var agradece = document.getElementById('agradece')
 var vazio = document.getElementById('vazio')
+var pergunta_mult = document.getElementById('pergunta_mult')
+var multiplicador = document.getElementById('multiplicador')
+var btn_ir_mult = document.getElementById('ir_mult')
 
 /*--------- inicio das funçoes -----*/
 
@@ -333,6 +336,7 @@ btn_marmita.addEventListener("click", function (e) {
   }
 
   escolha.style.display = "none";
+  
   adicionais.style.display = "block";
   vazio.style.display = 'block'
   const getPedido = sessionStorage.getItem("pedido");
@@ -917,7 +921,8 @@ btn_valores.addEventListener("click", function () {
     if (checkbox.checked) {
       valores.push(checkbox.value);
     }
-    mensagem.style.display = "block";
+    //mensagem.style.display = "block";
+    pergunta_mult.style.display = "block"
     adicionais.style.display = "none";
     adicao.style.display = "none";
     vazio.style.display = 'none'
@@ -1148,7 +1153,8 @@ function adicionarCarrinho() {
   const objectAdciona = JSON.parse(getAdciona);
   const userVlr = objectAdciona.vlr;
   const userObs = objectAdciona.obs;
-  var totalCompra = userVlr + userValor;
+  var res_mult = somarArray(mult)
+  var totalCompra = (userVlr + userValor) * res_mult;
 
   const getDigitou = sessionStorage.getItem("digitou");
   const objectDigitou = JSON.parse(getDigitou);
@@ -1156,8 +1162,32 @@ function adicionarCarrinho() {
 
   const adCarrinho = [userAcai, userDigitou, valores];
   valorCompra.push(totalCompra);
-  carrinho.push(adCarrinho);
-
+  if (res_mult == 2){
+    carrinho.push(adCarrinho);
+    carrinho.push(adCarrinho);
+  }
+  else if (res_mult == 3) {
+    carrinho.push(adCarrinho);
+    carrinho.push(adCarrinho);
+    carrinho.push(adCarrinho);
+  }
+  else if (res_mult == 4) {
+    carrinho.push(adCarrinho);
+    carrinho.push(adCarrinho);
+    carrinho.push(adCarrinho);
+    carrinho.push(adCarrinho);
+  }
+  else if (res_mult == 5) {
+    carrinho.push(adCarrinho);
+    carrinho.push(adCarrinho);
+    carrinho.push(adCarrinho);
+    carrinho.push(adCarrinho);
+    carrinho.push(adCarrinho);
+  }
+  else {
+    carrinho.push(adCarrinho);
+  }
+  
   atualizarCarrinho();
   mostrarValorNaTela();
 }
@@ -1208,6 +1238,7 @@ btn_comprar_mais.addEventListener("click", function () {
   comp_shake = [];
   limite = []
   milk_shake = []
+  mult[0] = 1
   escolha.style.display = "block";
   esconde_comprar_mais.style.display = "none";
   esconde_finalizar_carrinho.style.display = "none";
@@ -1947,4 +1978,54 @@ function highlightText() {
       alert("Não Encontrado.");
   }
 }
+
+/*-----------------------MULTIPLCADOR DE PEDIDO----------------------------*/
+var btn_cont_dois = document.getElementById('mont_dois')
+var btn_cont_tres = document.getElementById('mont_tres')
+var btn_cont_quatro = document.getElementById('mont_quatro')
+var btn_cont_cinco = document.getElementById('mont_cinco')
+var negar_mult = document.getElementById('negar_mult')
+var mult = [1]
+
+
+btn_ir_mult.addEventListener("click", function(){
+  multiplicador.style.display = 'block'
+  pergunta_mult.style.display = 'none'
+
+})
+negar_mult.addEventListener("click", function(){
+  mensagem.style.display = "block";
+  pergunta_mult.style.display = 'none'
+  mult[0] = 1
+
+})
+
+btn_cont_dois.addEventListener("click", function(){
+  multiplicador.style.display = 'none'
+  mensagem.style.display = "block";
+  mult[0] = 2
+
+
+})
+btn_cont_tres.addEventListener("click", function(){
+  multiplicador.style.display = 'none'
+  mensagem.style.display = "block";
+  mult[0] = 3
+
+})
+btn_cont_quatro.addEventListener("click", function(){
+  multiplicador.style.display = 'none'
+  mensagem.style.display = "block";
+  mult[0] = 4
+
+})
+btn_cont_cinco.addEventListener("click", function(){
+  multiplicador.style.display = 'none'
+  mensagem.style.display = "block";
+  mult[0] = 5
+
+})
+
+
+
 

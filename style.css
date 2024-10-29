@@ -2576,3 +2576,20 @@ height: 25px;
 .pesquisa {
   border-top: solid 1px;
 }
+
+.pergunta_mult {
+  display: none;
+  width: 350px;
+  grid-row: 3;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.multiplicador {
+  display: none;
+  width: 350px;
+  grid-row: 3;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
