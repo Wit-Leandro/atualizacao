@@ -1037,11 +1037,11 @@ function horadia() {
   if (minutos < 10) minutos = "0" + minutos;
   if (segundos < 10) segundos = "0" + segundos;
 
-  if (diaSemana == 4) { // Segunda-feira
-    reshora.style.color = "Yellow";
-    reshora.innerHTML = " ABERTO, ";
+  if (diaSemana == 1) { // Segunda-feira
+    reshora.style.color = "red";
+    reshora.innerHTML = " FECHADO, ";
     
-    alert('Hoje não faremos ENTREGAS \nApenas atendimento presencial')
+    alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')
   } else {
     if (hora < 14 || hora >= 23) { // Fechado antes das 15h ou depois das 23h
       reshora.style.color = "red";
