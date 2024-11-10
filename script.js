@@ -1029,7 +1029,7 @@ function horadia() {
   var minutos = dataAtual.getMinutes();
   var segundos = dataAtual.getSeconds();
   var hdia = document.getElementById("hdia");
-  var diaSemana = 1 //dataAtual.getDay();
+  var diaSemana = dataAtual.getDay();
   var reshora = document.getElementById("reshora");
   var reshora2 = document.getElementById("reshora2");
 

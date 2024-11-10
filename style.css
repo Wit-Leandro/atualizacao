@@ -2,7 +2,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  
   background: radial-gradient(#cc82e1, #a92fca);
   margin: 0;
   padding-left: 10px;
@@ -15,6 +14,12 @@ body {
 }
 .bloquear {
   display: none;
+}
+
+.app_fora {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
 #adicionais_salada{
