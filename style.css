@@ -304,6 +304,9 @@ header {
   height: 35px;
   border-radius: 10px;
   padding: 2px;
+  background: linear-gradient(45deg, #fdfbfd 25%, #de85f7 50%, #c727f3 75%);
+  background-size: 300% 300%;
+  animation: brilho 4s linear infinite;
 
 }
 
@@ -522,10 +525,13 @@ footer {
 .tab-container {
   margin-top: 5px;
   display: flex;
+  margin-top: 3px;
 }
 
 .tab-container2 {
   display: flex;
+  margin-bottom: 3px;
+
 }
 
 .tab {
@@ -535,9 +541,10 @@ footer {
   cursor: pointer;
   transition: background-color 0.3s;
   width: 170px;
-  height: 25px;
+  height: 35px;
   border: solid 1px;
-  border-radius: 20px 10px 20px 0;
+  border-radius: 20px;
+  margin: 0 1px 0 1px;
 }
 .tab2 {
   background-color: rgb(128, 32, 78);
@@ -546,9 +553,10 @@ footer {
   cursor: pointer;
   transition: background-color 0.3s;
   width: 170px;
-  height: 25px;
+  height: 35px;
   border: solid 1px;
-  border-radius: 20px 10px 20px 0;
+  border-radius: 20px;
+  margin: 0 1px 0 1px;
 }
 
 .tab:hover {
@@ -636,6 +644,7 @@ footer {
   justify-content: center;
   text-align: center;
   align-items: center;
+  font-size: 10pt;
 }
 
 #login {
@@ -712,12 +721,43 @@ footer {
 #escolha_regiao h5 {
   font-size: 16px;
 }
+
 .inpt_regiao {
-  justify-content: start;
-  text-align: start;
-  align-items: start;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border-radius: 20px;
+  width: 350px;
+  height: 350px;
+  padding-top: 10px;
 }
 
+.inpt_regiao input[type="checkbox"] {
+  height: 25px;
+  width: 25px;
+}
+
+.iptn_div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+.iptn_div label {
+  margin-left: 2px;
+}
+
+.btns_regioes {
+  height: 50px;
+  width: 350px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+  background: linear-gradient(30deg, #c800ff 25%, #2afc00 50%, #c86de1 75%);
+  background-size: 300% 300%;
+  animation: brilho 4s linear infinite;
+  font-size: 15pt;
+
+}
 
 
 #esconde_carrinho {
@@ -2643,7 +2683,8 @@ height: 25px;
   align-items: center;
   font-size: 20pt;
   background: linear-gradient(30deg, #9104b8 25%, #9c34b8 50%, #c86de1 75%);
-  animation: brilho 2s linear infinite;
+  background-size: 300% 300%;
+  animation: brilho 4s linear infinite;
   font-weight: bolder;
 }
 
@@ -2651,6 +2692,10 @@ height: 25px;
   0% {
     background-position: 0% 50%;
   }
+  50% {
+    background-position: 100% 50%;  
+  }
+
   100% {
     background-position: 100% 50%;
   }

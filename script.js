@@ -1943,7 +1943,7 @@ function alterarQuantidade(valor, quantidadeId) {
 function horaDelivery() {
   var hora_delivery = dataAtual.getHours();
   if (hora_delivery < 15){
-    alert('ATENÇÃO ENTREGAS DELIVERY - COMEÇA A PARTIR DAS 15HS ')
+    alert('ATENÇÃO ENTREGAS DELIVERY \n\u{1F3E0} \u{1F6F5} \u{1F4A8} \u{1F3ED} \nCOMEÇA A PARTIR DAS 15HS ')
   }
   else {
     alert('AGRADECEMOS PELA PREFERÊNCIA ')

@@ -11,8 +11,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    
-
   </head>
 
   <body>
@@ -324,28 +322,51 @@
         <h5 class="estilo_titulo">Informe sua sua região:</h5>
 
         <div class="inpt_regiao">
-          <input type="checkbox" id="taruma" class="regiao" value="Tarumã" />
-          <label for="checkbox80">Dentro de Tarumã</label>
-          <span>(taxa de R$2,00 isento R$20,00)</span>
+          <button class="btns_regioes" id="btn_regiao" onclick="verificarRegiao()">ENVIAR e CONTINUAR</button>
+
+          <div class="iptn_div">
+            <input type="checkbox" id="taruma" class="regiao" value="Tarumã" />          
+            <label for="checkbox80">Dentro de Tarumã</label>
+            <span>(taxa de R$2,00 isento R$20,00)</span>
+          </div>
+
           <br />
-          <input type="checkbox" id="america" class="regiao" value="Usina Nova America" />
-          <label for="checkbox81">Usina Nova America</label>
-          <span>(taxa de R$10,00 isento R$150,00)</span>
+
+          <div class="iptn_div">
+            <input type="checkbox" id="america" class="regiao" value="Usina Nova America" />
+            <label for="checkbox81">Usina Nova America</label>
+            <span>(taxa de R$10,00 isento R$150,00)</span>
+          </div>
+
           <br />
-          <input type="checkbox" id="bonita" class="regiao" value="Usina Agua Bonita" />
-          <label for="checkbox82">Usina Agua Bonita</label>
-          <span>(taxa de R$5,00 isento R$50,00)</span>
+
+          <div class="iptn_div">
+            <input type="checkbox" id="bonita" class="regiao" value="Usina Agua Bonita" />
+            <label for="checkbox82">Usina Agua Bonita</label>
+            <span>(taxa de R$5,00 isento R$50,00)</span>
+          </div>
+
           <br />
-          <input type="checkbox" id="pioneiro" class="regiao" value="Posto Pioneiro" />
-          <label for="checkbox83">Posto Pioneiro</label>
-          <span>(taxa de R$5,00 isento R$50,00)</span>
+
+          <div class="iptn_div">
+            <input type="checkbox" id="pioneiro" class="regiao" value="Posto Pioneiro" />
+            <label for="checkbox83">Posto Pioneiro</label>
+            <span>(taxa de R$5,00 isento R$50,00)</span>
+          </div>
+
           <br />
-          <input type="checkbox" id="chico" class="regiao" value="Retirar no Tio-Chico" />
-          <label for="checkbox84">Vou Retirar no Tio-Chico</label>
+
+          <div class="iptn_div">
+            <input type="checkbox" id="chico" class="regiao" value="Retirar no Tio-Chico" />
+            <label for="checkbox84">Vou Retirar no Tio-Chico</label>
+          </div>
+
           <br />
-          <br>
+
           <span id="regiao_mensagem" >--Por favor, Selecione uma das opções acima!!--</span>
-          <button class="btns" id="btn_regiao" onclick="verificarRegiao()">ENVIAR</button>
+
+          
+          
         </div>
         
       </div>
@@ -1127,4 +1148,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
   </body>
+
 </html>
