@@ -74,6 +74,8 @@ var vazio = document.getElementById('vazio')
 var pergunta_mult = document.getElementById('pergunta_mult')
 var multiplicador = document.getElementById('multiplicador')
 var btn_ir_mult = document.getElementById('ir_mult')
+var open_close = document.getElementById('open_close')
+var dsp = document.getElementById('disponibilidade')
 
 /*--------- inicio das funçoes -----*/
 
@@ -1040,17 +1042,21 @@ function horadia() {
   if (diaSemana == 1) { // Segunda-feira
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
+    open_close.innerHTML = " FECHADO ";
     
     alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')
   } else {
     if (hora < 14 || hora >= 23) { // Fechado antes das 15h ou depois das 23h
       reshora.style.color = "red";
       reshora.innerHTML = " FECHADO, ";
+      open_close.innerHTML = " FECHADO ";
       
       alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h') 
     } else {
       reshora.style.color = "green";
       reshora.innerHTML = " ABERTO: ";
+      open_close.innerHTML = " ABERTO ";
+      dsp.innerHTML = " ATENDIMENTO PRESENCIAL ";
     }
   }
 
@@ -2027,6 +2033,23 @@ btn_cont_cinco.addEventListener("click", function(){
   mult[0] = 5
 
 })
+
+
+const carousel = document.querySelector('.carousel');
+const images = document.querySelectorAll('.carousel img');
+let currentIndex = 0;
+
+function showNextImage() {
+  // Incrementa o índice, voltando ao início se necessário
+  currentIndex = (currentIndex + 1) % images.length;
+
+  // Move o carrossel para a posição da próxima imagem
+  const offset = currentIndex * 300; // 300 é a largura de cada imagem
+  carousel.style.transform = `translateX(-${offset}px)`;
+}
+
+// Troca de imagem a cada 3 segundos
+setInterval(showNextImage, 3000);
 
 
 

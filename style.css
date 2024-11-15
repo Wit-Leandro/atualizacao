@@ -2756,3 +2756,41 @@ height: 25px;
   grid-row: 4;
   grid-column: 1 / -1;
 }
+
+.carousel-container {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+  width: 300px; /* Largura fixa igual à do container */
+  height: 300px; /* Altura fixa igual à do container */
+  flex-shrink: 0; /* Impede que a imagem encolha */
+}
+
+.container_fechado {
+  border-radius: 20px;
+  grid-template-columns: 500px;
+  grid-template-rows: auto fr;
+  gap: 2px;
+  display: grid;
+  padding-left: 0;
+  margin: 0;
+
+  justify-content: center;
+  justify-items: center;
+  row-gap: 5px;
+  grid-auto-rows: auto;
+  grid-template-columns: 360px;
+}
