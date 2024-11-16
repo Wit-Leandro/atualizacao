@@ -1486,7 +1486,7 @@ env_pix.addEventListener("click", function () {
     mensagemCarrinho;
   var numeroWhatsApp = "5518996772619";
   var mensagemWhatsApp = encodeURIComponent(
-    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido + "\n Avalie nosso app \n https://forms.gle/YZJaCc1gvABdyAbk7"
+    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido + "\n\n Avalie nosso app \n\n https://forms.gle/YZJaCc1gvABdyAbk7"
   );
   var linkWhatsApp =
     "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
@@ -1552,7 +1552,7 @@ env_cartao.addEventListener("click", function () {
     mensagemCarrinho;
   var numeroWhatsApp = "5518996772619";
   var mensagemWhatsApp = encodeURIComponent(
-    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido + "\n Avalie nosso app \n https://forms.gle/YZJaCc1gvABdyAbk7"
+    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido + "\n\n Avalie nosso app \n\n https://forms.gle/YZJaCc1gvABdyAbk7"
   );
   var linkWhatsApp =
     "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
@@ -1621,7 +1621,7 @@ env_dinheiro.addEventListener("click", function (e) {
     mensagemCarrinho;
   var numeroWhatsApp = "5518996772619";
   var mensagemWhatsApp = encodeURIComponent(
-    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido + "\n Avalie nosso app \n https://forms.gle/YZJaCc1gvABdyAbk7"
+    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido + "\n\n Avalie nosso app \n\n https://forms.gle/YZJaCc1gvABdyAbk7"
   );
   var linkWhatsApp =
     "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
@@ -1913,7 +1913,7 @@ function antecipar_envio_pix(){
     mensagemCarrinho;
   var numeroWhatsApp = "5518996772619";
   var mensagemWhatsApp = encodeURIComponent(
-    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido + "\n Avalie nosso app\n https://forms.gle/YZJaCc1gvABdyAbk7 \n\n\nSeu Codigo para pagamento\n\n" + dic[6] + '\n\n\nClique em enviar - \u{1F53D}\n'
+    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido + "\n\n Avalie nosso app\n\n https://forms.gle/YZJaCc1gvABdyAbk7 \n\n\nSeu Codigo para pagamento\n\n" + dic[6] + '\n\n\nClique em enviar - \u{1F53D}\n'
   );
   var linkWhatsApp =
     "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
