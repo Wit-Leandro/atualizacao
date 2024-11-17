@@ -141,7 +141,7 @@ body {
   width: 350px;
 }
 #meu_select_salada {
-  height: 30px;
+  height: 50px;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -152,7 +152,7 @@ body {
   font-weight: bolder;
 }
 #meu_select_shake {
-  height: 30px;
+  height: 50px;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -322,7 +322,7 @@ header {
   font-weight: bolder;
 }
 #meu_select_trad_marmita{
-  height: 30px;
+  height: 50px;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -333,7 +333,7 @@ header {
   font-weight: bolder;
 }
 #meu_select_trad_copo{
-  height: 30px;
+  height: 50px;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -347,8 +347,8 @@ header {
 
 
 #meu_select_copo{
-  height: 30px;
-  width: 150px;
+  height: 50px;
+  width: 175px;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -360,8 +360,8 @@ header {
   
 }
 #meu_select_marmita{
-  height: 30px;
-  width: 150px;
+  height: 50px;
+  width: 175px;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -439,7 +439,7 @@ button:hover {
   display: inline-flex;
   border-radius: 10px;
   margin-top: 10px;
-  height: 30px;
+  height: 50px;
   width: 150px;
   justify-content: center;
   align-items: center;
@@ -2239,14 +2239,35 @@ height: 25px;
   border-bottom: solid 2px #210129;
 }
 .pagamento h4 {
-  padding-left: 25px;
   border-bottom: solid 2px #210129;
   margin-bottom: 10px;
   color: black;
   font-weight: bold;
-  font-size: 25px;
-
+ /* font-size: 18pt;*/
+  margin-top: 10px;
+  padding: 20px 30px 10px 30px;
+  border-radius: 20px;
+  width: 250px;
+  background-color: #64f597;
+  animation: growAndShrink 1s infinite;
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  height: 45px;
 }
+
+@keyframes growAndShrink {
+  0% {
+    font-size: 17pt;
+  }
+  50% {
+    font-size: 18pt;
+  }
+  100% {
+    font-size: 19pt;
+  }
+}
+
 .pagamento li {
   font-weight: bolder;
   color: black;
@@ -2618,7 +2639,7 @@ height: 25px;
 }
 #search-input{
   border-radius: 10px;
-  height: 25px;
+  height: 50px;
 }
 .pesquisa {
   border-top: solid 1px;

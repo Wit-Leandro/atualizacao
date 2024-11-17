@@ -969,7 +969,7 @@ function mostrarDados() {
     t = t + dic[5];
   } else {
   }
-  valor_pagamento.innerHTML = "VALOR DO PEDIDO - R$" + t + ",00";
+  valor_pagamento.innerHTML = "VALOR DO PEDIDO  R$ " + t + ",00";
 }
 
 imprimir.addEventListener("click", function () {
