@@ -222,6 +222,7 @@ body {
   row-gap: 5px;
   grid-auto-rows: auto;
   grid-template-columns: 360px;
+
 }
 
 header {
@@ -363,6 +364,8 @@ header {
   background-size: 300% 300%;
   animation: brilho 4s linear infinite;
   grid-row: 2;
+  justify-content: center;
+  justify-items: center;
 
 }
 
@@ -555,7 +558,21 @@ footer {
   margin-top: 20px;
   font: bold;
   grid-row: 5;
+  padding-top: 10px ;
 }
+footer a {
+  font-size: 11pt;
+  background-color: black;
+  color: #fff;
+}
+
+footer a:hover {
+  cursor: pointer;
+  background-color: #fff;
+  color: black;
+  font-size: 12pt;
+}
+
 
 #welcome {
   font-size: 20px;
@@ -911,6 +928,7 @@ footer {
   position: relative;
   top: 1px;
   grid-row: 2;
+  font-size: 9pt;
 }
 #logLogin {
   position: relative;

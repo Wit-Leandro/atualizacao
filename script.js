@@ -1491,7 +1491,7 @@ env_pix.addEventListener("click", function () {
     te +
     "\nPagamento via Pix" +
     "\nColherzinha? " +
-    whats_colher + "\nCompras via app " + n_compras_app +
+    whats_colher + "\nCompras via app: " + n_compras_app +
     "" +
     mensagemCarrinho;
   var numeroWhatsApp = "5518996772619";
@@ -1559,7 +1559,7 @@ env_cartao.addEventListener("click", function () {
     te +
     "\nLevar a maquininha" +
     "\nColherzinha? " +
-    whats_colher + "\nCompras via app " + n_compras_app +
+    whats_colher + "\nCompras via app: " + n_compras_app +
     "" +
     mensagemCarrinho;
   var numeroWhatsApp = "5518996772619";
@@ -1629,7 +1629,7 @@ env_dinheiro.addEventListener("click", function (e) {
     "\nDinheiro: Precisa de troco? " +
     troco +
     "\nColherzinha? " +
-    whats_colher + "\nCompras via app " + n_compras_app +
+    whats_colher + "\nCompras via app: " + n_compras_app +
     "" +
     mensagemCarrinho;
   var numeroWhatsApp = "5518996772619";
@@ -1846,7 +1846,7 @@ function gerarImagemPedido() {
     "\nHá verificar" +
     "\nColherzinha? " +
     whats_colher +
-    "" + "\nEste é o meu "+n_compras_app+"° no app" +
+    "" + "\nEste é o meu "+n_compras_app+"° pedido no app" +
     mensagemCarrinho;
 
   // Adiciona os detalhes do pedido em um elemento HTML
@@ -1923,7 +1923,7 @@ function antecipar_envio_pix(){
     te +
     "\nPagamento via Pix" +
     "\nColherzinha? " +
-    whats_colher + "\nCompras via app " + n_compras_app +
+    whats_colher + "\nCompras via app: " + n_compras_app +
     "" +
     mensagemCarrinho;
   var numeroWhatsApp = "5518996772619";
