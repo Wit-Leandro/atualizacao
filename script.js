@@ -76,6 +76,7 @@ var multiplicador = document.getElementById('multiplicador')
 var btn_ir_mult = document.getElementById('ir_mult')
 var open_close = document.getElementById('open_close')
 var dsp = document.getElementById('disponibilidade')
+var contLogin = document.getElementById('contLogin')
 
 /*--------- inicio das funçoes -----*/
 
@@ -86,6 +87,7 @@ window.addEventListener('load', function(){
   var fone = 'Não informado'
   var local = 'Não informado'
   dic.push(nome,endereco,ncasa,fone,local)
+  loadCounter();
   alert("CONCLUA TODAS AS ETAPAS ATÉ A ABA DE PAGAMENTOS PARA FINALIZAR SEU PEDIDO")
 })
 
@@ -1212,6 +1214,12 @@ btn_finalizar_carrinho.addEventListener("click", function () {
   
   criarListaArrays(carrinho);
   numeroDoPedido = gerarNumeroPedido();
+
+  let count_login = parseInt(localStorage.getItem('clickCount')) || 0;
+  count_login++;
+  localStorage.setItem('clickCount', count_login);
+  contLogin.innerHTML = `${count_login}`;
+
   escolha_regiao.style.display = 'block'
 
 
@@ -1221,6 +1229,8 @@ btn_finalizar_carrinho.addEventListener("click", function () {
   carrinhoCompras.style.display = "block";
   escolha.style.display = "none";
   dados_Branco()
+
+
 
 });
 function dados_Branco(){
@@ -1430,7 +1440,7 @@ function pad(numero, tamanho) {
 env_pix.addEventListener("click", function () {
   pagamentos.style.display = "none";
   agradece.style.display = 'block'
-
+  var n_compras_app = parseInt(localStorage.getItem('clickCount'))
 
   var mensagemCarrinho = "";
   var contped = 0;
@@ -1481,7 +1491,7 @@ env_pix.addEventListener("click", function () {
     te +
     "\nPagamento via Pix" +
     "\nColherzinha? " +
-    whats_colher +
+    whats_colher + "\nCompras via app " + n_compras_app +
     "" +
     mensagemCarrinho;
   var numeroWhatsApp = "5518996772619";
@@ -1497,6 +1507,8 @@ env_pix.addEventListener("click", function () {
 env_cartao.addEventListener("click", function () {
   pagamentos.style.display = "none";
   agradece.style.display = 'block'
+  var n_compras_app = parseInt(localStorage.getItem('clickCount'))
+  
 
   var mensagemCarrinho = "";
   var contped = 0;
@@ -1547,7 +1559,7 @@ env_cartao.addEventListener("click", function () {
     te +
     "\nLevar a maquininha" +
     "\nColherzinha? " +
-    whats_colher +
+    whats_colher + "\nCompras via app " + n_compras_app +
     "" +
     mensagemCarrinho;
   var numeroWhatsApp = "5518996772619";
@@ -1562,6 +1574,7 @@ env_cartao.addEventListener("click", function () {
 env_dinheiro.addEventListener("click", function (e) {
   e.preventDefault();
   var troco = document.getElementById("troco").value;
+  var n_compras_app = parseInt(localStorage.getItem('clickCount'))
   pagamentos.style.display = "none";
   agradece.style.display = 'block'
 
@@ -1616,7 +1629,7 @@ env_dinheiro.addEventListener("click", function (e) {
     "\nDinheiro: Precisa de troco? " +
     troco +
     "\nColherzinha? " +
-    whats_colher +
+    whats_colher + "\nCompras via app " + n_compras_app +
     "" +
     mensagemCarrinho;
   var numeroWhatsApp = "5518996772619";
@@ -1813,6 +1826,7 @@ function gerarImagemPedido() {
   }
   var vlr_total_whats = "R$" + tw + ",00";
   var informar_data_hora = informarDataHora()
+  var n_compras_app = parseInt(localStorage.getItem('clickCount'))
 
   var detalhesPedido = "\n" + informar_data_hora +
     "\n\nN° Pedido: " +
@@ -1832,7 +1846,7 @@ function gerarImagemPedido() {
     "\nHá verificar" +
     "\nColherzinha? " +
     whats_colher +
-    "" +
+    "" + "\nEste é o meu "+n_compras_app+"° no app" +
     mensagemCarrinho;
 
   // Adiciona os detalhes do pedido em um elemento HTML
@@ -1847,7 +1861,7 @@ function gerarImagemPedido() {
   html2canvas(pedidoElement).then(function(canvas) {
     // Converte o canvas para um link de download
     var link = document.createElement("a");
-    link.download = "pedido.png";
+    link.download = numeroDoPedido;
     link.href = canvas.toDataURL("image/png");
     link.click();
 
@@ -1861,6 +1875,7 @@ function gerarImagemPedido() {
 function antecipar_envio_pix(){
   var mensagemCarrinho = "";
   var contped = 0;
+  var n_compras_app = parseInt(localStorage.getItem('clickCount'))
   carrinho.forEach(function (element) {
     if (Array.isArray(element)) {
       contped += 1;
@@ -1908,7 +1923,7 @@ function antecipar_envio_pix(){
     te +
     "\nPagamento via Pix" +
     "\nColherzinha? " +
-    whats_colher +
+    whats_colher + "\nCompras via app " + n_compras_app +
     "" +
     mensagemCarrinho;
   var numeroWhatsApp = "5518996772619";
@@ -2050,6 +2065,38 @@ function showNextImage() {
 
 // Troca de imagem a cada 3 segundos
 setInterval(showNextImage, 3000);
+
+
+// FUNÇÃO QUE CONTA QUANTAS VEZES O CLIENTE ENTROU E COMPROU NO APP
+
+
+
+
+
+// Função para carregar o valor inicial do localStorage
+function loadCounter() {
+  let logou = parseInt(localStorage.getItem('clickCount')) || 0;
+  contLogin.innerHTML = `${logou}`;
+}
+
+
+
+/*
+
+button.addEventListener('click', () => {
+    // Obtém o valor atual ou define 0 se não existir
+    let count_login = parseInt(localStorage.getItem('clickCount')) || 0;
+    // Incrementa o valor
+    count_login++;
+    // Armazena o valor atualizado no localStorage
+    localStorage.setItem('clickCount', count_login);
+    // Atualiza a exibição
+    contLogin.textContent = `${count_login}`;
+});
+
+// Carrega o valor inicial ao abrir o site
+
+*/
 
 
 

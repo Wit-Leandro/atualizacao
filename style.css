@@ -298,6 +298,51 @@ header {
 
 }
 
+.count_login::after{
+  content: 'TOTAL DE VEZES QUE O APP FOI USADO';
+  position: absolute;
+  left:-120%;
+  bottom: -135%;
+  transform: translateX(-80%);
+  color: #f6f7fa;
+  padding: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+  font-size: 12px;
+  pointer-events: none;
+  z-index: 10;
+}
+.count_login:hover::after{
+  opacity: 1;
+  visibility: visible;
+
+}
+
+.count_carrinho::after{
+  content: 'CARRINHO DE COMPRA';
+  position: absolute;
+  left:-130%;
+  bottom: -220%;
+  transform: translateX(-80%);
+  color: #fff;
+  padding: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+  font-size: 12px;
+  pointer-events: none;
+  z-index: 10;
+}
+.count_carrinho:hover::after{
+  opacity: 1;
+  visibility: visible;
+
+}
+
+
 #mostrar_carrinho {
   display: inline-flex;
   width: 35px;
@@ -307,6 +352,17 @@ header {
   background: linear-gradient(45deg, #fdfbfd 25%, #de85f7 50%, #c727f3 75%);
   background-size: 300% 300%;
   animation: brilho 4s linear infinite;
+  grid-row: 1;
+
+}
+#mostrar_login {
+  display: grid;
+  border-radius: 10px;
+  padding: 2px;
+  background: linear-gradient(45deg, #fdfbfd 25%, #de85f7 50%, #c727f3 75%);
+  background-size: 300% 300%;
+  animation: brilho 4s linear infinite;
+  grid-row: 2;
 
 }
 
@@ -849,6 +905,17 @@ footer {
 #logCarrinho {
   position: relative;
   font-size: 20px;
+}
+#contLogin {
+  color: #370246;
+  position: relative;
+  top: 1px;
+  grid-row: 2;
+}
+#logLogin {
+  position: relative;
+  font-size: 20px;
+  grid-row: 1;
 }
 #adicionais {
   display: none;
