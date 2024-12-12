@@ -1,5 +1,5 @@
 body {
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
   background: radial-gradient(#cc82e1, #a92fca);
@@ -8,6 +8,10 @@ body {
   font-family: "Josefin Sans", sans-serif;
   font-optical-sizing: auto;
   font-size: 16px;
+}
+.container_mae{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
 }
 #bloquear {
   display:none;
@@ -216,6 +220,7 @@ body {
   display: grid;
   padding-left: 0;
   margin: 0;
+  grid-row: 1 / 1;
 
   justify-content: center;
   justify-items: center;
@@ -2523,6 +2528,7 @@ height: 25px;
   text-align: center;
   align-items: center;
   margin-top: 5px;
+  
 }
 #esconde_comprar_mais {
   display: none;
@@ -2893,6 +2899,7 @@ height: 25px;
   display: grid;
   padding-left: 0;
   margin: 0;
+  grid-row: 2 / 2;
 
   justify-content: center;
   justify-items: center;

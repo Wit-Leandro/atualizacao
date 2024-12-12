@@ -89,6 +89,7 @@ window.addEventListener('load', function(){
   dic.push(nome,endereco,ncasa,fone,local)
   loadCounter();
   alert("CONCLUA TODAS AS ETAPAS ATÉ A ABA DE PAGAMENTOS PARA FINALIZAR SEU PEDIDO")
+  alert('* ATENÇÃO *\nFUNCIONAMENTO ESPECIAL DE FIM DE ANO \nABERTO TODOS OS DIAS 14h as 23h')
 })
 
 
@@ -1036,6 +1037,7 @@ function horadia() {
   var diaSemana = dataAtual.getDay();
   var reshora = document.getElementById("reshora");
   var reshora2 = document.getElementById("reshora2");
+  var container_fechado = document.querySelector(".app_fora")
 
   if (hora < 10) hora = "0" + hora;
   if (minutos < 10) minutos = "0" + minutos;
@@ -1045,20 +1047,29 @@ function horadia() {
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
     open_close.innerHTML = " FECHADO ";
+    escolha.style.display = 'none'
+    container_fechado.style.display = 'block'
+    container_fechado.style.gridRow = 3
     
-    alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')
+    //alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')
+    
   } else {
     if (hora < 14 || hora >= 23) { // Fechado antes das 15h ou depois das 23h
       reshora.style.color = "red";
       reshora.innerHTML = " FECHADO, ";
       open_close.innerHTML = " FECHADO ";
+      escolha.style.display = 'none'
+      container_fechado.style.display = 'block'
+      container_fechado.style.gridRow = 3
       
-      alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h') 
+      //alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')
+
     } else {
       reshora.style.color = "green";
       reshora.innerHTML = " ABERTO: ";
       open_close.innerHTML = " ABERTO ";
       dsp.innerHTML = " ATENDIMENTO PRESENCIAL ";
+      container_fechado.style.display = 'none'
     }
   }
 
