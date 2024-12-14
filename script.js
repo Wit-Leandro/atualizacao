@@ -88,8 +88,8 @@ window.addEventListener('load', function(){
   var local = 'Não informado'
   dic.push(nome,endereco,ncasa,fone,local)
   loadCounter();
-  alert("CONCLUA TODAS AS ETAPAS ATÉ A ABA DE PAGAMENTOS PARA FINALIZAR SEU PEDIDO")
-  alert('* ATENÇÃO *\nFUNCIONAMENTO ESPECIAL DE FIM DE ANO \nABERTO TODOS OS DIAS 14h as 23h')
+  alert("\u{1F4CC}\nCONCLUA TODAS AS ETAPAS \nATÉ A ABA DE PAGAMENTOS \nPARA FINALIZAR SEU PEDIDO")
+  
 })
 
 
@@ -166,7 +166,6 @@ function checkUser() {
     welcome.style.display = "none";
   }
 }*/
-
 /*
 function checkRegiao() {
   const getPerson = localStorage.getItem("person");
@@ -180,7 +179,6 @@ function checkRegiao() {
   }
   calcTaxa();
 }*/
-
 /*
 var limpar = document.getElementById("limpar");
 limpar.addEventListener("click", () => {
@@ -242,7 +240,7 @@ btn_trad_marmita.addEventListener("click", function (e) {
     const pedido = {
       acai: "Marmita tradicional de 1200ml",
       limit: 10,
-      valor: 34,
+      valor: 32,
     };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   }
@@ -300,16 +298,16 @@ btn_copo.addEventListener("click", function (e) {
   e.preventDefault();
   var meu_select_copo = document.getElementById("meu_select_copo").value;
   if (meu_select_copo === "300ml") {
-    const pedido = { acai: "Copo de 300ml", limit: 4, valor: 13 };
+    const pedido = { acai: "Copo de 300ml", limit: 4, valor: 14 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_copo === "400ml") {
-    const pedido = { acai: "Copo de 400ml", limit: 4, valor: 16 };
+    const pedido = { acai: "Copo de 400ml", limit: 4, valor: 17 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_copo === "500ml") {
-    const pedido = { acai: "Copo de 500ml", limit: 5, valor: 18 };
+    const pedido = { acai: "Copo de 500ml", limit: 5, valor: 20 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_copo === "700ml") {
-    const pedido = { acai: "Copo de 700ml", limit: 5, valor: 28 };
+    const pedido = { acai: "Copo de 700ml", limit: 5, valor: 30 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   }
 
@@ -330,13 +328,13 @@ btn_marmita.addEventListener("click", function (e) {
   e.preventDefault();
   var meu_marmita = document.querySelector(".select_marmita").value;
   if (meu_marmita === "500ml") {
-    const pedido = { acai: "Marmita de 500ml", limit: 5, valor: 20 };
+    const pedido = { acai: "Marmita de 500ml", limit: 5, valor: 22 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_marmita === "750ml") {
-    const pedido = { acai: "Marmita de 750ml", limit: 5, valor: 30 };
+    const pedido = { acai: "Marmita de 750ml", limit: 5, valor: 32 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_marmita === "1200ml") {
-    const pedido = { acai: "Marmita de 1200ml", limit: 6, valor: 40 };
+    const pedido = { acai: "Marmita de 1200ml", limit: 6, valor: 45 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   }
 
@@ -405,51 +403,51 @@ btn_shake.addEventListener("click", function (e) {
   if (meu_select_shake === "T300ml") {
     milk_shake.push('T')
     sabor_trad.style.display = "block";
-    const pedido = { acai: "Shake Tradiconal de 300ml", limit: 2, valor: 10 };
+    const pedido = { acai: "Shake Tradiconal de 300ml", limit: 2, valor: 11 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    res_comp_shake.innerHTML = 'R$ 2,00 Cada'
+    res_comp_shake.innerHTML = 'R$ 3,00 Cada'
   } else if (meu_select_shake === "T400ml") {
     milk_shake.push('T')
     sabor_trad.style.display = "block";
-    const pedido = { acai: "Shake Tradiconal de 400ml", limit: 2, valor: 12 };
+    const pedido = { acai: "Shake Tradiconal de 400ml", limit: 2, valor: 13 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    res_comp_shake.innerHTML = 'R$ 2,00 Cada'
+    res_comp_shake.innerHTML = 'R$ 3,00 Cada'
   } else if (meu_select_shake === "T500ml") {
     milk_shake.push('T')
     sabor_trad.style.display = "block";
-    const pedido = { acai: "Shake Tradiconal de 500ml", limit: 2, valor: 14 };
+    const pedido = { acai: "Shake Tradiconal de 500ml", limit: 2, valor: 15 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    res_comp_shake.innerHTML = 'R$ 2,00 Cada'
+    res_comp_shake.innerHTML = 'R$ 3,00 Cada'
   } else if (meu_select_shake === "T700ml") {
     milk_shake.push('T')
     sabor_trad.style.display = "block";
     const pedido = { acai: "Shake Tradiconal de 700ml", limit: 2, valor: 18 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    res_comp_shake.innerHTML = 'R$ 2,00 Cada'
+    res_comp_shake.innerHTML = 'R$ 3,00 Cada'
   } else if (meu_select_shake === "S300ml") {
     milk_shake.push('S')
     sabor_especial.style.display = "block";
-    const pedido = { acai: "Shake Especial de 300ml", limit: 2, valor: 12 };
+    const pedido = { acai: "Shake Especial de 300ml", limit: 2, valor: 13 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    res_comp_shake.innerHTML = 'Você possui 1 sem o acréscimo \nR$ 2,00 Cada'
+    res_comp_shake.innerHTML = 'Você possui 1 sem o acréscimo \nR$ 3,00 Cada'
   } else if (meu_select_shake === "S400ml") {
     milk_shake.push('S')
     sabor_especial.style.display = "block";
-    const pedido = { acai: "Shake Especial de 400ml", limit: 2, valor: 14 };
+    const pedido = { acai: "Shake Especial de 400ml", limit: 2, valor: 15 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    res_comp_shake.innerHTML = 'Você possui 1 sem o acréscimo \nR$ 2,00 Cada'
+    res_comp_shake.innerHTML = 'Você possui 1 sem o acréscimo \nR$ 3,00 Cada'
   } else if (meu_select_shake === "S500ml") {
     milk_shake.push('S')
     sabor_especial.style.display = "block";
-    const pedido = { acai: "Shake Especial de 500ml", limit: 2, valor: 16 };
+    const pedido = { acai: "Shake Especial de 500ml", limit: 2, valor: 18 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    res_comp_shake.innerHTML = 'Você possui 1 sem o acréscimo \nR$ 2,00 Cada'
+    res_comp_shake.innerHTML = 'Você possui 1 sem o acréscimo \nR$ 3,00 Cada'
   } else if (meu_select_shake === "S700ml") {
     milk_shake.push('S')
     sabor_especial.style.display = "block";
-    const pedido = { acai: "Shake Especial de 700ml", limit: 2, valor: 20 };
+    const pedido = { acai: "Shake Especial de 700ml", limit: 2, valor: 22 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    res_comp_shake.innerHTML = 'Você possui 1 sem o acréscimo R$ 2,00 Cada'
+    res_comp_shake.innerHTML = 'Você possui 1 sem o acréscimo R$ 3,00 Cada'
   }
   
   escolha.style.display = "none";
@@ -619,16 +617,16 @@ btn_salada.addEventListener("click", function (e) {
   e.preventDefault();
   var meu_select_salada = document.getElementById("meu_select_salada").value;
   if (meu_select_salada === "300ml") {
-    const pedido = { acai: "Salada Frutas de 300ml", limit: 16, valor: 9 };
+    const pedido = { acai: "Salada Frutas de 300ml", limit: 16, valor: 10 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_salada === "400ml") {
-    const pedido = { acai: "Salada Frutas de 400ml", limit: 16, valor: 12 };
+    const pedido = { acai: "Salada Frutas de 400ml", limit: 16, valor: 13 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_salada === "500ml") {
-    const pedido = { acai: "Salada Frutas de 500ml", limit: 16, valor: 14 };
+    const pedido = { acai: "Salada Frutas de 500ml", limit: 16, valor: 15 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_salada === "700ml") {
-    const pedido = { acai: "Salada Frutas de 700ml", limit: 16, valor: 18 };
+    const pedido = { acai: "Salada Frutas de 700ml", limit: 16, valor: 20 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   }
   escolha.style.display = "none";
@@ -683,15 +681,15 @@ function procurarCobrar(find, proc) {
   if (milk_shake[0] === "T") {
     find.forEach(function (v) {
       if (proc.includes(v.toString())) {
-        valorCompra.push(2);
+        valorCompra.push(3);
       }
     });
   } else if (milk_shake[0] === "S") {
     if (find.length > 1) {
-      valorCompra.push(-2);
+      valorCompra.push(-3);
       find.forEach(function (v) {
         if (proc.includes(v.toString())) {
-          valorCompra.push(2);
+          valorCompra.push(3);
         }
       });
     }
@@ -701,7 +699,7 @@ function procurarCobrar(find, proc) {
 function procurarCobrarfrutas(find, proc) {
     find.forEach(function (v) {
       if (proc.includes(v.toString())) {
-        valorCompra.push(2);
+        valorCompra.push(3);
       }
       else {
         valorCompra.push(0)
@@ -1043,7 +1041,7 @@ function horadia() {
   if (minutos < 10) minutos = "0" + minutos;
   if (segundos < 10) segundos = "0" + segundos;
 
-  if (diaSemana == 4) { // Segunda-feira
+  if (diaSemana == 4) { // Quinta-Feira
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
     open_close.innerHTML = " FECHADO ";
@@ -1839,7 +1837,7 @@ function gerarImagemPedido() {
   var informar_data_hora = informarDataHora()
   var n_compras_app = parseInt(localStorage.getItem('clickCount'))
 
-  var detalhesPedido = "\n" + informar_data_hora +
+  var detalhesPedido = "\u{1F4CE} ENVIE ESTE PEDIDO NO WHATSAPP \u{1F4CE}\n\n" + informar_data_hora +
     "\n\nN° Pedido: " +
     numeroDoPedido +
     "\nCliente: " +
@@ -1872,7 +1870,7 @@ function gerarImagemPedido() {
   html2canvas(pedidoElement).then(function(canvas) {
     // Converte o canvas para um link de download
     var link = document.createElement("a");
-    link.download = numeroDoPedido;
+    link.download = 'pedidoTioChico'+numeroDoPedido;
     link.href = canvas.toDataURL("image/png");
     link.click();
 
