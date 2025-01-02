@@ -1032,7 +1032,7 @@ function horadia() {
   var minutos = dataAtual.getMinutes();
   var segundos = dataAtual.getSeconds();
   var hdia = document.getElementById("hdia");
-  var diaSemana = dataAtual.getDay();
+  var diaSemana = 4 /*dataAtual.getDay();*/
   var reshora = document.getElementById("reshora");
   var reshora2 = document.getElementById("reshora2");
   var container_fechado = document.querySelector(".app_fora")
@@ -1049,7 +1049,7 @@ function horadia() {
     container_fechado.style.display = 'block'
     container_fechado.style.gridRow = 3
     
-    //alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')
+    alert('Olá,\nEstaremos de *folga* nos seguintes dias: \n*02/01/2025* (quinta-feira)\n03/01/2025 (sexta-feira)\n04/01/2025 (sábado)\nRetornaremos no dia:05/01/2025 (domingo)\nCom atendimento normal, das 14:00 às 23h.\nAgradecemos a preferência!')
     
   } else {
     if (hora < 14 || hora >= 23) { // Fechado antes das 15h ou depois das 23h
