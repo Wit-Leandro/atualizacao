@@ -1088,11 +1088,28 @@ function informarDataHora() {
     "Sabado",
   ];
 
+  const mes_ano_atual = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
+  var anoatual = dataAtual.getFullYear();
+  var diaDoAno = obterDiaDoAno(dataAtual);
+  var mesAtual = dataAtual.getMonth();
+
   if (hora < 10) hora = "0" + hora;
   if (minutos < 10) minutos = "0" + minutos;
-  return ds[diaSemana] + ', Hora ' + hora + ':' + minutos
+  
+  return diaDoAno + '/' +mes_ano_atual[mesAtual] + '/' + anoatual + '\n' + ds[diaSemana] + ', Hora ' + hora + ':' + minutos
 
 }
+
+function informarValidade() {
+  var dataAtual = new Date()
+  var minutos = dataAtual.getMinutes();
+  const mes_ano_atual = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
+  var anoatual = dataAtual.getFullYear();
+  var diaDoAno = obterDiaDoAno(dataAtual);
+  var mesAtual = dataAtual.getMonth();
+  return '\nValidade do Pedido: '+ diaDoAno + '/' +mes_ano_atual[mesAtual] + '/' + anoatual + '\n'
+}
+
 
 /* funcão para informar data */
 
@@ -1419,14 +1436,16 @@ function mostrarValorNaTela() {
 var npedido = document.getElementById("npedido");
 
 function gerarNumeroPedido() {
+  const mes_ano_atual = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
   var datahoraatual = new Date();
   var anoatual = datahoraatual.getFullYear();
   var diaDoAno = obterDiaDoAno(datahoraatual);
+  var mesAtual = datahoraatual.getMonth();
   var horaAtual =
     pad(datahoraatual.getHours(), 2) +
     pad(datahoraatual.getMinutes(), 2) +
     pad(datahoraatual.getSeconds(), 2);
-  var numeroPedido = anoatual.toString() + diaDoAno.toString() + horaAtual;
+  var numeroPedido = diaDoAno.toString() + '-' + mes_ano_atual[mesAtual] + '-' + anoatual.toString() + horaAtual;
   return numeroPedido;
 }
 function obterDiaDoAno(data) {
@@ -1447,6 +1466,7 @@ function pad(numero, tamanho) {
 /*---Envair pedido para o whatsApp--- */
 
 env_pix.addEventListener("click", function () {
+  var vencimento = informarValidade();
   pagamentos.style.display = "none";
   agradece.style.display = 'block'
   var n_compras_app = parseInt(localStorage.getItem('clickCount'))
@@ -1485,7 +1505,8 @@ env_pix.addEventListener("click", function () {
 
   var detalhesPedido =
     "N° Pedido: " +
-    numeroDoPedido +
+    numeroDoPedido + 
+    vencimento +
     "\nCliente: " +
     dic[0] +
     "\nEndereço: " +
@@ -1514,6 +1535,7 @@ env_pix.addEventListener("click", function () {
   alert('"ENVIAR COMPROVANTE DO PIX VIA WHATSAPP"')
 });
 env_cartao.addEventListener("click", function () {
+  var vencimento = informarValidade();
   pagamentos.style.display = "none";
   agradece.style.display = 'block'
   var n_compras_app = parseInt(localStorage.getItem('clickCount'))
@@ -1553,7 +1575,8 @@ env_cartao.addEventListener("click", function () {
 
   var detalhesPedido =
     "N° Pedido: " +
-    numeroDoPedido +
+    numeroDoPedido + 
+    vencimento +
     "\nCliente: " +
     dic[0] +
     "\nEndereço: " +
@@ -1582,10 +1605,12 @@ env_cartao.addEventListener("click", function () {
 });
 env_dinheiro.addEventListener("click", function (e) {
   e.preventDefault();
+  var vencimento = informarValidade();
   var troco = document.getElementById("troco").value;
   var n_compras_app = parseInt(localStorage.getItem('clickCount'))
   pagamentos.style.display = "none";
   agradece.style.display = 'block'
+
 
 
   var mensagemCarrinho = "";
@@ -1623,6 +1648,7 @@ env_dinheiro.addEventListener("click", function (e) {
   var detalhesPedido =
     "N° Pedido: " +
     numeroDoPedido +
+    vencimento +
     "\nCliente: " +
     dic[0] +
     "\nEndereço: " +
@@ -1882,6 +1908,7 @@ function gerarImagemPedido() {
 }
 
 function antecipar_envio_pix(){
+  var vencimento = informarValidade();
   var mensagemCarrinho = "";
   var contped = 0;
   var n_compras_app = parseInt(localStorage.getItem('clickCount'))
@@ -1917,7 +1944,9 @@ function antecipar_envio_pix(){
 
   var detalhesPedido =
     "N° Pedido: " +
-    numeroDoPedido +
+    numeroDoPedido + 
+    '\n'+
+    vencimento +
     "\nCliente: " +
     dic[0] +
     "\nEndereço: " +
