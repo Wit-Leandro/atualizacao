@@ -88,7 +88,8 @@ window.addEventListener('load', function(){
   var local = 'Não informado'
   dic.push(nome,endereco,ncasa,fone,local)
   loadCounter();
-  alert("\u{1F4CC}\nCONCLUA TODAS AS ETAPAS \nATÉ A ABA DE PAGAMENTOS \nPARA FINALIZAR SEU PEDIDO")
+  alert("Atendimento normal apenas na loja hoje\n das 14hs as 23hs")
+  //alert("\u{1F4CC}\nCONCLUA TODAS AS ETAPAS \nATÉ A ABA DE PAGAMENTOS \nPARA FINALIZAR SEU PEDIDO")
   
 })
 
@@ -1041,7 +1042,7 @@ function horadia() {
   if (minutos < 10) minutos = "0" + minutos;
   if (segundos < 10) segundos = "0" + segundos;
 
-  if (diaSemana == 4) { // Quinta-Feira
+  if (diaSemana == 1) { // Quinta-Feira
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
     open_close.innerHTML = " FECHADO ";
