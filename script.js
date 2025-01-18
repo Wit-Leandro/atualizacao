@@ -901,8 +901,19 @@ btn_valores.addEventListener("click", function () {
       { id: 'item34', quantidadeId: 'quantidade34' },
       { id: 'item35', quantidadeId: 'quantidade35' },
       { id: 'item36', quantidadeId: 'quantidade36' },
-      { id: 'item37', quantidadeId: 'quantidade37' }
-
+      { id: 'item37', quantidadeId: 'quantidade37' },
+      { id: 'item38', quantidadeId: 'quantidade38' },
+      { id: 'item39', quantidadeId: 'quantidade39' },
+      { id: 'item40', quantidadeId: 'quantidade40' },
+      { id: 'item41', quantidadeId: 'quantidade41' },
+      { id: 'item42', quantidadeId: 'quantidade42' },
+      { id: 'item43', quantidadeId: 'quantidade43' },
+      { id: 'item44', quantidadeId: 'quantidade44' },
+      { id: 'item45', quantidadeId: 'quantidade45' },
+      { id: 'item46', quantidadeId: 'quantidade46' },
+      { id: 'item47', quantidadeId: 'quantidade47' },
+      { id: 'item48', quantidadeId: 'quantidade48' },
+      { id: 'item49', quantidadeId: 'quantidade49' }
 
   ];
 
