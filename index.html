@@ -382,6 +382,12 @@
       </div>
 
       <div id="adicionais">
+
+        <button class="find_titulo" onclick="buscarTitulo('FINIS')">&#128270 FINIS</button>
+        <button class="find_titulo" onclick="buscarTitulo('FRUTAS')">&#128270 FRUTAS</button>
+        <button class="find_titulo" onclick="buscarTitulo('COMPLEMENTOS')">&#128270 DOCES</button>
+        <button class="find_titulo" onclick="buscarTitulo('CALDAS')">&#128270 CALDAS</button>
+
         <p id="resadicao" class="estilo_paragrafo"></p>
         <div class="btn_escolha">
           <button class="btns" id="btn_valores">Avançar!</button>
@@ -389,7 +395,15 @@
         </div>
         <div class="pesquisa">
           <input type="text" id="search-input" placeholder="Buscar adicional na pagina...">
-          <button class="btns" onclick="highlightText()">Localizar</button>
+          <button class="btns" onclick="highlightText()">&#128270 Localizar</button>
+        </div>
+
+        <h3 class="estilo_titulo">NOVIDADE!</h3>
+        <div class="cx_itens">
+          <input type="text" id="item25" value="BOMBOM OREO" readonly>
+          <input type="number" id="quantidade25" value="0" readonly>
+          <button id="quantidade25-plus" onclick="alterarQuantidade(1, 'quantidade25')">&#10133</button>
+          <button id="quantidade25-minus" onclick="alterarQuantidade(-1, 'quantidade25')">&#10134</button>
         </div>
 
         <h3 class="estilo_titulo">FRUTAS</h3>
@@ -435,6 +449,11 @@
           <button onclick="alterarQuantidade(1, 'quantidade7')">&#10133</button>
           <button onclick="alterarQuantidade(-1, 'quantidade7')">&#10134</button>
         </div>  
+        
+        <button class="find_titulo" onclick="buscarTitulo('FINIS')">&#128270 FINIS</button>
+        <button class="find_titulo" onclick="buscarTitulo('FRUTAS')">&#128270 FRUTAS</button>
+        <button class="find_titulo" onclick="buscarTitulo('COMPLEMENTOS')">&#128270 DOCES</button>
+        <button class="find_titulo" onclick="buscarTitulo('CALDAS')">&#128270 CALDAS</button>
 
         <h3 class="estilo_titulo">CALDAS</h3>
         <div class="cx_itens">
@@ -485,6 +504,11 @@
           <button onclick="alterarQuantidade(1, 'quantidade15')">&#10133</button>
           <button onclick="alterarQuantidade(-1, 'quantidade15')">&#10134</button>
         </div>
+        
+        <button class="find_titulo" onclick="buscarTitulo('FINIS')">&#128270 FINIS</button>
+        <button class="find_titulo" onclick="buscarTitulo('FRUTAS')">&#128270 FRUTAS</button>
+        <button class="find_titulo" onclick="buscarTitulo('COMPLEMENTOS')">&#128270 DOCES</button>
+        <button class="find_titulo" onclick="buscarTitulo('CALDAS')">&#128270 CALDAS</button>
 
         <h3 class="estilo_titulo">COMPLEMENTOS</h3>
         <div class="cx_itens">
@@ -541,12 +565,7 @@
           <button onclick="alterarQuantidade(1, 'quantidade24')">&#10133</button>
           <button onclick="alterarQuantidade(-1, 'quantidade24')">&#10134</button>
         </div>
-        <div id="bloquear" class="cx_itens">
-          <input type="text" id="item25" value="Baton Branco" readonly>
-          <input type="number" id="quantidade25" value="0" readonly>
-          <button onclick="alterarQuantidade(1, 'quantidade25')">&#10133</button>
-          <button onclick="alterarQuantidade(-1, 'quantidade25')">&#10134</button>
-        </div>
+
         <div class="cx_itens">
           <input type="text" id="item26" value="Granola" readonly>
           <input type="number" id="quantidade26" value="0" readonly>
@@ -619,6 +638,11 @@
           <button onclick="alterarQuantidade(1, 'quantidade37')">&#10133</button>
           <button onclick="alterarQuantidade(-1, 'quantidade37')">&#10134</button>
         </div> 
+        
+        <button class="find_titulo" onclick="buscarTitulo('FINIS')">&#128270 FINIS</button>
+        <button class="find_titulo" onclick="buscarTitulo('FRUTAS')">&#128270 FRUTAS</button>
+        <button class="find_titulo" onclick="buscarTitulo('COMPLEMENTOS')">&#128270 DOCES</button>
+        <button class="find_titulo" onclick="buscarTitulo('CALDAS')">&#128270 CALDAS</button>
 
         <h3 class="estilo_titulo">FINIS</h3>
         <div class="cx_itens">
@@ -983,12 +1007,11 @@
 
       <div id="adicionais_salada">
         <button class="btns" id="btn_escolha_frutas">Avançar!</button>
+
         <h2 class="estilo_titulo">FRUTAS</h2>
         <div class="cx_add_salada">
-          
           <input type="checkbox" id="checkbox200" class="checkbox" value="Fruta: Morango"/>
           <label for="checkbox200" id="check_grid_200" class="check200">Morango</label>
-          
           <br/>
         
           <input type="checkbox" id="checkbox201" class="checkbox" value="Fruta: Banana"/>

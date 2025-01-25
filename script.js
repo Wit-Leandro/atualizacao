@@ -928,8 +928,10 @@ btn_valores.addEventListener("click", function () {
           valores.push(itens_cx)
           quantidadeInput.value = "0";
       }
+      
   });
 
+  
   // Reset totalProdutos após adicionar à lista
   totalProdutos = 0;
 
@@ -1999,10 +2001,16 @@ function alterarQuantidade(valor, quantidadeId) {
 
     if (novaQuantidade < 0) novaQuantidade = 0;
 
+    if (quantidadeId === "quantidade25" && novaQuantidade > 2) {
+      alert("APENAS 2 POR AÇAI PARA ESSE COMPLEMENTO.");
+      return; // Impede que a quantidade seja alterada
+      }
+
     // Verifica se a alteração respeita o limite total de produtos
     if (totalProdutos + (novaQuantidade - quantidadeAtual) <= somarArray(limite)) {
         totalProdutos += (novaQuantidade - quantidadeAtual);
         quantidadeInput.value = novaQuantidade;
+        
     } else {
         alert(`O total de produtos não pode exceder ${somarArray(limite)}.`);
         adicao.style.display = 'block'
@@ -2147,6 +2155,29 @@ button.addEventListener('click', () => {
 // Carrega o valor inicial ao abrir o site
 
 */
+
+
+function buscarTitulo(titulo) {
+  // Seleciona todos os elementos com a classe "titulo"
+  const titulos = document.querySelectorAll('.estilo_titulo');
+  let encontrado = false;
+
+  // Itera pelos títulos para encontrar o texto correspondente
+  titulos.forEach(elemento => {
+      if (elemento.textContent.trim() === titulo) {
+          elemento.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Rola até o elemento
+          elemento.style.backgroundColor = 'yellow'; // Destaca o título encontrado
+          encontrado = true;
+      } else {
+          elemento.style.backgroundColor = ''; // Remove destaque dos outros
+      }
+  });
+
+  // Exibe mensagem se não encontrar
+  if (!encontrado) {
+      alert(`Título "${titulo}" não encontrado.`);
+  }
+}
 
 
 
