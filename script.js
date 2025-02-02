@@ -1091,7 +1091,7 @@ function informarDataHora() {
   var dataAtual = new Date();
   var hora = dataAtual.getHours();
   var minutos = dataAtual.getMinutes();
-  var diaSemana = dataAtual.getDay();
+  var diaSemana = dataAtual.getDate();
   var ds = [
     "Domingo",
     "Segunda-Feira",
@@ -1104,13 +1104,12 @@ function informarDataHora() {
 
   const mes_ano_atual = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
   var anoatual = dataAtual.getFullYear();
-  var diaDoAno = obterDiaDoAno(dataAtual);
   var mesAtual = dataAtual.getMonth();
 
   if (hora < 10) hora = "0" + hora;
   if (minutos < 10) minutos = "0" + minutos;
   
-  return diaDoAno + '/' +mes_ano_atual[mesAtual] + '/' + anoatual + '\n' + ds[diaSemana] + ', Hora ' + hora + ':' + minutos
+  return diaSemana + '/' +mes_ano_atual[mesAtual] + '/' + anoatual + '\n' + ds[diaSemana] + ', Hora ' + hora + ':' + minutos
 
 }
 
@@ -1119,7 +1118,7 @@ function informarValidade() {
   var minutos = dataAtual.getMinutes();
   const mes_ano_atual = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
   var anoatual = dataAtual.getFullYear();
-  var diaDoAno = obterDiaDoAno(dataAtual);
+  var diaDoAno = dataAtual.getDate();
   var mesAtual = dataAtual.getMonth();
   return '\nValidade do Pedido: '+ diaDoAno + '/' +mes_ano_atual[mesAtual] + '/' + anoatual + '\n'
 }
@@ -1453,13 +1452,13 @@ function gerarNumeroPedido() {
   const mes_ano_atual = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
   var datahoraatual = new Date();
   var anoatual = datahoraatual.getFullYear();
-  var diaDoAno = obterDiaDoAno(datahoraatual);
+  var diaDoAno = datahoraatual.getDate();
   var mesAtual = datahoraatual.getMonth();
   var horaAtual =
     pad(datahoraatual.getHours(), 2) +
     pad(datahoraatual.getMinutes(), 2) +
     pad(datahoraatual.getSeconds(), 2);
-  var numeroPedido = diaDoAno.toString() + '-' + mes_ano_atual[mesAtual] + '-' + anoatual.toString() + horaAtual;
+  var numeroPedido = diaDoAno + '-' + mes_ano_atual[mesAtual] + '-' + anoatual.toString() + horaAtual;
   return numeroPedido;
 }
 function obterDiaDoAno(data) {
