@@ -60,6 +60,15 @@
 
         </div>
 
+        <div class="tab-container5">
+          <button class="tab5" onclick="openCategory('evt','pote_massa_trad')">Pote de Massa Tradicional</button>
+          <button class="tab5" onclick="openCategory('evt','pote_massa_esp')">Pote de Massa Especial</button>
+        </div>
+
+        <div class="tab-container6">
+          <button class="tab6" onclick="openCategory('evt','novidade')">NOVIDADE</button>
+        </div>
+
 
 
         <div class="bloquear" id="welcome">
@@ -136,6 +145,74 @@
 
         </div>
 
+<!--nova tab para os sorvestes de pote de massa-->
+
+        <div class="category" id="pote_massa_trad">
+          <h4 class="estilo_titulo">POTE TRADICIONAL 1,5 LITROS R$ 20,00</h4>
+          <select id="meu_select_massa_trad" onchange="exibirMassaTrad()" class="select_massa_trad">
+            <option value="1">Abacaxi ao Vinho</option>
+            <option value="2">Coco Branco</option>
+            <option value="3">Flocos</option>
+            <option value="4">Milho Verde</option>
+            <option value="5">Morango</option>
+            <option value="6">Pudin de Leite Condensado<option>
+            <option value="7">Chocolate</option>
+            <option value="8">Maracuja</option>
+        </select>
+          <button class="btns" id="btn_massa_trad">Escolher Sabor</button>  
+          <div class="carousel-container-massa-trad">
+            <div class="carousel-massa-trad">
+              <img src="imagens/pote-trad/abaxivinho.jpg" alt="abacaxivinho">
+              <img src="imagens/pote-trad/chocolate.jpg" alt="chocolate">
+              <img src="imagens/pote-trad/cocobranco.jpg" alt="cocobranco">
+              <img src="imagens/pote-trad/flocos.jpg" alt="flocos">
+              <img src="imagens/pote-trad/maracuja.jpg" alt="maracuja">
+              <img src="imagens/pote-trad/milhoverde.jpg" alt="milhoverde">
+              <img src="imagens/pote-trad/morango.jpg" alt="morango">
+              <img src="imagens/pote-trad/pudinleitecond.jpg" alt="pudin">
+            </div>
+          </div>
+        </div>
+
+        <div class="category" id="pote_massa_esp">
+          <h4 class="estilo_titulo">POTE ESPECIAL 1 LITRO</h4>
+          <select id="meu_select_massa_esp" onchange="exibirMassaEsp()" class="select_massa_esp">
+            <option value="1">Cupuaçu R$ 26,00</option>
+            <option value="2">Ninho Trunfado R$ 20,00</option>
+            <option value="3">Iorgute grego R$ 20,00</option>
+            <option value="4">Tapioca com Coco R$ 20,00</option>
+          </select>
+          <button class="btns" id="btn_massa_esp">Escolher Sabor</button> 
+          <div class="carousel-container-massa-esp">
+            <div class="carousel-massa-esp">
+              <img src="imagens/pote-esp/iorgutegrego.jpg" alt="iorgute">
+              <img src="imagens/pote-esp/ninhotrunfado.jpg" alt="ninhotrunfado">
+              <img src="imagens/pote-esp/tapiocacoco.jpg" alt="tapiocacoco">
+            </div>
+          </div> 
+
+
+        </div>
+
+        <div class="category" id="novidade">
+
+          <h4 class="estilo_titulo">CONFIRA!</h4>
+
+          <p class="estilo_paragrafo">Nutella 140g - R$16,00</p>
+          <img src="imagens/nutella140g.jpg" alt="nutella140g">
+          <button class="btns" id="btn_nutella140">Adicionar Nutella 140g</button> 
+
+          <p class="estilo_paragrafo">Cascão pacote c/ 10 und R$9,90</p>
+          <img src="imagens/cascaoc10.jpg" alt="nutella140g">
+          <button class="btns" id="btn_cascaoc10">Adicionar Cascão</button> 
+
+          <p class="estilo_paragrafo">Cestinha pacote c/ 5 und R$5,00</p>
+          <img src="imagens/cestinhac5.jpg" alt="nutella140g">
+          <button class="btns" id="btn_cestinhac5">Adicionar Cestinha</button> 
+
+        </div>
+
+<!----------------------------------------------->
         <div class="category" id="shake">
           <h4 class="estilo_titulo">MILK SHAKE</h4>
           <p class="estilo_paragrafo">Selecione o copo desejado!</p>
@@ -244,7 +321,7 @@
               <option value="900ml">900ml R$ 26,00</option>
               <option value="2 Litros">2 Litros R$ 40,00</option>
               <option value="5 Litros">5 Litros R$ 90,00</option>
-              <option value="10 Litros">10 Litros R$ 160,00</option>
+              <option value="10 Litros">10 Litros R$ 170,00</option>
             </select>
             <button class="btns" id="btn_trad_pote">Quero essa pote!</button>
             <div id="imagem_trad_pote">
@@ -1222,7 +1299,7 @@
 
       <div class="app_fora">
         <h1 class="estilo_titulo"><span id="open_close"></span></h1>
-        <p class="estilo_paragrafo" id="disponibilidade">FECHADO</p>
+        <p class="estilo_paragrafo" id="disponibilidade">FECHADOS</p>
 
         <div class="carousel-container">
           <div class="carousel">
@@ -1237,7 +1314,7 @@
           </div>
 
 
-      </div>
+        </div>
 
       </div>
 

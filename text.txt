@@ -1,0 +1,11 @@
+var btn_cestinhac5 = document.getElementById("btn_cestinhac5");
+btn_cestinhac5.addEventListener("click", function (e) {
+  const pedido = { acai: "Cascão pacote com 10", limit: 10, valor: 9.9 };
+  sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  escolha.style.display = "none";
+  pergunta_mult.style.display = "block"
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite.push(userPedido)
+});

@@ -90,7 +90,7 @@ body {
   border-radius: 10px;
 }
 .estilo_paragrafo{
-  background: radial-gradient(#cc82e1, #a92fca);
+  background: #a92fca;
   border: solid #a92fca 1px;
   padding: 10px 0 10px 0;
   border-radius: 10px;
@@ -99,8 +99,8 @@ body {
   margin: 10px 0 5px 0;
 }
 .estilo_titulo {
-  background: radial-gradient(#3c004d, #c20cf4);
-  border: solid #a92fca 1px;
+  background:#61017b;
+  border: solid #61017b 1px;
   padding: 10px 0 10px 0;
   border-radius: 10px;
   color: #2afc00;
@@ -143,6 +143,29 @@ body {
   text-align: center;
   align-items: center;
   width: 350px;
+}
+
+#meu_select_massa_trad {
+  height: 50px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background: radial-gradient(#e0cfe5, #cb7ce1);
+  border: solid #a92fca 1px;
+  border-radius: 10px;
+  color: #210129;
+  font-weight: bolder;
+}
+#meu_select_massa_esp {
+  height: 50px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background: radial-gradient(#e0cfe5, #cb7ce1);
+  border: solid #a92fca 1px;
+  border-radius: 10px;
+  color: #210129;
+  font-weight: bolder;
 }
 #meu_select_salada {
   height: 50px;
@@ -609,7 +632,14 @@ footer a:hover {
 .tab-container2 {
   display: flex;
   margin-bottom: 3px;
-
+}
+.tab-container5 {
+  display: flex;
+  margin-top: 3px;
+}
+.tab-container6 {
+  display: flex;
+  margin-top: 3px;
 }
 
 .tab {
@@ -627,6 +657,31 @@ footer a:hover {
 .tab2 {
   background-color: rgb(128, 32, 78);
   color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 170px;
+  height: 35px;
+  border: solid 1px;
+  border-radius: 20px;
+  margin: 0 1px 0 1px;
+}
+.tab5 {
+  background-color: rgb(128, 32, 78);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 170px;
+  height: 35px;
+  border: solid 1px;
+  border-radius: 20px;
+  margin: 0 1px 0 1px;
+}
+.tab6 {
+  background-color: #2afc00;
+  color: #370246;
+  font-weight: bolder;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -660,6 +715,22 @@ footer a:hover {
 .sub_category {
   display: none;
 }
+
+#pote_massa_trad {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+#pote_massa_esp {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+
+
+
 #reshora {
   margin: 0;
   display: inline-flex;
@@ -2890,6 +2961,28 @@ height: 25px;
   border: 2px solid #ccc;
   border-radius: 8px;
   position: relative;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.carousel-container-massa-trad {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  position: relative;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.carousel-container-massa-esp {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  position: relative;
+  margin-left: 20px;
+  margin-top: 10px;
 }
 
 .carousel {
@@ -2898,8 +2991,30 @@ height: 25px;
   height: 100%;
   transition: transform 0.5s ease-in-out;
 }
+.carousel-massa-trad {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+.carousel-massa-esp {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
 
 .carousel img {
+  width: 300px; /* Largura fixa igual à do container */
+  height: 300px; /* Altura fixa igual à do container */
+  flex-shrink: 0; /* Impede que a imagem encolha */
+}
+.carousel-massa-trad img {
+  width: 300px; /* Largura fixa igual à do container */
+  height: 300px; /* Altura fixa igual à do container */
+  flex-shrink: 0; /* Impede que a imagem encolha */
+}
+.carousel-massa-esp img {
   width: 300px; /* Largura fixa igual à do container */
   height: 300px; /* Altura fixa igual à do container */
   flex-shrink: 0; /* Impede que a imagem encolha */
@@ -2920,4 +3035,17 @@ height: 25px;
   row-gap: 5px;
   grid-auto-rows: auto;
   grid-template-columns: 360px;
+}
+
+#novidade {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+}
+
+#novidade img {
+  width: 300px;
+  height: 300px;
+
 }

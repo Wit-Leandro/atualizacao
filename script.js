@@ -89,7 +89,7 @@ window.addEventListener('load', function(){
   dic.push(nome,endereco,ncasa,fone,local)
   loadCounter();
   //alert("Atendimento normal apenas na loja hoje\n das 14hs as 23hs")
-  alert("\u{1F4CC}\nCONCLUA TODAS AS ETAPAS \nATÉ A ABA DE PAGAMENTOS \nPARA FINALIZAR SEU PEDIDO")
+ alert("\u{1F4CC}\nCONCLUA TODAS AS ETAPAS \nATÉ A ABA DE PAGAMENTOS \nPARA FINALIZAR SEU PEDIDO")
   
 })
 
@@ -187,6 +187,111 @@ limpar.addEventListener("click", () => {
   location.reload();
   checkUser();
 });*/
+var btn_nutella140 = document.getElementById("btn_nutella140");
+btn_nutella140.addEventListener("click", function () {
+  const pedido = { acai: "Nutella 140g", limit: 10, valor: 16 };
+  sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  escolha.style.display = "none";
+  pergunta_mult.style.display = "block"
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite.push(userPedido)
+});
+
+var btn_cascaoc10 = document.getElementById("btn_cascaoc10");
+btn_cascaoc10.addEventListener("click", function () {
+  const pedido = { acai: "Cascão pacote com 10 und", limit: 10, valor: 9.9 };
+  sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  escolha.style.display = "none";
+  pergunta_mult.style.display = "block"
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite.push(userPedido)
+});
+
+var btn_cestinhac5 = document.getElementById("btn_cestinhac5");
+btn_cestinhac5.addEventListener("click", function () {
+  const pedido = { acai: "Cestinha pacote com 5 und", limit: 10, valor: 5 };
+  sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  escolha.style.display = "none";
+  pergunta_mult.style.display = "block"
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite.push(userPedido)
+});
+
+/*--------------MASSAS TRADICIONAIS-----------*/
+var btn_massa_trad = document.getElementById("btn_massa_trad");
+btn_massa_trad.addEventListener("click", function (e) {
+  e.preventDefault();
+  var meu_select_massa_trad = document.getElementById(
+    "meu_select_massa_trad"
+  ).value;
+  if (meu_select_massa_trad === "1") {
+    const pedido = { acai: "Pote trad 1,5L Abacaxi ao Vinho", limit: 10, valor: 20 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_massa_trad === "2") {
+    const pedido = { acai: "Pote trad 1,5L Coco Branco", limit: 10, valor: 20 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_massa_trad === "3") {
+    const pedido = { acai: "Pote trad 1,5L Flocos", limit: 10, valor: 20 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_massa_trad === "4") {
+    const pedido = { acai: "Pote trad 1,5L Milho Verde", limit: 10, valor: 20 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_massa_trad === "5") {
+    const pedido = { acai: "Pote trad 1,5L Morango", limit: 10, valor: 20 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_massa_trad === "6") {
+    const pedido = { acai: "Pote trad 1,5L Pudin de Leite Condensado", limit: 10, valor: 20 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_massa_trad === "7") {
+    const pedido = { acai: "Pote trad 1,5L Chocolate", limit: 10, valor: 20 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_massa_trad === "8") {
+    const pedido = { acai: "Pote trad 1,5L Pudin de Leite Maracuja", limit: 10, valor: 20 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  }
+
+  escolha.style.display = "none";
+  pergunta_mult.style.display = "block"
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite.push(userPedido)
+});
+
+
+var btn_massa_esp = document.getElementById("btn_massa_esp");
+btn_massa_esp.addEventListener("click", function (e) {
+  e.preventDefault();
+  var meu_select_massa_esp = document.getElementById(
+    "meu_select_massa_esp"
+  ).value;
+  if (meu_select_massa_esp === "1") {
+    const pedido = { acai: "Pote Especial 1L Cupuaçu", limit: 10, valor: 26 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_massa_esp === "2") {
+    const pedido = { acai: "Pote Especial 1L Ninho Trunfado", limit: 10, valor: 20 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_massa_esp === "3") {
+    const pedido = { acai: "Pote Especial 1L Iorgute grego", limit: 10, valor: 20 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_massa_esp === "4") {
+    const pedido = { acai: "Pote Especial 1L Tapioca de Coco", limit: 10, valor: 20 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } 
+
+  escolha.style.display = "none";
+  pergunta_mult.style.display = "block"
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite.push(userPedido)
+});
 
 
 /*--------------AÇAI TRADICIONAIS---------- */
@@ -197,16 +302,16 @@ btn_trad_copo.addEventListener("click", function (e) {
     "meu_select_trad_copo"
   ).value;
   if (meu_select_trad_copo === "300ml") {
-    const pedido = { acai: "Copo tradicional de 300ml", limit: 10, valor: 9 };
+    const pedido = { acai: "Copo tradicional (Sem Recheio) de 300ml", limit: 10, valor: 9 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_trad_copo === "400ml") {
-    const pedido = { acai: "Copo tradicional de 400ml", limit: 10, valor: 12 };
+    const pedido = { acai: "Copo tradicional (Sem Recheio) de 400ml", limit: 10, valor: 12 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_trad_copo === "500ml") {
-    const pedido = { acai: "Copo tradicional de 500ml", limit: 10, valor: 15 };
+    const pedido = { acai: "Copo tradicional (Sem Recheio) de 500ml", limit: 10, valor: 15 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_trad_copo === "700ml") {
-    const pedido = { acai: "Copo tradicional de 700ml", limit: 10, valor: 24 };
+    const pedido = { acai: "Copo tradicional (Sem Recheio) de 700ml", limit: 10, valor: 24 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   }
   escolha.style.display = "none";
@@ -225,21 +330,21 @@ btn_trad_marmita.addEventListener("click", function (e) {
   ).value;
   if (meu_select_trad_marmita === "500ml") {
     const pedido = {
-      acai: "Marmita tradicional de 500ml",
+      acai: "Marmita tradicional (Sem Recheio) de 500ml",
       limit: 10,
       valor: 16,
     };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_trad_marmita === "750ml") {
     const pedido = {
-      acai: "Marmita tradicional de 750ml",
+      acai: "Marmita tradicional (Sem Recheio) de 750ml",
       limit: 10,
       valor: 24,
     };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_trad_marmita === "1200ml") {
     const pedido = {
-      acai: "Marmita tradicional de 1200ml",
+      acai: "Marmita tradicional (Sem Recheio) de 1200ml",
       limit: 10,
       valor: 32,
     };
@@ -264,23 +369,23 @@ btn_trad_pote.addEventListener("click", function (e) {
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_trad_pote === "2 Litros") {
     const pedido = {
-      acai: "Pote tradicional de 2 Litros",
+      acai: "Pote tradicional (Sem Recheio) de 2 Litros",
       limit: 10,
       valor: 40,
     };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_trad_pote === "5 Litros") {
     const pedido = {
-      acai: "Pote tradicional de 5 Litros",
+      acai: "Pote tradicional (Sem Recheio) de 5 Litros",
       limit: 10,
       valor: 90,
     };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_trad_pote === "10 Litros") {
     const pedido = {
-      acai: "Pote tradicional de 10 Litros",
+      acai: "Pote tradicional (Sem Recheio) de 10 Litros",
       limit: 10,
-      valor: 160,
+      valor: 170,
     };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   }
@@ -984,7 +1089,7 @@ function mostrarDados() {
     t = t + dic[5];
   } else {
   }
-  valor_pagamento.innerHTML = "VALOR DO PEDIDO  R$ " + t + ",00";
+  valor_pagamento.innerHTML = "VALOR DO PEDIDO  R$ " + t ;
 }
 
 imprimir.addEventListener("click", function () {
@@ -1055,7 +1160,7 @@ function horadia() {
   if (minutos < 10) minutos = "0" + minutos;
   if (segundos < 10) segundos = "0" + segundos;
 
-  if (diaSemana == 1) { // Quinta-Feira
+  if (diaSemana == 4) { // Quinta-Feira
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
     open_close.innerHTML = " FECHADO ";
@@ -1066,7 +1171,7 @@ function horadia() {
     /*alert('Olá,\nEstaremos de *folga* nos seguintes dias: \n02/01/2025 (quinta-feira)\n03/01/2025 (sexta-feira)\n04/01/2025 (sábado)\nRetornaremos no dia:05/01/2025 (domingo)\nCom atendimento normal, das 14:00 às 23h.\nAgradecemos a preferência!')*/
     
   } else {
-    if (hora < 14 || hora >= 23) { // Fechado antes das 15h ou depois das 23h
+    if (hora < 14 || hora >= 23) { // Fechado antes das 15h ou depois das 23h || hora >= 23
       reshora.style.color = "red";
       reshora.innerHTML = " FECHADO, ";
       open_close.innerHTML = " FECHADO ";
@@ -1441,7 +1546,7 @@ btn_colher_nao.addEventListener("click", function () {
 
 function mostrarValorNaTela() {
   var t = somarArray(valorCompra);
-  alert("Total pedido R$" + t + ",00");
+  alert("Total pedido R$" + t );
 }
 
 
@@ -1514,7 +1619,7 @@ env_pix.addEventListener("click", function () {
   } else {
     te = "Taxa de entrega isento";
   }
-  var vlr_total_whats = "R$" + tw + ",00";
+  var vlr_total_whats = "R$" + tw;
 
   var detalhesPedido =
     "N° Pedido: " +
@@ -1584,7 +1689,7 @@ env_cartao.addEventListener("click", function () {
   } else {
     te = "Taxa de entrega isento";
   }
-  var vlr_total_whats = "R$" + tw + ",00";
+  var vlr_total_whats = "R$" + tw;
 
   var detalhesPedido =
     "N° Pedido: " +
@@ -1656,7 +1761,7 @@ env_dinheiro.addEventListener("click", function (e) {
   } else {
     te = "Taxa de entrega isento";
   }
-  var vlr_total_whats = "R$" + tw + ",00";
+  var vlr_total_whats = "R$" + tw;
 
   var detalhesPedido =
     "N° Pedido: " +
@@ -1872,7 +1977,7 @@ function gerarImagemPedido() {
   } else {
     te = "Taxa de entrega isento";
   }
-  var vlr_total_whats = "R$" + tw + ",00";
+  var vlr_total_whats = "R$" + tw;
   var informar_data_hora = informarDataHora()
   var n_compras_app = parseInt(localStorage.getItem('clickCount'))
 
@@ -1953,7 +2058,7 @@ function antecipar_envio_pix(){
   } else {
     te = "Taxa de entrega isento";
   }
-  var vlr_total_whats = "R$" + tw + ",00";
+  var vlr_total_whats = "R$" + tw ;
 
   var detalhesPedido =
     "N° Pedido: " +
@@ -2107,6 +2212,9 @@ btn_cont_cinco.addEventListener("click", function(){
 })
 
 
+
+
+
 const carousel = document.querySelector('.carousel');
 const images = document.querySelectorAll('.carousel img');
 let currentIndex = 0;
@@ -2120,8 +2228,38 @@ function showNextImage() {
   carousel.style.transform = `translateX(-${offset}px)`;
 }
 
+const carousel_massa_trad = document.querySelector('.carousel-massa-trad');
+const images_massa_trad = document.querySelectorAll('.carousel-massa-trad img');
+let currentIndextrad = 0;
+
+function showNextImageMassaTrad() {
+
+  // Incrementa o índice, voltando ao início se necessário
+  currentIndextrad = (currentIndextrad + 1) % images_massa_trad.length;
+
+  // Move o carrossel para a posição da próxima imagem
+  const offset = currentIndextrad * 300; // 300 é a largura de cada imagem
+  carousel_massa_trad.style.transform = `translateX(-${offset}px)`;
+}
+
+const carousel_massa_esp = document.querySelector('.carousel-massa-esp');
+const images_massa_esp = document.querySelectorAll('.carousel-massa-esp img');
+let currentIndexesp = 0;
+
+function showNextImageMassaEsp() {
+
+  // Incrementa o índice, voltando ao início se necessário
+  currentIndexesp = (currentIndexesp + 1) % images_massa_esp.length;
+
+  // Move o carrossel para a posição da próxima imagem
+  const offset = currentIndexesp * 300; // 300 é a largura de cada imagem
+  carousel_massa_esp.style.transform = `translateX(-${offset}px)`;
+}
+
 // Troca de imagem a cada 3 segundos
 setInterval(showNextImage, 3000);
+setInterval(showNextImageMassaTrad, 3000);
+setInterval(showNextImageMassaEsp, 3000);
 
 
 // FUNÇÃO QUE CONTA QUANTAS VEZES O CLIENTE ENTROU E COMPROU NO APP
