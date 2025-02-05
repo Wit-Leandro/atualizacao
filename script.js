@@ -89,7 +89,7 @@ window.addEventListener('load', function(){
   dic.push(nome,endereco,ncasa,fone,local)
   loadCounter();
   //alert("Atendimento normal apenas na loja hoje\n das 14hs as 23hs")
- alert("\u{1F4CC}\nCONCLUA TODAS AS ETAPAS \nATÉ A ABA DE PAGAMENTOS \nPARA FINALIZAR SEU PEDIDO")
+ //alert("\u{1F4CC}\nCONCLUA TODAS AS ETAPAS \nATÉ A ABA DE PAGAMENTOS \nPARA FINALIZAR SEU PEDIDO")
   
 })
 
@@ -283,7 +283,10 @@ btn_massa_esp.addEventListener("click", function (e) {
   } else if (meu_select_massa_esp === "4") {
     const pedido = { acai: "Pote Especial 1L Tapioca de Coco", limit: 10, valor: 20 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-  } 
+  } else if (meu_select_massa_esp === "5") {
+    const pedido = { acai: "Pote Especial 1L Chocotine", limit: 10, valor: 20 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  }  
 
   escolha.style.display = "none";
   pergunta_mult.style.display = "block"
@@ -500,6 +503,32 @@ function exibirMarmitas() {
     imagem_marmita.appendChild(imagem_marmita_1200ml);
   }
 }
+
+/* */
+function exibirTradpotes() {
+  var imagem_copo = document.getElementById("imagem_trad_pote");
+  var meu_copo = document.querySelector(".select_trad_pote").value;
+  imagem_copo.innerHTML = "";
+  if (meu_copo === "900ml") {
+    var imagem_copo_300ml = document.createElement("img");
+    imagem_copo_300ml.src = "imagens/tradpote1l.jpg";
+    imagem_copo.appendChild(imagem_copo_300ml);
+  } else if (meu_copo === "2 Litros") {
+    var imagem_copo_400ml = document.createElement("img");
+    imagem_copo_400ml.src = "imagens/tradpote2l.jpg";
+    imagem_copo.appendChild(imagem_copo_400ml);
+  } else if (meu_copo === "5 Litros") {
+    var imagem_copo_500ml = document.createElement("img");
+    imagem_copo_500ml.src = "imagens/tradcx5l.jpg";
+    imagem_copo.appendChild(imagem_copo_500ml);
+  } else if (meu_copo === "10 Litros") {
+    var imagem_copo_700ml = document.createElement("img");
+    imagem_copo_700ml.src = "imagens/tradcx5l.jpg";
+    imagem_copo.appendChild(imagem_copo_700ml);
+  }
+}
+
+
 /*----------------MILK SHAKE------------------- */
 var btn_shake = document.getElementById("btn_shake");
 var res_comp_shake = document.getElementById('res_complemento_shake')

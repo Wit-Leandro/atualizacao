@@ -67,9 +67,8 @@
 
         <div class="tab-container6">
           <button class="tab6" onclick="openCategory('evt','novidade')">NOVIDADE</button>
+          <button class="tab6" onclick="openCategory('evt','bebidas')">Bebidas</button>
         </div>
-
-
 
         <div class="bloquear" id="welcome">
           <p>&#127848 Tio-Chico &#127846</p>
@@ -121,31 +120,23 @@
           <h4 class="estilo_titulo">SALADA DE FRUTAS</h4>
           <p class="estilo_paragrafo">Selecione o copo desejado!</p>
           <select id="meu_select_salada" onchange="exibirSalada()" class="select_salada">
-  
-          <option value="300ml">COPO 300ml R$ 10,00</option>
-          <option value="400ml">COPO 400ml R$ 13,00</option>
-          <option value="500ml">COPO 500ml R$ 15,00</option>
-          <option value="700ml">COPO 700ml R$ 20,00</option>  
-        </select>
-
-        <button class="btns" id="btn_salada">Montar Copo!</button>  
-        <div id="imagem_salada">
-          <h2 class="estilo_titulo">Frutas Disponiveis</h2>
-          <p class="estilo_paragrafo">MORANGO</p>
-          <p class="estilo_paragrafo">BANANA</p>
-          <p class="estilo_paragrafo">KIWI</p>
-          <p class="estilo_paragrafo">ABACAXI</p>
-          <p class="estilo_paragrafo">MANGA</p>
-          
-          <p class="estilo_paragrafo">UVA VERDE</p>
-          <!--
-          <p class="estilo_paragrafo">UVA ROXA</p>
-        -->
+            <option value="300ml">COPO 300ml R$ 10,00</option>
+            <option value="400ml">COPO 400ml R$ 13,00</option>
+            <option value="500ml">COPO 500ml R$ 15,00</option>
+            <option value="700ml">COPO 700ml R$ 20,00</option>  
+          </select>
+          <button class="btns" id="btn_salada">Montar Copo!</button>  
+          <div id="imagem_salada">
+            <h2 class="estilo_titulo">Frutas Disponiveis</h2>
+            <p class="estilo_paragrafo">MORANGO</p>
+            <p class="estilo_paragrafo">BANANA</p>
+            <p class="estilo_paragrafo">KIWI</p>
+            <p class="estilo_paragrafo">ABACAXI</p>
+            <p class="estilo_paragrafo">MANGA</p>
+            <p class="estilo_paragrafo">UVA VERDE</p>
+          <!-- <p class="estilo_paragrafo">UVA ROXA</p> -->
+          </div>
         </div>
-
-        </div>
-
-<!--nova tab para os sorvestes de pote de massa-->
 
         <div class="category" id="pote_massa_trad">
           <h4 class="estilo_titulo">POTE TRADICIONAL 1,5 LITROS R$ 20,00</h4>
@@ -155,10 +146,10 @@
             <option value="3">Flocos</option>
             <option value="4">Milho Verde</option>
             <option value="5">Morango</option>
-            <option value="6">Pudin de Leite Condensado<option>
+            <option value="6">Pudin de Leite Condensado</option>
             <option value="7">Chocolate</option>
             <option value="8">Maracuja</option>
-        </select>
+          </select>
           <button class="btns" id="btn_massa_trad">Escolher Sabor</button>  
           <div class="carousel-container-massa-trad">
             <div class="carousel-massa-trad">
@@ -181,6 +172,7 @@
             <option value="2">Ninho Trunfado R$ 20,00</option>
             <option value="3">Iorgute grego R$ 20,00</option>
             <option value="4">Tapioca com Coco R$ 20,00</option>
+            <option value="5">Chocotine R$ 20,00</option>
           </select>
           <button class="btns" id="btn_massa_esp">Escolher Sabor</button> 
           <div class="carousel-container-massa-esp">
@@ -188,6 +180,8 @@
               <img src="imagens/pote-esp/iorgutegrego.jpg" alt="iorgute">
               <img src="imagens/pote-esp/ninhotrunfado.jpg" alt="ninhotrunfado">
               <img src="imagens/pote-esp/tapiocacoco.jpg" alt="tapiocacoco">
+              <img src="imagens/pote-esp/cupuaçu.jpg" alt="cupuaçu">
+              <img src="imagens/pote-esp/chocotine.jpg" alt="chocotine">
             </div>
           </div> 
 
@@ -212,7 +206,10 @@
 
         </div>
 
-<!----------------------------------------------->
+        <div class="category" id="bebidas">
+          <h1 class="estilo_titulo">EM BREVE!</h1>
+        </div>        
+
         <div class="category" id="shake">
           <h4 class="estilo_titulo">MILK SHAKE</h4>
           <p class="estilo_paragrafo">Selecione o copo desejado!</p>
@@ -228,11 +225,12 @@
           <option value="S500ml">Especial 500ml R$ 18,00</option>
           <option value="S700ml">Especial 700ml R$ 22,00</option>
 
-        </select>
+          </select>
 
-        <button class="btns" id="btn_shake">ir para sabor!</button>  
+          <button class="btns" id="btn_shake">ir para sabor!</button>  
+        
 
-        <div id="shake_tradicional">
+          <div id="shake_tradicional">
           <h2 class="estilo_titulo">Sabores tradicional</h2>
           <p class="estilo_paragrafo">ABACAXI</p>
           <p class="estilo_paragrafo">ABACAXI AO VINHO</p>
@@ -262,10 +260,10 @@
           <p class="estilo_paragrafo">LEITE NINHO TRUNFADO</p>
           <p class="estilo_paragrafo">PRATA OREO</p>
           <p class="estilo_paragrafo">BANOFFE</p>
-        </div>
+          </div>
 
 
-        </div>
+      </div>
 
         <div class="category" id="acai_tradicional">
           <h4 class="estilo_titulo">AÇAI TRADICIONAL (Sem Recheio)</h4>
@@ -325,7 +323,7 @@
             </select>
             <button class="btns" id="btn_trad_pote">Quero essa pote!</button>
             <div id="imagem_trad_pote">
-              <img src="imagens/tradpote500ml.jpg" alt="trad_pote_açai" />
+              <img src="imagens/tradpote1l.jpg" alt="trad_pote_açai" />
             </div>
           </div>
 
@@ -969,7 +967,7 @@
           <input type="checkbox" id="checkbox413" class="checkbox" value="Cobertura:Amora"/>
           <label for="checkbox413" id="check_grid_413" class="check413">Amora</label>
 
-      </div>
+        </div>
       </div>
 
       <div id="complemento_shake">
@@ -1117,9 +1115,7 @@
           <input type="checkbox" id="checkbox206" class="checkbox" value="Fruta: Uva_Roxa"/>
           <label for="checkbox206" id="check_grid_206" class="check206">Uva Roxa</label>
         -->
-      </div>
-
-
+        </div>
       </div>
 
       <div id="complemento_salada">
@@ -1336,8 +1332,6 @@
         </div>
       </footer>
     </div>
-
-
 
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
