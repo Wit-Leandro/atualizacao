@@ -252,7 +252,13 @@ btn_massa_trad.addEventListener("click", function (e) {
     const pedido = { acai: "Pote trad 1,5L Chocolate", limit: 10, valor: 20 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_massa_trad === "8") {
-    const pedido = { acai: "Pote trad 1,5L Pudin de Leite Maracuja", limit: 10, valor: 20 };
+    const pedido = { acai: "Pote trad 1,5L Maracuja", limit: 10, valor: 20 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_massa_trad === "9") {
+    const pedido = { acai: "Pote trad 1,5L Napolitano", limit: 10, valor: 20 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_massa_trad === "10") {
+    const pedido = { acai: "Pote trad 1,5L Top Limão", limit: 10, valor: 20 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   }
 
