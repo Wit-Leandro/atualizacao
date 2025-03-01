@@ -1205,7 +1205,16 @@ function horadia() {
     
     /*alert('Olá,\nEstaremos de *folga* nos seguintes dias: \n02/01/2025 (quinta-feira)\n03/01/2025 (sexta-feira)\n04/01/2025 (sábado)\nRetornaremos no dia:05/01/2025 (domingo)\nCom atendimento normal, das 14:00 às 23h.\nAgradecemos a preferência!')*/
     
-  } else {
+  } else if (diaSemana == 0 && hora < 19){ // uso em dias especiais
+    reshora.style.color = "red";
+    reshora.innerHTML = " FECHADO, ";
+    open_close.innerHTML = " FECHADO ";
+    escolha.style.display = 'none'
+    container_fechado.style.display = 'block'
+    container_fechado.style.gridRow = 3
+  
+  }
+  else {
     if (hora < 14 || hora >= 23) { // Fechado antes das 15h ou depois das 23h || hora >= 23
       reshora.style.color = "red";
       reshora.innerHTML = " FECHADO, ";

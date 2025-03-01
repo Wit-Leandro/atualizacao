@@ -476,13 +476,7 @@
           <button class="btns" onclick="highlightText()">&#128270 Localizar</button>
         </div>
 
-        <h3 class="estilo_titulo">NOVIDADE!</h3>
-        <div id="bloquear" class="cx_itens">
-          <input type="text" id="item25" value="BOMBOM OREO" readonly>
-          <input type="number" id="quantidade25" value="0" readonly>
-          <button id="quantidade25-plus" onclick="alterarQuantidade(1, 'quantidade25')">&#10133</button>
-          <button id="quantidade25-minus" onclick="alterarQuantidade(-1, 'quantidade25')">&#10134</button>
-        </div>
+        <h3 id="bloquear" class="estilo_titulo">NOVIDADE!</h3>
 
         <h3 class="estilo_titulo">FRUTAS</h3>
         <div class="cx_itens">
@@ -589,6 +583,14 @@
         <button class="find_titulo" onclick="buscarTitulo('CALDAS')">&#128270 CALDAS</button>
 
         <h3 class="estilo_titulo">COMPLEMENTOS</h3>
+
+        <div class="cx_itens">
+          <input type="text" id="item25" value="BOMBOM OREO" readonly>
+          <input type="number" id="quantidade25" value="0" readonly>
+          <button id="quantidade25-plus" onclick="alterarQuantidade(1, 'quantidade25')">&#10133</button>
+          <button id="quantidade25-minus" onclick="alterarQuantidade(-1, 'quantidade25')">&#10134</button>
+        </div>
+        
         <div class="cx_itens">
           <input type="text" id="item16" value="Confete" readonly>
           <input type="number" id="quantidade16" value="0" readonly>
