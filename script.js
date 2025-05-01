@@ -1197,7 +1197,7 @@ function horadia() {
   if (minutos < 10) minutos = "0" + minutos;
   if (segundos < 10) segundos = "0" + segundos;
 
-  if (diaSemana == 4) { // Quinta-Feira
+  if (diaSemana == 7) { // 4 Quinta-Feira
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
     open_close.innerHTML = " FECHADO ";
