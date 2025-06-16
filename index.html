@@ -503,7 +503,7 @@
           <button onclick="alterarQuantidade(1, 'quantidade4')">&#10133</button>
           <button onclick="alterarQuantidade(-1, 'quantidade4')">&#10134</button>
         </div>
-        <div class="cx_itens">
+        <div id="bloquear" class="cx_itens">
           <input type="text" id="item5" value="Manga" readonly>
           <input type="number" id="quantidade5" value="0" readonly>
           <button onclick="alterarQuantidade(1, 'quantidade5')">&#10133</button>
@@ -615,7 +615,7 @@
           <button onclick="alterarQuantidade(1, 'quantidade19')">&#10133</button>
           <button onclick="alterarQuantidade(-1, 'quantidade19')">&#10134</button>
         </div>
-        <div class="cx_itens">
+        <div id="bloquear" class="cx_itens">
           <input type="text" id="item20" value="Leite em Pó" readonly>
           <input type="number" id="quantidade20" value="0" readonly>
           <button onclick="alterarQuantidade(1, 'quantidade20')">&#10133</button>
@@ -709,7 +709,7 @@
           <button onclick="alterarQuantidade(1, 'quantidade51')">&#10133</button>
           <button onclick="alterarQuantidade(-1, 'quantidade51')">&#10134</button>
         </div>
-        <div class="cx_itens">
+        <div id="bloquear" class="cx_itens">
           <input type="text" id="item35" value="KitKat" readonly>
           <input type="number" id="quantidade35" value="0" readonly>
           <button onclick="alterarQuantidade(1, 'quantidade35')">&#10133</button>
@@ -1051,10 +1051,10 @@
           <input type="checkbox" id="checkbox512" class="checkbox" value="Sucrilhos" />
           <label for="checkbox512" id="check512" class="check512">Sucrilhos</label>
           <br />
-
+<!--
           <input type="checkbox" id="checkbox513" class="checkbox" value="Leite_em_Po" />
           <label for="checkbox513" id="check513" class="check513">Leite em Po</label>
-          <br />
+          <br />-->
 
           <input type="checkbox" id="checkbox514" class="checkbox" value="Ouro_Branco" />
           <label for="checkbox514" id="check514" class="check514">Ouro Branco</label>
@@ -1127,10 +1127,10 @@
           <input type="checkbox" id="checkbox203" class="checkbox" value="Fruta: Abacaxi"/>
           <label for="checkbox203" id="check_grid_203" class="check203">Abacaxi</label>
           <br/>
-          
+          <!--
           <input type="checkbox" id="checkbox204" class="checkbox" value="Fruta: Manga"/>
           <label for="checkbox204" id="check_grid_204" class="check204">Manga</label>
-          <br/>
+          <br/>-->
 
           <input type="checkbox" id="checkbox205" class="checkbox" value="Fruta: Uva_Verde"/>
           <label for="checkbox205" id="check_grid_205" class="check205">Uva Verde</label>
@@ -1170,9 +1170,10 @@
           <input type="checkbox" name="checkbox" id="checkbox212" class="checkbox" value="Amendoin"/>
           <label for="checkbox212" id="check_grid_212" class="check212">Amendoin</label>
           <br/>
+          <!--
           <input type="checkbox" name="checkbox" id="checkbox213" class="checkbox" value="Leite_em_Po"/>
           <label for="checkbox213" id="check_grid_213" class="check213">Leite em Pó</label>
-          <br/>
+          <br/>-->
           <input type="checkbox" name="checkbox" id="checkbox214" class="checkbox" value="Farofa_de_Paçoca"/>
           <label for="checkbox214" id="check_grid_214" class="check214"> Farofa de Paçoca</label>
           <br/>
