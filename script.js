@@ -88,6 +88,7 @@ window.addEventListener('load', function(){
   var local = 'Não informado'
   dic.push(nome,endereco,ncasa,fone,local)
   loadCounter();
+  horaDelivery()
   //alert("Atendimento normal apenas na loja hoje\n das 14hs as 23hs")
  alert("\u{1F4CC}\nCONCLUA TODAS AS ETAPAS \nATÉ A ABA DE PAGAMENTOS \nPARA FINALIZAR SEU PEDIDO")
   
@@ -1197,7 +1198,7 @@ function horadia() {
   if (minutos < 10) minutos = "0" + minutos;
   if (segundos < 10) segundos = "0" + segundos;
 
-  if (diaSemana == 4) { // 4 Quinta-Feira
+  if (diaSemana == 1) { // 1 Segunda-feira
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
     open_close.innerHTML = " FECHADO ";
@@ -2171,8 +2172,8 @@ function alterarQuantidade(valor, quantidadeId) {
 
 function horaDelivery() {
   var hora_delivery = dataAtual.getHours();
-  if (hora_delivery < 15){
-    alert('ATENÇÃO ENTREGAS DELIVERY \n\u{1F3E0} \u{1F6F5} \u{1F4A8} \u{1F3ED} \nCOMEÇA A PARTIR DAS 15HS ')
+  if (hora_delivery < 17){
+    alert('ATENÇÃO ENTREGAS DELIVERY \n\u{1F3E0} \u{1F6F5} \u{1F4A8} \u{1F3ED} \nCOMEÇA A PARTIR DAS 17HS ')
   }
   else {
     alert('AGRADECEMOS PELA PREFERÊNCIA ')
