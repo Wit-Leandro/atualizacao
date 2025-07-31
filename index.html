@@ -476,10 +476,10 @@
           <button class="btns" onclick="highlightText()">&#128270 Localizar</button>
         </div>
 
-        <h3 id="bloquear" class="estilo_titulo">NOVIDADE!</h3>
+        <h3 class="estilo_titulo">NOVIDADE!</h3>
 
         <h3 class="estilo_titulo">FRUTAS</h3>
-        <div id="bloquear" class="cx_itens">
+        <div class="cx_itens">
           <input type="text" id="item1" value="Morango" readonly>
           <input type="number" id="quantidade1" value="0" readonly>
           <button onclick="alterarQuantidade(1, 'quantidade1')">&#10133</button>
@@ -570,7 +570,7 @@
           <button onclick="alterarQuantidade(1, 'quantidade14')">&#10133</button>
           <button onclick="alterarQuantidade(-1, 'quantidade14')">&#10134</button>
         </div>
-        <div class="cx_itens">
+        <div id="bloquear" class="cx_itens">
           <input type="text" id="item15" value="Cr. Ovo Maltine" readonly>
           <input type="number" id="quantidade15" value="0" readonly>
           <button onclick="alterarQuantidade(1, 'quantidade15')">&#10133</button>
@@ -633,13 +633,13 @@
           <button onclick="alterarQuantidade(1, 'quantidade22')">&#10133</button>
           <button onclick="alterarQuantidade(-1, 'quantidade22')">&#10134</button>
         </div>
-        <div id="bloquear" class="cx_itens">
+        <div class="cx_itens">
           <input type="text" id="item23" value="Farofa de Paçoca" readonly>
           <input type="number" id="quantidade23" value="0" readonly>
           <button onclick="alterarQuantidade(1, 'quantidade23')">&#10133</button>
           <button onclick="alterarQuantidade(-1, 'quantidade23')">&#10134</button>
         </div>    
-        <div class="cx_itens">
+        <div id="bloquear" class="cx_itens">
           <input type="text" id="item24" value="Sonho de Valsa" readonly>
           <input type="number" id="quantidade24" value="0" readonly>
           <button onclick="alterarQuantidade(1, 'quantidade24')">&#10133</button>
@@ -696,7 +696,7 @@
           <button onclick="alterarQuantidade(-1, 'quantidade34')">&#10134</button>
         </div>
 
-        <div id="bloquear" class="cx_itens">
+        <div class="cx_itens">
           <input type="text" id="item50" value="Gotas Choc Branco" readonly>
           <input type="number" id="quantidade50" value="0" readonly>
           <button onclick="alterarQuantidade(1, 'quantidade50')">&#10133</button>
@@ -709,7 +709,7 @@
           <button onclick="alterarQuantidade(1, 'quantidade51')">&#10133</button>
           <button onclick="alterarQuantidade(-1, 'quantidade51')">&#10134</button>
         </div>
-        <div class="cx_itens">
+        <div id="bloquear" class="cx_itens">
           <input type="text" id="item35" value="KitKat" readonly>
           <input type="number" id="quantidade35" value="0" readonly>
           <button onclick="alterarQuantidade(1, 'quantidade35')">&#10133</button>
@@ -757,7 +757,7 @@
           <button onclick="alterarQuantidade(-1, 'quantidade39')">&#10134</button>
         </div>
 
-        <div class="cx_itens">
+        <div id="bloquear" class="cx_itens">
           <input type="text" id="item40" value="Fini Dentaduras" readonly>
           <input type="number" id="quantidade40" value="0" readonly>
           <button onclick="alterarQuantidade(1, 'quantidade40')">&#10133</button>
@@ -771,7 +771,7 @@
           <button onclick="alterarQuantidade(-1, 'quantidade41')">&#10134</button>
         </div>
 
-        <div class="cx_itens">
+        <div id="bloquear" class="cx_itens">
           <input type="text" id="item42" value="Fini Beijos" readonly>
           <input type="number" id="quantidade42" value="0" readonly>
           <button onclick="alterarQuantidade(1, 'quantidade42')">&#10133</button>
@@ -1111,10 +1111,10 @@
 
         <h2 class="estilo_titulo">FRUTAS</h2>
         <div class="cx_add_salada">
-    <!--
+    
           <input type="checkbox" id="checkbox200" class="checkbox" value="Fruta: Morango"/>
           <label for="checkbox200" id="check_grid_200" class="check200">Morango</label>
-          <br/>-->
+          <br/>
         
           <input type="checkbox" id="checkbox201" class="checkbox" value="Fruta: Banana"/>
           <label for="checkbox201" id="check_grid_201" class="check201">Banana</label>
@@ -1170,6 +1170,7 @@
           <input type="checkbox" name="checkbox" id="checkbox212" class="checkbox" value="Amendoin"/>
           <label for="checkbox212" id="check_grid_212" class="check212">Amendoin</label>
           <br/>
+          
           <input type="checkbox" name="checkbox" id="checkbox213" class="checkbox" value="Leite_em_Po"/>
           <label for="checkbox213" id="check_grid_213" class="check213">Leite em Pó</label>
           <br/>

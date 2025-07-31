@@ -1208,7 +1208,7 @@ function horadia() {
     
     /*alert('Olá,\nEstaremos de *folga* nos seguintes dias: \n02/01/2025 (quinta-feira)\n03/01/2025 (sexta-feira)\n04/01/2025 (sábado)\nRetornaremos no dia:05/01/2025 (domingo)\nCom atendimento normal, das 14:00 às 23h.\nAgradecemos a preferência!')*/
     
-  } else if (diaSemana == 0 && hora < 14){ // uso em dias especiais
+  } else if (diaSemana == 1 && hora < 14){ // uso em dias especiais
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
     open_close.innerHTML = " FECHADO ";
