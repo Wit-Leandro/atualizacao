@@ -414,16 +414,16 @@ btn_copo.addEventListener("click", function (e) {
   e.preventDefault();
   var meu_select_copo = document.getElementById("meu_select_copo").value;
   if (meu_select_copo === "300ml") {
-    const pedido = { acai: "Copo de 300ml", limit: 4, valor: 14 };
+    const pedido = { acai: "Copo de 300ml", limit: 4, valor: 15 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_copo === "400ml") {
-    const pedido = { acai: "Copo de 400ml", limit: 4, valor: 17 };
+    const pedido = { acai: "Copo de 400ml", limit: 4, valor: 19 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_copo === "500ml") {
-    const pedido = { acai: "Copo de 500ml", limit: 5, valor: 20 };
+    const pedido = { acai: "Copo de 500ml", limit: 5, valor: 22 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_copo === "700ml") {
-    const pedido = { acai: "Copo de 700ml", limit: 5, valor: 30 };
+    const pedido = { acai: "Copo de 700ml", limit: 5, valor: 32 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   }
 
@@ -444,13 +444,13 @@ btn_marmita.addEventListener("click", function (e) {
   e.preventDefault();
   var meu_marmita = document.querySelector(".select_marmita").value;
   if (meu_marmita === "500ml") {
-    const pedido = { acai: "Marmita de 500ml", limit: 5, valor: 22 };
+    const pedido = { acai: "Marmita de 500ml", limit: 5, valor: 24 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_marmita === "750ml") {
-    const pedido = { acai: "Marmita de 750ml", limit: 5, valor: 32 };
+    const pedido = { acai: "Marmita de 750ml", limit: 5, valor: 35 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_marmita === "1200ml") {
-    const pedido = { acai: "Marmita de 1200ml", limit: 6, valor: 45 };
+    const pedido = { acai: "Marmita de 1200ml", limit: 6, valor: 49 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   }
 
@@ -545,51 +545,51 @@ btn_shake.addEventListener("click", function (e) {
   if (meu_select_shake === "T300ml") {
     milk_shake.push('T')
     sabor_trad.style.display = "block";
-    const pedido = { acai: "Shake Tradiconal de 300ml", limit: 2, valor: 11 };
+    const pedido = { acai: "Shake Tradiconal de 300ml", limit: 2, valor: 12 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    res_comp_shake.innerHTML = 'R$ 3,00 Cada'
+    res_comp_shake.innerHTML = 'R$ 4,00 Cada'
   } else if (meu_select_shake === "T400ml") {
     milk_shake.push('T')
     sabor_trad.style.display = "block";
-    const pedido = { acai: "Shake Tradiconal de 400ml", limit: 2, valor: 13 };
+    const pedido = { acai: "Shake Tradiconal de 400ml", limit: 2, valor: 14 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    res_comp_shake.innerHTML = 'R$ 3,00 Cada'
+    res_comp_shake.innerHTML = 'R$ 4,00 Cada'
   } else if (meu_select_shake === "T500ml") {
     milk_shake.push('T')
     sabor_trad.style.display = "block";
-    const pedido = { acai: "Shake Tradiconal de 500ml", limit: 2, valor: 15 };
+    const pedido = { acai: "Shake Tradiconal de 500ml", limit: 2, valor: 17 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    res_comp_shake.innerHTML = 'R$ 3,00 Cada'
+    res_comp_shake.innerHTML = 'R$ 4,00 Cada'
   } else if (meu_select_shake === "T700ml") {
     milk_shake.push('T')
     sabor_trad.style.display = "block";
-    const pedido = { acai: "Shake Tradiconal de 700ml", limit: 2, valor: 18 };
+    const pedido = { acai: "Shake Tradiconal de 700ml", limit: 2, valor: 20 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    res_comp_shake.innerHTML = 'R$ 3,00 Cada'
+    res_comp_shake.innerHTML = 'R$ 4,00 Cada'
   } else if (meu_select_shake === "S300ml") {
     milk_shake.push('S')
     sabor_especial.style.display = "block";
-    const pedido = { acai: "Shake Especial de 300ml", limit: 2, valor: 13 };
+    const pedido = { acai: "Shake Especial de 300ml", limit: 2, valor: 14 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    res_comp_shake.innerHTML = 'Você possui 1 sem o acréscimo \nR$ 3,00 Cada'
+    res_comp_shake.innerHTML = 'R$ 4,00 Cada'
   } else if (meu_select_shake === "S400ml") {
     milk_shake.push('S')
     sabor_especial.style.display = "block";
-    const pedido = { acai: "Shake Especial de 400ml", limit: 2, valor: 15 };
+    const pedido = { acai: "Shake Especial de 400ml", limit: 2, valor: 17 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    res_comp_shake.innerHTML = 'Você possui 1 sem o acréscimo \nR$ 3,00 Cada'
+    res_comp_shake.innerHTML = 'R$ 4,00 Cada'
   } else if (meu_select_shake === "S500ml") {
     milk_shake.push('S')
     sabor_especial.style.display = "block";
-    const pedido = { acai: "Shake Especial de 500ml", limit: 2, valor: 18 };
+    const pedido = { acai: "Shake Especial de 500ml", limit: 2, valor: 21 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    res_comp_shake.innerHTML = 'Você possui 1 sem o acréscimo \nR$ 3,00 Cada'
+    res_comp_shake.innerHTML = 'R$ 4,00 Cada'
   } else if (meu_select_shake === "S700ml") {
     milk_shake.push('S')
     sabor_especial.style.display = "block";
-    const pedido = { acai: "Shake Especial de 700ml", limit: 2, valor: 22 };
+    const pedido = { acai: "Shake Especial de 700ml", limit: 2, valor: 25 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
-    res_comp_shake.innerHTML = 'Você possui 1 sem o acréscimo R$ 3,00 Cada'
+    res_comp_shake.innerHTML = 'R$ 4,00 Cada'
   }
   
   escolha.style.display = "none";
@@ -823,15 +823,13 @@ function procurarCobrar(find, proc) {
   if (milk_shake[0] === "T") {
     find.forEach(function (v) {
       if (proc.includes(v.toString())) {
-        valorCompra.push(3);
+        valorCompra.push(4);
       }
     });
   } else if (milk_shake[0] === "S") {
-    if (find.length > 1) {
-      valorCompra.push(-3);
       find.forEach(function (v) {
         if (proc.includes(v.toString())) {
-          valorCompra.push(3);
+          valorCompra.push(4);
         }
       });
     }
