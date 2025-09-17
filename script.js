@@ -1216,7 +1216,7 @@ function horadia() {
   
   }
   else {
-    if (hora < 14 || hora >= 24) { // Fechado antes das 15h ou depois das 23h || hora >= 23
+    if (hora < 14 || hora >= 23) { // Fechado antes das 15h ou depois das 23h || hora >= 23
       reshora.style.color = "red";
       reshora.innerHTML = " FECHADO, ";
       open_close.innerHTML = " FECHADO ";
