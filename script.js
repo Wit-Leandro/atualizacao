@@ -447,10 +447,10 @@ btn_marmita.addEventListener("click", function (e) {
     const pedido = { acai: "Marmita de 500ml", limit: 5, valor: 24 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_marmita === "750ml") {
-    const pedido = { acai: "Marmita de 750ml", limit: 5, valor: 35 };
+    const pedido = { acai: "Marmita de 750ml", limit: 5, valor: 34 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_marmita === "1200ml") {
-    const pedido = { acai: "Marmita de 1200ml", limit: 6, valor: 49 };
+    const pedido = { acai: "Marmita de 1200ml", limit: 6, valor: 48 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   }
 
