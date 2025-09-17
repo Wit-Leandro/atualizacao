@@ -834,7 +834,7 @@ function procurarCobrar(find, proc) {
       });
     }
   }
-}
+
 
 function procurarCobrarfrutas(find, proc) {
     find.forEach(function (v) {
