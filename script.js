@@ -759,16 +759,16 @@ btn_salada.addEventListener("click", function (e) {
   e.preventDefault();
   var meu_select_salada = document.getElementById("meu_select_salada").value;
   if (meu_select_salada === "300ml") {
-    const pedido = { acai: "Salada Frutas de 300ml", limit: 16, valor: 10 };
+    const pedido = { acai: "Salada Frutas de 300ml", limit: 16, valor: 12 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_salada === "400ml") {
-    const pedido = { acai: "Salada Frutas de 400ml", limit: 16, valor: 13 };
+    const pedido = { acai: "Salada Frutas de 400ml", limit: 16, valor: 14 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_salada === "500ml") {
-    const pedido = { acai: "Salada Frutas de 500ml", limit: 16, valor: 15 };
+    const pedido = { acai: "Salada Frutas de 500ml", limit: 16, valor: 17 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_salada === "700ml") {
-    const pedido = { acai: "Salada Frutas de 700ml", limit: 16, valor: 20 };
+    const pedido = { acai: "Salada Frutas de 700ml", limit: 16, valor: 24 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   }
   escolha.style.display = "none";
@@ -793,15 +793,15 @@ btn_escolha_frutas.addEventListener("click", function () {
 });
 var result = 0;
 var procurar = [
-  "Leite_condensado",
-  "Calda_Avela",
-  "Creme_Nutella",
-  "Cr_Leite_Ninho",
-  "Granola",
-  "Amendoin",
-  "Leite_em_Po",
-  "Farofa_de_Paçoca",
-  "Sucrilhos",
+  "Leite_condensado 30ml",
+  "Calda_Avela 30ml",
+  "Creme_Nutella 30ml",
+  "Cr_Leite_Ninho 30ml",
+  "Granola 30ml",
+  "Amendoin 30ml",
+  "Leite_em_Po 30ml",
+  "Farofa_de_Paçoca 30ml",
+  "Sucrilhos 30ml",
 ];
 var procure_aqui = [];
 var btn_escolha_complemento_frutas = document.getElementById(
@@ -839,7 +839,7 @@ function procurarCobrar(find, proc) {
 function procurarCobrarfrutas(find, proc) {
     find.forEach(function (v) {
       if (proc.includes(v.toString())) {
-        valorCompra.push(3);
+        valorCompra.push(4);
       }
       else {
         valorCompra.push(0)
