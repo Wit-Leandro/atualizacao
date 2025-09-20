@@ -78,6 +78,7 @@ var open_close = document.getElementById('open_close')
 var dsp = document.getElementById('disponibilidade')
 var contLogin = document.getElementById('contLogin')
 
+
 /*--------- inicio das funçoes -----*/
 
 window.addEventListener('load', function(){
@@ -88,7 +89,6 @@ window.addEventListener('load', function(){
   var local = 'Não informado'
   dic.push(nome,endereco,ncasa,fone,local)
   loadCounter();
-  horaDelivery()
   //alert("Atendimento normal apenas na loja hoje\n das 14hs as 23hs")
  alert("\u{1F4CC}\nCONCLUA TODAS AS ETAPAS \nATÉ A ABA DE PAGAMENTOS \nPARA FINALIZAR SEU PEDIDO")
   
@@ -406,6 +406,7 @@ btn_trad_pote.addEventListener("click", function (e) {
   const userPedido = objectPedido.limit;
   limite.push(userPedido)
 });
+
 
 /*--------- Escolha do copo -----*/
 
@@ -1133,7 +1134,6 @@ imprimir.addEventListener("click", function () {
   pagamentos.style.display = "block";
   gerarImagemPedido()
   generateQRCode()
-  horaDelivery()
   
 });
 
@@ -1191,6 +1191,7 @@ function horadia() {
   var reshora = document.getElementById("reshora");
   var reshora2 = document.getElementById("reshora2");
   var container_fechado = document.querySelector(".app_fora")
+  var infatend = document.getElementById("infAtend"); 
 
   if (hora < 10) hora = "0" + hora;
   if (minutos < 10) minutos = "0" + minutos;
@@ -1203,30 +1204,39 @@ function horadia() {
     escolha.style.display = 'none'
     container_fechado.style.display = 'block'
     container_fechado.style.gridRow = 3
+    infatend.innerText = "\nEstamos fechados hoje, voltamos amanha as 10:45 ate breve!";
     
-    /*alert('Olá,\nEstaremos de *folga* nos seguintes dias: \n02/01/2025 (quinta-feira)\n03/01/2025 (sexta-feira)\n04/01/2025 (sábado)\nRetornaremos no dia:05/01/2025 (domingo)\nCom atendimento normal, das 14:00 às 23h.\nAgradecemos a preferência!')*/
     
-  } else if (diaSemana == 1 && hora < 14){ // uso em dias especiais
+  } else if (diaSemana == 6 && hora < 17){ // aos sabados recebe um horario de atendimento diferente
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
     open_close.innerHTML = " FECHADO ";
     escolha.style.display = 'none'
     container_fechado.style.display = 'block'
     container_fechado.style.gridRow = 3
+    infatend.innerText = "\nAbriremos as 17h ate breve!";
   
   }
   else {
-    if (hora < 14 || hora >= 23) { // Fechado antes das 15h ou depois das 23h || hora >= 23
+    if (hora < 11 || hora >= 23) { // Fechado antes das 15h ou depois das 23h || hora >= 23
       reshora.style.color = "red";
       reshora.innerHTML = " FECHADO, ";
       open_close.innerHTML = " FECHADO ";
       escolha.style.display = 'none'
       container_fechado.style.display = 'block'
       container_fechado.style.gridRow = 3
+      if (diaSemana != 1 && diaSemana != 6){
+        infatend.innerText = "\nAbriremos as 10:45 ate breve!";
+      } 
       
       //alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')
 
     } else {
+        if (diaSemana != 1 && diaSemana != 6){ // 2 a 6 feira
+          infatend.innerText = "\nAtendimento de Terça a Sexta das 10:45 às 23h";
+        } else if (diaSemana == 6){ 
+          infatend.innerText = "\nAtendimento aos Sábados das 17h às 23h";
+        }
       reshora.style.color = "green";
       reshora.innerHTML = " ABERTO: ";
       open_close.innerHTML = " ABERTO ";
@@ -1296,6 +1306,7 @@ function dataDia() {
 
   resdia.innerHTML = diaDaSemana[diaSemana];
   resdia2.innerHTML = hoje + '';
+
 }
 
 /*----Sujestão do cliente*/
@@ -2168,16 +2179,17 @@ function alterarQuantidade(valor, quantidadeId) {
 }
 
 
-function horaDelivery() {
+/*
+function horaDelivery(horaEntrega) {
   var hora_delivery = dataAtual.getHours();
-  if (hora_delivery < 17){
+  if (hora_delivery < horaEntrega){
     alert('ATENÇÃO ENTREGAS DELIVERY \n\u{1F3E0} \u{1F6F5} \u{1F4A8} \u{1F3ED} \nCOMEÇA A PARTIR DAS 17HS ')
   }
   else {
-    alert('ATENÇÃO - ALGUNS VALORES SÃO 1 REAL MAIS BARATO NO APP ')
+    alert('FAÇA SEU PEDIDO AQUI NO APP \n E TENHA DESCONTOS EXCLUSIVOS')
   }
 
-}
+}*/
 
 /*-----------------------MECANISMO DE BUSCA----------------------------*/
 function highlightText() {

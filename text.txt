@@ -1,11 +1,17 @@
-var btn_cestinhac5 = document.getElementById("btn_cestinhac5");
-btn_cestinhac5.addEventListener("click", function (e) {
-  const pedido = { acai: "Cascão pacote com 10", limit: 10, valor: 9.9 };
-  sessionStorage.setItem("pedido", JSON.stringify(pedido));
-  escolha.style.display = "none";
-  pergunta_mult.style.display = "block"
-  const getPedido = sessionStorage.getItem("pedido");
-  const objectPedido = JSON.parse(getPedido);
-  const userPedido = objectPedido.limit;
-  limite.push(userPedido)
-});
+var infatend = document.getElementById("infAtend");  
+  
+  if (diaSemana == 0) {
+    infatend.innerHTML = "Atendimento das 15h às 23h";
+  } else if (diaSemana == 1) {
+    infatend.innerHTML = "Fechado";
+  } else if (diaSemana == 2) {
+    infatend.innerHTML = "Atendimento das 10:45 às 23h";
+  } else if (diaSemana == 3) {
+    infatend.innerHTML = "Atendimento das 10:45 às 23h";
+  } else if (diaSemana == 4) {
+    infatend.innerHTML = "Atendimento das 10:45 às 23h";
+  } else if (diaSemana == 5) {
+    infatend.innerHTML = "Atendimento das 10:45 às 23h";
+  } else if (diaSemana == 6) {
+    infatend.innerHTML = "Atendimento das 17h às 23h";
+  }
