@@ -1205,6 +1205,7 @@ function horadia() {
     container_fechado.style.display = 'block'
     container_fechado.style.gridRow = 3
     infatend.innerText = "\nEstamos fechados hoje, voltamos amanha as 10:45 ate breve!";
+    dsp.innerHTML = " Segunda-Feira: Fechado ";
     
     
   } else if (diaSemana == 6 && hora < 17){ // aos sabados recebe um horario de atendimento diferente
@@ -1215,32 +1216,45 @@ function horadia() {
     container_fechado.style.display = 'block'
     container_fechado.style.gridRow = 3
     infatend.innerText = "\nAbriremos as 17h ate breve!";
+    dsp.innerHTML = " Sábado: 17h às 23h ";
   
-  }
-  else {
-    if (hora < 11 || hora >= 23) { // Fechado antes das 15h ou depois das 23h || hora >= 23
-      reshora.style.color = "red";
-      reshora.innerHTML = " FECHADO, ";
-      open_close.innerHTML = " FECHADO ";
-      escolha.style.display = 'none'
-      container_fechado.style.display = 'block'
-      container_fechado.style.gridRow = 3
-      if (diaSemana != 1 && diaSemana != 6){
-        infatend.innerText = "\nAbriremos as 10:45 ate breve!";
-      } 
+  } else if (diaSemana == 0 && hora < 17){ // aos domingos recebe um horario de atendimento diferente
+    reshora.style.color = "red";
+    reshora.innerHTML = " FECHADO, ";
+    open_close.innerHTML = " FECHADO ";
+    escolha.style.display = 'none'
+    container_fechado.style.display = 'block'
+    container_fechado.style.gridRow = 3
+    infatend.innerText = "\nAbriremos as 17h ate breve!";
+    dsp.innerHTML = " Domingo: 17h às 23h ";
+  
+  } else {
+      if (hora < 11 || hora >= 23) { // Fechado antes das 15h ou depois das 23h || hora >= 23
+        reshora.style.color = "red";
+        reshora.innerHTML = " FECHADO, ";
+        open_close.innerHTML = " FECHADO ";
+        escolha.style.display = 'none'
+        container_fechado.style.display = 'block'
+        container_fechado.style.gridRow = 3
+        if (diaSemana != 1 && diaSemana != 6 && diaSemana != 0 && hora < 11){
+          infatend.innerText = "\nAbriremos as 10:45 ate breve!";
+        } else if (diaSemana != 1 && diaSemana != 6 && diaSemana != 0 && hora >= 23){
+          infatend.innerText = "\nAbriremos amanha as 10:45 ate breve!";
+        }
       
       //alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')
 
     } else {
-        if (diaSemana != 1 && diaSemana != 6){ // 2 a 6 feira
+        if (diaSemana != 1 && diaSemana != 6 && diaSemana != 0){ // 2 a 6 feira
           infatend.innerText = "\nAtendimento de Terça a Sexta das 10:45 às 23h";
         } else if (diaSemana == 6){ 
           infatend.innerText = "\nAtendimento aos Sábados das 17h às 23h";
+        }else if (diaSemana == 0){ 
+          infatend.innerText = "\nAtendimento aos Domingos das 17h às 23h";
         }
       reshora.style.color = "green";
       reshora.innerHTML = " ABERTO: ";
       open_close.innerHTML = " ABERTO ";
-      dsp.innerHTML = " ATENDIMENTO PRESENCIAL ";
       container_fechado.style.display = 'none'
     }
   }
