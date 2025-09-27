@@ -232,39 +232,40 @@ btn_massa_trad.addEventListener("click", function (e) {
     "meu_select_massa_trad"
   ).value;
   if (meu_select_massa_trad === "1") {
-    const pedido = { acai: "Pote trad 1,5L Abacaxi ao Vinho", limit: 10, valor: 20 };
+    const pedido = { acai: "Pote trad 1,5L Abacaxi ao Vinho", limit: 10, valor: 22 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_massa_trad === "2") {
-    const pedido = { acai: "Pote trad 1,5L Coco Branco", limit: 10, valor: 20 };
+    const pedido = { acai: "Pote trad 1,5L Coco Branco", limit: 10, valor: 22 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_massa_trad === "3") {
-    const pedido = { acai: "Pote trad 1,5L Flocos", limit: 10, valor: 20 };
+    const pedido = { acai: "Pote trad 1,5L Flocos", limit: 10, valor: 22 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_massa_trad === "4") {
-    const pedido = { acai: "Pote trad 1,5L Milho Verde", limit: 10, valor: 20 };
+    const pedido = { acai: "Pote trad 1,5L Milho Verde", limit: 10, valor: 22 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_massa_trad === "5") {
-    const pedido = { acai: "Pote trad 1,5L Morango", limit: 10, valor: 20 };
+    const pedido = { acai: "Pote trad 1,5L Morango", limit: 10, valor: 22 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_massa_trad === "6") {
-    const pedido = { acai: "Pote trad 1,5L Pudin de Leite Condensado", limit: 10, valor: 20 };
+    const pedido = { acai: "Pote trad 1,5L Pudin de Leite Condensado", limit: 10, valor: 22 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_massa_trad === "7") {
-    const pedido = { acai: "Pote trad 1,5L Chocolate", limit: 10, valor: 20 };
+    const pedido = { acai: "Pote trad 1,5L Chocolate", limit: 10, valor: 22 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_massa_trad === "8") {
-    const pedido = { acai: "Pote trad 1,5L Maracuja", limit: 10, valor: 20 };
+    const pedido = { acai: "Pote trad 1,5L Maracuja", limit: 10, valor: 22 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_massa_trad === "9") {
-    const pedido = { acai: "Pote trad 1,5L Napolitano", limit: 10, valor: 20 };
+    const pedido = { acai: "Pote trad 1,5L Napolitano", limit: 10, valor: 22 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_massa_trad === "10") {
-    const pedido = { acai: "Pote trad 1,5L Top Limão", limit: 10, valor: 20 };
+    const pedido = { acai: "Pote trad 1,5L Top Limão", limit: 10, valor: 22 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   }
 
   escolha.style.display = "none";
-  pergunta_mult.style.display = "block"
+  complemento_salada.style.display = "block";
+  //pergunta_mult.style.display = "block"
   const getPedido = sessionStorage.getItem("pedido");
   const objectPedido = JSON.parse(getPedido);
   const userPedido = objectPedido.limit;
@@ -279,24 +280,25 @@ btn_massa_esp.addEventListener("click", function (e) {
     "meu_select_massa_esp"
   ).value;
   if (meu_select_massa_esp === "1") {
-    const pedido = { acai: "Pote Especial 1L Cupuaçu", limit: 10, valor: 26 };
+    const pedido = { acai: "Pote Especial 1L Cupuaçu", limit: 10, valor: 23 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_massa_esp === "2") {
-    const pedido = { acai: "Pote Especial 1L Ninho Trunfado", limit: 10, valor: 20 };
+    const pedido = { acai: "Pote Especial 1L Ninho Trunfado", limit: 10, valor: 23 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_massa_esp === "3") {
-    const pedido = { acai: "Pote Especial 1L Iorgute grego", limit: 10, valor: 20 };
+    const pedido = { acai: "Pote Especial 1L Iorgute grego", limit: 10, valor: 23 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_massa_esp === "4") {
-    const pedido = { acai: "Pote Especial 1L Tapioca de Coco", limit: 10, valor: 20 };
+    const pedido = { acai: "Pote Especial 1L Tapioca de Coco", limit: 10, valor: 23 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_massa_esp === "5") {
-    const pedido = { acai: "Pote Especial 1L Chocotine", limit: 10, valor: 20 };
+    const pedido = { acai: "Pote Especial 1L Chocotine", limit: 10, valor: 23 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   }  
 
   escolha.style.display = "none";
-  pergunta_mult.style.display = "block"
+  complemento_salada.style.display = "block";
+  //pergunta_mult.style.display = "block"
   const getPedido = sessionStorage.getItem("pedido");
   const objectPedido = JSON.parse(getPedido);
   const userPedido = objectPedido.limit;
@@ -375,20 +377,20 @@ btn_trad_pote.addEventListener("click", function (e) {
     "meu_select_trad_pote"
   ).value;
   if (meu_select_trad_pote === "900ml") {
-    const pedido = { acai: "Pote tradicional de 900ml", limit: 10, valor: 26 };
+    const pedido = { acai: "Pote tradicional de 900ml", limit: 10, valor: 27 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_trad_pote === "2 Litros") {
     const pedido = {
       acai: "Pote tradicional (Sem Recheio) de 2 Litros",
       limit: 10,
-      valor: 40,
+      valor: 41,
     };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_trad_pote === "5 Litros") {
     const pedido = {
       acai: "Pote tradicional (Sem Recheio) de 5 Litros",
       limit: 10,
-      valor: 90,
+      valor: 94,
     };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_trad_pote === "10 Litros") {
