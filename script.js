@@ -280,7 +280,7 @@ btn_massa_esp.addEventListener("click", function (e) {
     "meu_select_massa_esp"
   ).value;
   if (meu_select_massa_esp === "1") {
-    const pedido = { acai: "Pote Especial 1L Cupuaçu", limit: 10, valor: 23 };
+    const pedido = { acai: "Pote Especial 1L Cupuaçu", limit: 10, valor: 28 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_massa_esp === "2") {
     const pedido = { acai: "Pote Especial 1L Ninho Trunfado", limit: 10, valor: 23 };
