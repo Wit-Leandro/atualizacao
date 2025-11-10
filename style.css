@@ -592,6 +592,10 @@ footer a {
   font-size: 11pt;
   background-color: black;
   color: #fff;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  
 }
 
 footer a:hover {
@@ -599,6 +603,9 @@ footer a:hover {
   background-color: #fff;
   color: black;
   font-size: 12pt;
+}
+footer a img {
+  width: 300px;
 }
 
 
@@ -3056,4 +3063,3 @@ height: 25px;
   align-items: center;
 
 }
-

@@ -973,11 +973,11 @@ btn_regiao.addEventListener("click", function () {
         if (dic[4] === "Tarumã") {
           dic.push(2);
         } else if (dic[4] === "Usina Nova America") {
-          dic.push(10);
+          dic.push(16);
         } else if (dic[4] === "Usina Agua Bonita") {
-          dic.push(5);
+          dic.push(10);
         } else if (dic[4] === "Posto Pioneiro") {
-          dic.push(5);
+          dic.push(8);
         } else if (dic[4] === "Retirar no Tio-Chico") {
           dic.push(0);
         }
@@ -1120,11 +1120,11 @@ function mostrarDados() {
 
   if (t < 20 && dic[4] === "Tarumã") {
     t = t + dic[5];
-  } else if (t < 150 && dic[4] === "Usina Nova America") {
+  } else if (t < 200 && dic[4] === "Usina Nova America") {
     t = t + dic[5];
-  } else if (t < 50 && dic[4] === "Usina Agua Bonita") {
+  } else if (t < 120 && dic[4] === "Usina Agua Bonita") {
     t = t + dic[5];
-  } else if (t < 50 && dic[4] === "Posto Pioneiro") {
+  } else if (t < 100 && dic[4] === "Posto Pioneiro") {
     t = t + dic[5];
   } else {
   }
@@ -1679,13 +1679,13 @@ env_pix.addEventListener("click", function () {
   if (tw < 20 && dic[4] === "Tarumã") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
-  } else if (tw < 150 && dic[4] === "Usina Nova America") {
+  } else if (tw < 200 && dic[4] === "Usina Nova America") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
-  } else if (tw < 50 && dic[4] === "Usina Agua Bonita") {
+  } else if (tw < 120 && dic[4] === "Usina Agua Bonita") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
-  } else if (tw < 50 && dic[4] === "Posto Pioneiro") {
+  } else if (tw < 100 && dic[4] === "Posto Pioneiro") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
   } else {
@@ -1749,13 +1749,13 @@ env_cartao.addEventListener("click", function () {
   if (tw < 20 && dic[4] === "Tarumã") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
-  } else if (tw < 150 && dic[4] === "Usina Nova America") {
+  } else if (tw < 200 && dic[4] === "Usina Nova America") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
-  } else if (tw < 50 && dic[4] === "Usina Agua Bonita") {
+  } else if (tw < 120 && dic[4] === "Usina Agua Bonita") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
-  } else if (tw < 50 && dic[4] === "Posto Pioneiro") {
+  } else if (tw < 100 && dic[4] === "Posto Pioneiro") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
   } else {
@@ -1821,13 +1821,13 @@ env_dinheiro.addEventListener("click", function (e) {
   if (tw < 20 && dic[4] === "Tarumã") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
-  } else if (tw < 150 && dic[4] === "Usina Nova America") {
+  } else if (tw < 200 && dic[4] === "Usina Nova America") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
-  } else if (tw < 50 && dic[4] === "Usina Agua Bonita") {
+  } else if (tw < 120 && dic[4] === "Usina Agua Bonita") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
-  } else if (tw < 50 && dic[4] === "Posto Pioneiro") {
+  } else if (tw < 100 && dic[4] === "Posto Pioneiro") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
   } else {
@@ -2005,13 +2005,13 @@ function valorTotalFrete(){
   if (t < 20 && dic[4] === "Tarumã") {
 
     t = t + dic[5];
-  } else if (t < 150 && dic[4] === "Usina Nova America") {
+  } else if (t < 200 && dic[4] === "Usina Nova America") {
 
     t = t + dic[5];
-  } else if (t < 50 && dic[4] === "Usina Agua Bonita") {
+  } else if (t < 120 && dic[4] === "Usina Agua Bonita") {
 
     t = t + dic[5];
-  } else if (t < 50 && dic[4] === "Posto Pioneiro") {
+  } else if (t < 100 && dic[4] === "Posto Pioneiro") {
 
     t = t + dic[5];
   } 
@@ -2037,13 +2037,13 @@ function gerarImagemPedido() {
   if (tw < 20 && dic[4] === "Tarumã") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
-  } else if (tw < 150 && dic[4] === "Usina Nova America") {
+  } else if (tw < 200 && dic[4] === "Usina Nova America") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
-  } else if (tw < 50 && dic[4] === "Usina Agua Bonita") {
+  } else if (tw < 120 && dic[4] === "Usina Agua Bonita") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
-  } else if (tw < 50 && dic[4] === "Posto Pioneiro") {
+  } else if (tw < 100 && dic[4] === "Posto Pioneiro") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
   } else {
@@ -2118,13 +2118,13 @@ function antecipar_envio_pix(){
   if (tw < 20 && dic[4] === "Tarumã") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
-  } else if (tw < 150 && dic[4] === "Usina Nova America") {
+  } else if (tw < 200 && dic[4] === "Usina Nova America") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
-  } else if (tw < 50 && dic[4] === "Usina Agua Bonita") {
+  } else if (tw < 120 && dic[4] === "Usina Agua Bonita") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
-  } else if (tw < 50 && dic[4] === "Posto Pioneiro") {
+  } else if (tw < 100 && dic[4] === "Posto Pioneiro") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
   } else {
