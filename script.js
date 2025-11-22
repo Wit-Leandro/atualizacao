@@ -1118,7 +1118,7 @@ function mostrarDados() {
 
   var t = somarArray(valorCompra);
 
-  if (t < 20 && dic[4] === "Tarumã") {
+  if (t < 30 && dic[4] === "Tarumã") {
     t = t + dic[5];
   } else if (t < 200 && dic[4] === "Usina Nova America") {
     t = t + dic[5];
@@ -1676,7 +1676,7 @@ env_pix.addEventListener("click", function () {
   var tw = somarArray(valorCompra);
   var te = "";
 
-  if (tw < 20 && dic[4] === "Tarumã") {
+  if (tw < 30 && dic[4] === "Tarumã") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
   } else if (tw < 200 && dic[4] === "Usina Nova America") {
@@ -1746,7 +1746,7 @@ env_cartao.addEventListener("click", function () {
   var tw = somarArray(valorCompra);
   var te = "";
 
-  if (tw < 20 && dic[4] === "Tarumã") {
+  if (tw < 30 && dic[4] === "Tarumã") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
   } else if (tw < 200 && dic[4] === "Usina Nova America") {
@@ -1818,7 +1818,7 @@ env_dinheiro.addEventListener("click", function (e) {
   var tw = somarArray(valorCompra);
   var te = "";
 
-  if (tw < 20 && dic[4] === "Tarumã") {
+  if (tw < 30 && dic[4] === "Tarumã") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
   } else if (tw < 200 && dic[4] === "Usina Nova America") {
@@ -2002,7 +2002,7 @@ function copyToClipboard() {
 function valorTotalFrete(){
   var t = somarArray(valorCompra);
 
-  if (t < 20 && dic[4] === "Tarumã") {
+  if (t < 30 && dic[4] === "Tarumã") {
 
     t = t + dic[5];
   } else if (t < 200 && dic[4] === "Usina Nova America") {
@@ -2034,7 +2034,7 @@ function gerarImagemPedido() {
   var tw = somarArray(valorCompra);
   var te = "";
 
-  if (tw < 20 && dic[4] === "Tarumã") {
+  if (tw < 30 && dic[4] === "Tarumã") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
   } else if (tw < 200 && dic[4] === "Usina Nova America") {
@@ -2115,7 +2115,7 @@ function antecipar_envio_pix(){
   var tw = somarArray(valorCompra);
   var te = "";
 
-  if (tw < 20 && dic[4] === "Tarumã") {
+  if (tw < 30 && dic[4] === "Tarumã") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
     tw = tw + dic[5];
   } else if (tw < 200 && dic[4] === "Usina Nova America") {
