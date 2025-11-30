@@ -1220,7 +1220,7 @@ function horadia() {
     infatend.innerText = "\nAbriremos as 17h ate breve!";
     dsp.innerHTML = " Sábado: 17h às 23h ";
   
-  } else if (diaSemana == 0 && hora < 17){ // aos domingos recebe um horario de atendimento diferente
+  } else if (diaSemana == 0 && hora < 23){ // aos domingos recebe um horario de atendimento diferente
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
     open_close.innerHTML = " FECHADO ";
