@@ -1235,7 +1235,7 @@ function horadia() {
     dsp.innerHTML = " Domingo: 17h às 23h ";
   
   } else {
-      if (hora < 11 || hora >= 23) { // Fechado antes das 15h ou depois das 23h || hora >= 23
+      if (hora < 22 || hora >= 23) { // Fechado antes das 15h ou depois das 23h || hora >= 23
         reshora.style.color = "red";
         reshora.innerHTML = " FECHADO, ";
         open_close.innerHTML = " FECHADO ";
