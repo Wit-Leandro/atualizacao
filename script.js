@@ -1061,7 +1061,10 @@ btn_valores.addEventListener("click", function () {
       { id: 'item52', quantidadeId: 'quantidade52' },
       { id: 'item53', quantidadeId: 'quantidade53' },
       { id: 'item54', quantidadeId: 'quantidade54' },
-      { id: 'item55', quantidadeId: 'quantidade55' }
+      { id: 'item55', quantidadeId: 'quantidade55' },
+      { id: 'item56', quantidadeId: 'quantidade56' },
+      { id: 'item57', quantidadeId: 'quantidade57' },
+      { id: 'item58', quantidadeId: 'quantidade58' }
 
   ];
 
