@@ -123,8 +123,9 @@ btn_enviar_dados.addEventListener("click", function (e) {
   escolha_regiao.style.display = "block";
   checkUser();
   location.reload();
-});*/
-/*
+  carrinhoCompras.style.display = "block";
+});
+
 function formatarTelefone(){
   var telefone = document.getElementById("fone")
   var numero = telefone.value.replace(/\D/g,'')
@@ -139,17 +140,17 @@ function formatarTelefone(){
     formatoTelefone += ' ' +numero.substring(2, 7) + '-' + numero.substring(7,11)
   }
   telefone.value = formatoTelefone
-}*/
-/*
+}
+
 function checkUser() {
   const getPerson = localStorage.getItem("person");
   const objecPerson = JSON.parse(getPerson);
   const username = objecPerson.name;
-  dic.push(username);
+  dic[0] = (username);
   const userendereco = objecPerson.endereco;
-  dic.push(userendereco);
+  dic[1] = (userendereco);
   const userncasa = objecPerson.ncasa;
-  dic.push(userncasa);
+  dic[2] = (userncasa);
   const usertelefone = objecPerson.telefone;
   dic.push(usertelefone);
   const userRegiao = objecPerson.regiao;
@@ -1452,24 +1453,31 @@ btn_finalizar_carrinho.addEventListener("click", function () {
   carrinhoCompras.style.display = "block";
   escolha.style.display = "none";
   dados_Branco()
+ 
 
 
 
 });
-function dados_Branco(){
-  dic[0] = prompt('Seu nome: ').toUpperCase()
-  dic[1] = prompt('endereço: RUA, N° ').toUpperCase()
-  dic[2] = prompt('Complemento: Bairro, ou Ponto de Refencia').toUpperCase()
-  if (dic[0] == ''){
-    dic[0] = 'Não informado'
-  }
-  else if (dic[1] == ''){
-    dic[1] = 'Não informado'
-  }
-  else if (dic[2] == ''){
-    dic[2] = 'Não informado'
-  }
+
+function dados_Branco() {
+  dic = [];
+
+  do {
+    dic[0] = prompt('Seu nome:');
+  } while (!dic[0] || dic[0].trim() === '');
+  dic[0] = dic[0].toUpperCase();
+
+  do {
+    dic[1] = prompt('Endereço: RUA, Nº');
+  } while (!dic[1] || dic[1].trim() === '');
+  dic[1] = dic[1].toUpperCase();
+
+  do {
+    dic[2] = prompt('Complemento: Bairro ou Ponto de Referência');
+  } while (!dic[2] || dic[2].trim() === '');
+  dic[2] = dic[2].toUpperCase();
 }
+
 
 
 btn_comprar_mais.addEventListener("click", function () {
@@ -1632,17 +1640,42 @@ function mostrarValorNaTela() {
 /*----numero do pedido----- */
 var npedido = document.getElementById("npedido");
 
+function emojiDoMinuto() {
+  const lista = [
+    ['\u{1F62A}', '\u{1F319}', '\u{1F6D1}'], // 0 😪 🌙 🛑
+    ['\u{1F600}', '\u{1F642}', '\u{1F604}'], // 1 😀 🙂 😄
+    ['\u{1F60E}', '\u{1F576}', '\u{1F918}'], // 2 😎 🕶 🤘
+    ['\u{1F525}', '\u{1F4A5}', '\u{1F680}'], // 3 🔥 💥 🚀
+    ['\u{1F680}', '\u{1F4C8}', '\u{1F4B9}'], // 4 🚀 📈 💹
+    ['\u{1F3AF}', '\u{2705}',  '\u{1F7E2}'], // 5 🎯 ✅ 🟢
+    ['\u{1F4B0}', '\u{1F911}', '\u{1F4B8}'], // 6 💰 🤑 💸
+    ['\u{26A1}',  '\u{23F1}',  '\u{1F3C3}'], // 7 ⚡ ⏱ 🏃
+    ['\u{1F9E0}', '\u{1F4DA}', '\u{1F913}'], // 8 🧠 📚 🤓
+    ['\u{1F451}', '\u{1F3C6}', '\u{1F48E}']  // 9 👑 🏆 💎
+  ];
+
+  const minuto = new Date().getMinutes();
+  const ultimoDigito = minuto % 10;
+
+  const emojis = lista[ultimoDigito];
+  const aleatorio = Math.floor(Math.random() * emojis.length);
+
+  return emojis[aleatorio];
+}
+
+
 function gerarNumeroPedido() {
   const mes_ano_atual = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
   var datahoraatual = new Date();
   var anoatual = datahoraatual.getFullYear();
   var diaDoAno = datahoraatual.getDate();
   var mesAtual = datahoraatual.getMonth();
+  var emoji = emojiDoMinuto();
   var horaAtual =
     pad(datahoraatual.getHours(), 2) +
     pad(datahoraatual.getMinutes(), 2) +
     pad(datahoraatual.getSeconds(), 2);
-  var numeroPedido = diaDoAno + '-``' + mes_ano_atual[mesAtual] + '00``-*' + anoatual.toString() + horaAtual + '0*';
+  var numeroPedido = diaDoAno + '``' + mes_ano_atual[mesAtual] + '`` *'+emoji+'*' + anoatual.toString() + horaAtual + '`'+emoji+'`';
   return numeroPedido;
 }
 function obterDiaDoAno(data) {
