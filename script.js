@@ -1731,7 +1731,7 @@ env_pix.addEventListener("click", function () {
   } else {
     te = "Taxa de entrega isento";
   }
-  var vlr_total_whats = "R$" + tw;
+  var vlr_total_whats = "R$" + tw + '`';
 
   var detalhesPedido =
     "N° Pedido: " +
@@ -1745,7 +1745,7 @@ env_pix.addEventListener("click", function () {
     dic[2] +
     "\nRegião de entrega: " +
     dic[4] +
-    "\nValor total: " +
+    "\n`Valor total: " +
     vlr_total_whats +
     "\nTaxa entrega: " +
     te +
@@ -1801,7 +1801,7 @@ env_cartao.addEventListener("click", function () {
   } else {
     te = "Taxa de entrega isento";
   }
-  var vlr_total_whats = "R$" + tw;
+  var vlr_total_whats = "R$" + tw + '`';
 
   var detalhesPedido =
     "N° Pedido: " +
@@ -1815,7 +1815,7 @@ env_cartao.addEventListener("click", function () {
     dic[2] +
     "\nRegião de entrega: " +
     dic[4] +
-    "\nValor total: " +
+    "\n`Valor total: " +
     vlr_total_whats +
     "\nTaxa entrega: " +
     te +
@@ -1873,7 +1873,7 @@ env_dinheiro.addEventListener("click", function (e) {
   } else {
     te = "Taxa de entrega isento";
   }
-  var vlr_total_whats = "R$" + tw;
+  var vlr_total_whats = "R$" + tw + '`';
 
   var detalhesPedido =
     "N° Pedido: " +
@@ -1887,7 +1887,7 @@ env_dinheiro.addEventListener("click", function (e) {
     dic[2] +
     "\nRegião de entrega: " +
     dic[4] +
-    "\nValor total: " +
+    "\n`Valor total: " +
     vlr_total_whats +
     "\nTaxa entrega: " +
     te +
@@ -2089,7 +2089,7 @@ function gerarImagemPedido() {
   } else {
     te = "Taxa de entrega isento";
   }
-  var vlr_total_whats = "R$" + tw;
+  var vlr_total_whats = "R$" + tw + '`';
   var informar_data_hora = informarDataHora()
   var n_compras_app = parseInt(localStorage.getItem('clickCount'))
 
@@ -2104,7 +2104,7 @@ function gerarImagemPedido() {
     dic[2] +
     "\nRegião de entrega: " +
     dic[4] +
-    "\nValor total: " +
+    "\n`Valor total: " +
     vlr_total_whats +
     "\nTaxa entrega: " +
     te +
@@ -2170,7 +2170,7 @@ function antecipar_envio_pix(){
   } else {
     te = "Taxa de entrega isento";
   }
-  var vlr_total_whats = "R$" + tw ;
+  var vlr_total_whats = "R$" + tw + '`';
 
   var detalhesPedido =
     "N° Pedido: " +
@@ -2185,7 +2185,7 @@ function antecipar_envio_pix(){
     dic[2] +
     "\nRegião de entrega: " +
     dic[4] +
-    "\nValor total: " +
+    "\n`Valor total: " +
     vlr_total_whats +
     "\nTaxa entrega: " +
     te +
