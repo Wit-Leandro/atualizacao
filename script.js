@@ -1642,7 +1642,7 @@ function gerarNumeroPedido() {
     pad(datahoraatual.getHours(), 2) +
     pad(datahoraatual.getMinutes(), 2) +
     pad(datahoraatual.getSeconds(), 2);
-  var numeroPedido = diaDoAno + '-' + mes_ano_atual[mesAtual] + '-' + anoatual.toString() + horaAtual;
+  var numeroPedido = diaDoAno + '-``' + mes_ano_atual[mesAtual] + '00``-*' + anoatual.toString() + horaAtual + '0*';
   return numeroPedido;
 }
 function obterDiaDoAno(data) {
