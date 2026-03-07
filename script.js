@@ -1218,7 +1218,7 @@ function horadia() {
     dsp.innerHTML = " Segunda-Feira: Fechado ";
     
     
-  } else if (diaSemana == 6 && hora < 17){ // aos sabados recebe um horario de atendimento diferente
+  } else if (diaSemana == 6 && hora < 23){ // aos sabados recebe um horario de atendimento diferente
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
     open_close.innerHTML = " FECHADO ";
