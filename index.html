@@ -62,7 +62,7 @@
 
       </div>
 
-      <div class="tab-container5">
+      <div id="bloquear" class="tab-container5">
         <button class="tab5" onclick="openCategory('evt','pote_massa_trad')">Pote de Massa Tradicional</button>
         <button class="tab5" onclick="openCategory('evt','pote_massa_esp')">Pote de Massa Especial</button>
       </div>
@@ -867,68 +867,122 @@
       <button class="btns" id="btn_escolha_shake">Avançar!</button>
       <h2 class="estilo_titulo">Sabores</h2>
       <div class="cx_add_shake">
+ 
+        <label for="checkbox300" id="check_grid_300" class="check300">
+          <input type="checkbox" id="checkbox300" class="checkbox" value="Sabor: Abacaxi Pedaços" />
+          <span>Abacaxi em Pedaços</span>
+        </label>
 
-        <input type="checkbox" id="checkbox300" class="checkbox" value="Sabor: Abacaxi Pedaços" />
-        <label for="checkbox300" id="check_grid_300" class="check300">Abacaxi em Pedaços</label>
-        <br />
-        <input type="checkbox" id="checkbox301" class="checkbox" value="Sabor: Abacaxi ao vinho" />
-        <label for="checkbox301" id="check_grid_301" class="check301">Abacaxi ao vinho</label>
+        <label for="checkbox301" id="check_grid_301" class="check301">
+          <input type="checkbox" id="checkbox301" class="checkbox" value="Sabor: Abacaxi ao vinho" />
+          <span>Abacaxi ao vinho</span>
+        </label>
 
-        <br />
-        <input type="checkbox" id="checkbox302" class="checkbox" value="Sabor: Brownie" />
-        <label for="checkbox302" id="check_grid_302" class="check302">Brownie</label>
-        <br />
-        <input type="checkbox" id="checkbox303" class="checkbox" value="Sabor: Maracuja" />
-        <label for="checkbox303" id="check_grid_303" class="check303">Maracuja</label>
-        <br />
-        <input type="checkbox" id="checkbox304" class="checkbox" value="Sabor: Ceu Azul" />
-        <label for="checkbox304" id="check_grid_304" class="check304">Céu Azul</label>
+        <label for="checkbox302" id="check_grid_302" class="check302">
+          <input type="checkbox" id="checkbox302" class="checkbox" value="Sabor: Brownie" />
+          <span>Brownie</span>
+        </label>
 
-        <br /><!--
-          <input type="checkbox" id="checkbox305" class="checkbox" value="Sabor: Chocolate"/>
-          <label for="checkbox305" id="check_grid_305" class="check305">Chocolate</label>
-          <br/>-->
-        <input type="checkbox" id="checkbox306" class="checkbox" value="Sabor: Chocomenta" />
-        <label for="checkbox306" id="check_grid_306" class="check306">Chocomenta</label>
+        <label for="checkbox303" id="check_grid_303" class="check303">
+          <input type="checkbox" id="checkbox303" class="checkbox" value="Sabor: Maracuja" />
+          <span>Maracuja</span>
+        </label>
+        
+        <label for="checkbox304" id="check_grid_304" class="check304">
+          <input type="checkbox" id="checkbox304" class="checkbox" value="Sabor: Céu Azul" />
+          <span>Céu Azul</span>
+        </label>
 
-        <br />
-        <input type="checkbox" id="checkbox307" class="checkbox" value="Sabor: Sensação" />
-        <label for="checkbox307" id="check_grid_307" class="check307">Sensação</label>
-        <br />
-        <input type="checkbox" id="checkbox308" class="checkbox" value="Sabor: Coco Branco" />
-        <label for="checkbox308" id="check_grid_308" class="check308">Coco Branco</label>
-        <br />
-        <input type="checkbox" id="checkbox309" class="checkbox" value="Sabor: Flocos" />
-        <label for="checkbox309" id="check_grid_309" class="check309">Flocos</label>
-        <br />
-        <input type="checkbox" id="checkbox310" class="checkbox" value="Sabor: Ferrero Roche" />
-        <label for="checkbox310" id="check_grid_310" class="check310">Ferrero Roche</label>
-        <br />
-        <input type="checkbox" id="checkbox311" class="checkbox" value="Sabor: Lacta" />
-        <label for="checkbox311" id="check_grid_311" class="check311">Lacta</label>
-        <br />
-        <input type="checkbox" id="checkbox312" class="checkbox" value="Sabor: Leite condensado" />
-        <label for="checkbox312" id="check_grid_312" class="check312">Leite condensado</label>
-        <br />
-        <input type="checkbox" id="checkbox313" class="checkbox" value="Sabor: Leite Ninho" />
-        <label for="checkbox313" id="check_grid_313" class="check313">Leite Ninho</label>
-        <br />
-        <input type="checkbox" id="checkbox314" class="checkbox" value="Sabor: Morango" />
-        <label for="checkbox314" id="check_grid_314" class="check314">Morango</label>
-        <br />
-        <input type="checkbox" id="checkbox315" class="checkbox" value="Sabor: OvoMaltine">
-        <label for="checkbox315" id="check_grid_315" class="check315">Ovomaltine</label>
-        <br />
-        <input type="checkbox" id="checkbox316" class="checkbox" value="Sabor: Passas ao Rum" />
-        <label for="checkbox316" id="check_grid_316" class="check316">Passas ao Rum</label>
-        <br />
-        <input type="checkbox" id="checkbox317" class="checkbox" value="Sabor: KinderOvo" />
-        <label for="checkbox317" id="check_grid_317" class="check317">KinderOvo</label>
-        <br />
-        <input type="checkbox" id="checkbox318" class="checkbox" value="Sabor: Ninho Trunfado" />
-        <label for="checkbox318" id="check_grid_318" class="check318">Ninho Trunfado</label>
+        <label for="checkbox305" id="check_grid_305" class="check305">
+          <input type="checkbox" id="checkbox305" class="checkbox" value="Sabor: NAPOLICOPA" />
+          <span>NAPOLICOPA</span>
+          </label>
 
+        <label for="checkbox306" id="check_grid_306" class="check306">
+          <input type="checkbox" id="checkbox306" class="checkbox" value="Sabor: Chocomenta" />
+          <span>Chocomenta</span>
+        </label>
 
+        <label for="checkbox307" id="check_grid_307" class="check307">
+          <input type="checkbox" id="checkbox307" class="checkbox" value="Sabor: Sensação" />
+          <span>Sensação</span>
+        </label>
+        
+        <label for="checkbox308" id="check_grid_308" class="check308">
+          <input type="checkbox" id="checkbox308" class="checkbox" value="Sabor: Coco Branco" />
+          <span>Coco Branco</span>
+        </label>
+
+        <label for="checkbox309" id="check_grid_309" class="check309">
+          <input type="checkbox" id="checkbox309" class="checkbox" value="Sabor: Flocos" />
+          <span>Flocos</span>
+        </label>
+        
+        <label for="checkbox310" id="check_grid_310" class="check310">
+          <input type="checkbox" id="checkbox310" class="checkbox" value="Sabor: Ferrero Roche" />
+          <span>Ferrero Roche</span>
+        </label>
+ 
+        <label for="checkbox311" id="check_grid_311" class="check311">
+          <input type="checkbox" id="checkbox311" class="checkbox" value="Sabor: Lacta" />
+          <span>Lacta</span>
+        </label>
+        
+        <label for="checkbox312" id="check_grid_312" class="check312">
+          <input type="checkbox" id="checkbox312" class="checkbox" value="Sabor: Leite condensado" />
+          <span>Leite condensado</span> 
+        </label>
+        
+        <label for="checkbox313" id="check_grid_313" class="check313">
+          <input type="checkbox" id="checkbox313" class="checkbox" value="Sabor: Leite Ninho" />
+          <span>Leite Ninho</span>
+        </label>
+      
+        <label for="checkbox314" id="check_grid_314" class="check314">
+          <input type="checkbox" id="checkbox314" class="checkbox" value="Sabor: Morango" />
+          <span>Morango</span>
+        </label>
+       
+        <label for="checkbox315" id="check_grid_315" class="check315">
+          <input type="checkbox" id="checkbox315" class="checkbox" value="Sabor: OvoMaltine" />
+          <span>Ovomaltine</span>
+        </label>
+       
+        <label for="checkbox316" id="check_grid_316" class="check316">
+          <input type="checkbox" id="checkbox316" class="checkbox" value="Sabor: Passas ao Rum" />
+          <span>Passas ao Rum</span>
+        </label>
+       
+        <label for="checkbox317" id="check_grid_317" class="check317">
+          <input type="checkbox" id="checkbox317" class="checkbox" value="Sabor: KinderOvo" />
+          <span>KinderOvo</span>
+        </label>
+       
+        <label for="checkbox318" id="check_grid_318" class="check318">
+          <input type="checkbox" id="checkbox318" class="checkbox" value="Sabor: Ninho Trunfado" />
+          <span>Ninho Trunfado</span>
+        </label>
+       
+        <label for="checkbox319" id="check_grid_319" class="check319">
+          <input type="checkbox" id="checkbox319" class="checkbox" value="Sabor: UNICORNIO" />
+          <span>UNICORNIO</span>
+        </label>
+            
+        <label for="checkbox320" id="check_grid_320" class="check320">
+          <input type="checkbox" id="checkbox320" class="checkbox" value="Sabor: Brigadeiro" />
+          <span>Brigadeiro</span>
+        </label>
+       
+        <label for="checkbox321" id="check_grid_321" class="check321">
+          <input type="checkbox" id="checkbox321" class="checkbox" value="Sabor: Banana com Nutella" />
+          <span>Banana Com Nutella</span>
+        </label>
+       
+        <label for="checkbox322" id="check_grid_322" class="check322">
+          <input type="checkbox" id="checkbox322" class="checkbox" value="Sabor: Torta de Limão" />
+          <span>Torta de Limão</span>
+        </label>
+       
       </div>
 
     </div>
