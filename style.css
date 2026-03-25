@@ -3063,3 +3063,66 @@ height: 25px;
   align-items: center;
 
 }
+
+.mais_pedidos {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.mais_pedidos:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.estilo_titulo2 {
+  margin: 0;
+  color: #4b0082; /* roxo açaí */
+}
+
+h4.estilo_titulo2 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+p.estilo_titulo2 {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.estilo_paragrafo2 {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.estilo_paragrafo2 span {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.btns2 {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #6a0dad, #8a2be2);
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btns2:hover {
+  opacity: 0.9;
+}
+
+.btns2:active {
+  transform: scale(0.98);
+}

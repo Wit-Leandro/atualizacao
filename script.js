@@ -201,12 +201,40 @@ btn_nutella140.addEventListener("click", function () {
   limite.push(userPedido)
 });
 
-var btn_cascaoc10 = document.getElementById("btn_cascaoc10");
-btn_cascaoc10.addEventListener("click", function () {
-  const pedido = { acai: "Cascão pacote com 10 und", limit: 10, valor: 9.9 };
+var cp1_500ml = document.getElementById("cp1_500ml");
+cp1_500ml.addEventListener("click", function () {
+  const pedido = { acai: "Açai Copo 500ML", limit: 10, valor: 25 };
   sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  const produtos = [
+    'Fruta: Morango - 1x',
+    'Fruta: Banana - 1x',
+    'Nutella 1x',
+    'Leite em Pó 1x' 
+  ];
+
+  valores.push(produtos)
   escolha.style.display = "none";
-  pergunta_mult.style.display = "block"
+  pergunta_mult.style.display = "block";
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite.push(userPedido)
+});
+
+var mt1_500ml = document.getElementById("mt1_500ml");
+mt1_500ml.addEventListener("click", function () {
+  const pedido = { acai: "Açai Marmita 500ML", limit: 10, valor: 28 };
+  sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  const produtos = [
+    'Fruta: Morango - 1x',
+    'Cr. Morango 1x',
+    'Leite Condesado 1x',
+    'Leite em Pó 1x' 
+  ];
+
+  valores.push(produtos)
+  escolha.style.display = "none";
+  pergunta_mult.style.display = "block";
   const getPedido = sessionStorage.getItem("pedido");
   const objectPedido = JSON.parse(getPedido);
   const userPedido = objectPedido.limit;
@@ -1218,7 +1246,7 @@ function horadia() {
     dsp.innerHTML = " Segunda-Feira: Fechado ";
     
     
-  } else if (diaSemana == 6 && hora < 16){ // aos sabados recebe um horario de atendimento diferente
+  } else if (diaSemana == 6 && hora < 17){ // aos sabados recebe um horario de atendimento diferente
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
     open_close.innerHTML = " FECHADO ";
@@ -1228,7 +1256,7 @@ function horadia() {
     infatend.innerText = "\nAbriremos as 17h ate breve!";
     dsp.innerHTML = " Sábado: 17h às 23h ";
   
-  } else if (diaSemana == 0 && hora < 16){ // aos domingos recebe um horario de atendimento diferente
+  } else if (diaSemana == 0 && hora < 17){ // aos domingos recebe um horario de atendimento diferente
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
     open_close.innerHTML = " FECHADO ";
@@ -1239,7 +1267,7 @@ function horadia() {
     dsp.innerHTML = " Domingo: 17h às 23h ";
   
   } else {
-      if (hora < 17 || hora >= 23) { // Fechado antes das 15h ou depois das 23h || hora >= 23
+      if (hora < 11 || hora >= 23.59) { // Fechado antes das 15h ou depois das 23h || hora >= 23
         reshora.style.color = "red";
         reshora.innerHTML = " FECHADO, ";
         open_close.innerHTML = " FECHADO ";
