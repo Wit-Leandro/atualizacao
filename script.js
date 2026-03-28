@@ -90,7 +90,7 @@ window.addEventListener('load', function(){
   dic.push(nome,endereco,ncasa,fone,local)
   loadCounter();
   //alert("Atendimento normal apenas na loja hoje\n das 14hs as 23hs")
- alert("\u{1F4CC}\nCONCLUA TODAS AS ETAPAS \nATÉ A ABA DE PAGAMENTOS \nPARA FINALIZAR SEU PEDIDO")
+  alert("\u{1F4CC}\nCONCLUA TODAS AS ETAPAS \nATÉ A ABA DE PAGAMENTOS \nPARA FINALIZAR SEU PEDIDO")
   
 })
 
@@ -446,16 +446,16 @@ btn_copo.addEventListener("click", function (e) {
   e.preventDefault();
   var meu_select_copo = document.getElementById("meu_select_copo").value;
   if (meu_select_copo === "300ml") {
-    const pedido = { acai: "Copo de 300ml", limit: 4, valor: 18 };
+    const pedido = { acai: "Açai Copo 300ml", limit: 4, valor: 18 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_copo === "400ml") {
-    const pedido = { acai: "Copo de 400ml", limit: 4, valor: 21 };
+    const pedido = { acai: "Açai Copo 400ml", limit: 4, valor: 21 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_copo === "500ml") {
-    const pedido = { acai: "Copo de 500ml", limit: 5, valor: 25 };
+    const pedido = { acai: "Açai Copo 500ml", limit: 5, valor: 25 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_select_copo === "700ml") {
-    const pedido = { acai: "Copo de 700ml", limit: 5, valor: 36 };
+    const pedido = { acai: "Açai Copo 700ml", limit: 5, valor: 36 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   }
 
@@ -476,13 +476,13 @@ btn_marmita.addEventListener("click", function (e) {
   e.preventDefault();
   var meu_marmita = document.querySelector(".select_marmita").value;
   if (meu_marmita === "500ml") {
-    const pedido = { acai: "Marmita de 500ml", limit: 5, valor: 28 };
+    const pedido = { acai: "Açai Marmita 500ml", limit: 5, valor: 28 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_marmita === "750ml") {
-    const pedido = { acai: "Marmita de 750ml", limit: 5, valor: 39 };
+    const pedido = { acai: "Açai Marmita 750ml", limit: 5, valor: 39 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   } else if (meu_marmita === "1200ml") {
-    const pedido = { acai: "Marmita de 1200ml", limit: 6, valor: 59 };
+    const pedido = { acai: "Açai Marmita 1200ml", limit: 6, valor: 59 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
   }
 
@@ -1093,7 +1093,8 @@ btn_valores.addEventListener("click", function () {
       { id: 'item55', quantidadeId: 'quantidade55' },
       { id: 'item56', quantidadeId: 'quantidade56' },
       { id: 'item57', quantidadeId: 'quantidade57' },
-      { id: 'item58', quantidadeId: 'quantidade58' }
+      { id: 'item58', quantidadeId: 'quantidade58' },
+      { id: 'item59', quantidadeId: 'quantidade59' }  
 
   ];
 
@@ -2460,3 +2461,27 @@ function buscarTitulo(titulo) {
 
 
 
+// CLIMA TEMPO TEMPERTURA
+
+const apiKey = "b1eaa1ba44155741d18dbd50daabfa15";
+const cidade = "Tarumã";
+
+const url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade},BR&appid=${apiKey}&units=metric&lang=pt_br`;
+
+fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data); // 👈 IMPORTANTE
+
+    if (data.cod !== 200) {
+      throw new Error(data.message);
+    }
+
+    document.getElementById("cidade").innerText = data.name;
+    document.getElementById("temp").innerText = Math.round(data.main.temp) + "°C";
+    document.getElementById("desc").innerText = data.weather[0].description;
+  })
+  .catch(error => {
+    console.error("Erro:", error.message);
+    document.getElementById("cidade").innerText = "Erro: " + error.message;
+  });

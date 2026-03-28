@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Temperatura Atual</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #1e1e2f;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .clima-box {
+      background: #2c2c44;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    .cidade {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .temperatura {
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .descricao {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="clima-box">
+    <div class="cidade" id="cidade">Carregando...</div>
+    <div class="temperatura" id="temp">--°C</div>
+    <div class="descricao" id="desc"></div>
+  </div>
+
+<script>
+const apiKey = "b1eaa1ba44155741d18dbd50daabfa15";
+const cidade = "Tarumã";
+
+const url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade},BR&appid=${apiKey}&units=metric&lang=pt_br`;
+
+fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data); // 👈 IMPORTANTE
+
+    if (data.cod !== 200) {
+      throw new Error(data.message);
+    }
+
+    document.getElementById("cidade").innerText = data.name;
+    document.getElementById("temp").innerText = Math.round(data.main.temp) + "°C";
+    document.getElementById("desc").innerText = data.weather[0].description;
+  })
+  .catch(error => {
+    console.error("Erro:", error.message);
+    document.getElementById("cidade").innerText = "Erro: " + error.message;
+  });
+</script>
+
+</body>
+</html>
