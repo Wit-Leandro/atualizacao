@@ -574,28 +574,28 @@ var res_comp_shake = document.getElementById('res_complemento_shake')
 btn_shake.addEventListener("click", function (e) {
   e.preventDefault();
   var meu_select_shake = document.getElementById("meu_select_shake").value;
-  if (meu_select_shake === "T300ml") {
-    milk_shake.push('T')
+  if (meu_select_shake === "C300ml") {
+    milk_shake.push('T');
     sabor_trad.style.display = "block";
-    const pedido = { acai: "Shake Tradiconal de 300ml", limit: 2, valor: 15 };
+    const pedido = { acai: "MILK SHAKE COPO 300ml", limit: 2, valor: 15 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
     res_comp_shake.innerHTML = 'R$ 4,00 Cada'
-  } else if (meu_select_shake === "T400ml") {
+  } else if (meu_select_shake === "C400ml") {
     milk_shake.push('T')
     sabor_trad.style.display = "block";
-    const pedido = { acai: "Shake Tradiconal de 400ml", limit: 2, valor: 18 };
+    const pedido = { acai: "MILK SHAKE COPO 400ml", limit: 2, valor: 18 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
     res_comp_shake.innerHTML = 'R$ 4,00 Cada'
-  } else if (meu_select_shake === "T500ml") {
-    milk_shake.push('T')
+  } else if (meu_select_shake === "C500ml") {
+    milk_shake.push('T');
     sabor_trad.style.display = "block";
-    const pedido = { acai: "Shake Tradiconal de 500ml", limit: 2, valor: 22 };
+    const pedido = { acai: "MILK SHAKE COPO 500ml", limit: 2, valor: 22 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
     res_comp_shake.innerHTML = 'R$ 4,00 Cada'
-  } else if (meu_select_shake === "T700ml") {
-    milk_shake.push('T')
+  } else if (meu_select_shake === "C700ml") {
+    milk_shake.push('T');
     sabor_trad.style.display = "block";
-    const pedido = { acai: "Shake Tradiconal de 700ml", limit: 2, valor: 26 };
+    const pedido = { acai: "MILK SHAKE COPO 700ml", limit: 2, valor: 26 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
     res_comp_shake.innerHTML = 'R$ 4,00 Cada'
   } else if (meu_select_shake === "S300ml") {
