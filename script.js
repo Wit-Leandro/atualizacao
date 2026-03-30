@@ -971,18 +971,28 @@ function limpaSujestao() {
 /*------escolha das regioes------------- */
 regiao.forEach(function (checkbox) {
   checkbox.addEventListener("change", function () {
-    var regiao_selecionados = document.querySelectorAll(".regiao:checked");
-    if (regiao_selecionados.length > 1) {
+
+    var selecionados = document.querySelectorAll(".regiao:checked");
+
+    if (selecionados.length > 1) {
       this.checked = false;
       alert("Ops, Escolha apenas uma Região!!");
     }
-    else if (regiao_selecionados.length == 1){
-      btn_regiao.style.display = 'block'
-    }
-    else if (regiao_selecionados.length == 0){
-      btn_regiao.style.display = 'none'
-    }
-    
+
+    btn_regiao.style.display = selecionados.length === 1 ? 'block' : 'none';
+  });
+});
+document.querySelectorAll('.iptn_div').forEach(function(card) {
+  card.addEventListener('click', function() {
+    const checkbox = this.querySelector('input[type="checkbox"]');
+
+    // Desmarca todos
+    document.querySelectorAll('.regiao').forEach(cb => cb.checked = false);
+
+    // Marca o clicado
+    checkbox.checked = true;
+
+    checkbox.dispatchEvent(new Event('change'));
   });
 });
 
@@ -1243,8 +1253,8 @@ function horadia() {
     escolha.style.display = 'none'
     container_fechado.style.display = 'block'
     container_fechado.style.gridRow = 3
-    infatend.innerText = "\nEstamos fechados hoje, voltamos amanha as 10:45 ate breve!";
-    dsp.innerHTML = " Segunda-Feira: Fechado ";
+    infatend.innerText = "\n * Fechado *";
+    dsp.innerHTML = " Estamos fechados hoje, voltamos amanha as 10:45 ate breve!";
     
     
   } else if (diaSemana == 6 && hora < 17){ // aos sabados recebe um horario de atendimento diferente
@@ -1254,8 +1264,8 @@ function horadia() {
     escolha.style.display = 'none'
     container_fechado.style.display = 'block'
     container_fechado.style.gridRow = 3
-    infatend.innerText = "\nAbriremos as 17h ate breve!";
-    dsp.innerHTML = " Sábado: 17h às 23h ";
+    infatend.innerText = "\n Sábado: 17h às 23h";
+    dsp.innerHTML = " Abriremos as 17h ate breve! ";
   
   } else if (diaSemana == 0 && hora < 17){ // aos domingos recebe um horario de atendimento diferente
     reshora.style.color = "red";
@@ -1264,11 +1274,11 @@ function horadia() {
     escolha.style.display = 'none'
     container_fechado.style.display = 'block'
     container_fechado.style.gridRow = 3
-    infatend.innerText = "\nAbriremos as 17h ate breve!";
-    dsp.innerHTML = " Domingo: 17h às 23h ";
+    infatend.innerText = "\n Domingo: 17h às 23h";
+    dsp.innerHTML = "Abriremos as 17h ate breve! ";
   
   } else {
-      if (hora < 17 || hora >= 23) { // Fechado antes das 15h ou depois das 23h || hora >= 23
+      if (hora < 15 || hora >= 23) { // Fechado antes das 15h ou depois das 23h || hora >= 23
         reshora.style.color = "red";
         reshora.innerHTML = " FECHADO, ";
         open_close.innerHTML = " FECHADO ";
@@ -1348,11 +1358,11 @@ function dataDia() {
   var diaSemana = dataAtual.getDay();
   const diaDaSemana = [
     "Domingo",
-    "Segunda-Feira",
-    "Terça-Feira",
-    "Quarta-Feira",
-    "Quinta-Feira",
-    "Sexta-Feira",
+    "Segunda",
+    "Terça",
+    "Quarta",
+    "Quinta",
+    "Sexta",
     "Sabado",
   ];
   var hoje = dia + "/" + mes + "/" + ano;
