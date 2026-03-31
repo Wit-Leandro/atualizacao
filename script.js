@@ -1295,11 +1295,11 @@ function horadia() {
 
     } else {
         if (diaSemana != 1 && diaSemana != 6 && diaSemana != 0){ // 2 a 6 feira
-          infatend.innerText = "\nAtendimento de Terça a Sexta das 10:45 às 23h";
+          infatend.innerText = "\nAtendimento das 14 às 23h";
         } else if (diaSemana == 6){ 
-          infatend.innerText = "\nAtendimento aos Sábados das 17h às 23h";
+          infatend.innerText = "\nAtendimento das 17h às 23h";
         }else if (diaSemana == 0){ 
-          infatend.innerText = "\nAtendimento aos Domingos das 17h às 23h";
+          infatend.innerText = "\nAtendimento das 17h às 23h";
         }
       reshora.style.color = "green";
       reshora.innerHTML = " ABERTO: ";
