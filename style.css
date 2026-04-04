@@ -617,7 +617,7 @@ footer a img {
   height: 35px;
   border: solid 1px;
   border-radius: 20px;
-  margin: 0 1px 0 1px;
+  margin-top: 3px;
 }
 .tab10 {
   background-color: rgb(128, 32, 78);
@@ -630,7 +630,7 @@ footer a img {
   height: 35px;
   border: solid 1px;
   border-radius: 20px;
-  margin: 0 1px 0 1px;
+  margin-top: 5px;
 }
 
 .tab:hover {
@@ -681,12 +681,13 @@ footer a img {
   display: none;
 }
 
-#imagem_copo {
-  margin-top: 10px;
-}
 
 #imagem_copo img {
+  display: inline-flex;
   width: 300px;
+  height: 260px;
+  margin-top: 10px;
+  border-radius: 20px;
 }
 
 
@@ -699,18 +700,14 @@ footer a img {
   font-weight: bolder
 }
 
-
-#imagem_marmita {
-  margin-top: 10px;
-}
-
 #imagem_marmita img {
+  display: inline-flex;
   width: 300px;
+  height: 260px;
+  margin-top: 10px;
+  border-radius: 20px;
 }
 
-#imagem_marmita:hover {
-  cursor: pointer;
-}
 
 .imgdcab {
   margin-right: 5px;
@@ -752,29 +749,6 @@ footer a img {
   margin-top: 20px;
 }
 
-#imagem_copo {
-  width: 320px;
-  border-radius: 20px;
-  margin-left: 10px;
-}
-
-#imagem_copo img {
-  border-radius: 20px 20px 20px 20px;
-  margin-top: 5px;
-  margin-right: 10px;
-}
-
-#imagem_marmita {
-  width: 320px;
-  border-radius: 20px;
-  margin-left: 10px;
-}
-
-#imagem_marmita img {
-  border-radius: 20px 20px 20px 20px;
-  margin-top: 5px;
-  margin-right: 10px;
-}
 
 #limpar {
   display: none;
@@ -2636,6 +2610,7 @@ height: 25px;
 }
 
 .mais_pedidos {
+  width: 320px;
   background: #ffffff;
   border-radius: 16px;
   padding: 16px;
@@ -2701,6 +2676,7 @@ p.estilo_titulo2 {
 
 /* CONTAINER */
 .category {
+  width: 320px;
   background: radial-gradient(#cc82e1, #a92fca);
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -3344,9 +3320,9 @@ p.estilo_titulo2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 1px;
 
-  font-size: 10px;
+  font-size: 9px;
   color: #ddd;
 
   box-shadow: 0 3px 8px rgba(0,0,0,0.25);
@@ -3383,4 +3359,20 @@ p.estilo_titulo2 {
 }
 #btn_sabores_4bolas {
   display: none;
+}
+
+#massa4bolas img {
+  display: inline-flex;
+  width: 300px;
+  height: 260px;
+  margin-top: 10px;
+  border-radius: 20px;
+}
+
+#salada img {
+  display: inline-flex;
+  width: 300px;
+  height: 260px;
+  margin-top: 10px;
+  border-radius: 20px;
 }
