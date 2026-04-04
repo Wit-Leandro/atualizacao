@@ -904,7 +904,7 @@ function procurarCobrarCobbertura(find, proc) {
 
 var tadd = 0;
 var ad = 0;
-var custo = 3;
+var custo = 4;
 msg = "";
 var adicional_comprado = []
 
@@ -918,7 +918,7 @@ btn_compra_add.addEventListener("click", function () {
   msg = " Com mais " + ad + " adicional no valor de R$" + tadd + " Reais";
   const adiciona = { vlr: 0, obs: msg };
   sessionStorage.setItem("adiciona", JSON.stringify(adiciona));
-  adicional_comprado.push(3);
+  adicional_comprado.push(4);
   alert("Sucesso!! Você comprou + 1 adiconal \u{1F60A}");
   resadicao.innerHTML ="Escolha " + somarArray(limite) + " adiconais para seu açai";
   adicionais.style.display = "block";
@@ -2271,7 +2271,13 @@ function alterarQuantidade(valor, quantidadeId) {
         quantidadeInput.value = novaQuantidade;
         
     } else {
-        alert(`O total de produtos não pode exceder ${somarArray(limite)}.`);
+        alert(
+          "Limite de adicionais atingido! 😅\n\n" +
+          "Adicione mais por apenas R$ 4,00 💰\n\n" +
+          "e deixe seu açaí ainda melhor 😋\n\n" +
+          "Botão adicionado no topo da pagina"
+
+);
         adicao.style.display = 'block'
         vazio.style.display = 'none'
     }
