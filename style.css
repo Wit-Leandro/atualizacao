@@ -619,6 +619,19 @@ footer a img {
   border-radius: 20px;
   margin: 0 1px 0 1px;
 }
+.tab10 {
+  background-color: rgb(128, 32, 78);
+  color: #fff;
+  font-weight: bolder;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 340px;
+  height: 35px;
+  border: solid 1px;
+  border-radius: 20px;
+  margin: 0 1px 0 1px;
+}
 
 .tab:hover {
   background-color: #b96bcf;
@@ -3361,5 +3374,13 @@ p.estilo_titulo2 {
 
 /* REMOVE QUEBRAS ANTIGAS */
 #oct_hora br {
+  display: none;
+}
+
+.sabores4bolas {
+  display: none;
+  grid-row: 3;
+}
+#btn_sabores_4bolas {
   display: none;
 }

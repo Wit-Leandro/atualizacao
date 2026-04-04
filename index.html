@@ -70,6 +70,10 @@
         <button class="tab5" onclick="openCategory('evt','pote_massa_esp')">Pote de Massa Especial</button>
       </div>
 
+      <div class="tab-container10">
+        <button class="tab10" onclick="openCategory('evt','massa4bolas')">Potes de Massa 4 Bolas</button>
+      </div>
+
       <div class="tab-container6">
         <button class="tab6" onclick="openCategory('evt','novidade')">Pedidos Prontos</button>
         <button id="bloquear" class="tab6" onclick="openCategory('evt','bebidas')">Bebidas</button>
@@ -93,8 +97,6 @@
           </form>
         </div>
       </div>
-
-
 
       <div class="category" id="salada">
         <div class="mais_pedidos">
@@ -214,6 +216,13 @@
 
       </div>
 
+      <div class="category" id="massa4bolas">
+        <div class="mais_pedidos">
+          <h2 class="estilo_titulo2">Pote de Massa 4 Bolas</h2>
+          <button class="btn_escolha_shake" id="btn_4bolas">Escolha Sabores!</button>
+        </div>
+      </div>
+
       <div class="category" id="bebidas">
         <h1 class="estilo_titulo">EM BREVE!</h1>
       </div>
@@ -289,14 +298,14 @@
       </div>
 
       <div class="category" id="acai_recheio">
-        <h4 class="titulo_shake">Monte seu açaí perfeito</h4> 
+        <h4 class="titulo_shake">Monte seu açaí perfeito</h4>
         <div class="tab-container3">
           <button class="sub_tab" onclick="openSubCategory('evt', 'copos')">ESCOLHA COPOS</button>
           <button class="sub_tab" onclick="openSubCategory('evt', 'marmitas')">ESCOLHA MARMITAS</button>
         </div>
 
         <div id="copos" class="sub_category">
-          <h3 class="paragrafo_shake">Comece escolhendo o tamanho do copo!</h3>  
+          <h3 class="paragrafo_shake">Comece escolhendo o tamanho do copo!</h3>
           <p class="paragrafo_shake">Escolha entre 300ml, 400ml, 500ml ou 700ml e continue</p>
           <select id="meu_select_copo" onchange="exibirCopos()" class="select_copo">
             <option value="300ml">300ml R$ 18,00</option>
@@ -304,7 +313,7 @@
             <option value="500ml">500ml R$ 25,00</option>
             <option value="700ml">700ml R$ 36,00</option>
           </select>
-           
+
           <button class="btn_escolha_shake" id="btn_copo">MONTAR!!</button>
           <div id="imagem_copo">
             <img src="imagens/copo300ml.jpg" alt="copo_açai" />
@@ -312,7 +321,7 @@
         </div>
 
         <div id="marmitas" class="sub_category">
-          <h3 class="paragrafo_shake">Comece escolhendo o tamanho da marmita!</h3>  
+          <h3 class="paragrafo_shake">Comece escolhendo o tamanho da marmita!</h3>
           <p class="paragrafo_shake">Escolha entre 500ml, 750ml ou 1200ml e continue</p>
           <select id="meu_select_marmita" onchange="exibirMarmitas()" class="select_marmita">
             <option value="500ml">500ml R$ 28,00</option>
@@ -400,8 +409,6 @@
         <br />
 
         <span id="regiao_mensagem">--Por favor, Selecione uma das opções acima!!--</span>
-
-
 
       </div>
 
@@ -851,12 +858,12 @@
           <input type="checkbox" id="checkbox301" class="checkbox" value="Sabor: Abacaxi ao vinho" />
           <span>Abacaxi ao vinho</span>
         </label>
-<!--
+
         <label for="checkbox302" id="check_grid_302" class="check302">
           <input type="checkbox" id="checkbox302" class="checkbox" value="Sabor: Brownie" />
           <span>Brownie</span>
         </label>
--->
+
         <label for="checkbox303" id="check_grid_303" class="check303">
           <input type="checkbox" id="checkbox303" class="checkbox" value="Sabor: Maracuja" />
           <span>Maracuja</span>
@@ -901,7 +908,8 @@
           <input type="checkbox" id="checkbox311" class="checkbox" value="Sabor: Lacta" />
           <span>Lacta</span>
         </label>
--->
+      -->
+
         <label for="checkbox312" id="check_grid_312" class="check312">
           <input type="checkbox" id="checkbox312" class="checkbox" value="Sabor: Leite condensado" />
           <span>Leite condensado</span>
@@ -995,11 +1003,12 @@
 
     </div>
 
-
     <div id="coberturas">
       <div class="mais_pedidos">
-        <h4 class="estilo_titulo2">Finalize com até 2 coberturas e deixe seu milk shake do jeito que você ama!</h4>
-        <p class="estilo_titulo2">"Escolha até 2 coberturas e deixe seu milk shake ainda mais irresistível!"</p>
+        <h4 class="estilo_titulo2">Finalize com até 2 coberturas e deixe seu <span id="res_cobertura"></span> do jeito
+          que você ama!</h4>
+        <p class="estilo_titulo2">"Escolha até 2 coberturas e deixe seu <span id="res_cobertura2"></span> ainda mais
+          irresistível!"</p>
         <button class="btns2" id="btn_escolha_cobertura">Avançar!</button>
       </div>
       <div class="cx_add_cobertura">
@@ -1090,7 +1099,7 @@
 
     <div id="complemento_shake">
       <div class="mais_pedidos">
-        <h4 class="estilo_titulo2">Finalize com até 2 complementos e deixe seu milk shake do jeito que você ama!</h4>
+        <h4 class="estilo_titulo2">Finalize com até 2 complementos e deixe do jeito que você ama!</h4>
         <p class="estilo_titulo2" id="res_complemento_shake"></p>
         <button class="btns2" id="btn_escolha_complemento_shake">Avançar!</button>
       </div>
@@ -1099,130 +1108,130 @@
 
 
         <label for="checkbox500" id="check500" class="check500">
-          <input type="checkbox" id="checkbox500" class="checkbox" value="Leite_condensado" />
-          <span>Leite condensado
+          <input type="checkbox" id="checkbox500" class="checkbox" value="Leite condensado 30ml" />
+          <span>Leite condensado 30ml</span>
         </label>
 
         <label for="checkbox501" id="check501" class="check501">
-          <input type="checkbox" id="checkbox501" class="checkbox" value="Cr_Nutella" />
-          <span>Cr. Nutella</span>
+          <input type="checkbox" id="checkbox501" class="checkbox" value="Cr Nutella 30ml" />
+          <span>Cr. Nutella 30ml</span>
         </label>
 
         <label for="checkbox502" id="check502" class="check502">
-          <input type="checkbox" id="checkbox502" class="checkbox" value="Cr_Leite_Ninho" />
-          <span>Cr. Leite Ninho</span>
+          <input type="checkbox" id="checkbox502" class="checkbox" value="Cr Leite Ninho 30ml" />
+          <span>Cr. Leite Ninho 30ml</span>
         </label>
 
         <label for="checkbox503" id="check503" class="check503">
-          <input type="checkbox" id="checkbox503" class="checkbox" value="Cr_Morango" />
-          <span>Cr. Morango</span>
+          <input type="checkbox" id="checkbox503" class="checkbox" value="Cr Morango 30ml" />
+          <span>Cr. Morango 30ml</span>
         </label>
 
 
         <label for="checkbox504" id="check504" class="check504">
-          <input type="checkbox" id="checkbox504" class="checkbox" value="Cr_Bombom" />
-          <span>Cr. Bombom</span>
+          <input type="checkbox" id="checkbox504" class="checkbox" value="Cr Bombom 30ml" />
+          <span>Cr. Bombom 30ml</span>
         </label>
 
 
         <label for="checkbox505" id="check505" class="check505">
-          <input type="checkbox" id="checkbox505" class="checkbox" value="Cr_Chocobis" />
-          <span>Cr. Chocobis<span>
+          <input type="checkbox" id="checkbox505" class="checkbox" value="Cr Chocobis 30ml" />
+          <span>Cr. Chocobis 30ml</span>
         </label>
 
 
         <label for="checkbox506" id="check506" class="check506">
-          <input type="checkbox" id="checkbox506" class="checkbox" value="Cr_Pacoca" />
-          <span>Cr. Paçoca</span>
+          <input type="checkbox" id="checkbox506" class="checkbox" value="Cr Pacoca 30ml" />
+          <span>Cr. Paçoca 30ml</span>
         </label>
 
 
         <label for="checkbox507" id="check507" class="check507">
-          <input type="checkbox" id="checkbox507" class="checkbox" value="Cr_OvoMaltine" />
-          <span>Cr. Ovomaltine</span>
+          <input type="checkbox" id="checkbox507" class="checkbox" value="Cr OvoMaltine 30ml" />
+          <span>Cr. Ovomaltine 30ml</span>
         </label>
 
 
         <label for="checkbox508" id="check508" class="check508">
-          <input type="checkbox" id="checkbox508" class="checkbox" value="Confete" />
-          <span>Confete</span>
+          <input type="checkbox" id="checkbox508" class="checkbox" value="Confete 30ml" />
+          <span>Confete 30ml</span>
         </label>
 
 
         <label for="checkbox509" id="check509" class="check509">
-          <input type="checkbox" id="checkbox509" class="checkbox" value="Mini_Chocoball" />
-          <span>Mini Chocoball</span>
+          <input type="checkbox" id="checkbox509" class="checkbox" value="Mini Chocoball 30ml" />
+          <span>Mini Chocoball 30ml</span>
         </label>
 
 
         <label for="checkbox510" id="check510" class="check510">
-          <input type="checkbox" id="checkbox510" class="checkbox" value="ChocoBall" />
-          <span>ChocoBall</span>
+          <input type="checkbox" id="checkbox510" class="checkbox" value="ChocoBall 30ml" />
+          <span>ChocoBall 30ml</span>
         </label>
 
 
         <label for="checkbox511" id="check511" class="check511">
-          <input type="checkbox" id="checkbox511" class="checkbox" value="Power_Ball" />
-          <span>Power Ball</span>
+          <input type="checkbox" id="checkbox511" class="checkbox" value="Power Ball 30ml" />
+          <span>Power Ball 30ml</span>
         </label>
 
 
         <label for="checkbox512" id="check512" class="check512">
-          <input type="checkbox" id="checkbox512" class="checkbox" value="Sucrilhos" />
-          <span>Sucrilhos</span>
+          <input type="checkbox" id="checkbox512" class="checkbox" value="Sucrilhos 30ml" />
+          <span>Sucrilhos 30ml</span>
         </label>
 
         <label for="checkbox513" id="check513" class="check513">
-          <input type="checkbox" id="checkbox513" class="checkbox" value="Leite_em_Po" />
-          <span>Leite em Po</span>
+          <input type="checkbox" id="checkbox513" class="checkbox" value="Leite em Po 30ml" />
+          <span>Leite em Po 30ml</span>
         </label>
 
         <label for="checkbox514" id="check514" class="check514">
-          <input type="checkbox" id="checkbox514" class="checkbox" value="Ouro_Branco" />
+          <input type="checkbox" id="checkbox514" class="checkbox" value="Ouro Branco" />
           <span>Ouro Branco</span>
         </label>
 
         <label for="checkbox515" id="check515" class="check515">
-          <input type="checkbox" id="checkbox515" class="checkbox" value="Amendoim" />
-          <span>Amendoim</span>
+          <input type="checkbox" id="checkbox515" class="checkbox" value="Amendoim 30ml" />
+          <span>Amendoim 30ml</span>
         </label>
 
         <label for="checkbox516" id="check516" class="check516">
-          <input type="checkbox" id="checkbox516" class="checkbox" value="Farofa_de_Paçoca" />
-          <span>Farofa de Paçoca</span>
+          <input type="checkbox" id="checkbox516" class="checkbox" value="Farofa de Paçoca 30ml" />
+          <span>Farofa de Paçoca 30ml</span>
         </label>
 
         <label for="checkbox517" id="check517" class="check517">
-          <input type="checkbox" id="checkbox517" class="checkbox" value="Granola" />
-          <span>Granola</span>
+          <input type="checkbox" id="checkbox517" class="checkbox" value="Granola 30ml" />
+          <span>Granola 30ml</span>
         </label>
 
         <label for="checkbox518" id="check518" class="check518">
-          <input type="checkbox" id="checkbox518" class="checkbox" value="Bis_Preto" />
+          <input type="checkbox" id="checkbox518" class="checkbox" value="Bis Preto" />
           <span>Bis Preto</span>
         </label>
 
 
         <label for="checkbox519" id="check519" class="check519">
-          <input type="checkbox" id="checkbox519" class="checkbox" value="Bis_Branco" />
+          <input type="checkbox" id="checkbox519" class="checkbox" value="Bis Branco" />
           <span>Bis Branco</span>
         </label>
 
-<!--
+        <!--
         <label for="checkbox520" id="check520" class="check520">
-          <input type="checkbox" id="checkbox520" class="checkbox" value="Paçoca_com_Chocolate" />
+          <input type="checkbox" id="checkbox520" class="checkbox" value="Paçoca com Chocolate" />
           <span>Paçoca com Chocolate</span>
         </label>
 
 
         <label for="checkbox521" id="check521" class="check521">
-          <input type="checkbox" id="checkbox521" class="checkbox" value="Paçoca_com_Chocolate_Branco" />
+          <input type="checkbox" id="checkbox521" class="checkbox" value="Paçoca com Chocolate Branco" />
           <span>Paçoca com Chocolate Branco</span>
         </label>
--->
+      -->
 
         <label for="checkbox522" id="check522" class="check522">
-          <input type="checkbox" id="checkbox522" class="checkbox" value="Ovo_Maltine" />
+          <input type="checkbox" id="checkbox522" class="checkbox" value="OvoMaltine" />
           <span>Ovomaltine</span>
         </label>
 
@@ -1240,7 +1249,7 @@
 
 
         <label for="checkbox525" id="check525" class="check525">
-          <input type="checkbox" id="checkbox525" class="checkbox" value="Gotas_de_Chocolate" />
+          <input type="checkbox" id="checkbox525" class="checkbox" value="Gotas de Chocolate" />
           <span>Gotas de Chocolate</span>
         </label>
 
@@ -1353,6 +1362,176 @@
         </label>
 
       </div>
+    </div>
+
+    <div id="sabores4bolas" class="sabores4bolas">
+      <div class="mais_pedidos">
+        <h4 class="estilo_titulo2">"Escolha 4 sabores e monte seu sorvete perfeito!"</h4>
+        <p class="estilo_titulo2">"Escolha os 4 sabores para continuar"</p>
+        <button class="btns2" id="btn_sabores_4bolas">Avançar!</button>
+      </div>
+      <div class="cx_itens">
+        <input type="text" id="sabor_item1" value="Abacaxi ao Vinho" readonly>
+        <input type="number" id="sabor_quantidade1" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade1')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade1')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item2" value="Abacaxi em Pedaços" readonly>
+        <input type="number" id="sabor_quantidade2" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade2')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade2')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item3" value="Banana Com Nutella" readonly>
+        <input type="number" id="sabor_quantidade3" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade3')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade3')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item4" value="Brigadeiro" readonly>
+        <input type="number" id="sabor_quantidade4" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade4')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade4')">&#10134</button>
+      </div>
+
+      <div id="bloquear" class="cx_itens">
+        <input type="text" id="sabor_item5" value="Brownie" readonly>
+        <input type="number" id="sabor_quantidade5" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade5')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade5')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item6" value="Céu Azul" readonly>
+        <input type="number" id="sabor_quantidade6" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade6')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade6')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item7" value="Chocomenta" readonly>
+        <input type="number" id="sabor_quantidade7" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade7')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade7')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item8" value="Coco Branco" readonly>
+        <input type="number" id="sabor_quantidade8" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade8')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade8')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item9" value="Ferrero Roche" readonly>
+        <input type="number" id="sabor_quantidade9" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade9')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade9')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item10" value="Flocos" readonly>
+        <input type="number" id="sabor_quantidade10" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade10')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade10')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item11" value="KinderOvo" readonly>
+        <input type="number" id="sabor_quantidade11" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade11')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade11')">&#10134</button>
+      </div>
+
+      <div id="bloquear" class="cx_itens">
+        <input type="text" id="sabor_item12" value="Lacta" readonly>
+        <input type="number" id="sabor_quantidade12" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade12')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade12')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item13" value="Leite condensado" readonly>
+        <input type="number" id="sabor_quantidade13" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade13')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade13')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item14" value="Leite Ninho" readonly>
+        <input type="number" id="sabor_quantidade14" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade14')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade14')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item15" value="Maracuja" readonly>
+        <input type="number" id="sabor_quantidade15" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade15')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade15')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item16" value="Morango" readonly>
+        <input type="number" id="sabor_quantidade16" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade16')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade16')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item17" value="NAPOLICOPA" readonly>
+        <input type="number" id="sabor_quantidade17" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade17')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade17')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item18" value="Ninho Trunfado" readonly>
+        <input type="number" id="sabor_quantidade18" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade18')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade18')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item19" value="Ovomaltine" readonly>
+        <input type="number" id="sabor_quantidade19" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade19')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade19')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item20" value="Passas ao Rum" readonly>
+        <input type="number" id="sabor_quantidade20" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade20')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade20')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item21" value="Sensação" readonly>
+        <input type="number" id="sabor_quantidade21" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade21')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade21')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item22" value="Torta de Limão" readonly>
+        <input type="number" id="sabor_quantidade22" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade22')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade22')">&#10134</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" id="sabor_item23" value="UNICORNIO" readonly>
+        <input type="number" id="sabor_quantidade23" value="0" readonly>
+        <button onclick="MudaQtdBolas(1, 'sabor_quantidade23')">&#10133</button>
+        <button onclick="MudaQtdBolas(-1, 'sabor_quantidade23')">&#10134</button>
+      </div> 
+
+
     </div>
 
     <div class="sujestao" id="mensagem">

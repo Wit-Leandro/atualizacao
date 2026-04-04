@@ -77,6 +77,8 @@ var btn_ir_mult = document.getElementById('ir_mult')
 var open_close = document.getElementById('open_close')
 var dsp = document.getElementById('disponibilidade')
 var contLogin = document.getElementById('contLogin')
+var res_cobertura = document.getElementById('res_cobertura')
+var res_cobertura2 = document.getElementById('res_cobertura2')
 
 
 /*--------- inicio das funçoes -----*/
@@ -656,6 +658,8 @@ btn_escolha_shake.addEventListener("click", function () {
   }
   else{
   contarCobertura(limite)
+  res_cobertura.innerHTML = 'Milk-Shake'
+  res_cobertura2.innerHTML = 'Milk-Shake'
   sabor_trad.style.display = "none";
   coberturas.style.display = "block";
   }
@@ -672,32 +676,32 @@ btn_escolha_cobertura.addEventListener("click", function () {
 
 var comp_shake = [];
 var proc_shake = [
-  "Leite_condensado",
-  "Cr_Nutella",
-  "Cr_Leite_Ninho",
-  "Cr_Morango",
-  "Cr_Bombom",
-  "Cr_Chocobis",
-  "Cr_Pacoca",
-  "Cr_Ovo_Maltine",
-  "Confete",
-  "Mini_Chocoball",
-  "ChocoBall",
-  "Power_Ball",
-  "Sucrilhos",
-  "Leite_em_Po",
-  "Ouro_Branco",
-  "Amendoin",
-  "Farofa_de_Paçoca",
-  "Granola",
-  "Bis_Preto",
-  "Bis_Branco",
-  "Paçoca_com_Chocolate",
-  "Paçoca_com_Chocolate_Branco",
-  "Ovo_Maltine",
+  "Leite condensado 30ml",
+  "Cr Nutella 30ml",
+  "Cr Leite Ninho 30ml",
+  "Cr Morango 30ml",
+  "Cr Bombom 30ml",
+  "Cr Chocobis 30ml",
+  "Cr Pacoca 30ml",
+  "Cr OvoMaltine 30ml",
+  "Confete 30ml",
+  "Mini Chocoball 30ml",
+  "ChocoBall 30ml",
+  "Power Ball 30ml",
+  "Sucrilhos 30ml",
+  "Leite em Po 30ml",
+  "Ouro Branco",
+  "Amendoim 30ml",
+  "Farofa de Paçoca 30ml",
+  "Granola 30ml",
+  "Bis Preto",
+  "Bis Branco",
+  "Paçoca com Chocolate",
+  "Paçoca com Chocolate Branco",
+  "OvoMaltine",
   "Canudos",
-  "Mashomallons",
-  "Gotas_de_Chocolate",
+  "Marshmallows",
+  "Gotas de Chocolate",
 ];
 var proc_cobertura = [
   "Cobertura:Caramelo",
@@ -1278,7 +1282,7 @@ function horadia() {
     dsp.innerHTML = "Abriremos as 17h ate breve! ";
   
   } else {
-      if (hora < 15 || hora >= 23) { // Fechado antes das 15h ou depois das 23h || hora >= 23
+      if (hora < 17 || hora >= 23) { // Fechado antes das 15h ou depois das 23h || hora >= 23
         reshora.style.color = "red";
         reshora.innerHTML = " FECHADO, ";
         open_close.innerHTML = " FECHADO ";
@@ -2495,3 +2499,113 @@ fetch(url)
     console.error("Erro:", error.message);
     document.getElementById("cidade").innerText = "Erro: " + error.message;
   });
+
+/*----------------POTE 4 BOLAS------------------- */
+var sabores_4bolas = document.getElementById("sabores4bolas");
+var btn_4bolas = document.getElementById("btn_4bolas");
+var res_comp_shake = document.getElementById('res_complemento_shake');
+btn_4bolas.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  sabores4bolas.style.display = "block";
+  const pedido = { acai: "POTE 4 BOLAS", limit: 4, valor: 18 };
+  sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  milk_shake.push('T');
+  res_comp_shake.innerHTML = 'R$ 4,00 Cada'
+  
+  escolha.style.display = "none";
+  sabores_4bolas.style.display = "block";
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite.push(userPedido)
+
+});
+
+var btn_sabores_4bolas = document.getElementById("btn_sabores_4bolas");
+btn_sabores_4bolas.addEventListener("click", function () {
+    const sabores4bolas = [
+  { id: 'sabor_item1', quantidadeId: 'sabor_quantidade1' },
+  { id: 'sabor_item2', quantidadeId: 'sabor_quantidade2' },
+  { id: 'sabor_item3', quantidadeId: 'sabor_quantidade3' },
+  { id: 'sabor_item4', quantidadeId: 'sabor_quantidade4' },
+  { id: 'sabor_item5', quantidadeId: 'sabor_quantidade5' },
+  { id: 'sabor_item6', quantidadeId: 'sabor_quantidade6' },
+  { id: 'sabor_item7', quantidadeId: 'sabor_quantidade7' },
+  { id: 'sabor_item8', quantidadeId: 'sabor_quantidade8' },
+  { id: 'sabor_item9', quantidadeId: 'sabor_quantidade9' },
+  { id: 'sabor_item10', quantidadeId: 'sabor_quantidade10' },
+  { id: 'sabor_item11', quantidadeId: 'sabor_quantidade11' },
+  { id: 'sabor_item12', quantidadeId: 'sabor_quantidade12' },
+  { id: 'sabor_item13', quantidadeId: 'sabor_quantidade13' },
+  { id: 'sabor_item14', quantidadeId: 'sabor_quantidade14' },
+  { id: 'sabor_item15', quantidadeId: 'sabor_quantidade15' },
+  { id: 'sabor_item16', quantidadeId: 'sabor_quantidade16' },
+  { id: 'sabor_item17', quantidadeId: 'sabor_quantidade17' },
+  { id: 'sabor_item18', quantidadeId: 'sabor_quantidade18' },
+  { id: 'sabor_item19', quantidadeId: 'sabor_quantidade19' },
+  { id: 'sabor_item20', quantidadeId: 'sabor_quantidade20' },
+  { id: 'sabor_item21', quantidadeId: 'sabor_quantidade21' },
+  { id: 'sabor_item22', quantidadeId: 'sabor_quantidade22' },
+  { id: 'sabor_item23', quantidadeId: 'sabor_quantidade23' }
+];
+
+  sabores4bolas.forEach(sabor => {
+      const produtoInput = document.getElementById(sabor.id);
+      const quantidadeInput = document.getElementById(sabor.quantidadeId);
+      const produtoNome = produtoInput.value.trim();
+      const quantidade = parseInt(quantidadeInput.value);
+      
+
+      if (quantidade > 0) {
+          var itens_cx = `${produtoNome} - ${quantidade} Bola(s)`;
+          valores.push(itens_cx)
+          quantidadeInput.value = "0";
+      }
+      
+  })
+
+    // Reset totalProdutos após adicionar à lista
+  totalProdutos = 0;
+
+  checkboxes.forEach(function (checkbox) {
+    if (checkbox.checked) {
+      valores.push(checkbox.value);
+    }
+
+    res_cobertura.innerHTML = 'Sorvete'
+    res_cobertura2.innerHTML = 'Sorvete'
+    coberturas.style.display = "block";
+    sabores_4bolas.style.display = "none";
+    adicao.style.display = "none";
+    vazio.style.display = 'none'
+ 
+  });
+}
+);
+
+function MudaQtdBolas(valor, quantidadeId) {
+    const quantidadeInput = document.getElementById(quantidadeId);
+    let quantidadeAtual = parseInt(quantidadeInput.value);
+    let novaQuantidade = quantidadeAtual + valor;
+
+    if (novaQuantidade < 0) novaQuantidade = 0;
+
+
+    // Verifica se a alteração respeita o limite total de produtos
+    if (totalProdutos + (novaQuantidade - quantidadeAtual) <= limite) {
+        totalProdutos += (novaQuantidade - quantidadeAtual);
+        quantidadeInput.value = novaQuantidade;
+        if (totalProdutos == limite){
+          btn_sabores_4bolas.style.display = "block";
+        }
+        else {
+          btn_sabores_4bolas.style.display = "none";
+        }
+    } else {
+        alert(`Desculpe, Escolha apenas ${somarArray(limite)} Bolas.`);
+
+    }
+}
+
+
