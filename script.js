@@ -2514,7 +2514,7 @@ btn_4bolas.addEventListener("click", function (e) {
   e.preventDefault();
 
   sabores4bolas.style.display = "block";
-  const pedido = { acai: "POTE 4 BOLAS", limit: 4, valor: 18 };
+  const pedido = { acai: "POTE 4 BOLAS", limit: 4, valor: 20 };
   sessionStorage.setItem("pedido", JSON.stringify(pedido));
   milk_shake.push('T');
   res_comp_shake.innerHTML = 'R$ 4,00 Cada'
