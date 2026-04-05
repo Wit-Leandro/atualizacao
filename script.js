@@ -2553,7 +2553,11 @@ btn_sabores_4bolas.addEventListener("click", function () {
   { id: 'sabor_item20', quantidadeId: 'sabor_quantidade20' },
   { id: 'sabor_item21', quantidadeId: 'sabor_quantidade21' },
   { id: 'sabor_item22', quantidadeId: 'sabor_quantidade22' },
-  { id: 'sabor_item23', quantidadeId: 'sabor_quantidade23' }
+  { id: 'sabor_item23', quantidadeId: 'sabor_quantidade23' },
+  { id: 'sabor_item24', quantidadeId: 'sabor_quantidade24' },
+  { id: 'sabor_item25', quantidadeId: 'sabor_quantidade25' },
+  { id: 'sabor_item26', quantidadeId: 'sabor_quantidade26' },
+  { id: 'sabor_item27', quantidadeId: 'sabor_quantidade27' }
 ];
 
   sabores4bolas.forEach(sabor => {
