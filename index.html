@@ -55,7 +55,7 @@
     <div id="ocutar">
       <div class="tab-container2">
         <button id="bloquear" class="tab2" onclick="openCategory('evt','acai_tradicional')">Açai - Sem Recheio</button>
-        <button class="tab2" onclick="openCategory('evt','acai_recheio')">Açai - Com Recheio</button>
+        <button id="bloquear" class="tab2" onclick="openCategory('evt','acai_recheio')">Açai - Com Recheio</button>
       </div>
 
       <div class="tab-container">
@@ -850,7 +850,7 @@
 
 
       <div class="cx_add_shake">
-
+<!--
         <label for="checkbox323" id="check_grid_323" class="check323">
           <input type="checkbox" id="checkbox323" class="checkbox" value="Sabor: Açai" />
           <span>Açai</span>
@@ -865,7 +865,7 @@
           <input type="checkbox" id="checkbox325" class="checkbox" value="Sabor: Açai com leiteNinho" />
           <span>Açai com Leite Ninho</span>
         </label>
-
+-->
         <label for="checkbox326" id="check_grid_326" class="check326">
           <input type="checkbox" id="checkbox326" class="checkbox" value="Sabor: Cupuaçu" />
           <span>Cupuaçu</span>
@@ -1394,21 +1394,21 @@
         <button class="btns2" id="btn_sabores_4bolas">Avançar!</button>
       </div>
 
-      <div class="cx_itens">
+      <div id="bloquear" class="cx_itens">
         <input type="text" id="sabor_item24" value="Açai" readonly>
         <input type="number" id="sabor_quantidade24" value="0" readonly>
         <button onclick="MudaQtdBolas(1, 'sabor_quantidade24')">&#10133</button>
         <button onclick="MudaQtdBolas(-1, 'sabor_quantidade24')">&#10134</button>
       </div>
 
-      <div class="cx_itens">
+      <div id="bloquear" class="cx_itens">
         <input type="text" id="sabor_item25" value="Açai com Nutella" readonly>
         <input type="number" id="sabor_quantidade25" value="0" readonly>
         <button onclick="MudaQtdBolas(1, 'sabor_quantidade25')">&#10133</button>
         <button onclick="MudaQtdBolas(-1, 'sabor_quantidade25')">&#10134</button>
       </div>
 
-      <div class="cx_itens">
+      <div id="bloquear" class="cx_itens">
         <input type="text" id="sabor_item26" value="Açai com leiteNinho" readonly>
         <input type="number" id="sabor_quantidade26" value="0" readonly>
         <button onclick="MudaQtdBolas(1, 'sabor_quantidade26')">&#10133</button>
