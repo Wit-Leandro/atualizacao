@@ -91,8 +91,8 @@ window.addEventListener('load', function () {
   var local = 'Não informado'
   dic.push(nome, endereco, ncasa, fone, local)
   loadCounter();
-  alert("Atendimento normal apenas na loja hoje\n das 14hs as 23hs")
-  alert("Hoje não teremos entregas delivery \n Apenas retirada na loja")
+  ///alert("Atendimento normal apenas na loja hoje\n das 14hs as 23hs")
+  //alert("Hoje não teremos entregas delivery \n Apenas retirada na loja")
   //alert("\u{1F4CC}\nCONCLUA TODAS AS ETAPAS \nATÉ A ABA DE PAGAMENTOS \nPARA FINALIZAR SEU PEDIDO")
 
 })
@@ -1016,14 +1016,19 @@ btn_regiao.addEventListener("click", function () {
         dic[4] = checkbox.value;
         if (dic[4] === "Tarumã") {
           dic.push(2);
+          dados_Branco("r",dic[4])
         } else if (dic[4] === "Usina Nova America") {
           dic.push(16);
+          dados_Branco("r", dic[4])
         } else if (dic[4] === "Usina Agua Bonita") {
           dic.push(10);
+          dados_Branco("r", dic[4])
         } else if (dic[4] === "Posto Pioneiro") {
           dic.push(8);
+          dados_Branco("r", dic[4])
         } else if (dic[4] === "Retirar no Tio-Chico") {
           dic.push(0);
+          dados_Branco("n", dic[4])
         }
       }
     });
@@ -1184,6 +1189,10 @@ function mostrarDados() {
 }
 
 imprimir.addEventListener("click", function () {
+  let count_login = parseInt(localStorage.getItem('clickCount')) || 0;
+  count_login++;
+  localStorage.setItem('clickCount', count_login);
+  contLogin.innerHTML = `${count_login}`;
   final.style.display = "none";
   pagamentos.style.display = "block";
   gerarImagemPedido()
@@ -1484,11 +1493,6 @@ btn_finalizar_carrinho.addEventListener("click", function () {
   criarListaArrays(carrinho);
   numeroDoPedido = gerarNumeroPedido();
 
-  let count_login = parseInt(localStorage.getItem('clickCount')) || 0;
-  count_login++;
-  localStorage.setItem('clickCount', count_login);
-  contLogin.innerHTML = `${count_login}`;
-
   escolha_regiao.style.display = 'block'
 
 
@@ -1497,17 +1501,17 @@ btn_finalizar_carrinho.addEventListener("click", function () {
   esconde_p.style.display = 'none'
   carrinhoCompras.style.display = "block";
   escolha.style.display = "none";
-  dados_Branco()
+  
 
 
 
 
 });
 
-function dados_Branco() {
+function dados_Branco(r,d) {
   dic = [];
-
-  do {
+  if (r === "r") {
+      do {
     dic[0] = prompt('Seu nome:');
   } while (!dic[0] || dic[0].trim() === '');
   dic[0] = dic[0].toUpperCase();
@@ -1526,7 +1530,24 @@ function dados_Branco() {
     dic[3] = prompt('Numero whatsapp para contato');
   } while (!dic[3] || dic[3].trim() === '');
   dic[3] = dic[3].toUpperCase();
+  dic[4] = d;
+  }
+  else {
+    do {
+      dic[0] = prompt('Seu nome:');
+    } while (!dic[0] || dic[0].trim() === '');
+    dic[0] = dic[0].toUpperCase();
+    do {
+      dic[3] = prompt('Numero whatsapp para contato');
+    } while (!dic[3] || dic[3].trim() === '');
+    dic[3] = dic[3].toUpperCase();
+    dic[1] ='-';
+    dic[2] ='-';
+    dic[4] = d;
+  }
 }
+
+
 
 
 

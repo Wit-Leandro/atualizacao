@@ -55,7 +55,7 @@
     <div id="ocutar">
       <div class="tab-container2">
         <button id="bloquear" class="tab2" onclick="openCategory('evt','acai_tradicional')">Açai - Sem Recheio</button>
-        <button id="bloquear" class="tab2" onclick="openCategory('evt','acai_recheio')">Açai - Com Recheio</button>
+        <button class="tab2" onclick="openCategory('evt','acai_recheio')">Açai - Com Recheio</button>
       </div>
 
       <div class="tab-container">
@@ -367,12 +367,12 @@
     <div id="escolha_regiao" style="display: none;">
       <h2 class="estilo_titulo">Região</h2>
       <h5 class="estilo_titulo">Informe sua sua região:</h5>
-      <h5 class="estilo_titulo">HOJE APENAS RETIRAR NA LOJA:</h5>
+     <!-- <h5 class="estilo_titulo">HOJE APENAS RETIRAR NA LOJA:</h5> -->
 
       <div class="inpt_regiao">
-        <button class="btns_regioes" id="btn_regiao" onclick="verificarRegiao()">ENVIAR e CONTINUAR</button>
+        <button class="btns_regioes" id="btn_regiao">ENVIAR e CONTINUAR</button>
 
-        <div id="bloquear" class="iptn_div">
+        <div class="iptn_div">
           <input type="checkbox" id="taruma" class="regiao" value="Tarumã" />
           <label for="checkbox80">Dentro de Tarumã</label>
           <span>(taxa de R$2,00 isento R$30,00)</span>
@@ -380,7 +380,7 @@
 
         <br />
 
-        <div id="bloquear" class="iptn_div">
+        <div class="iptn_div">
           <input type="checkbox" id="america" class="regiao" value="Usina Nova America" />
           <label for="checkbox81">Usina Nova America</label>
           <span>(taxa de R$16,00 isento R$200,00)</span>
@@ -388,7 +388,7 @@
 
         <br />
 
-        <div id="bloquear" class="iptn_div">
+        <div class="iptn_div">
           <input type="checkbox" id="bonita" class="regiao" value="Usina Agua Bonita" />
           <label for="checkbox82">Usina Agua Bonita</label>
           <span>(taxa de R$10,00 isento R$120,00)</span>
@@ -396,7 +396,7 @@
 
         <br />
 
-        <div id="bloquear" class="iptn_div">
+        <div class="iptn_div">
           <input type="checkbox" id="pioneiro" class="regiao" value="Posto Pioneiro" />
           <label for="checkbox83">Posto Pioneiro</label>
           <span>(taxa de R$8,00 isento R$100,00)</span>
@@ -851,7 +851,7 @@
 
 
       <div class="cx_add_shake">
-<!--
+
         <label for="checkbox323" id="check_grid_323" class="check323">
           <input type="checkbox" id="checkbox323" class="checkbox" value="Sabor: Açai" />
           <span>Açai</span>
@@ -866,7 +866,7 @@
           <input type="checkbox" id="checkbox325" class="checkbox" value="Sabor: Açai com leiteNinho" />
           <span>Açai com Leite Ninho</span>
         </label>
--->
+
         <label for="checkbox326" id="check_grid_326" class="check326">
           <input type="checkbox" id="checkbox326" class="checkbox" value="Sabor: Cupuaçu" />
           <span>Cupuaçu</span>
@@ -1395,21 +1395,21 @@
         <button class="btns2" id="btn_sabores_4bolas">Avançar!</button>
       </div>
 
-      <div id="bloquear" class="cx_itens">
+      <div class="cx_itens">
         <input type="text" id="sabor_item24" value="Açai" readonly>
         <input type="number" id="sabor_quantidade24" value="0" readonly>
         <button onclick="MudaQtdBolas(1, 'sabor_quantidade24')">&#10133</button>
         <button onclick="MudaQtdBolas(-1, 'sabor_quantidade24')">&#10134</button>
       </div>
 
-      <div id="bloquear" class="cx_itens">
+      <div class="cx_itens">
         <input type="text" id="sabor_item25" value="Açai com Nutella" readonly>
         <input type="number" id="sabor_quantidade25" value="0" readonly>
         <button onclick="MudaQtdBolas(1, 'sabor_quantidade25')">&#10133</button>
         <button onclick="MudaQtdBolas(-1, 'sabor_quantidade25')">&#10134</button>
       </div>
 
-      <div id="bloquear" class="cx_itens">
+      <div class="cx_itens">
         <input type="text" id="sabor_item26" value="Açai com leiteNinho" readonly>
         <input type="number" id="sabor_quantidade26" value="0" readonly>
         <button onclick="MudaQtdBolas(1, 'sabor_quantidade26')">&#10133</button>
