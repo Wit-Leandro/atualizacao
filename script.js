@@ -1025,10 +1025,10 @@ btn_regiao.addEventListener("click", function () {
 
         } else if (dic[4] === "Posto Pioneiro") {
           dic.push(8);
-          dados_Branco("r", dic[4])
+     
         } else if (dic[4] === "Retirar no Tio-Chico") {
           dic.push(0);
-          dados_Branco("n", dic[4])
+  
         }
       }
     });
@@ -1501,6 +1501,7 @@ btn_finalizar_carrinho.addEventListener("click", function () {
   esconde_p.style.display = 'none'
   carrinhoCompras.style.display = "block";
   escolha.style.display = "none";
+  dados_Branco()
   
 
 
@@ -1508,10 +1509,9 @@ btn_finalizar_carrinho.addEventListener("click", function () {
 
 });
 
-function dados_Branco(r,d) {
+function dados_Branco() {
   dic = [];
-  if (r === "r") {
-      do {
+  do {
     dic[0] = prompt('Seu nome:');
   } while (!dic[0] || dic[0].trim() === '');
   dic[0] = dic[0].toUpperCase();
@@ -1530,21 +1530,6 @@ function dados_Branco(r,d) {
     dic[3] = prompt('Numero whatsapp para contato');
   } while (!dic[3] || dic[3].trim() === '');
   dic[3] = dic[3].toUpperCase();
-  dic[4] = d;
-  }
-  else {
-    do {
-      dic[0] = prompt('Seu nome:');
-    } while (!dic[0] || dic[0].trim() === '');
-    dic[0] = dic[0].toUpperCase();
-    do {
-      dic[3] = prompt('Numero whatsapp para contato');
-    } while (!dic[3] || dic[3].trim() === '');
-    dic[3] = dic[3].toUpperCase();
-    dic[1] ='-';
-    dic[2] ='-';
-    dic[4] = d;
-  }
 }
 
 
