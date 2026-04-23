@@ -1016,13 +1016,13 @@ btn_regiao.addEventListener("click", function () {
         dic[4] = checkbox.value;
         if (dic[4] === "Tarumã") {
           dic.push(2);
-          dados_Branco("r",dic[4])
+          
         } else if (dic[4] === "Usina Nova America") {
           dic.push(16);
-          dados_Branco("r", dic[4])
+         
         } else if (dic[4] === "Usina Agua Bonita") {
           dic.push(10);
-          dados_Branco("r", dic[4])
+
         } else if (dic[4] === "Posto Pioneiro") {
           dic.push(8);
           dados_Branco("r", dic[4])
