@@ -1,3 +1,8 @@
+// FECHAR LOJA = 1 || ABRIR LOJA = 2
+
+var loja = 2
+
+//-------------------------------------
 var preco = [];
 var dic = [];
 var vlr_final = [];
@@ -669,9 +674,16 @@ btn_escolha_shake.addEventListener("click", function () {
 var complemento_shake = document.getElementById("complemento_shake");
 var btn_escolha_cobertura = document.getElementById("btn_escolha_cobertura");
 btn_escolha_cobertura.addEventListener("click", function () {
-  contarComplemento(limite)
+  checkboxes.forEach(function (checkbox) {
+    if (checkbox.checked) {
+      valores.push(checkbox.value);
+      comp_shake.push(checkbox.value);
+    }
+  });
+  contarComplemento(limite);
   coberturas.style.display = "none";
-  complemento_shake.style.display = "block";
+  mensagem.style.display = "block";
+  //complemento_shake.style.display = "block"; 
 });
 
 
@@ -1260,9 +1272,9 @@ function horadia() {
   if (minutos < 10) minutos = "0" + minutos;
   if (segundos < 10) segundos = "0" + segundos;
 
-  if (diaSemana == 1) { //  1 Segunda-feira
+  if (diaSemana == 8) { //  1 Segunda-feira 
     reshora.style.color = "red";
-    reshora.innerHTML = " FECHADO, ";
+    reshora.innerHTML = " FECHADO ";
     open_close.innerHTML = " FECHADO ";
     escolha.style.display = 'none'
     container_fechado.style.display = 'block'
@@ -1271,7 +1283,7 @@ function horadia() {
     dsp.innerHTML = " Estamos fechados hoje, voltamos amanha as 10:45 ate breve!";
 
 
-  } else if (diaSemana == 6 && hora < 17) { // aos sabados recebe um horario de atendimento diferente
+  } else if (diaSemana == 8 && hora < 17) { // aos sabados recebe um horario de atendimento diferente
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
     open_close.innerHTML = " FECHADO ";
@@ -1281,7 +1293,7 @@ function horadia() {
     infatend.innerText = "\n Sábado: 17h às 23h";
     dsp.innerHTML = " Abriremos as 17h ate breve! ";
 
-  } else if (diaSemana == 0 && hora < 17) { // aos domingos recebe um horario de atendimento diferente
+  } else if (diaSemana == 8 && hora < 17) { // aos domingos recebe um horario de atendimento diferente
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO, ";
     open_close.innerHTML = " FECHADO ";
@@ -1292,9 +1304,9 @@ function horadia() {
     dsp.innerHTML = "Abriremos as 17h ate breve! ";
 
   } else {
-    if (hora < 17 || hora >= 23) { // Fechado antes das 15h ou depois das 23h || hora >= 23
+    if (loja == 1) { // Fechado regra antiga || 23h || hora >= 23
       reshora.style.color = "red";
-      reshora.innerHTML = " FECHADO, ";
+      reshora.innerHTML = " FECHADO ";
       open_close.innerHTML = " FECHADO ";
       escolha.style.display = 'none'
       container_fechado.style.display = 'block'
@@ -1308,15 +1320,16 @@ function horadia() {
       //alert('* Estamos fechados *\nFuncionamento de Terça á Domingo das 14h as 23h')
 
     } else {
-      if (diaSemana != 1 && diaSemana != 6 && diaSemana != 0) { // 2 a 6 feira
+      /*if (diaSemana != 1 && diaSemana != 6 && diaSemana != 0) { // 2 a 6 feira
         infatend.innerText = "\n --- ";
       } else if (diaSemana == 6) {
         infatend.innerText = "\n --- ";
       } else if (diaSemana == 0) {
         infatend.innerText = "\n --- ";
-      }
+      }*/
+      infatend.innerText = '\n ---';
       reshora.style.color = "green";
-      reshora.innerHTML = " ABERTO: ";
+      reshora.innerHTML = " ABERTO ";
       open_close.innerHTML = " ABERTO ";
       container_fechado.style.display = 'none'
     }
@@ -1324,6 +1337,7 @@ function horadia() {
 
   hdia.innerHTML = 'Hora: ' + hora + ":" + minutos + ":" + segundos + " ";
 }
+
 function informarDataHora() {
   var dataAtual = new Date();
   var hora = dataAtual.getHours();
@@ -2531,7 +2545,7 @@ btn_4bolas.addEventListener("click", function (e) {
   e.preventDefault();
 
   sabores4bolas.style.display = "block";
-  const pedido = { acai: "POTE 4 BOLAS", limit: 4, valor: 20 };
+  const pedido = { acai: "POTE 4 BOLAS", limit: 4, valor: 22 };
   sessionStorage.setItem("pedido", JSON.stringify(pedido));
   milk_shake.push('T');
   res_comp_shake.innerHTML = 'R$ 4,00 Cada'

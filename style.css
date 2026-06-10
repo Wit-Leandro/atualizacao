@@ -34,7 +34,7 @@ body {
   text-align: center;
   align-items: center;
   display: none;
-  grid-row: 3;
+  grid-row: 2;
   width: 340px;
 }
 
@@ -50,7 +50,7 @@ body {
 
 #complemento_salada {
   display: none;
-  grid-row: 3;
+  grid-row: 2;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -72,7 +72,7 @@ body {
 
 #sabor_trad {
   display: none;
-  grid-row: 3;
+  grid-row: 2;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -222,7 +222,7 @@ body {
 
 #coberturas {
   display: none;
-  grid-row: 3;
+  grid-row: 2;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -761,7 +761,7 @@ footer a img {
 .sujestao {
   width: 340px;
   margin: 10px auto;
-  grid-row: 3;
+  grid-row: 2;
 
   background: linear-gradient(145deg, #2a0033, #4b0066);
   border-radius: 15px;
@@ -853,7 +853,7 @@ footer a img {
 #escolha_regiao {
   width: 340px;
   margin: 10px auto;
-  grid-row: 3;
+  grid-row: 2;
 
   background: linear-gradient(145deg, #2a0033, #4b0066);
   padding: 15px;
@@ -976,7 +976,7 @@ footer a img {
 
 #agradece {
   display: none;
-  grid-row: 3;
+  grid-row: 2;
   padding: 0 5px 0 5px;
   justify-content: center;
   align-items: center;
@@ -1059,7 +1059,7 @@ footer a img {
 
 #adicionais {
   display: none;
-  grid-row: 4;
+  grid-row: 2;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -1975,7 +1975,7 @@ height: 25px;
   width: 340px;
   margin: 10px auto;
   display: none;
-  grid-row: 3;
+  grid-row: 2;
 
   background: linear-gradient(145deg, #2a0033, #4b0066);
   border-radius: 15px;
@@ -2394,7 +2394,7 @@ height: 25px;
 #pergunta_mult {
   display: none;
   width: 340px;
-  grid-row: 3;
+  grid-row: 2;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -2852,7 +2852,7 @@ p.estilo_titulo2 {
 #final {
   display: none;
   width: 340px;
-  grid-row: 3;
+  grid-row: 2;
 
   background: linear-gradient(145deg, #2a0033, #4b0066);
   padding: 20px;
@@ -2970,7 +2970,7 @@ p.estilo_titulo2 {
 
 .pagamento {
   display: none;
-  grid-row: 3;
+  grid-row: 2;
   width: 340px;
   padding: 20px;
 
@@ -3317,7 +3317,7 @@ p.estilo_titulo2 {
 
   padding: 3px 10px;
 
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   gap: 1px;
@@ -3355,7 +3355,7 @@ p.estilo_titulo2 {
 
 .sabores4bolas {
   display: none;
-  grid-row: 3;
+  grid-row: 2;
 }
 #btn_sabores_4bolas {
   display: none;
