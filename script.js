@@ -261,6 +261,8 @@ btn_cestinhac5.addEventListener("click", function () {
   limite.push(userPedido)
 });
 
+
+
 /*--------------MASSAS TRADICIONAIS-----------*/
 var btn_massa_trad = document.getElementById("btn_massa_trad");
 btn_massa_trad.addEventListener("click", function (e) {
@@ -2537,6 +2539,11 @@ fetch(url)
     document.getElementById("cidade").innerText = "Erro: " + error.message;
   });
 
+
+
+
+
+
 /*----------------POTE 4 BOLAS------------------- */
 var sabores_4bolas = document.getElementById("sabores4bolas");
 var btn_4bolas = document.getElementById("btn_4bolas");
@@ -2689,3 +2696,153 @@ function enviarEmailImpar(msg) {
     });
 
 }
+
+
+// -----PICOLES-------
+var btn_picoles = document.getElementById("btn_picoles");
+var picoles_div = document.getElementById("picoles_div");
+var picoles_sabores = document.getElementById("picoles_sabores");
+
+btn_picoles.addEventListener("click", function (e){
+  e.preventDefault();  
+  picoles_div.style.display = "none";
+  picoles_sabores.style.display = "block";
+  escolha.style.display = "none";
+
+  const pedido = { acai: "PICOLE SABORES", limit: 100, valor: 0 };
+  sessionStorage.setItem("pedido", JSON.stringify(pedido));
+
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite.push(userPedido)
+
+
+
+})
+
+const precoPicole = 2;
+
+const picoles = {
+    Morango: 0,
+    Chocolate: 0,
+    Coco: 0
+};
+
+function alterarQtd(sabor, valor){
+
+    picoles[sabor] += valor;
+
+    if(picoles[sabor] < 0){
+        picoles[sabor] = 0;
+    }
+
+    document.getElementById(
+        "qtd_" + sabor
+    ).innerText = picoles[sabor];
+
+    atualizarTotal();
+}
+
+function atualizarTotal(){
+
+    let totalPicoles = 0;
+
+    for(let sabor in picoles){
+        totalPicoles += picoles[sabor];
+    }
+
+    let valorTotal = totalPicoles * precoPicole;
+
+    document.getElementById("total").innerText =
+        valorTotal.toFixed(2).replace(".", ",");
+}
+
+function avancar(){
+
+    let totalPicoles = 0;
+
+    for(let sabor in picoles){
+
+        if(picoles[sabor] > 0){
+
+            valores.push(`${sabor} - ${picoles[sabor]} Picole(s)`);
+
+            totalPicoles += picoles[sabor];
+
+        }
+    }
+
+    let valorTotalPicoles = totalPicoles * precoPicole;
+
+    valorCompra.push(valorTotalPicoles);
+
+    picoles_sabores.style.display = "none";
+    mensagem.style.display = "block";
+}
+
+/* COMBO FAMILIA PICOLES SORTIDOS */
+var btn_comb10_picole = document.getElementById("btn_comb10_picole");
+btn_comb10_picole.addEventListener("click", function () {
+  const pedido = { acai: "COMBO FAMILIA 10 PICOLES", limit: 10, valor: 19 };
+  sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  escolha.style.display = "none";
+  mensagem.style.display = "block";
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite.push(userPedido)
+  valores.push('Picoles de leite e fruta');
+});
+
+var btn_comb20_picole = document.getElementById("btn_comb20_picole");
+btn_comb20_picole.addEventListener("click", function () {
+  const pedido = { acai: "COMBO FAMILIA 20 PICOLES", limit: 10, valor: 37 };
+  sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  escolha.style.display = "none";
+  mensagem.style.display = "block";
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite.push(userPedido)
+  valores.push('Picoles de leite e fruta');
+});
+
+var btn_comb30_picole = document.getElementById("btn_comb30_picole");
+btn_comb30_picole.addEventListener("click", function () {
+  const pedido = { acai: "COMBO FAMILIA 30 PICOLES", limit: 10, valor: 55 };
+  sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  escolha.style.display = "none";
+  mensagem.style.display = "block";
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite.push(userPedido)
+  valores.push('Picoles de leite e fruta');
+});
+
+var btn_comb40_picole = document.getElementById("btn_comb40_picole");
+btn_comb40_picole.addEventListener("click", function () {
+  const pedido = { acai: "COMBO FAMILIA 40 PICOLES", limit: 10, valor: 73 };
+  sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  escolha.style.display = "none";
+  mensagem.style.display = "block";
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite.push(userPedido)
+  valores.push('Picoles de leite e fruta');
+});
+
+var btn_comb50_picole = document.getElementById("btn_comb50_picole");
+btn_comb50_picole.addEventListener("click", function () {
+  const pedido = { acai: "COMBO FAMILIA 50 PICOLES", limit: 10, valor: 90 };
+  sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  escolha.style.display = "none";
+  mensagem.style.display = "block";
+  const getPedido = sessionStorage.getItem("pedido");
+  const objectPedido = JSON.parse(getPedido);
+  const userPedido = objectPedido.limit;
+  limite.push(userPedido)
+  valores.push('Picoles de leite e fruta');
+});

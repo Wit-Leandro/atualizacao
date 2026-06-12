@@ -51,7 +51,6 @@
     </header>
 
     <div id="oct_hora" class="horas">
-
       <span class="bloquear" id="infAtend"></span> <br>
     </div>
 
@@ -68,7 +67,7 @@
 
       </div>
 
-      <div id="bloquear" class="tab-container5">
+      <div class="tab-container5">
         <button class="tab5" onclick="openCategory('evt','pote_massa_trad')">Pote de Massa Tradicional</button>
         <button class="tab5" onclick="openCategory('evt','pote_massa_esp')">Pote de Massa Especial</button>
       </div>
@@ -77,9 +76,9 @@
         <button class="tab10" onclick="openCategory('evt','massa4bolas')">Potes de Massa 4 Bolas</button>
       </div>
 
-      <div id="bloquear" class="tab-container6">
-        <button class="tab6" onclick="openCategory('evt','novidade')">Pedidos Prontos</button>
-        <button id="bloquear" class="tab6" onclick="openCategory('evt','bebidas')">Bebidas</button>
+      <div class="tab-container6">
+        <button class="tab6" onclick="openCategory('evt','novidade')">COMBOS FAMILIA</button>
+        <button class="tab6" onclick="openCategory('evt','picoles_div')">Picoles</button>
       </div>
 
       <div class="bloquear" id="welcome">
@@ -170,12 +169,42 @@
       </div>
 
       <div class="category" id="novidade">
-        <div class="mais_pedidos">
+        <div id="bloquear" class="mais_pedidos">
           <h2 class="estilo_titulo2">Pedidos Prontos de Açaí</h2>
           <p>Escolha uma das nossas opções já montadas para uma compra rápida e prática.</p>
           <p>Os pedidos podem sofrer alterações conforme a disponibilidade dos complementos.</p>
           <p>Em caso de dúvidas, entre em contato conosco.</p>
         </div>
+        <!--COMBOS PICOLES -->
+        <div class="mais_pedidos">
+          <h4 class="estilo_titulo2">COMBO FAMILIA</h4>
+          <p class="estilo_titulo2">10 PICOLES SORTIDOS (FRUTAS E LEITE)</p>
+          <button class="btns2" id="btn_comb10_picole">Comprar R$19,00</button>
+        </div>
+
+        <div class="mais_pedidos">
+          <h4 class="estilo_titulo2">COMBO FAMILIA</h4>
+          <p class="estilo_titulo2">20 PICOLES SORTIDOS (FRUTAS E LEITE)</p>
+          <button class="btns2" id="btn_comb20_picole">Comprar R$37,00</button>
+        </div>
+
+        <div class="mais_pedidos">
+          <h4 class="estilo_titulo2">COMBO FAMILIA</h4>
+          <p class="estilo_titulo2">30 PICOLES SORTIDOS (FRUTAS E LEITE)</p>
+          <button class="btns2" id="btn_comb30_picole">Comprar R$55,00</button>
+        </div> 
+
+        <div class="mais_pedidos">
+          <h4 class="estilo_titulo2">COMBO FAMILIA</h4>
+          <p class="estilo_titulo2">40 PICOLES SORTIDOS (FRUTAS E LEITE)</p> 
+          <button class="btns2" id="btn_comb40_picole">Comprar R$73,00</button>
+        </div>  
+
+        <div class="mais_pedidos"> 
+          <h4 class="estilo_titulo2">COMBO FAMILIA</h4>
+          <p class="estilo_titulo2">50 PICOLES SORTIDOS (FRUTAS E LEITE)</p>
+          <button class="btns2" id="btn_comb50_picole">Comprar R$90,00</button>
+        </div>                   
 
         <div class="bloquear">
           <p class="estilo_paragrafo">Nutella 140g - R$16,00</p>
@@ -183,7 +212,7 @@
           <button class="btns" id="btn_nutella140">Adicionar Nutella 140g</button>
         </div>
 
-        <div class="mais_pedidos">
+        <div id="bloquear" class="mais_pedidos">
           <h4 class="estilo_titulo2">Copo Açaí 500ML</h4>
           <p class="estilo_titulo2">Este açaí vem com:</p>
 
@@ -197,7 +226,7 @@
           <button class="btns2" id="cp1_500ml">Comprar R$25,00</button>
         </div>
 
-        <div class="mais_pedidos">
+        <div id="bloquear" class="mais_pedidos">
           <h4 class="estilo_titulo2">Marmita Açaí 500ML</h4>
           <p class="estilo_titulo2">Este açaí vem com:</p>
 
@@ -228,8 +257,13 @@
         </div>
       </div>
 
-      <div class="category" id="bebidas">
-        <h1 class="estilo_titulo">EM BREVE!</h1>
+      <div class="category" id="picoles_div">
+
+        <div id="bloquear" class="mais_pedidos">
+          <h2 class="estilo_titulo2">Picoles sabores</h2>
+          <button class="btn_escolha_shake" id="btn_picoles">R$ 2,00 - Escolha Picoles!</button>
+        </div>
+
       </div>
 
       <div class="category" id="shake">
@@ -365,7 +399,6 @@
         <button class="btns_especial" id="btncomprarmais">Continue Comprando. AQUI...!</button>
       </div>
     </div>
-
 
     <div id="escolha_regiao" style="display: none;">
       <h2 class="estilo_titulo">Região</h2>
@@ -1287,8 +1320,6 @@
         <h4 class="estilo_titulo2">"Escolha pelo menos 4 frutas e monte sua salada perfeita!"</h4>
         <p class="estilo_titulo2">"Monte sua salada escolhendo no mínimo 4 frutas fresquinhas"</p>
         <button class="btns2" id="btn_escolha_frutas">Avançar!</button>
-        
-
       </div>
 
       <div class="cx_add_salada">
@@ -1590,6 +1621,37 @@
 
     </div>
 
+    <div id="picoles_sabores" class="picoles_sabores">
+      <div class="mais_pedidos">
+        <h4 class="estilo_titulo2">"Escolha picoles frutas e leite!"</h4>
+        <p class="estilo_titulo2">"Tio-chico Picoles R$2,00 cada"</p>
+        <h3>Total: R$ <span id="total">0,00</span></h3>
+        <button class="btns2" onclick="avancar()">Avançar</button>
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" value="Morango" readonly>
+        <button onclick="alterarQtd('Morango', -1)">&#10134</button>
+        <span id="qtd_Morango">0</span>
+        <button onclick="alterarQtd('Morango', 1)">&#10133</button>
+
+      </div>
+
+      <div class="cx_itens">
+        <input type="text" value="Chcocolate" readoly>
+        <button onclick="alterarQtd('Chocolate', -1)">&#10134</button>
+        <span id="qtd_Chocolate">0</span>
+        <button onclick="alterarQtd('Chocolate', 1)">&#10133</button>
+      </div>
+
+      <div class="cx_itens"> 
+        <input type="text" value="Coco" readoly>
+        <button onclick="alterarQtd('Coco', -1)">&#10134</button>
+        <span id="qtd_Coco">0</span>
+        <button onclick="alterarQtd('Coco', 1)">&#10133</button>
+      </div>
+    </div>  
+
     <div class="sujestao" id="mensagem">
       <h3 class="estilo_titulo">Deixe a sua Sujestão?</h3>
       <textarea name="campo" id="campo" cols="35" rows="5"></textarea>
@@ -1749,8 +1811,6 @@
       </div>
 
     </div>
-
-
 
     <div id="vazio"></div>
 

@@ -613,7 +613,7 @@ footer a img {
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
-  width: 340px;
+  width: 170px;
   height: 35px;
   border: solid 1px;
   border-radius: 20px;
@@ -2216,6 +2216,21 @@ height: 25px;
   text-align: center;
   font-weight: bold;
 }
+.cx_itens span {
+  width: 45px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: #1a001f;
+  color: #fff;
+
+  font-weight: bold;
+}
 
 /* Botões */
 .cx_itens button {
@@ -2411,6 +2426,7 @@ height: 25px;
   justify-content: center;
   text-align: center;
   align-items: center;
+  grid-row: 2;
 }
 
 @keyframes brilho {
@@ -3380,4 +3396,31 @@ p.estilo_titulo2 {
 .img_monjarim {
   width: 300px;
   border-radius: 20px;
+}
+
+/*---PICOLES-----*/
+
+.picoles_sabores{
+  display:none;
+  grid-row: 2;
+
+}
+
+.item_picole{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin:10px 0;
+}
+
+.item_picole button{
+    width:35px;
+    height:35px;
+    font-size:20px;
+    cursor:pointer;
+}
+
+#total{
+    color:green;
+    font-weight:bold;
 }
