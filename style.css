@@ -1035,7 +1035,9 @@ footer a img {
 #contCarrinho {
   color: #370246;
   position: relative;
-  top: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15pt;
+  color: #fff;
 }
 
 #logCarrinho {
@@ -1048,7 +1050,9 @@ footer a img {
   position: relative;
   top: 1px;
   grid-row: 2;
-  font-size: 9pt;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15pt;
+  color: #fff;
 }
 
 #logLogin {
@@ -3145,6 +3149,7 @@ p.estilo_titulo2 {
   width: 100%;
   display: flex;
   justify-content: center;
+  height: 110px;
 }
 
 /* CONTAINER */
@@ -3195,7 +3200,7 @@ p.estilo_titulo2 {
 .cabecaendereco,
 .cabecacidade,
 .cabecatelefone {
-  font-size: 11px;
+  font-size: 14px;
   color: #ddd;
 }
 
@@ -3221,16 +3226,13 @@ p.estilo_titulo2 {
 #mostrar_login {
   position: relative;
 
-  width: 40px;
-  height: 40px;
-
-  border-radius: 10px;
+  width: 50px;
+  height: 60px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: linear-gradient(145deg, #c800ff, #ff00aa);
   cursor: pointer;
   transition: 0.3s;
 }
@@ -3254,6 +3256,19 @@ p.estilo_titulo2 {
 .count_login,
 .count_carrinho {
   position: relative;
+  align-items: center;
+  gap: 5px;
+}
+
+.icone-moeda {
+  width: 40px;
+  height: 40px; 
+  border-radius: 20px;
+}
+.icone-moeda_troca {
+  width: 100px;
+  height: 100px; 
+  border-radius: 20px;
 }
 
 /* TOOLTIP PADRÃO */
@@ -3303,7 +3318,7 @@ p.estilo_titulo2 {
 
 /* TEXTO */
 .count_login::after {
-  content: 'Total de pedidos feitos via app';
+  content: 'Pontos Tio-chico';
 }
 
 .count_carrinho::after {
@@ -3317,7 +3332,7 @@ p.estilo_titulo2 {
 .count_carrinho:hover::before {
   opacity: 1;
   visibility: visible;
-  bottom: -50px;
+  bottom: -10px;
 }
 
 /* ========================= */
@@ -3423,4 +3438,8 @@ p.estilo_titulo2 {
 #total{
     color:green;
     font-weight:bold;
+}
+
+.valor_coin{
+  font-size: 14px;
 }

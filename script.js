@@ -1771,6 +1771,7 @@ env_pix.addEventListener("click", function () {
   pagamentos.style.display = "none";
   agradece.style.display = 'block'
   var n_compras_app = parseInt(localStorage.getItem('clickCount'))
+  
 
   var mensagemCarrinho = "";
   var contped = 0;
@@ -1822,12 +1823,12 @@ env_pix.addEventListener("click", function () {
     te +
     "\nPagamento via Pix" +
     "\nColherzinha? " +
-    whats_colher + "\nCompras via app: " + n_compras_app +
+    whats_colher + "\nPontos Tio-chico: " + n_compras_app +
     "" +
     mensagemCarrinho;
   var numeroWhatsApp = "5518996772619";
   var mensagemWhatsApp = encodeURIComponent(
-    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido + "\n\n Avalie nosso app \n\n https://forms.gle/YZJaCc1gvABdyAbk7"
+    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido
   );
   var linkWhatsApp =
     "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
@@ -1892,12 +1893,12 @@ env_cartao.addEventListener("click", function () {
     te +
     "\nLevar a maquininha" +
     "\nColherzinha? " +
-    whats_colher + "\nCompras via app: " + n_compras_app +
+    whats_colher + "\nPontos Tio-chico: " + n_compras_app +
     "" +
     mensagemCarrinho;
   var numeroWhatsApp = "5518996772619";
   var mensagemWhatsApp = encodeURIComponent(
-    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido + "\n\n Avalie nosso app \n\n https://forms.gle/YZJaCc1gvABdyAbk7"
+    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido
   );
   var linkWhatsApp =
     "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
@@ -1965,12 +1966,12 @@ env_dinheiro.addEventListener("click", function (e) {
     "\nDinheiro: Precisa de troco? " +
     troco +
     "\nColherzinha? " +
-    whats_colher + "\nCompras via app: " + n_compras_app +
+    whats_colher + "\nPontos Tio-chico: " + n_compras_app +
     "" +
     mensagemCarrinho;
   var numeroWhatsApp = "5518996772619";
   var mensagemWhatsApp = encodeURIComponent(
-    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido + "\n\n Avalie nosso app \n\n https://forms.gle/YZJaCc1gvABdyAbk7"
+    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido
   );
   var linkWhatsApp =
     "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
@@ -2133,6 +2134,11 @@ function gerarImagemPedido() {
   var dh = new Date().getDate(); // ✅ dia do mês
   var mensagemCarrinho = "";
   var contped = 0;
+  var msgFidelidade = "";
+
+  if (pedido && pedido.fidelidade === true) {
+    msgFidelidade = "\n🎁 Produto resgatado com Pontos Fidelidade";
+    }
 
 
   carrinho.forEach(function (element) {
@@ -2168,7 +2174,7 @@ function gerarImagemPedido() {
   var informar_data_hora = informarDataHora();
   var n_compras_app = parseInt(localStorage.getItem('clickCount'));
 
-  var detalhesPedido =
+  var detalhesPedido = msgFidelidade +
     "📌 PEDIDO 📌\n\n" + informar_data_hora +
     "\n\nN° Pedido: " + numeroDoPedido +
     "\nCliente: " + dic[0] +
@@ -2227,6 +2233,12 @@ function antecipar_envio_pix() {
       mensagemCarrinho += "-" + element + "\n";
     }
   });
+  var pedido = JSON.parse(sessionStorage.getItem("pedido"));
+  var msgFidelidade = "";
+
+  if (pedido && pedido.fidelidade === true) {
+    msgFidelidade = "\n🎁 Produto resgatado com Pontos Fidelidade";
+    }
 
   var tw = somarArray(valorCompra);
   var te = "";
@@ -2264,10 +2276,10 @@ function antecipar_envio_pix() {
     "\n`Valor total: " +
     vlr_total_whats +
     "\nTaxa entrega: " +
-    te +
-    "\nPagamento via Pix" +
+    te +"\n"+
+    msgFidelidade +
     "\nColherzinha? " +
-    whats_colher + "\nCompras via app: " + n_compras_app +
+    whats_colher + "\nPontos Tio-chico: " + n_compras_app +
     "" +
     mensagemCarrinho;
   var numeroWhatsApp = "5518996772619";
@@ -2845,4 +2857,55 @@ btn_comb50_picole.addEventListener("click", function () {
   const userPedido = objectPedido.limit;
   limite.push(userPedido)
   valores.push('Picoles de leite e fruta');
+});
+
+/* ----TROCA DE PONTOS FIDELIDADE------ */
+var btn_72_pontos = document.getElementById("btn_72_pontos");
+
+btn_72_pontos.addEventListener("click", function (e) {
+    e.preventDefault();
+    btn_ir_mult.style.display = "none";
+    btn_cartao.style.display = "none";
+    btn_dinheiro.style.display = "none";
+    btn_pix.innertext = "Resgatar";
+    
+
+    const custo = 72;
+    let pontos = parseInt(localStorage.getItem("clickCount")) || 0;
+
+    // Verifica se possui pontos suficientes
+    if (pontos < custo) {
+        alert("Você precisa de 72 pontos para resgatar este açaí.");
+        return;
+    }
+
+    // Desconta os pontos
+    pontos -= custo;
+    localStorage.setItem("clickCount", pontos);
+
+    // Atualiza contador na tela
+    loadCounter();
+
+    // Cria o pedido gratuito
+    const pedido = {
+        acai: "Açai Copo 300ml",
+        limit: 4,
+        valor: 0,
+        fidelidade: true
+    };
+
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+
+    escolha.style.display = "none";
+    adicionais.style.display = "block";
+    vazio.style.display = "block";
+
+    const getPedido = sessionStorage.getItem("pedido");
+    const objectPedido = JSON.parse(getPedido);
+    const userPedido = objectPedido.limit;
+
+    limite.push(userPedido);
+
+    resadicao.innerHTML =
+        "Escolha " + limite + " adicionais para seu açaí";
 });
