@@ -1,6 +1,6 @@
 // FECHAR LOJA = 1 || ABRIR LOJA = 2
 
-var loja = 2;
+var loja = 1;
 
 //-------------------------------------
 var preco = [];
@@ -1203,9 +1203,9 @@ function mostrarDados() {
 }
 
 imprimir.addEventListener("click", function () {
-  let count_login = parseInt(localStorage.getItem('clickCount')) || 0;
+  let count_login = parseInt(localStorage.getItem('pontosClick')) || 0;
   count_login++;
-  localStorage.setItem('clickCount', count_login);
+  localStorage.setItem('pontosClick', count_login);
   contLogin.innerHTML = `${count_login}`;
   final.style.display = "none";
   pagamentos.style.display = "block";
@@ -1564,6 +1564,9 @@ btn_comprar_mais.addEventListener("click", function () {
   esconde_comprar_mais.style.display = "none";
   esconde_finalizar_carrinho.style.display = "none";
   esconde_p.style.display = 'none'
+  btn_ir_mult.style.display = "block";
+  btn_cartao.style.display = "block";
+  btn_dinheiro.style.display = "block";
 });
 
 function criarListaArrays(arrays) {
@@ -1770,7 +1773,7 @@ env_pix.addEventListener("click", function () {
   var vencimento = informarValidade();
   pagamentos.style.display = "none";
   agradece.style.display = 'block'
-  var n_compras_app = parseInt(localStorage.getItem('clickCount'))
+  var n_compras_app = parseInt(localStorage.getItem('pontosClick'))
   
 
   var mensagemCarrinho = "";
@@ -1840,7 +1843,7 @@ env_cartao.addEventListener("click", function () {
   var vencimento = informarValidade();
   pagamentos.style.display = "none";
   agradece.style.display = 'block'
-  var n_compras_app = parseInt(localStorage.getItem('clickCount'))
+  var n_compras_app = parseInt(localStorage.getItem('pontosClick'))
 
 
   var mensagemCarrinho = "";
@@ -1909,7 +1912,7 @@ env_dinheiro.addEventListener("click", function (e) {
   e.preventDefault();
   var vencimento = informarValidade();
   var troco = document.getElementById("troco").value;
-  var n_compras_app = parseInt(localStorage.getItem('clickCount'))
+  var n_compras_app = parseInt(localStorage.getItem('pontosClick'))
   pagamentos.style.display = "none";
   agradece.style.display = 'block'
 
@@ -2172,7 +2175,7 @@ function gerarImagemPedido() {
 
   var vlr_total_whats = "R$" + tw;
   var informar_data_hora = informarDataHora();
-  var n_compras_app = parseInt(localStorage.getItem('clickCount'));
+  var n_compras_app = parseInt(localStorage.getItem('pontosClick'));
 
   var detalhesPedido = msgFidelidade +
     "📌 PEDIDO 📌\n\n" + informar_data_hora +
@@ -2223,7 +2226,7 @@ function antecipar_envio_pix() {
   var vencimento = informarValidade();
   var mensagemCarrinho = "";
   var contped = 0;
-  var n_compras_app = parseInt(localStorage.getItem('clickCount'))
+  var n_compras_app = parseInt(localStorage.getItem('pontosClick'))
   carrinho.forEach(function (element) {
     if (Array.isArray(element)) {
       contped += 1;
@@ -2477,7 +2480,7 @@ setInterval(showNextImageMassaEsp, 3000);
 
 // Função para carregar o valor inicial do localStorage
 function loadCounter() {
-  let logou = parseInt(localStorage.getItem('clickCount')) || 0;
+  let logou = parseInt(localStorage.getItem('pontosClick')) || 0;
   contLogin.innerHTML = `${logou}`;
 }
 
@@ -2487,11 +2490,11 @@ function loadCounter() {
 
 button.addEventListener('click', () => {
     // Obtém o valor atual ou define 0 se não existir
-    let count_login = parseInt(localStorage.getItem('clickCount')) || 0;
+    let count_login = parseInt(localStorage.getItem('pontosClick')) || 0;
     // Incrementa o valor
     count_login++;
     // Armazena o valor atualizado no localStorage
-    localStorage.setItem('clickCount', count_login);
+    localStorage.setItem('pontosClick', count_login);
     // Atualiza a exibição
     contLogin.textContent = `${count_login}`;
 });
@@ -2871,7 +2874,7 @@ btn_72_pontos.addEventListener("click", function (e) {
     
 
     const custo = 72;
-    let pontos = parseInt(localStorage.getItem("clickCount")) || 0;
+    let pontos = parseInt(localStorage.getItem("pontosClick")) || 0;
 
     // Verifica se possui pontos suficientes
     if (pontos < custo) {
@@ -2881,7 +2884,7 @@ btn_72_pontos.addEventListener("click", function (e) {
 
     // Desconta os pontos
     pontos -= custo;
-    localStorage.setItem("clickCount", pontos);
+    localStorage.setItem("pontosClick", pontos);
 
     // Atualiza contador na tela
     loadCounter();
