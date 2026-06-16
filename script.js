@@ -1,6 +1,6 @@
 // FECHAR LOJA = 1 || ABRIR LOJA = 2
 
-var loja = 1;
+var loja = 2;
 
 //-------------------------------------
 var preco = [];
