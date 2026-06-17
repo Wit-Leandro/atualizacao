@@ -2137,11 +2137,6 @@ function gerarImagemPedido() {
   var dh = new Date().getDate(); // ✅ dia do mês
   var mensagemCarrinho = "";
   var contped = 0;
-  var msgFidelidade = "";
-
-  if (pedido && pedido.fidelidade === true) {
-    msgFidelidade = "\n🎁 Produto resgatado com Pontos Fidelidade";
-    }
 
 
   carrinho.forEach(function (element) {
@@ -2177,7 +2172,7 @@ function gerarImagemPedido() {
   var informar_data_hora = informarDataHora();
   var n_compras_app = parseInt(localStorage.getItem('pontosClick'));
 
-  var detalhesPedido = msgFidelidade +
+  var detalhesPedido =
     "📌 PEDIDO 📌\n\n" + informar_data_hora +
     "\n\nN° Pedido: " + numeroDoPedido +
     "\nCliente: " + dic[0] +
@@ -2237,11 +2232,6 @@ function antecipar_envio_pix() {
     }
   });
   var pedido = JSON.parse(sessionStorage.getItem("pedido"));
-  var msgFidelidade = "";
-
-  if (pedido && pedido.fidelidade === true) {
-    msgFidelidade = "\n🎁 Produto resgatado com Pontos Fidelidade";
-    }
 
   var tw = somarArray(valorCompra);
   var te = "";
@@ -2279,8 +2269,7 @@ function antecipar_envio_pix() {
     "\n`Valor total: " +
     vlr_total_whats +
     "\nTaxa entrega: " +
-    te +"\n"+
-    msgFidelidade +
+    te +
     "\nColherzinha? " +
     whats_colher + "\nPontos Tio-chico: " + n_compras_app +
     "" +
@@ -2891,10 +2880,9 @@ btn_72_pontos.addEventListener("click", function (e) {
 
     // Cria o pedido gratuito
     const pedido = {
-        acai: "Açai Copo 300ml",
+        acai: "Açai Copo 300ml, Fidelidade",
         limit: 4,
-        valor: 0,
-        fidelidade: true
+        valor: 0
     };
 
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
