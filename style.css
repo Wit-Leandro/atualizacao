@@ -3443,3 +3443,50 @@ p.estilo_titulo2 {
 .valor_coin{
   font-size: 14px;
 }
+/*==========PONTOS=====================*/
+.box_pontos {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    margin: 10px 0;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    width: 100%;
+}
+
+#imagem_pontos img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.info_pontos {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+}
+
+.text_pontos {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.btn_pontos {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #7b1fa2;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn_pontos:hover {
+    background: #6a1b9a;
+}

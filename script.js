@@ -2852,9 +2852,9 @@ btn_comb50_picole.addEventListener("click", function () {
 });
 
 /* ----TROCA DE PONTOS FIDELIDADE------ */
-var btn_72_pontos = document.getElementById("btn_72_pontos");
+var palletinho_bombom = document.getElementById("palletinho_bombom");
 
-btn_72_pontos.addEventListener("click", function (e) {
+palletinho_bombom.addEventListener("click", function (e) {
     e.preventDefault();
     btn_ir_mult.style.display = "none";
     btn_cartao.style.display = "none";
@@ -2862,12 +2862,12 @@ btn_72_pontos.addEventListener("click", function (e) {
     btn_pix.innertext = "Resgatar";
     
 
-    const custo = 72;
+    const custo = 16;
     let pontos = parseInt(localStorage.getItem("pontosClick")) || 0;
 
     // Verifica se possui pontos suficientes
     if (pontos < custo) {
-        alert("Você precisa de 72 pontos para resgatar este açaí.");
+        alert("Você precisa de 16 pontos.");
         return;
     }
 
@@ -2880,7 +2880,7 @@ btn_72_pontos.addEventListener("click", function (e) {
 
     // Cria o pedido gratuito
     const pedido = {
-        acai: "Açai Copo 300ml, Fidelidade",
+        acai: "Palletinho Bombom, Fidelidade",
         limit: 4,
         valor: 0
     };
@@ -2888,7 +2888,56 @@ btn_72_pontos.addEventListener("click", function (e) {
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
 
     escolha.style.display = "none";
-    adicionais.style.display = "block";
+    mensagem.style.display = "block";
+    vazio.style.display = "block";
+
+    const getPedido = sessionStorage.getItem("pedido");
+    const objectPedido = JSON.parse(getPedido);
+    const userPedido = objectPedido.limit;
+
+    limite.push(userPedido);
+
+    resadicao.innerHTML =
+        "Escolha " + limite + " adicionais para seu açaí";
+});
+
+var palletinho_chocolate = document.getElementById("palletinho_chocolate");
+
+palletinho_chocolate.addEventListener("click", function (e) {
+    e.preventDefault();
+    btn_ir_mult.style.display = "none";
+    btn_cartao.style.display = "none";
+    btn_dinheiro.style.display = "none";
+    btn_pix.innertext = "Resgatar";
+    
+
+    const custo = 16;
+    let pontos = parseInt(localStorage.getItem("pontosClick")) || 0;
+
+    // Verifica se possui pontos suficientes
+    if (pontos < custo) {
+        alert("Você precisa de 16 pontos.");
+        return;
+    }
+
+    // Desconta os pontos
+    pontos -= custo;
+    localStorage.setItem("pontosClick", pontos);
+
+    // Atualiza contador na tela
+    loadCounter();
+
+    // Cria o pedido gratuito
+    const pedido = {
+        acai: "Palletinho Chocolate, Fidelidade",
+        limit: 4,
+        valor: 0
+    };
+
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+
+    escolha.style.display = "none";
+    mensagem.style.display = "block";
     vazio.style.display = "block";
 
     const getPedido = sessionStorage.getItem("pedido");
