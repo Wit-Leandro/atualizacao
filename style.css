@@ -2193,6 +2193,7 @@ height: 25px;
 
   box-shadow: 0 6px 15px rgba(0,0,0,0.3);
   border: 1px solid #a92fca;
+  width: 100%;
 }
 
 /* Nome do item */
@@ -3414,35 +3415,93 @@ p.estilo_titulo2 {
 }
 
 /*---PICOLES-----*/
+.cx_itens {
+  display: flex;
+  align-items: center;
 
-.picoles_sabores{
-  display:none;
-  grid-row: 2;
+  background: linear-gradient(145deg, #2a0033, #3d004d);
+  border-radius: 15px;
+  padding: 12px;
+  margin-bottom: 12px;
 
+  border: 1px solid #a92fca;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
-.item_picole{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin:10px 0;
+.img_picole {
+  object-fit: cover;
+  padding: 0 10px 0 0;
+
+  border-radius: 20px;
+  margin-right: 5px;
 }
 
-.item_picole button{
-    width:35px;
-    height:35px;
-    font-size:20px;
-    cursor:pointer;
+.info_picole {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-#total{
-    color:green;
-    font-weight:bold;
+.descricao_picole h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 18px;
+}
+.valor_total_picole{
+  color: black;
+}
+.descricao_picole p {
+  margin: 5px 0 0 0;
+  color: #d7b7e0;
+  font-size: 13px;
 }
 
-.valor_coin{
-  font-size: 14px;
+.controle_picole {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 12px;
 }
+
+.controle_picole span {
+  width: 40px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #1a001f;
+  color: white;
+
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.controle_picole button {
+  width: 35px;
+  height: 35px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: linear-gradient(145deg, #c800ff, #ff00aa);
+  color: white;
+
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.controle_picole button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #c800ff;
+}
+
+
 /*==========PONTOS=====================*/
 .box_pontos {
     display: flex;

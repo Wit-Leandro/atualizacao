@@ -57,9 +57,9 @@
     </div>
 
     <div id="ocutar">
-      <div class="tab-container2">
-        <button id="bloquear" class="tab2" onclick="openCategory('evt','acai_tradicional')">Açai - Sem Recheio</button>
-        <button class="tab2" onclick="openCategory('evt','acai_recheio')">Açai - Com Recheio</button>
+      <div class="tab-container">
+        <button class="tab" onclick="openCategory('evt','acai_tradicional')">Picoles</button>
+        <button class="tab" onclick="openCategory('evt','acai_recheio')">Açai - Com Recheio</button>
       </div>
 
       <div class="tab-container">
@@ -293,6 +293,16 @@
             <button class="btn_pontos" id="palletinho_chocolate">Resgatar: 16 Pontos</button>
           </div>
         </div>
+
+        <div class="box_pontos">
+          <div id="imagem_pontos"> 
+            <img src="imagens/palletinho-ninho.jpeg" alt="palletinho-ninho" />
+          </div>
+          <div class="info_pontos">
+            <span class="text_pontos">Palletinho Ninho</span>
+            <button class="btn_pontos" id="palletinho_ninho">Resgatar: 16 Pontos</button>
+          </div>
+        </div>
         
 
       </div>
@@ -315,52 +325,233 @@
       </div>
 
       <div class="category" id="acai_tradicional">
-        <h4 class="estilo_titulo">AÇAI TRADICIONAL (Sem Recheio)</h4>
-        <p class="estilo_paragrafo">Escolha abaixo</p>
-        <div class="tab-container3">
-          <button class="sub_tab" onclick="openSubCategory('evt','trad_copo')">COPOS</button>
-          <button class="sub_tab" onclick="openSubCategory('evt','trad_marmita')">MARMITAS</button>
-          <button class="sub_tab" onclick="openSubCategory('evt','trad_pote')">POTES</button>
-        </div>
-
-        <div id="trad_copo" class="sub_category">
-          <p class="estilo_paragrafo">Selecione o copo desejado!</p>
-          <select id="meu_select_trad_copo" onchange="exibirTradCopos()" class="select_trad_copo">
-            <option value="300ml">300ml R$ 13,00</option>
-            <option value="400ml">400ml R$ 16,00</option>
-            <option value="500ml">500ml R$ 19,00</option>
-            <option value="700ml">700ml R$ 26,00</option>
-          </select>
-          <button class="btns" id="btn_trad_copo">Quero esse copo!</button>
-          <div id="imagem_trad_copo">
-            <img src="imagens/tradcopo300ml.png" alt="tradcopo_açai" />
+        <div id="picoles_sabores" class="picoles_sabores">
+          <div class="mais_pedidos">
+            <h4 class="estilo_titulo2">"PICOLES ESPECIAIS!"</h4>
+            <p class="estilo_titulo2">"R$7,00 cada"</p>
+            <h3 class="valor_total_picole">Total: R$ <span id="total">0,00</span></h3>
+            <button class="btns2" onclick="avancar()">Avançar</button>
           </div>
-        </div>
 
-        <div id="trad_marmita" class="sub_category">
-          <p class="estilo_paragrafo">Selecione a marmita desejado!</p>
-          <select id="meu_select_trad_marmita" onchange="exibirTradMarmitas()" class="select_trad_marmita">
-            <option value="500ml">500ml R$ 21,00</option>
-            <option value="750ml">750ml R$ 28,00</option>
-            <option value="1200ml">1200ml R$ 38,00</option>
-          </select>
-          <button class="btns" id="btn_trad_marmita">Quero essa marmita!</button>
-          <div id="imagem_trad_marmita">
-            <img src="imagens/tradmarmita500ml.jpg" alt="trad_marmita_açai" />
+          <div class="cx_itens">
+            <img src="imagens/chocobianco.jpeg" alt="chocobianco" class="img_picole">
+            <div class="info_picole">
+              <div class="descricao_picole">
+                <h3>Chocobianco</h3>
+              </div>
+              <div class="controle_picole">
+                <button onclick="alterarQtd('Chocobianco', -1)">&#10134;</button>
+                <span id="qtd_Chocobianco">0</span>
+                <button onclick="alterarQtd('Chocobianco', 1)">&#10133;</button>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div id="trad_pote" class="sub_category">
-          <p class="estilo_paragrafo">Selecione o pote desejado!</p>
-          <select id="meu_select_trad_pote" onchange="exibirTradpotes()" class="select_trad_pote">
-            <option value="900ml">900ml R$ 27,00</option>
-            <option value="2 Litros">2 Litros R$ 41,00</option>
-            <option value="5 Litros">5 Litros R$ 94,00</option>
-            <option value="10 Litros">10 Litros R$ 170,00</option>
-          </select>
-          <button class="btns" id="btn_trad_pote">Quero essa pote!</button>
-          <div id="imagem_trad_pote">
-            <img src="imagens/tradpote1l.jpg" alt="trad_pote_açai" />
+          <div class="cx_itens">
+            <img src="imagens/choc-branco.jpeg" alt="choc-branco" class="img_picole">
+            <div class="info_picole">
+              <div class="descricao_picole">
+                <h3>Chocolate Branco</h3>
+              </div>
+              <div class="controle_picole">
+                <button onclick="alterarQtd('ChocolateBranco', -1)">&#10134;</button> 
+                <span id="qtd_ChocolateBranco">0</span>
+                <button onclick="alterarQtd('ChocolateBranco', 1)">&#10133;</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cx_itens">
+            <img src="imagens/chococo.jpeg" alt="chococo" class="img_picole">
+            <div class="info_picole">
+              <div class="descricao_picole">
+                <h3>Chococo</h3>
+              </div>
+              <div class="controle_picole">
+                <button onclick="alterarQtd('Chococo', -1)">&#10134;</button>
+                <span id="qtd_Chococo">0</span>
+                <button onclick="alterarQtd('Chococo', 1)">&#10133;</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cx_itens">
+            <img src="imagens/chocotella.jpeg" alt="chocotella" class="img_picole">
+            <div class="info_picole">
+              <div class="descricao_picole">
+                <h3>Chocotella</h3>
+              </div>
+              <div class="controle_picole">
+                <button onclick="alterarQtd('Chocotella', -1)">&#10134;</button>
+                <span id="qtd_Chocotella">0</span>
+                <button onclick="alterarQtd('Chocotella', 1)">&#10133;</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cx_itens">
+            <img src="imagens/chocotella-zero.jpeg" alt="chocotella-zero" class="img_picole">
+            <div class="info_picole">
+              <div class="descricao_picole">
+                <h3>Chocotella Zero</h3>
+              </div>
+              <div class="controle_picole">
+                <button onclick="alterarQtd('ChocotellaZero', -1)">&#10134;</button>
+                <span id="qtd_ChocotellaZero">0</span>
+                <button onclick="alterarQtd('ChocotellaZero', 1)">&#10133;</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cx_itens">
+            <img src="imagens/cookies.jpeg" alt="cookies" class="img_picole">
+            <div class="info_picole">
+              <div class="descricao_picole">
+                <h3>Cookies</h3>
+              </div>
+              <div class="controle_picole">
+                <button onclick="alterarQtd('Cookies', -1)">&#10134;</button>
+                <span id="qtd_Cookies">0</span>
+                <button onclick="alterarQtd('Cookies', 1)">&#10133;</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cx_itens">
+            <img src="imagens/cookies-branco.jpeg" alt="cookies-branco" class="img_picole">
+            <div class="info_picole">
+              <div class="descricao_picole">
+                <h3>Cookies Branco</h3>
+              </div>
+              <div class="controle_picole">
+                <button onclick="alterarQtd('CookiesBranco', -1)">&#10134;</button>
+                <span id="qtd_CookiesBranco">0</span>
+                <button onclick="alterarQtd('CookiesBranco', 1)">&#10133;</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cx_itens">
+            <img src="imagens/infinity-caramelo.jpeg" alt="infinity-caramelo" class="img_picole">
+            <div class="info_picole">
+              <div class="descricao_picole">
+                <h3>Infinity Caramelo</h3>
+              </div>
+              <div class="controle_picole">
+                <button onclick="alterarQtd('InfinityCaramelo', -1)">&#10134;</button>
+                <span id="qtd_InfinityCaramelo">0</span>
+                <button onclick="alterarQtd('InfinityCaramelo', 1)">&#10133;</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cx_itens">
+            <img src="imagens/infinity-leitinho-trunfado.jpeg" alt="infinity-leitinho-trunfado" class="img_picole">
+            <div class="info_picole">
+              <div class="descricao_picole">
+                <h3>Infinity Leitinho Trunfado</h3>
+              </div>
+              <div class="controle_picole">
+                <button onclick="alterarQtd('InfinityLeitinhoTrunfado', -1)">&#10134;</button>
+                <span id="qtd_InfinityLeitinhoTrunfado">0</span>
+                <button onclick="alterarQtd('InfinityLeitinhoTrunfado', 1)">&#10133;</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cx_itens">
+            <img src="imagens/skimo-baunilha.jpeg" alt="skimo-baunilha" class="img_picole">
+            <div class="info_picole">
+              <div class="descricao_picole">
+                <h3>Skino Baunilha</h3>
+              </div>
+              <div class="controle_picole">
+                <button onclick="alterarQtd('SkinoBaunilha', -1)">&#10134;</button>
+                <span id="qtd_SkinoBaunilha">0</span>
+                <button onclick="alterarQtd('SkinoBaunilha', 1)">&#10133;</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cx_itens">
+            <img src="imagens/trunfa.jpeg" alt="trufa" class="img_picole">
+            <div class="info_picole">
+              <div class="descricao_picole">
+                <h3>Trufa</h3>
+              </div>
+              <div class="controle_picole">
+                <button onclick="alterarQtd('Trufa', -1)">&#10134;</button>
+                <span id="qtd_Trufa">0</span>
+                <button onclick="alterarQtd('Trufa', 1)">&#10133;</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cx_itens">
+            <img src="imagens/brigadeiro.jpeg" alt="brigadeiro" class="img_picole">
+            <div class="info_picole">
+              <div class="descricao_picole">
+                <h3>Brigadeiro</h3>
+              </div>
+              <div class="controle_picole">
+                <button onclick="alterarQtd('Brigadeiro', -1)">&#10134;</button>
+                <span id="qtd_Brigadeiro">0</span>
+                <button onclick="alterarQtd('Brigadeiro', 1)">&#10133;</button>
+              </div>
+            </div>
+          </div>
+
+      </div> 
+
+
+        <div id="bloquear">
+          <h4 class="estilo_titulo">AÇAI TRADICIONAL (Sem Recheio)</h4>
+          <p class="estilo_paragrafo">Escolha abaixo</p>
+          <div class="tab-container3">
+            <button class="sub_tab" onclick="openSubCategory('evt','trad_copo')">COPOS</button>
+            <button class="sub_tab" onclick="openSubCategory('evt','trad_marmita')">MARMITAS</button>
+            <button class="sub_tab" onclick="openSubCategory('evt','trad_pote')">POTES</button>
+          </div>
+
+          <div id="trad_copo" class="sub_category">
+            <p class="estilo_paragrafo">Selecione o copo desejado!</p>
+            <select id="meu_select_trad_copo" onchange="exibirTradCopos()" class="select_trad_copo">
+              <option value="300ml">300ml R$ 13,00</option>
+              <option value="400ml">400ml R$ 16,00</option>
+              <option value="500ml">500ml R$ 19,00</option>
+              <option value="700ml">700ml R$ 26,00</option>
+            </select>
+            <button class="btns" id="btn_trad_copo">Quero esse copo!</button>
+            <div id="imagem_trad_copo">
+              <img src="imagens/tradcopo300ml.png" alt="tradcopo_açai" />
+            </div>
+          </div>
+
+          <div id="trad_marmita" class="sub_category">
+            <p class="estilo_paragrafo">Selecione a marmita desejado!</p>
+            <select id="meu_select_trad_marmita" onchange="exibirTradMarmitas()" class="select_trad_marmita">
+              <option value="500ml">500ml R$ 21,00</option>
+              <option value="750ml">750ml R$ 28,00</option>
+              <option value="1200ml">1200ml R$ 38,00</option>
+            </select>
+            <button class="btns" id="btn_trad_marmita">Quero essa marmita!</button>
+            <div id="imagem_trad_marmita">
+              <img src="imagens/tradmarmita500ml.jpg" alt="trad_marmita_açai" />
+            </div>
+          </div>
+
+          <div id="trad_pote" class="sub_category">
+            <p class="estilo_paragrafo">Selecione o pote desejado!</p>
+            <select id="meu_select_trad_pote" onchange="exibirTradpotes()" class="select_trad_pote">
+              <option value="900ml">900ml R$ 27,00</option>
+              <option value="2 Litros">2 Litros R$ 41,00</option>
+              <option value="5 Litros">5 Litros R$ 94,00</option>
+              <option value="10 Litros">10 Litros R$ 170,00</option>
+            </select>
+            <button class="btns" id="btn_trad_pote">Quero essa pote!</button>
+            <div id="imagem_trad_pote">
+              <img src="imagens/tradpote1l.jpg" alt="trad_pote_açai" />
+            </div>
           </div>
         </div>
 
@@ -1652,36 +1843,7 @@
 
     </div>
 
-    <div id="picoles_sabores" class="picoles_sabores">
-      <div class="mais_pedidos">
-        <h4 class="estilo_titulo2">"Escolha picoles frutas e leite!"</h4>
-        <p class="estilo_titulo2">"Tio-chico Picoles R$2,00 cada"</p>
-        <h3>Total: R$ <span id="total">0,00</span></h3>
-        <button class="btns2" onclick="avancar()">Avançar</button>
-      </div>
-
-      <div class="cx_itens">
-        <input type="text" value="Morango" readonly>
-        <button onclick="alterarQtd('Morango', -1)">&#10134</button>
-        <span id="qtd_Morango">0</span>
-        <button onclick="alterarQtd('Morango', 1)">&#10133</button>
-
-      </div>
-
-      <div class="cx_itens">
-        <input type="text" value="Chcocolate" readoly>
-        <button onclick="alterarQtd('Chocolate', -1)">&#10134</button>
-        <span id="qtd_Chocolate">0</span>
-        <button onclick="alterarQtd('Chocolate', 1)">&#10133</button>
-      </div>
-
-      <div class="cx_itens"> 
-        <input type="text" value="Coco" readoly>
-        <button onclick="alterarQtd('Coco', -1)">&#10134</button>
-        <span id="qtd_Coco">0</span>
-        <button onclick="alterarQtd('Coco', 1)">&#10133</button>
-      </div>
-    </div>  
+ 
 
     <div class="sujestao" id="mensagem">
       <h3 class="estilo_titulo">Deixe a sua Sujestão?</h3>

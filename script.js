@@ -2725,14 +2725,24 @@ btn_picoles.addEventListener("click", function (e){
 
 })
 
-const precoPicole = 2;
+const precoPicole = 7;
+
 
 const picoles = {
-    Morango: 0,
-    Chocolate: 0,
-    Coco: 0
+  Chocobianco: 0,
+  ChocolateBranco: 0,
+  Chococo: 0,
+  Chocotella: 0,
+  ChocotellaZero: 0,
+  Cookies: 0,
+  CookiesBranco: 0,
+  InfinityCaramelo: 0,
+  InfinityLeitinhoTrunfado: 0,
+  SkinoBaunilha: 0,
+  Trufa: 0,
+  Brigadeiro: 0
 };
-
+/*
 function alterarQtd(sabor, valor){
 
     picoles[sabor] += valor;
@@ -2747,16 +2757,39 @@ function alterarQtd(sabor, valor){
 
     atualizarTotal();
 }
+*/
+
+function alterarQtd(sabor, valor){
+
+    
+
+    picoles[sabor] += valor;
+
+    if(picoles[sabor] < 0){
+        picoles[sabor] = 0;
+    }
+
+    document.getElementById(
+        "qtd_" + sabor
+    ).innerText = picoles[sabor];
+
+    
+
+    atualizarTotal();
+}
 
 function atualizarTotal(){
 
     let totalPicoles = 0;
 
     for(let sabor in picoles){
+        
         totalPicoles += picoles[sabor];
     }
 
     let valorTotal = totalPicoles * precoPicole;
+
+  
 
     document.getElementById("total").innerText =
         valorTotal.toFixed(2).replace(".", ",");
@@ -2778,10 +2811,20 @@ function avancar(){
     }
 
     let valorTotalPicoles = totalPicoles * precoPicole;
+    console.log("Total picoles:", totalPicoles);
+    console.log("Valor:", valorTotalPicoles);
+    
 
-    valorCompra.push(valorTotalPicoles);
+    const pedido = { acai: "Picoles" , limit: 10, valor: valorTotalPicoles };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+    escolha.style.display = "none";
+    mensagem.style.display = "block";
+    const getPedido = sessionStorage.getItem("pedido");
+    const objectPedido = JSON.parse(getPedido);
+    const userPedido = objectPedido.limit;
+    limite.push(userPedido);
 
-    picoles_sabores.style.display = "none";
+    ocutar.style.display = "none";
     mensagem.style.display = "block";
 }
 
@@ -2930,6 +2973,56 @@ palletinho_chocolate.addEventListener("click", function (e) {
     // Cria o pedido gratuito
     const pedido = {
         acai: "Palletinho Chocolate, Fidelidade",
+        limit: 4,
+        valor: 0
+    };
+
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+
+    escolha.style.display = "none";
+    mensagem.style.display = "block";
+    vazio.style.display = "block";
+
+    const getPedido = sessionStorage.getItem("pedido");
+    const objectPedido = JSON.parse(getPedido);
+    const userPedido = objectPedido.limit;
+
+    limite.push(userPedido);
+
+    resadicao.innerHTML =
+        "Escolha " + limite + " adicionais para seu açaí";
+});
+
+
+var palletinho_ninho = document.getElementById("palletinho_ninho");
+
+palletinho_ninho.addEventListener("click", function (e) {
+    e.preventDefault();
+    btn_ir_mult.style.display = "none";
+    btn_cartao.style.display = "none";
+    btn_dinheiro.style.display = "none";
+    btn_pix.innertext = "Resgatar";
+    
+
+    const custo = 16;
+    let pontos = parseInt(localStorage.getItem("pontosClick")) || 0;
+
+    // Verifica se possui pontos suficientes
+    if (pontos < custo) {
+        alert("Você precisa de 16 pontos.");
+        return;
+    }
+
+    // Desconta os pontos
+    pontos -= custo;
+    localStorage.setItem("pontosClick", pontos);
+
+    // Atualiza contador na tela
+    loadCounter();
+
+    // Cria o pedido gratuito
+    const pedido = {
+        acai: "Palletinho ninho, Fidelidade",
         limit: 4,
         valor: 0
     };
