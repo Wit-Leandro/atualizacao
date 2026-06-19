@@ -2270,6 +2270,7 @@ function antecipar_envio_pix() {
     vlr_total_whats +
     "\nTaxa entrega: " +
     te +
+    "\nPagamento via Pix" +
     "\nColherzinha? " +
     whats_colher + "\nPontos Tio-chico: " + n_compras_app +
     "" +
