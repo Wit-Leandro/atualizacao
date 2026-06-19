@@ -96,6 +96,7 @@ window.addEventListener('load', function () {
   var local = 'Não informado'
   dic.push(nome, endereco, ncasa, fone, local)
   loadCounter();
+  notificarHorarioEntrega();
   ///alert("Atendimento normal apenas na loja hoje\n das 14hs as 23hs")
   //alert("Hoje não teremos entregas delivery \n Apenas retirada na loja")
   //alert("\u{1F4CC}\nCONCLUA TODAS AS ETAPAS \nATÉ A ABA DE PAGAMENTOS \nPARA FINALIZAR SEU PEDIDO")
@@ -2113,7 +2114,7 @@ function copyToClipboard() {
     }
   )
 }
-
+/*
 function valorTotalFrete() {
   var t = somarArray(valorCompra);
 
@@ -2132,6 +2133,27 @@ function valorTotalFrete() {
   }
   return t
 }
+*/
+function valorTotalFrete() {
+  var t = somarArray(valorCompra);
+  var horaAtual = new Date().getHours();
+
+  // Entre 00:00 e 05:59 cobra frete sempre
+  if (horaAtual >= 0 && horaAtual < 6) {
+    t = t + dic[5];
+  } else if (t < 30 && dic[4] === "Tarumã") {
+    t = t + dic[5];
+  } else if (t < 200 && dic[4] === "Usina Nova America") {
+    t = t + dic[5];
+  } else if (t < 120 && dic[4] === "Usina Agua Bonita") {
+    t = t + dic[5];
+  } else if (t < 100 && dic[4] === "Posto Pioneiro") {
+    t = t + dic[5];
+  }
+
+  return t;
+}
+
 
 function gerarImagemPedido() {
   var dh = new Date().getDate(); // ✅ dia do mês
@@ -3043,3 +3065,14 @@ palletinho_ninho.addEventListener("click", function (e) {
     resadicao.innerHTML =
         "Escolha " + limite + " adicionais para seu açaí";
 });
+
+function notificarHorarioEntrega() {
+  var horaAtual = new Date().getHours();
+  var span = document.getElementById("notificar_horario");
+
+  if (horaAtual >= 0 && horaAtual < 6) {
+    span.innerHTML = "⚠️ Não há insenção da taxa durante (00:00 às 06:00).";
+  } else {
+    span.innerHTML = "";
+  }
+}
