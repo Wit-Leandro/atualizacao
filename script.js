@@ -1188,18 +1188,8 @@ function mostrarDados() {
   const userVlr = objectAdciona.vlr;
   const userObs = objectAdciona.obs;
 
-  var t = somarArray(valorCompra);
+  var t = valorTotalFrete();
 
-  if (t < 30 && dic[4] === "Tarumã") {
-    t = t + dic[5];
-  } else if (t < 200 && dic[4] === "Usina Nova America") {
-    t = t + dic[5];
-  } else if (t < 120 && dic[4] === "Usina Agua Bonita") {
-    t = t + dic[5];
-  } else if (t < 100 && dic[4] === "Posto Pioneiro") {
-    t = t + dic[5];
-  } else {
-  }
   valor_pagamento.innerHTML = "VALOR DO PEDIDO  R$ " + t;
 }
 
@@ -1859,21 +1849,21 @@ env_cartao.addEventListener("click", function () {
     }
   });
 
-  var tw = somarArray(valorCompra);
   var te = "";
+  var tw = valorTotalFrete();
 
   if (tw < 30 && dic[4] === "Tarumã") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
+   // tw = tw + dic[5];
   } else if (tw < 200 && dic[4] === "Usina Nova America") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
+   //tw = tw + dic[5];
   } else if (tw < 120 && dic[4] === "Usina Agua Bonita") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
+    //tw = tw + dic[5];
   } else if (tw < 100 && dic[4] === "Posto Pioneiro") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
+   // tw = tw + dic[5];
   } else {
     te = "Taxa de entrega isento";
   }
@@ -1931,21 +1921,21 @@ env_dinheiro.addEventListener("click", function (e) {
     }
   });
 
-  var tw = somarArray(valorCompra);
   var te = "";
+  var tw = valorTotalFrete();
 
   if (tw < 30 && dic[4] === "Tarumã") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
+   // tw = tw + dic[5];
   } else if (tw < 200 && dic[4] === "Usina Nova America") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
+   //tw = tw + dic[5];
   } else if (tw < 120 && dic[4] === "Usina Agua Bonita") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
+    //tw = tw + dic[5];
   } else if (tw < 100 && dic[4] === "Posto Pioneiro") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
+   // tw = tw + dic[5];
   } else {
     te = "Taxa de entrega isento";
   }
@@ -2134,23 +2124,41 @@ function valorTotalFrete() {
   return t
 }
 */
-function valorTotalFrete() {
-  var t = somarArray(valorCompra);
+function cobrarFrete() {
   var horaAtual = new Date().getHours();
+  var validarFrete = 'False';
 
   // Entre 00:00 e 05:59 cobra frete sempre
   if (horaAtual >= 0 && horaAtual < 6) {
-    t = t + dic[5];
-  } else if (t < 30 && dic[4] === "Tarumã") {
-    t = t + dic[5];
-  } else if (t < 200 && dic[4] === "Usina Nova America") {
-    t = t + dic[5];
-  } else if (t < 120 && dic[4] === "Usina Agua Bonita") {
-    t = t + dic[5];
-  } else if (t < 100 && dic[4] === "Posto Pioneiro") {
+    validarFrete = 'True';
+  } else {
+    validarFrete = 'False';
+  } 
+
+  return validarFrete;
+}
+
+
+
+function valorTotalFrete() {
+  var t = somarArray(valorCompra);
+  var v = cobrarFrete();
+
+  // Entre 00:00 e 05:59 cobra frete sempre
+  if (v === "True") {
     t = t + dic[5];
   }
-
+    else{
+      if (t < 30 && dic[4] === "Tarumã") {
+        t = t + dic[5];
+      } else if (t < 200 && dic[4] === "Usina Nova America") {
+        t = t + dic[5];
+      } else if (t < 120 && dic[4] === "Usina Agua Bonita") {
+        t = t + dic[5];
+      } else if (t < 100 && dic[4] === "Posto Pioneiro") {
+        t = t + dic[5];
+      }
+  } 
   return t;
 }
 
@@ -2171,24 +2179,25 @@ function gerarImagemPedido() {
     }
   });
 
-  var tw = somarArray(valorCompra);
   var te = "";
+  var tw = valorTotalFrete();
 
   if (tw < 30 && dic[4] === "Tarumã") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
+   // tw = tw + dic[5];
   } else if (tw < 200 && dic[4] === "Usina Nova America") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
+   //tw = tw + dic[5];
   } else if (tw < 120 && dic[4] === "Usina Agua Bonita") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
+    //tw = tw + dic[5];
   } else if (tw < 100 && dic[4] === "Posto Pioneiro") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
+   // tw = tw + dic[5];
   } else {
     te = "Taxa de entrega isento";
   }
+  var vlr_total_whats = "R$" + tw + '`';
 
   var vlr_total_whats = "R$" + tw;
   var informar_data_hora = informarDataHora();
@@ -2204,7 +2213,7 @@ function gerarImagemPedido() {
     "\nValor total: " + vlr_total_whats +
     "\nTaxa: " + te +
     "\nColherzinha? " + whats_colher +
-    "\nEste é o meu " + n_compras_app + "° pedido\n" +
+    "\nPontos " + n_compras_app + " Tio-Chico\n" +
     mensagemCarrinho;
 
   var pedidoElement = document.createElement("div");
@@ -2221,6 +2230,7 @@ function gerarImagemPedido() {
     // ==========================
     // 📧 ENVIO POR EMAIL
     // ==========================
+    
     if (dh % 2 === 0){
       enviarEmailPar(detalhesPedido)
     } else {
@@ -2255,21 +2265,22 @@ function antecipar_envio_pix() {
   });
   var pedido = JSON.parse(sessionStorage.getItem("pedido"));
 
-  var tw = somarArray(valorCompra);
+  //var tw = somarArray(valorCompra);
   var te = "";
+  var tw = valorTotalFrete();
 
   if (tw < 30 && dic[4] === "Tarumã") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
+   // tw = tw + dic[5];
   } else if (tw < 200 && dic[4] === "Usina Nova America") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
+   //tw = tw + dic[5];
   } else if (tw < 120 && dic[4] === "Usina Agua Bonita") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
+    //tw = tw + dic[5];
   } else if (tw < 100 && dic[4] === "Posto Pioneiro") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
+   // tw = tw + dic[5];
   } else {
     te = "Taxa de entrega isento";
   }
@@ -3071,8 +3082,8 @@ function notificarHorarioEntrega() {
   var span = document.getElementById("notificar_horario");
 
   if (horaAtual >= 0 && horaAtual < 6) {
-    span.innerHTML = "⚠️ Não há insenção da taxa durante (00:00 às 06:00).";
+    span.innerHTML = "⚠️A taxa de entrega será cobrada independente do valor para os pedidos realizados depois da Meia-noite.";
   } else {
-    span.innerHTML = "";
+    span.innerHTML = "Dependendo da sua região, poderá haver uma cobrança adicional como taxa de entrega.";
   }
 }

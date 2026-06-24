@@ -10,11 +10,6 @@ body {
   font-size: 16px;
 }
 
-.container_mae {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-}
-
 #bloquear {
   display: none;
 }
@@ -2193,7 +2188,7 @@ height: 25px;
 
   box-shadow: 0 6px 15px rgba(0,0,0,0.3);
   border: 1px solid #a92fca;
-  width: 100%;
+  width: 90%;
 }
 
 /* Nome do item */
@@ -3415,18 +3410,6 @@ p.estilo_titulo2 {
 }
 
 /*---PICOLES-----*/
-.cx_itens {
-  display: flex;
-  align-items: center;
-
-  background: linear-gradient(145deg, #2a0033, #3d004d);
-  border-radius: 15px;
-  padding: 12px;
-  margin-bottom: 12px;
-
-  border: 1px solid #a92fca;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-}
 
 .img_picole {
   object-fit: cover;

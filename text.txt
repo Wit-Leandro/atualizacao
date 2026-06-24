@@ -1,95 +1,31 @@
-      <div class="cx_itens">
-        <input type="text" value="Chcocolate" readoly>
-        <button onclick="alterarQtd('Chocolate', -1)">&#10134</button>
-        <span id="qtd_Chocolate">0</span>
-        <button onclick="alterarQtd('Chocolate', 1)">&#10133</button>
-      </div>
+:root{
+  --cor-principal: #80204e;
+  --cor-principal-hover: #b96bcf;
+  --cor-fundo: #f5f5f5;
+  --cor-card: #ffffff;
+  --cor-texto: #333;
+  --cor-destaque: #8a2be2;
 
-      
-.cx_itens {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  background: linear-gradient(145deg, #2a0033, #3d004d);
-  padding: 12px 15px;
-  border-radius: 15px;
-  margin-bottom: 10px;
-
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-  border: 1px solid #a92fca;
+  --raio: 15px;
+  --sombra: 0 4px 12px rgba(0,0,0,.12);
 }
 
-/* Nome do item */
-.cx_itens input[type="text"] {
-  width: auto;
-  border: none;
-  background: transparent;
-
-  color: #fff;
-  font-size: 15px;
-  font-weight: bold;
+*{
+  box-sizing:border-box;
 }
 
-/* Quantidade */
-.cx_itens input[type="number"] {
-  width: 45px;
-  height: 30px;
-
-  border-radius: 8px;
-  border: none;
-
-  background: #1a001f;
-  color: #fff;
-
-  text-align: center;
-  font-weight: bold;
-}
-.cx_itens span {
-  width: 45px;
-  height: 30px;
-
-  border-radius: 8px;
-  border: none;
-
-  background: #1a001f;
-  color: #fff;
-
-  text-align: center;
-  font-weight: bold;
+html{
+  scroll-behavior:smooth;
 }
 
-/* Botões */
-.cx_itens button {
-  width: 32px;
-  height: 32px;
-
-  border-radius: 50%;
-  border: none;
-
-  background: linear-gradient(145deg, #c800ff, #ff00aa);
-  color: #fff;
-
-  font-size: 18px;
-  font-weight: bold;
-
-  cursor: pointer;
-  transition: all 0.2s ease;
+body{
+  font-family:'Josefin Sans',sans-serif;
+  overflow-x:hidden;
+  background:var(--cor-fundo);
+  color:var(--cor-texto);
 }
 
-/* Hover bonito */
-.cx_itens button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 10px #c800ff;
-}
-
-/* Clique */
-.cx_itens button:active {
-  transform: scale(0.95);
-}
-
-/* Organizar melhor */
-.cx_itens input[type="number"],
-.cx_itens button {
-  margin-right: 8px;
+img{
+  max-width:100%;
+  height:auto;
 }
