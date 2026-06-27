@@ -228,6 +228,7 @@ body {
 }
 
 #acai_tradicional {
+  width: 100%;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -273,7 +274,6 @@ body {
   padding-left: 0;
   margin: 0;
   grid-row: 1 / 1;
-
   justify-content: center;
   justify-items: center;
   row-gap: 5px;
@@ -480,7 +480,7 @@ button:hover {
   align-items: center;
   grid-row: 3;
 }
-
+/*
 footer {
   border-top: solid 2px #370246;
   grid-column: 1 / -1;
@@ -513,7 +513,7 @@ footer a:hover {
 footer a img {
   width: 300px;
 }
-
+*/
 
 #welcome {
   font-size: 20px;
@@ -562,7 +562,7 @@ footer a img {
   margin-bottom: 10px;
 }
 
-.tab {
+.tab, .tab2, .tab5, .tab6 {
   background-color: rgb(128, 32, 78);
   color: #fff;
   border: none;
@@ -570,50 +570,13 @@ footer a img {
   transition: background-color 0.3s;
   width: 170px;
   height: 35px;
-  border: solid 1px;
-  border-radius: 20px;
-  margin: 0 1px 0 1px;
-}
-
-.tab2 {
-  background-color: rgb(128, 32, 78);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  width: 340px;
-  height: 35px;
-  border: solid 1px;
-  border-radius: 20px;
-  margin: 0 1px 0 1px;
-}
-
-.tab5 {
-  background-color: rgb(128, 32, 78);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  width: 170px;
-  height: 35px;
-  border: solid 1px;
-  border-radius: 20px;
-  margin: 0 1px 0 1px;
-}
-
-.tab6 {
-  background-color: rgb(128, 32, 78);
-  color: #fff;
+  border: solid 2px;
+  border-radius: 0 50px 0 50px;
+  margin: 2px 2px 2px 2px;
   font-weight: bolder;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  width: 170px;
-  height: 35px;
-  border: solid 1px;
-  border-radius: 20px;
-  margin-top: 3px;
 }
+
+
 .tab10 {
   background-color: rgb(128, 32, 78);
   color: #fff;
@@ -621,11 +584,11 @@ footer a img {
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
-  width: 340px;
+  width: 344px;
   height: 35px;
-  border: solid 1px;
-  border-radius: 20px;
-  margin-top: 5px;
+  border: solid 2px;
+  border-radius: 0 50px 0 50px;
+  margin-top: 2px;
 }
 
 .tab:hover {
@@ -1947,9 +1910,7 @@ height: 25px;
   grid-column: 2;
 }
 
-.btn_escolha {
-  margin-bottom: 20px;
-}
+
 
 @keyframes growAndShrink {
   0% {
@@ -2166,7 +2127,11 @@ height: 25px;
   text-align: center;
   grid-row: 4;
 }
-
+#ocutar {
+  align-items: center;
+  align-self: center;
+  text-align: center;
+}
 #usuario h2 {
   padding-left: 20px;
   margin-bottom: 10px;
@@ -2626,11 +2591,10 @@ height: 25px;
 }
 
 .mais_pedidos {
-  width: 320px;
+  width: 90%;
   background: #ffffff;
   border-radius: 16px;
-  padding: 16px;
-  margin-bottom: 10px;
+  padding: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -2692,7 +2656,7 @@ p.estilo_titulo2 {
 
 /* CONTAINER */
 .category {
-  width: 320px;
+  max-width: 340px;
   background: radial-gradient(#cc82e1, #a92fca);
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -3164,15 +3128,8 @@ p.estilo_titulo2 {
 }
 
 /* LOGO */
-.imgcabeca {
-  background: #fff;
-  padding: 6px;
-  border-radius: 12px;
-}
 
 .imgcabeca img {
-  width: 60px;
-  height: 60px;
   object-fit: contain;
 }
 
@@ -3531,4 +3488,118 @@ p.estilo_titulo2 {
 
 .btn_pontos:hover {
     background: #6a1b9a;
+}
+
+.footer{
+    background:linear-gradient(180deg,#4a0072,#2b003d);
+    padding:35px 20px;
+    text-align:center;
+    border-top:2px solid #8e24aa;
+    border-radius: 20px;
+}
+
+.footer-redes{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:22px;
+    margin-bottom:18px;
+}
+
+.footer-redes a{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    border:2px solid rgba(255,255,255,.35);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    text-decoration:none;
+    font-size:28px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(5px);
+    transition:.35s;
+}
+
+.footer-redes a:hover{
+    transform:translateY(-6px) scale(1.08);
+    box-shadow:0 0 18px rgba(255,255,255,.45);
+}
+
+/* WhatsApp */
+.footer-redes .whatsapp:hover{
+    background:#25D366;
+    border-color:#25D366;
+    color:#fff;
+    box-shadow:0 0 25px #25D366;
+}
+
+/* Instagram */
+.footer-redes .instagram:hover{
+    background:linear-gradient(
+        45deg,
+        #FEDA75,
+        #FA7E1E,
+        #D62976,
+        #962FBF,
+        #4F5BD5
+    );
+    border-color:#fff;
+    color:#fff;
+    box-shadow:0 0 25px #D62976;
+}
+
+/* TikTok */
+.footer-redes .tiktok:hover{
+    background:#000;
+    border-color:#fff;
+    color:#25F4EE;
+    text-shadow:
+        -2px 0 #FE2C55,
+         2px 0 #25F4EE;
+    box-shadow:0 0 25px #25F4EE;
+}
+
+.footer p{
+    color:#ffffffcc;
+    font-size:12px;
+    margin:0;
+    letter-spacing:.5px;
+}
+
+/* Celulares e tablets */
+@media (hover: none) and (pointer: coarse) {
+
+    .footer-redes .whatsapp{
+        background:#25D366;
+        border-color:#25D366;
+        color:#fff;
+        box-shadow:0 0 20px #25D366;
+    }
+
+    .footer-redes .instagram{
+        background:linear-gradient(
+            45deg,
+            #FEDA75,
+            #FA7E1E,
+            #D62976,
+            #962FBF,
+            #4F5BD5
+        );
+        border-color:#fff;
+        color:#fff;
+        box-shadow:0 0 20px #D62976;
+    }
+
+    .footer-redes .tiktok{
+        background:#000;
+        border-color:#fff;
+        color:#25F4EE;
+        text-shadow:
+            -2px 0 #FE2C55,
+             2px 0 #25F4EE;
+        box-shadow:0 0 20px #25F4EE;
+    }
+
 }
