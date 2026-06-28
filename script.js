@@ -2939,12 +2939,12 @@ palletinho_bombom.addEventListener("click", function (e) {
     btn_pix.innertext = "Resgatar";
     
 
-    const custo = 16;
+    const custo = 4;
     let pontos = parseInt(localStorage.getItem("pontosClick")) || 0;
 
     // Verifica se possui pontos suficientes
     if (pontos < custo) {
-        alert("Você precisa de 16 pontos.");
+        alert("Você precisa de 4 pontos.");
         return;
     }
 
@@ -2988,12 +2988,12 @@ palletinho_chocolate.addEventListener("click", function (e) {
     btn_pix.innertext = "Resgatar";
     
 
-    const custo = 16;
+    const custo = 4;
     let pontos = parseInt(localStorage.getItem("pontosClick")) || 0;
 
     // Verifica se possui pontos suficientes
     if (pontos < custo) {
-        alert("Você precisa de 16 pontos.");
+        alert("Você precisa de 4 pontos.");
         return;
     }
 
@@ -3038,12 +3038,12 @@ palletinho_ninho.addEventListener("click", function (e) {
     btn_pix.innertext = "Resgatar";
     
 
-    const custo = 16;
+    const custo = 4;
     let pontos = parseInt(localStorage.getItem("pontosClick")) || 0;
 
     // Verifica se possui pontos suficientes
     if (pontos < custo) {
-        alert("Você precisa de 16 pontos.");
+        alert("Você precisa de 4 pontos.");
         return;
     }
 
