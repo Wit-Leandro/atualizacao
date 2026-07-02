@@ -1,6 +1,15 @@
 // FECHAR LOJA = 1 || ABRIR LOJA = 2
 
-var loja = 2
+var loja = 2;
+
+// HOJE TEM CUPOM = 2 || HOJE NÃO TEM CUPOM = 1
+
+var dia_cupom = 1;
+
+// Lista de cupons
+const cupons = {
+    "TIOCHICO10": 10
+};
 
 //-------------------------------------
 var preco = [];
@@ -1188,9 +1197,8 @@ function mostrarDados() {
   const userVlr = objectAdciona.vlr;
   const userObs = objectAdciona.obs;
 
-  var t = valorTotalFrete();
 
-  valor_pagamento.innerHTML = "VALOR DO PEDIDO  R$ " + t;
+  
 }
 
 imprimir.addEventListener("click", function () {
@@ -1202,6 +1210,7 @@ imprimir.addEventListener("click", function () {
   pagamentos.style.display = "block";
   gerarImagemPedido()
   generateQRCode()
+
 
 });
 
@@ -1761,6 +1770,7 @@ function pad(numero, tamanho) {
 /*---Envair pedido para o whatsApp--- */
 
 env_pix.addEventListener("click", function () {
+  var uso_cupom = '';
   var vencimento = informarValidade();
   pagamentos.style.display = "none";
   agradece.style.display = 'block'
@@ -1779,7 +1789,13 @@ env_pix.addEventListener("click", function () {
     }
   });
 
-  var tw = somarArray(valorCompra);
+  if (descontoCupom > 0) {
+    uso_cupom = 'SIM';
+  }else {
+    uso_cupom = 'NÃO';
+  } 
+
+  var tw = valorTotalFrete();
   var te = "";
 
   if (tw < 30 && dic[4] === "Tarumã") {
@@ -1815,6 +1831,8 @@ env_pix.addEventListener("click", function () {
     vlr_total_whats +
     "\nTaxa entrega: " +
     te +
+    "\nCupom usado? " + 
+    uso_cupom +
     "\nPagamento via Pix" +
     "\nColherzinha? " +
     whats_colher + "\nPontos Tio-chico: " + n_compras_app +
@@ -1831,6 +1849,7 @@ env_pix.addEventListener("click", function () {
   alert('"ENVIAR COMPROVANTE DO PIX VIA WHATSAPP"')
 });
 env_cartao.addEventListener("click", function () {
+  var uso_cupom = '';
   var vencimento = informarValidade();
   pagamentos.style.display = "none";
   agradece.style.display = 'block'
@@ -1848,23 +1867,20 @@ env_cartao.addEventListener("click", function () {
       mensagemCarrinho += "- " + element + "\n";
     }
   });
+  if (descontoCupom > 0) {
+    uso_cupom = 'SIM';
+  }else {
+    uso_cupom = 'NÃO';
+  }
 
+  var vc = somarArray(valorCompra);
   var te = "";
   var tw = valorTotalFrete();
 
-  if (tw < 30 && dic[4] === "Tarumã") {
+  if (vc !== tw) {
     te = "Taxa de entrega R$" + dic[5] + ",00";
    // tw = tw + dic[5];
-  } else if (tw < 200 && dic[4] === "Usina Nova America") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-   //tw = tw + dic[5];
-  } else if (tw < 120 && dic[4] === "Usina Agua Bonita") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-    //tw = tw + dic[5];
-  } else if (tw < 100 && dic[4] === "Posto Pioneiro") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-   // tw = tw + dic[5];
-  } else {
+  }else {
     te = "Taxa de entrega isento";
   }
   var vlr_total_whats = "R$" + tw + '`';
@@ -1885,6 +1901,8 @@ env_cartao.addEventListener("click", function () {
     vlr_total_whats +
     "\nTaxa entrega: " +
     te +
+    "\nCupom usado? " + 
+    uso_cupom +
     "\nLevar a maquininha" +
     "\nColherzinha? " +
     whats_colher + "\nPontos Tio-chico: " + n_compras_app +
@@ -1901,6 +1919,7 @@ env_cartao.addEventListener("click", function () {
 });
 env_dinheiro.addEventListener("click", function (e) {
   e.preventDefault();
+  var uso_cupom = '';
   var vencimento = informarValidade();
   var troco = document.getElementById("troco").value;
   var n_compras_app = parseInt(localStorage.getItem('pontosClick'))
@@ -1920,23 +1939,19 @@ env_dinheiro.addEventListener("click", function (e) {
       mensagemCarrinho += "- " + element + "\n";
     }
   });
-
+  if (descontoCupom > 0) {
+    uso_cupom = 'SIM';
+  }else {
+    uso_cupom = 'NÃO';
+  }
+  var vc = somarArray(valorCompra);
   var te = "";
   var tw = valorTotalFrete();
 
-  if (tw < 30 && dic[4] === "Tarumã") {
+  if (vc !== tw) {
     te = "Taxa de entrega R$" + dic[5] + ",00";
    // tw = tw + dic[5];
-  } else if (tw < 200 && dic[4] === "Usina Nova America") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-   //tw = tw + dic[5];
-  } else if (tw < 120 && dic[4] === "Usina Agua Bonita") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-    //tw = tw + dic[5];
-  } else if (tw < 100 && dic[4] === "Posto Pioneiro") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-   // tw = tw + dic[5];
-  } else {
+  }else {
     te = "Taxa de entrega isento";
   }
   var vlr_total_whats = "R$" + tw + '`';
@@ -1957,6 +1972,8 @@ env_dinheiro.addEventListener("click", function (e) {
     vlr_total_whats +
     "\nTaxa entrega: " +
     te +
+    "\nCupom usado? " + 
+    uso_cupom +
     "\nDinheiro: Precisa de troco? " +
     troco +
     "\nColherzinha? " +
@@ -2141,25 +2158,45 @@ function cobrarFrete() {
 
 
 function valorTotalFrete() {
+
   var t = somarArray(valorCompra);
+
+  // Aplica desconto percentual
+  if (descontoCupom > 0) {
+    t -= t * descontoCupom / 100;
+  }
+
   var v = cobrarFrete();
 
   // Entre 00:00 e 05:59 cobra frete sempre
   if (v === "True") {
-    t = t + dic[5];
+
+    t += dic[5];
+
+  } else {
+
+    if (t < 30 && dic[4] === "Tarumã") {
+
+      t += dic[5];
+
+    } else if (t < 200 && dic[4] === "Usina Nova America") {
+
+      t += dic[5];
+
+    } else if (t < 120 && dic[4] === "Usina Agua Bonita") {
+
+      t += dic[5];
+
+    } else if (t < 100 && dic[4] === "Posto Pioneiro") {
+
+      t += dic[5];
+
+    }
+
   }
-    else{
-      if (t < 30 && dic[4] === "Tarumã") {
-        t = t + dic[5];
-      } else if (t < 200 && dic[4] === "Usina Nova America") {
-        t = t + dic[5];
-      } else if (t < 120 && dic[4] === "Usina Agua Bonita") {
-        t = t + dic[5];
-      } else if (t < 100 && dic[4] === "Posto Pioneiro") {
-        t = t + dic[5];
-      }
-  } 
+
   return t;
+
 }
 
 
@@ -2167,6 +2204,7 @@ function gerarImagemPedido() {
   var dh = new Date().getDate(); // ✅ dia do mês
   var mensagemCarrinho = "";
   var contped = 0;
+  var uso_cupom = ''
 
 
   carrinho.forEach(function (element) {
@@ -2178,20 +2216,17 @@ function gerarImagemPedido() {
       mensagemCarrinho += "-" + element + "\n";
     }
   });
-
+  var vc = somarArray(valorCompra);
   var te = "";
   var tw = valorTotalFrete();
+  
+  if (descontoCupom > 0) {
+    uso_cupom = 'SIM';
+  }else {
+    uso_cupom = 'NÃO';
+  }
 
-  if (tw < 30 && dic[4] === "Tarumã") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-   // tw = tw + dic[5];
-  } else if (tw < 200 && dic[4] === "Usina Nova America") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-   //tw = tw + dic[5];
-  } else if (tw < 120 && dic[4] === "Usina Agua Bonita") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-    //tw = tw + dic[5];
-  } else if (tw < 100 && dic[4] === "Posto Pioneiro") {
+  if (vc !== tw) {
     te = "Taxa de entrega R$" + dic[5] + ",00";
    // tw = tw + dic[5];
   } else {
@@ -2212,6 +2247,7 @@ function gerarImagemPedido() {
     "\nTelefone: " + dic[3] +
     "\nValor total: " + vlr_total_whats +
     "\nTaxa: " + te +
+    "\nCupom usado? " + uso_cupom +
     "\nColherzinha? " + whats_colher +
     "\nPontos " + n_compras_app + " Tio-Chico\n" +
     mensagemCarrinho;
@@ -2230,12 +2266,12 @@ function gerarImagemPedido() {
     // ==========================
     // 📧 ENVIO POR EMAIL
     // ==========================
-    
+    /*
     if (dh % 2 === 0){
       enviarEmailPar(detalhesPedido)
     } else {
       enviarEmailImpar(detalhesPedido)
-    }
+    }*/
     // ==========================
     // 📥 DOWNLOAD (opcional)
     // ==========================
@@ -2245,11 +2281,13 @@ function gerarImagemPedido() {
     link.click();
 
     document.body.removeChild(pedidoElement);
+    valor_pagamento.innerHTML = "VALOR DO PEDIDO  R$ " + tw;
 
   });
 }
 
 function antecipar_envio_pix() {
+  var uso_cupom = ''
   var vencimento = informarValidade();
   var mensagemCarrinho = "";
   var contped = 0;
@@ -2265,23 +2303,20 @@ function antecipar_envio_pix() {
   });
   var pedido = JSON.parse(sessionStorage.getItem("pedido"));
 
-  //var tw = somarArray(valorCompra);
+  var vc = somarArray(valorCompra);
   var te = "";
   var tw = valorTotalFrete();
+  
+  if (descontoCupom > 0) {
+    uso_cupom = 'SIM';
+  }else {
+    uso_cupom = 'NÃO';
+  }
 
-  if (tw < 30 && dic[4] === "Tarumã") {
+  if (vc !== tw) {
     te = "Taxa de entrega R$" + dic[5] + ",00";
    // tw = tw + dic[5];
-  } else if (tw < 200 && dic[4] === "Usina Nova America") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-   //tw = tw + dic[5];
-  } else if (tw < 120 && dic[4] === "Usina Agua Bonita") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-    //tw = tw + dic[5];
-  } else if (tw < 100 && dic[4] === "Posto Pioneiro") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-   // tw = tw + dic[5];
-  } else {
+  }else {
     te = "Taxa de entrega isento";
   }
   var vlr_total_whats = "R$" + tw + '`';
@@ -2303,6 +2338,8 @@ function antecipar_envio_pix() {
     vlr_total_whats +
     "\nTaxa entrega: " +
     te +
+    "\nCupom usado? " + 
+    uso_cupom +
     "\nPagamento via Pix" +
     "\nColherzinha? " +
     whats_colher + "\nPontos Tio-chico: " + n_compras_app +
@@ -3086,4 +3123,63 @@ function notificarHorarioEntrega() {
   } else {
     span.innerHTML = "Dependendo da sua região, poderá haver uma cobrança adicional como taxa de entrega.";
   }
+  if (dia_cupom == 1) {
+  cupom_box.style.display = 'none'
+  }else {
+  cupom_box.style.display = 'block'
+  }
+}
+
+// Valor do desconto aplicado
+let descontoCupom = 0;
+
+
+
+// Pegar botão do cupom para ocutar ele
+var ocutar_cupom = document.getElementById("cupom_ocutar");
+var cupom_box = document.getElementById("cupom_box");
+
+
+
+
+
+function validarCupom() {
+
+    let codigo = document
+        .getElementById("cupom")
+        .value
+        .trim()
+        .toUpperCase();
+
+    let msg = document.getElementById("mensagemCupom");
+
+    if (codigo == "") {
+
+        msg.className = "cupom-erro";
+        msg.innerHTML = "Digite um cupom.";
+
+        return;
+    }
+
+    if (cupons[codigo] == undefined) {
+
+        descontoCupom = 0;
+
+        msg.className = "cupom-erro";
+        msg.innerHTML = "Cupom inválido.";
+
+        return;
+    }
+
+    descontoCupom = cupons[codigo];
+
+    msg.className = "cupom-sucesso";
+    msg.innerHTML = "Cupom aplicado: " + descontoCupom + "% OFF";
+    ocutar_cupom.style.display = 'none';
+
+    // Se desejar recalcular o total imediatamente
+    atualizarTotal();
+
+    // Esconde a caixa do cupom
+    document.getElementById("cupom-box").style.display = "none";
 }

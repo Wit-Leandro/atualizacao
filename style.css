@@ -4,7 +4,6 @@ body {
   align-items: center;
   background: radial-gradient(#cc82e1, #a92fca);
   margin: 0;
-  padding-left: 10px;
   font-family: "Josefin Sans", sans-serif;
   font-optical-sizing: auto;
   font-size: 16px;
@@ -163,7 +162,7 @@ body {
   justify-content: center;
   text-align: center;
   align-items: center;
-  background: radial-gradient(#e0cfe5, #cb7ce1);
+
   border: solid #a92fca 1px;
   border-radius: 10px;
   color: #210129;
@@ -175,7 +174,7 @@ body {
   justify-content: center;
   text-align: center;
   align-items: center;
-  background: radial-gradient(#e0cfe5, #cb7ce1);
+
   border: solid #a92fca 1px;
   border-radius: 10px;
   color: #210129;
@@ -187,7 +186,7 @@ body {
   justify-content: center;
   text-align: center;
   align-items: center;
-  background: radial-gradient(#e0cfe5, #cb7ce1);
+ 
   border: solid #a92fca 1px;
   border-radius: 10px;
   color: #210129;
@@ -199,7 +198,7 @@ body {
   justify-content: center;
   text-align: center;
   align-items: center;
-  background: radial-gradient(#e0cfe5, #cb7ce1);
+
   border: solid #a92fca 1px;
   border-radius: 10px;
   color: #210129;
@@ -266,6 +265,11 @@ body {
 
 
 .container {
+  background-image: url("imagens/background-mobile.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: #2B0038;
   border-radius: 20px;
   grid-template-columns: 500px;
   grid-template-rows: auto fr;
@@ -295,7 +299,7 @@ header {
   justify-content: center;
   text-align: center;
   align-items: center;
-  background: radial-gradient(#e0cfe5, #cb7ce1);
+
   border: solid #a92fca 1px;
   border-radius: 10px;
   color: #210129;
@@ -307,7 +311,7 @@ header {
   justify-content: center;
   text-align: center;
   align-items: center;
-  background: radial-gradient(#e0cfe5, #cb7ce1);
+
   border: solid #a92fca 1px;
   border-radius: 10px;
   color: #210129;
@@ -319,7 +323,7 @@ header {
   justify-content: center;
   text-align: center;
   align-items: center;
-  background: radial-gradient(#e0cfe5, #cb7ce1);
+
   border: solid #a92fca 1px;
   border-radius: 10px;
   color: #210129;
@@ -333,7 +337,7 @@ header {
   justify-content: center;
   text-align: center;
   align-items: center;
-  background: radial-gradient(#e0cfe5, #cb7ce1);
+
   border: solid #a92fca 1px;
   border-radius: 10px;
   color: #210129;
@@ -345,7 +349,7 @@ header {
   justify-content: center;
   text-align: center;
   align-items: center;
-  background: radial-gradient(#e0cfe5, #cb7ce1);
+
   border: solid #a92fca 1px;
   border-radius: 10px;
   color: #210129;
@@ -3120,7 +3124,7 @@ p.estilo_titulo2 {
   align-items: center;
   justify-content: space-between;
 
-  background:linear-gradient(180deg,#4a0072,#2b003d);
+
   padding: 10px;
 
   border-radius: 15px;
@@ -3491,7 +3495,7 @@ p.estilo_titulo2 {
 }
 
 .footer{
-    background:linear-gradient(180deg,#4a0072,#2b003d);
+
     padding:35px 20px;
     text-align:center;
     border-top:2px solid #8e24aa;
@@ -3602,4 +3606,71 @@ p.estilo_titulo2 {
         box-shadow:0 0 20px #25F4EE;
     }
 
+}
+
+.cupom-box{
+    width:100%;
+    margin:15px 0;
+}
+
+.cupom-box label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+    color:#5b2db3;
+}
+
+.cupom-input{
+    display:flex;
+    gap:10px;
+}
+
+.cupom-input input{
+    flex:1;
+    height:45px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    padding:0 15px;
+    font-size:16px;
+    transition:.3s;
+}
+
+.cupom-input input:focus{
+    outline:none;
+    border-color:#6d28d9;
+}
+
+.cupom-input button{
+
+    width:120px;
+    border:none;
+    border-radius:10px;
+    background:#6d28d9;
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.cupom-input button:hover{
+
+    background:#551cb5;
+
+}
+
+#mensagemCupom{
+
+    display:block;
+    margin-top:10px;
+    font-weight:bold;
+
+}
+
+.cupom-sucesso{
+    color:#0a9b36;
+}
+
+.cupom-erro{
+    color:#d11a2a;
 }

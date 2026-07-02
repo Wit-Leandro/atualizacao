@@ -1,31 +1,4 @@
-:root{
-  --cor-principal: #80204e;
-  --cor-principal-hover: #b96bcf;
-  --cor-fundo: #f5f5f5;
-  --cor-card: #ffffff;
-  --cor-texto: #333;
-  --cor-destaque: #8a2be2;
-
-  --raio: 15px;
-  --sombra: 0 4px 12px rgba(0,0,0,.12);
-}
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:'Josefin Sans',sans-serif;
-  overflow-x:hidden;
-  background:var(--cor-fundo);
-  color:var(--cor-texto);
-}
-
-img{
-  max-width:100%;
-  height:auto;
-}
+  // Aplica desconto percentual
+  if (descontoCupom > 0) {
+    t -= t * descontoCupom / 100;
+  }
