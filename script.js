@@ -2266,12 +2266,12 @@ function gerarImagemPedido() {
     // ==========================
     // 📧 ENVIO POR EMAIL
     // ==========================
-    /*
+    
     if (dh % 2 === 0){
       enviarEmailPar(detalhesPedido)
     } else {
       enviarEmailImpar(detalhesPedido)
-    }*/
+    }
     // ==========================
     // 📥 DOWNLOAD (opcional)
     // ==========================

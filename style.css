@@ -265,6 +265,7 @@ body {
 
 
 .container {
+  width: 100%;
   background-image: url("imagens/background-mobile.png");
   background-repeat: no-repeat;
   background-position: center;
