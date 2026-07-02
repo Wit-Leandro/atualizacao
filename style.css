@@ -2,11 +2,15 @@ body {
   display: grid;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(#cc82e1, #a92fca);
+  background-color: #2B0038;
   margin: 0;
+  padding: 0;
   font-family: "Josefin Sans", sans-serif;
   font-optical-sizing: auto;
   font-size: 16px;
+  width: 100%; 
+  height: 100%;
+
 }
 
 #bloquear {
@@ -265,12 +269,7 @@ body {
 
 
 .container {
-  width: 100%;
-  background-image: url("imagens/background-mobile.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-color: #2B0038;
+  width: 100vw;
   border-radius: 20px;
   grid-template-columns: 500px;
   grid-template-rows: auto fr;
