@@ -4,7 +4,7 @@ var loja = 2;
 
 // HOJE TEM CUPOM = 2 || HOJE NÃO TEM CUPOM = 1
 
-var dia_cupom = 1;
+var dia_cupom = 2;
 
 // Lista de cupons
 const cupons = {
