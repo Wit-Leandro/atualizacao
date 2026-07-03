@@ -1866,10 +1866,9 @@
       <h2>Resumo do Pedido</h2>
       <h5>LEMBRE DE NOS ENVIAR O PEDIDO PELO WHATSS-APP</h5>
       <button class="btns" id="imprimir">Ir para pagamento</button>
+      
       <div id="cupom_box" class="cupom-box">
-
         <label for="cupom">Cupom de Desconto</label>
-
         <div id="cupom_ocutar" class="cupom-input">
           <input type="text" id="cupom" placeholder="Digite seu cupom" autocomplete="off">
           <button onclick="validarCupom()">Aplicar</button>
@@ -1879,6 +1878,34 @@
 
       <div class="seus_dados">
         <h2>Seus dados:</h2>
+
+        <div class="linha-resumo">
+            <span class="legenda">Valor dos produtos:</span>
+            <span id="valor_produtos">R$ 0,00</span>
+        </div>
+        
+        <div class="linha-resumo">
+            <span class="legenda">Taxa de entrega:</span>
+            <span id="valor_frete">R$ 0,00</span>
+        </div>
+
+        <div class="linha-resumo">
+            <span class="legenda">Total sem desconto:</span>
+            <span id="valor_total">R$ 0,00</span>
+        </div>
+        <div class="resumo_desconto" id="resumo_desconto">
+          <div class="linha-resumo">
+              <span class="legenda">Desconto:</span>
+              <span id="valor_desconto">R$ 0,00</span>
+          </div>
+
+          <div class="linha-resumo">
+              <span class="legenda"><strong>Total a pagar:</strong></span>
+              <span id="valor_final"><strong>R$ 0,00</strong></span>
+          </div>
+        </div>
+      
+        
         <ul>
           <li id="res_nome"></li>
           <li id="res_end"></li>

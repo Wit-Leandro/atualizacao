@@ -3674,3 +3674,7 @@ p.estilo_titulo2 {
 .cupom-erro{
     color:#d11a2a;
 }
+
+.resumo_desconto {
+  display: none;
+}

@@ -1,4 +1,1 @@
-  // Aplica desconto percentual
-  if (descontoCupom > 0) {
-    t -= t * descontoCupom / 100;
-  }
+resumo_desconto

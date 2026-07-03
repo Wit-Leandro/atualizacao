@@ -12,6 +12,7 @@ const cupons = {
 };
 
 //-------------------------------------
+var dic_desconto = [];
 var preco = [];
 var dic = [];
 var vlr_final = [];
@@ -1185,6 +1186,8 @@ function mostrarDados() {
   /* const getTotal = sessionStorage.getItem("total");
   const objectTotal = JSON.parse(getTotal);
   const userTotal = objectTotal.total;*/
+  var vc = somarArray(valorCompra);
+  dic_desconto.push(vc);
 
   const getPedido = sessionStorage.getItem("pedido");
   const objectPedido = JSON.parse(getPedido);
@@ -1196,6 +1199,8 @@ function mostrarDados() {
   const objectAdciona = JSON.parse(getAdciona);
   const userVlr = objectAdciona.vlr;
   const userObs = objectAdciona.obs;
+
+  atualizarResumoPedido();
 
 
   
@@ -1795,8 +1800,11 @@ env_pix.addEventListener("click", function () {
     uso_cupom = 'NÃO';
   } 
 
-  var tw = valorTotalFrete();
+  var tg = totalGeral();
+  var vc = somarArray(valorCompra);
   var te = "";
+  var tw = valorTotalFrete();
+  var cd = tg - tw; // Calcula o valor do desconto aplicado
 
   if (tw < 30 && dic[4] === "Tarumã") {
     te = "Taxa de entrega R$" + dic[5] + ",00";
@@ -1829,6 +1837,7 @@ env_pix.addEventListener("click", function () {
     dic[4] +
     "\n`Valor total: " +
     vlr_total_whats +
+    "\nDesconto aplicado: R$" + cd +
     "\nTaxa entrega: " +
     te +
     "\nCupom usado? " + 
@@ -1876,7 +1885,7 @@ env_cartao.addEventListener("click", function () {
   var vc = somarArray(valorCompra);
   var te = "";
   var tw = valorTotalFrete();
-
+  var cd = tg - tw; // Calcula o valor do desconto aplicado
   if (vc !== tw) {
     te = "Taxa de entrega R$" + dic[5] + ",00";
    // tw = tw + dic[5];
@@ -1899,6 +1908,7 @@ env_cartao.addEventListener("click", function () {
     dic[4] +
     "\n`Valor total: " +
     vlr_total_whats +
+    "\nDesconto aplicado: R$" + cd +
     "\nTaxa entrega: " +
     te +
     "\nCupom usado? " + 
@@ -1947,7 +1957,7 @@ env_dinheiro.addEventListener("click", function (e) {
   var vc = somarArray(valorCompra);
   var te = "";
   var tw = valorTotalFrete();
-
+  var cd = tg - tw; // Calcula o valor do desconto aplicado
   if (vc !== tw) {
     te = "Taxa de entrega R$" + dic[5] + ",00";
    // tw = tw + dic[5];
@@ -1970,6 +1980,7 @@ env_dinheiro.addEventListener("click", function (e) {
     dic[4] +
     "\n`Valor total: " +
     vlr_total_whats +
+    "\nDesconto aplicado: R$" + cd +
     "\nTaxa entrega: " +
     te +
     "\nCupom usado? " + 
@@ -2155,7 +2166,25 @@ function cobrarFrete() {
   return validarFrete;
 }
 
-
+function totalGeral() {
+  var t = somarArray(valorCompra);
+  var v = cobrarFrete();
+  // Entre 00:00 e 05:59 cobra frete sempre
+  if (v === "True") {
+    t += dic[5];
+  } else {
+    if (t < 30 && dic[4] === "Tarumã") {
+      t += dic[5];
+    } else if (t < 200 && dic[4] === "Usina Nova America") {
+      t += dic[5];
+    } else if (t < 120 && dic[4] === "Usina Agua Bonita") {
+      t += dic[5];
+    } else if (t < 100 && dic[4] === "Posto Pioneiro") {
+      t += dic[5];
+    }
+  }
+  return t;
+}
 
 function valorTotalFrete() {
 
@@ -2199,7 +2228,70 @@ function valorTotalFrete() {
 
 }
 
+function gerarImagemPedido() {
 
+  var dh = new Date().getDate(); // Dia do mês
+  var mensagemCarrinho = "";
+  var contped = 0;
+  var uso_cupom = "";
+
+  carrinho.forEach(function (element) {
+    if (Array.isArray(element)) {
+      contped += 1;
+      mensagemCarrinho += "\n\nMontagem N° " + contped + "\n";
+      mensagemCarrinho += formatarArrayWhats(element);
+    } else {
+      mensagemCarrinho += "-" + element + "\n";
+    }
+  });
+  var tg = totalGeral();
+  var vc = somarArray(valorCompra);
+  var te = "";
+  var tw = valorTotalFrete();
+  var cd = tg - tw; // Calcula o valor do desconto aplicado
+
+  if (descontoCupom > 0) {
+    uso_cupom = "SIM";
+  } else {
+    uso_cupom = "NÃO";
+  }
+
+  if (vc !== tw) {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+  } else {
+    te = "Taxa de entrega isento";
+  }
+
+  var informar_data_hora = informarDataHora();
+  var n_compras_app = parseInt(localStorage.getItem("pontosClick")) || 0;
+
+  var detalhesPedido =
+    "📌 PEDIDO 📌\n\n" + informar_data_hora +
+    "\n\nN° Pedido: " + numeroDoPedido +
+    "\nCliente: " + dic[0] +
+    "\nEndereço: " + dic[1] + "," + dic[2] +
+    "\nRegião: " + dic[4] +
+    "\nTelefone: " + dic[3] +
+    "\nValor total: R$" + tw +
+    "\nValor do desconto: R$" + cd +
+    "\nTaxa: " + te +
+    "\nCupom usado? " + uso_cupom +
+    "\nColherzinha? " + whats_colher +
+    "\nPontos: " + n_compras_app + " Tio-Chico\n" +
+    mensagemCarrinho;
+
+  // Envia o e-mail
+  if (dh % 2 === 0) {
+    enviarEmailPar(detalhesPedido);
+  } else {
+    enviarEmailImpar(detalhesPedido);
+  }
+
+  // Atualiza o valor exibido na tela
+  valor_pagamento.innerHTML = "VALOR DO PEDIDO R$ " + tw;
+}
+
+/*
 function gerarImagemPedido() {
   var dh = new Date().getDate(); // ✅ dia do mês
   var mensagemCarrinho = "";
@@ -2252,6 +2344,18 @@ function gerarImagemPedido() {
     "\nPontos " + n_compras_app + " Tio-Chico\n" +
     mensagemCarrinho;
 
+    // ==========================
+    // 📧 ENVIO POR EMAIL
+    // ==========================
+    
+  if (dh % 2 === 0){
+    enviarEmailPar(detalhesPedido)
+    } else {
+      enviarEmailImpar(detalhesPedido)
+      }    
+  valor_pagamento.innerHTML = "VALOR DO PEDIDO  R$ " + tw;
+
+  
   var pedidoElement = document.createElement("div");
   pedidoElement.style.background = "white";
   pedidoElement.style.padding = "20px";
@@ -2263,15 +2367,7 @@ function gerarImagemPedido() {
     // 🔥 CONVERTE PARA BASE64
     var imagemBase64 = canvas.toDataURL("image/png");
 
-    // ==========================
-    // 📧 ENVIO POR EMAIL
-    // ==========================
-    
-    if (dh % 2 === 0){
-      enviarEmailPar(detalhesPedido)
-    } else {
-      enviarEmailImpar(detalhesPedido)
-    }
+
     // ==========================
     // 📥 DOWNLOAD (opcional)
     // ==========================
@@ -2281,10 +2377,10 @@ function gerarImagemPedido() {
     link.click();
 
     document.body.removeChild(pedidoElement);
-    valor_pagamento.innerHTML = "VALOR DO PEDIDO  R$ " + tw;
+    
 
   });
-}
+}*/
 
 function antecipar_envio_pix() {
   var uso_cupom = ''
@@ -2303,9 +2399,11 @@ function antecipar_envio_pix() {
   });
   var pedido = JSON.parse(sessionStorage.getItem("pedido"));
 
+  var tg = totalGeral();
   var vc = somarArray(valorCompra);
   var te = "";
   var tw = valorTotalFrete();
+  var cd = tg - tw; // Calcula o valor do desconto aplicado
   
   if (descontoCupom > 0) {
     uso_cupom = 'SIM';
@@ -2336,6 +2434,7 @@ function antecipar_envio_pix() {
     dic[4] +
     "\n`Valor total: " +
     vlr_total_whats +
+    "\nValor do desconto: R$" + cd +
     "\nTaxa entrega: " +
     te +
     "\nCupom usado? " + 
@@ -3144,6 +3243,9 @@ var cupom_box = document.getElementById("cupom_box");
 
 
 function validarCupom() {
+    var tw = valorTotalFrete();        // Total final (com desconto/frete)
+    var cd = pegarDesconto();                  // Valor do desconto
+    var vf = tw - cd;
 
     let codigo = document
         .getElementById("cupom")
@@ -3182,4 +3284,38 @@ function validarCupom() {
 
     // Esconde a caixa do cupom
     document.getElementById("cupom-box").style.display = "none";
+
+    document.getElementById("valor_desconto").innerHTML = "R$ " + cd.toFixed(2);
+    document.getElementById("valor_final").innerHTML = "R$ " + vf.toFixed(2);
+
+
+}
+
+function atualizarResumoPedido() {
+
+    var tg = totalGeral();             // Total geral sem desconto
+    var vc = somarArray(valorCompra);  // Valor dos produtos
+    var tw = valorTotalFrete();        // Total final (com desconto/frete)
+    var cd = tg - tw;                  // Valor do desconto
+    var frt = dic[5];
+
+    // Evita desconto negativo
+    if (cd < 0) {
+        cd = 0;
+    }
+
+    document.getElementById("valor_produtos").innerHTML = "R$ " + vc.toFixed(2);
+    document.getElementById("valor_total").innerHTML = "R$ " + tg.toFixed(2);
+    document.getElementById("valor_frete").innerHTML = "R$ " + frt.toFixed(2);
+}
+
+function pegarDesconto() {
+  var t = dic_desconto[0];
+
+  // Aplica desconto percentual
+  if (descontoCupom > 0) {
+    t = t * descontoCupom / 100;
+  }
+  return t;
+
 }
