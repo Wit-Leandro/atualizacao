@@ -1,1 +1,1 @@
-resumo_desconto
+var tg = somarArray(dic_desconto);  // Total geral sem desconto

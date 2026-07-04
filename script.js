@@ -2189,10 +2189,14 @@ function totalGeral() {
 function valorTotalFrete() {
 
   var t = somarArray(valorCompra);
+  var desconto = t;
+  var vlr_desconto = 0;
 
   // Aplica desconto percentual
   if (descontoCupom > 0) {
     t -= t * descontoCupom / 100;
+    vlr_desconto = desconto - t;
+    x.push(vlr_desconto);
   }
 
   var v = cobrarFrete();
@@ -2244,11 +2248,11 @@ function gerarImagemPedido() {
       mensagemCarrinho += "-" + element + "\n";
     }
   });
-  var tg = totalGeral();
+  var tg = somarArray(dic_desconto);  // Total geral sem desconto
   var vc = somarArray(valorCompra);
   var te = "";
   var tw = valorTotalFrete();
-  var cd = tg - tw; // Calcula o valor do desconto aplicado
+  var cd = somarArray(x);
 
   if (descontoCupom > 0) {
     uso_cupom = "SIM";
@@ -2287,9 +2291,11 @@ function gerarImagemPedido() {
   } else {
     enviarEmailImpar(detalhesPedido);
   }
+  // Evita desconto negativo
 
   // Atualiza o valor exibido na tela
   valor_pagamento.innerHTML = "VALOR DO PEDIDO R$ " + tw;
+  document.getElementById("valor_desconto").innerHTML = "Valor do desconto R$ " + cd.toFixed(2);
 }
 
 /*
@@ -3233,21 +3239,11 @@ function notificarHorarioEntrega() {
 // Valor do desconto aplicado
 let descontoCupom = 0;
 
-
-
 // Pegar botão do cupom para ocutar ele
 var ocutar_cupom = document.getElementById("cupom_ocutar");
 var cupom_box = document.getElementById("cupom_box");
 
-
-
-
-
 function validarCupom() {
-    var tw = valorTotalFrete();        // Total final (com desconto/frete)
-    var cd = pegarDesconto();                  // Valor do desconto
-    var vf = tw - cd;
-
     let codigo = document
         .getElementById("cupom")
         .value
@@ -3280,43 +3276,41 @@ function validarCupom() {
     msg.innerHTML = "Cupom aplicado: " + descontoCupom + "% OFF";
     ocutar_cupom.style.display = 'none';
 
-    // Se desejar recalcular o total imediatamente
-    atualizarTotal();
-
     // Esconde a caixa do cupom
     document.getElementById("cupom-box").style.display = "none";
-
-    document.getElementById("valor_desconto").innerHTML = "R$ " + cd.toFixed(2);
-    document.getElementById("valor_final").innerHTML = "R$ " + vf.toFixed(2);
-
 
 }
 
 function atualizarResumoPedido() {
 
-    var tg = totalGeral();             // Total geral sem desconto
+    var tg = somarArray(dic_desconto);  // Total geral sem desconto
     var vc = somarArray(valorCompra);  // Valor dos produtos
     var tw = valorTotalFrete();        // Total final (com desconto/frete)
-    var cd = tg - tw;                  // Valor do desconto
-    var frt = dic[5];
-
-    // Evita desconto negativo
-    if (cd < 0) {
-        cd = 0;
+    var v = cobrarFrete();
+  // Entre 00:00 e 05:59 cobra frete sempre
+  if (v === "True") {
+    tg += dic[5];
+  } else {
+    if (tg < 30 && dic[4] === "Tarumã") {
+      tg += dic[5];
+    } else if (tg < 200 && dic[4] === "Usina Nova America") {
+      tg += dic[5];
+    } else if (tg < 120 && dic[4] === "Usina Agua Bonita") {
+      tg += dic[5];
+    } else if (tg < 100 && dic[4] === "Posto Pioneiro") {
+      tg += dic[5];
+    } else {
+      dic[5] = 0
     }
+  }
+    var frt = dic[5];
+    var totalComFrete = tg;
+
+
 
     document.getElementById("valor_produtos").innerHTML = "Valor do pedido R$ " + vc.toFixed(2);
-    document.getElementById("valor_total").innerHTML = "Valor Total sem desconto R$ " + tg.toFixed(2);
+    document.getElementById("valor_total").innerHTML = "Valor Total sem desconto R$ " + totalComFrete.toFixed(2);
     document.getElementById("valor_frete").innerHTML = "Valor taxa de entrega R$ " + frt.toFixed(2);
+    
 }
 
-function pegarDesconto() {
-  var t = dic_desconto[0];
-
-  // Aplica desconto percentual
-  if (descontoCupom > 0) {
-    t = t * descontoCupom / 100;
-  }
-  return t;
-
-}
