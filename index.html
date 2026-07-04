@@ -1879,20 +1879,6 @@
       <div class="seus_dados">
         <h2>Seus dados:</h2>
 
-        <div class="linha-resumo">
-            <span class="legenda">Valor dos produtos:</span>
-            <span id="valor_produtos">R$ 0,00</span>
-        </div>
-        
-        <div class="linha-resumo">
-            <span class="legenda">Taxa de entrega:</span>
-            <span id="valor_frete">R$ 0,00</span>
-        </div>
-
-        <div class="linha-resumo">
-            <span class="legenda">Total sem desconto:</span>
-            <span id="valor_total">R$ 0,00</span>
-        </div>
         <div class="resumo_desconto" id="resumo_desconto">
           <div class="linha-resumo">
               <span class="legenda">Desconto:</span>
@@ -1911,6 +1897,11 @@
           <li id="res_end"></li>
           <li id="res_end2"></li>
           <li id="res_regiao"></li>
+
+          <li id="valor_produtos"></li>
+          <li id="valor_frete"></li>
+          <li id="valor_total"></li>
+
         </ul>
       </div>
       <h2>Seu carrinho:</h2>
@@ -1951,9 +1942,8 @@
         <canvas id="qrcode"></canvas>
         <div class="res_qrcode"><textarea id="pixCopyPaste" rows="1" cols="33" readonly></textarea></div>
         <div class="res_btn_pix">
-          <button class="btns" id="env_pix">Enviar Whatsapp <img class="img_whats" src="imagens/whatsapp.png"
-              alt="img-whats"></button>
-          <button class="btns" onclick="copyToClipboard()">Copiar Qrcode</button>
+          <button class="btns" onclick="copyToClipboard()" id="env_pix">Enviar Whatsapp + copiar QRCODE</button>
+          <button id="bloquear" class="btns" onclick="copyToClipboard()">Copiar Qrcode</button>
         </div>
         <p class="alerta_pgto">&#9888 ENVIAR COMPROVANTE DO PIX VIA WHATSAPP &#9888</p>
 

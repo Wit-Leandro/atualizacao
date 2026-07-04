@@ -1662,7 +1662,7 @@ btn_pix.addEventListener("click", function () {
   res_pix.style.display = "block";
   res_cartao.style.display = "none";
   res_dinheiro.style.display = "none";
-  antecipar_envio_pix()
+  
 
 });
 btn_cartao.addEventListener("click", function () {
@@ -2281,6 +2281,7 @@ function gerarImagemPedido() {
     mensagemCarrinho;
 
   // Envia o e-mail
+  
   if (dh % 2 === 0) {
     enviarEmailPar(detalhesPedido);
   } else {
@@ -2446,7 +2447,7 @@ function antecipar_envio_pix() {
     mensagemCarrinho;
   var numeroWhatsApp = "5518996772619";
   var mensagemWhatsApp = encodeURIComponent(
-    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido + "\n\n Avalie nosso app\n\n https://forms.gle/YZJaCc1gvABdyAbk7 \n\n\nSeu Codigo para pagamento\n\n" + dic[6] + '\n\n\nClique em enviar - \u{1F53D}\n'
+    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido + '\n\n\nClique em enviar - \u{1F53D}\n'
   );
   var linkWhatsApp =
     "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
@@ -3304,9 +3305,9 @@ function atualizarResumoPedido() {
         cd = 0;
     }
 
-    document.getElementById("valor_produtos").innerHTML = "R$ " + vc.toFixed(2);
-    document.getElementById("valor_total").innerHTML = "R$ " + tg.toFixed(2);
-    document.getElementById("valor_frete").innerHTML = "R$ " + frt.toFixed(2);
+    document.getElementById("valor_produtos").innerHTML = "Valor do pedido R$ " + vc.toFixed(2);
+    document.getElementById("valor_total").innerHTML = "Valor Total sem desconto R$ " + tg.toFixed(2);
+    document.getElementById("valor_frete").innerHTML = "Valor taxa de entrega R$ " + frt.toFixed(2);
 }
 
 function pegarDesconto() {
