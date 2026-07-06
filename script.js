@@ -1775,230 +1775,28 @@ function pad(numero, tamanho) {
 /*---Envair pedido para o whatsApp--- */
 
 env_pix.addEventListener("click", function () {
-  var uso_cupom = '';
-  var vencimento = informarValidade();
   pagamentos.style.display = "none";
-  agradece.style.display = 'block'
-  var n_compras_app = parseInt(localStorage.getItem('pontosClick'))
+  agradece.style.display = 'block';
+  var obs = "Pagamento Via PIX";
+  var obs2 = "Chave PIX: 43227642000130";
+  mensagemPadrao(obs,obs2);
   
-
-  var mensagemCarrinho = "";
-  var contped = 0;
-  carrinho.forEach(function (element) {
-    if (Array.isArray(element)) {
-      contped += 1;
-      mensagemCarrinho += "\n\nMontagem N° " + contped + "\n";
-      mensagemCarrinho += formatarArrayWhats(element);
-    } else {
-      mensagemCarrinho += "- " + element + "\n";
-    }
-  });
-
-  if (descontoCupom > 0) {
-    uso_cupom = 'SIM';
-  }else {
-    uso_cupom = 'NÃO';
-  } 
-
-  var tg = totalGeral();
-  var vc = somarArray(valorCompra);
-  var te = "";
-  var tw = valorTotalFrete();
-  var cd = tg - tw; // Calcula o valor do desconto aplicado
-
-  if (tw < 30 && dic[4] === "Tarumã") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
-  } else if (tw < 200 && dic[4] === "Usina Nova America") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
-  } else if (tw < 120 && dic[4] === "Usina Agua Bonita") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
-  } else if (tw < 100 && dic[4] === "Posto Pioneiro") {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-    tw = tw + dic[5];
-  } else {
-    te = "Taxa de entrega isento";
-  }
-  var vlr_total_whats = "R$" + tw + '`';
-
-  var detalhesPedido =
-    "N° Pedido: " +
-    numeroDoPedido +
-    vencimento +
-    "\nCliente: " +
-    dic[0] +
-    "\nEndereço: " +
-    dic[1] +
-    "," +
-    dic[2] +
-    "\nRegião de entrega: " +
-    dic[4] +
-    "\n`Valor total: " +
-    vlr_total_whats +
-    "\nDesconto aplicado: R$" + cd +
-    "\nTaxa entrega: " +
-    te +
-    "\nCupom usado? " + 
-    uso_cupom +
-    "\nPagamento via Pix" +
-    "\nColherzinha? " +
-    whats_colher + "\nPontos Tio-chico: " + n_compras_app +
-    "" +
-    mensagemCarrinho;
-  var numeroWhatsApp = "5518996772619";
-  var mensagemWhatsApp = encodeURIComponent(
-    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido
-  );
-  var linkWhatsApp =
-    "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
-
-  window.open(linkWhatsApp);
-  alert('"ENVIAR COMPROVANTE DO PIX VIA WHATSAPP"')
 });
 env_cartao.addEventListener("click", function () {
-  var uso_cupom = '';
-  var vencimento = informarValidade();
   pagamentos.style.display = "none";
   agradece.style.display = 'block'
-  var n_compras_app = parseInt(localStorage.getItem('pontosClick'))
-
-
-  var mensagemCarrinho = "";
-  var contped = 0;
-  carrinho.forEach(function (element) {
-    if (Array.isArray(element)) {
-      contped += 1;
-      mensagemCarrinho += "\n\nMontagem N° " + contped + "\n";
-      mensagemCarrinho += formatarArrayWhats(element);
-    } else {
-      mensagemCarrinho += "- " + element + "\n";
-    }
-  });
-  if (descontoCupom > 0) {
-    uso_cupom = 'SIM';
-  }else {
-    uso_cupom = 'NÃO';
-  }
-
-  var vc = somarArray(valorCompra);
-  var te = "";
-  var tw = valorTotalFrete();
-  var cd = tg - tw; // Calcula o valor do desconto aplicado
-  if (vc !== tw) {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-   // tw = tw + dic[5];
-  }else {
-    te = "Taxa de entrega isento";
-  }
-  var vlr_total_whats = "R$" + tw + '`';
-
-  var detalhesPedido =
-    "N° Pedido: " +
-    numeroDoPedido +
-    vencimento +
-    "\nCliente: " +
-    dic[0] +
-    "\nEndereço: " +
-    dic[1] +
-    "," +
-    dic[2] +
-    "\nRegião de entrega: " +
-    dic[4] +
-    "\n`Valor total: " +
-    vlr_total_whats +
-    "\nDesconto aplicado: R$" + cd +
-    "\nTaxa entrega: " +
-    te +
-    "\nCupom usado? " + 
-    uso_cupom +
-    "\nLevar a maquininha" +
-    "\nColherzinha? " +
-    whats_colher + "\nPontos Tio-chico: " + n_compras_app +
-    "" +
-    mensagemCarrinho;
-  var numeroWhatsApp = "5518996772619";
-  var mensagemWhatsApp = encodeURIComponent(
-    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido
-  );
-  var linkWhatsApp =
-    "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
-
-  window.open(linkWhatsApp);
+  var obs = "Pagamento Via Cartão";
+  var obs2 = "Levar a Maquininha"
+  mensagemPadrao(obs,obs2);
 });
 env_dinheiro.addEventListener("click", function (e) {
   e.preventDefault();
-  var uso_cupom = '';
-  var vencimento = informarValidade();
   var troco = document.getElementById("troco").value;
-  var n_compras_app = parseInt(localStorage.getItem('pontosClick'))
   pagamentos.style.display = "none";
   agradece.style.display = 'block'
-
-
-
-  var mensagemCarrinho = "";
-  var contped = 0;
-  carrinho.forEach(function (element) {
-    if (Array.isArray(element)) {
-      contped += 1;
-      mensagemCarrinho += "\n\nMontagem N° " + contped + "\n";
-      mensagemCarrinho += formatarArrayWhats(element);
-    } else {
-      mensagemCarrinho += "- " + element + "\n";
-    }
-  });
-  if (descontoCupom > 0) {
-    uso_cupom = 'SIM';
-  }else {
-    uso_cupom = 'NÃO';
-  }
-  var vc = somarArray(valorCompra);
-  var te = "";
-  var tw = valorTotalFrete();
-  var cd = tg - tw; // Calcula o valor do desconto aplicado
-  if (vc !== tw) {
-    te = "Taxa de entrega R$" + dic[5] + ",00";
-   // tw = tw + dic[5];
-  }else {
-    te = "Taxa de entrega isento";
-  }
-  var vlr_total_whats = "R$" + tw + '`';
-
-  var detalhesPedido =
-    "N° Pedido: " +
-    numeroDoPedido +
-    vencimento +
-    "\nCliente: " +
-    dic[0] +
-    "\nEndereço: " +
-    dic[1] +
-    "," +
-    dic[2] +
-    "\nRegião de entrega: " +
-    dic[4] +
-    "\n`Valor total: " +
-    vlr_total_whats +
-    "\nDesconto aplicado: R$" + cd +
-    "\nTaxa entrega: " +
-    te +
-    "\nCupom usado? " + 
-    uso_cupom +
-    "\nDinheiro: Precisa de troco? " +
-    troco +
-    "\nColherzinha? " +
-    whats_colher + "\nPontos Tio-chico: " + n_compras_app +
-    "" +
-    mensagemCarrinho;
-  var numeroWhatsApp = "5518996772619";
-  var mensagemWhatsApp = encodeURIComponent(
-    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido
-  );
-  var linkWhatsApp =
-    "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
-
-  window.open(linkWhatsApp);
+  var obs = "Pagamento Via Dinheiro";
+  var obs2 = "Para " + troco + ",00";
+  mensagemPadrao(obs, obs2);
 });
 
 function formatarArrayWhats(array) {
@@ -2263,6 +2061,7 @@ function gerarImagemPedido() {
   if (vc !== tw) {
     te = "Taxa de entrega R$" + dic[5] + ",00";
   } else {
+    tw -= tw - dic[5];
     te = "Taxa de entrega isento";
   }
 
@@ -2277,7 +2076,7 @@ function gerarImagemPedido() {
     "\nRegião: " + dic[4] +
     "\nTelefone: " + dic[3] +
     "\nValor total: R$" + tw +
-    "\nValor do desconto: R$" + cd +
+    "\nValor do desconto: R$" + cd.toFixed(2).replace(".", ",") +
     "\nTaxa: " + te +
     "\nCupom usado? " + uso_cupom +
     "\nColherzinha? " + whats_colher +
@@ -3314,3 +3113,76 @@ function atualizarResumoPedido() {
     
 }
 
+
+function mensagemPadrao(obs, obs2) {
+  var uso_cupom = '';
+  var vencimento = informarValidade();
+  var n_compras_app = parseInt(localStorage.getItem('pontosClick'))
+  
+
+  var mensagemCarrinho = "";
+  var contped = 0;
+  carrinho.forEach(function (element) {
+    if (Array.isArray(element)) {
+      contped += 1;
+      mensagemCarrinho += "\n\nMontagem N° " + contped + "\n";
+      mensagemCarrinho += formatarArrayWhats(element);
+    } else {
+      mensagemCarrinho += "- " + element + "\n";
+    }
+  });
+
+  if (descontoCupom > 0) {
+    uso_cupom = 'SIM';
+  }else {
+    uso_cupom = 'NÃO';
+  } 
+
+  var tg = totalGeral();
+  var vc = somarArray(valorCompra);
+  var te = "";
+  var tw = valorTotalFrete();
+  var cd = tg - tw; // Calcula o valor do desconto aplicado
+
+  if (vc !== tw) {
+    te = "Taxa de entrega R$" + dic[5] + ",00";
+  } else {
+    tw -= tw - dic[5];
+    te = "Taxa de entrega isento";
+  }
+
+  var vlr_total_whats = tw;
+
+  var detalhesPedido =
+    "N° Pedido: " +
+    numeroDoPedido +
+    vencimento +
+    "\nCliente: " +
+    dic[0] +
+    "\nEndereço: " +
+    dic[1] +
+    "," +
+    dic[2] +
+    "\nRegião de entrega: " +
+    dic[4] +
+    "\n`Valor total: R$" +
+    vlr_total_whats.toFixed(2).replace(".", ",") +
+    "\nDesconto aplicado: R$" + cd.toFixed(2).replace(".", ",") +
+    "\n" +
+    te +
+    "\nCupom usado? " + 
+    uso_cupom +
+    "\n" + obs + "\nTroco?" + obs2 +
+    "\nColherzinha? " +
+    whats_colher + "\nPontos Tio-chico: " + n_compras_app +
+    "" +
+    mensagemCarrinho;
+  var numeroWhatsApp = "5518996772619";
+  var mensagemWhatsApp = encodeURIComponent(
+    "Olá!, esse é meu pedido \u{1F609} \n" + detalhesPedido
+  );
+  var linkWhatsApp =
+    "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemWhatsApp;
+
+  window.open(linkWhatsApp);
+};
