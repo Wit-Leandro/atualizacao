@@ -2061,7 +2061,6 @@ function gerarImagemPedido() {
   if (vc !== tw) {
     te = "Taxa de entrega R$" + dic[5] + ",00";
   } else {
-    tw -= tw - dic[5];
     te = "Taxa de entrega isento";
   }
 
@@ -3147,7 +3146,6 @@ function mensagemPadrao(obs, obs2) {
   if (vc !== tw) {
     te = "Taxa de entrega R$" + dic[5] + ",00";
   } else {
-    tw -= tw - dic[5];
     te = "Taxa de entrega isento";
   }
 
