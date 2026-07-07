@@ -8,7 +8,7 @@ var dia_cupom = 2;
 
 // Lista de cupons
 const cupons = {
-    "TIOCHICO10": 10
+    "TIOCHICO5": 5
 };
 
 //-------------------------------------
