@@ -1,1 +1,4 @@
-.toFixed(2).replace(".", ",");
+else if (meu_select_copo === "700ml") {
+    const pedido = { acai: "Açai Copo 700ml", limit: 5, valor: 36 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  }

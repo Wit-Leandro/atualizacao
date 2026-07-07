@@ -478,6 +478,9 @@ btn_copo.addEventListener("click", function (e) {
   } else if (meu_select_copo === "700ml") {
     const pedido = { acai: "Açai Copo 700ml", limit: 5, valor: 36 };
     sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  } else if (meu_select_copo === "140ml") {
+    const pedido = { acai: "Açai Copo 140ml", limit: 2, valor: 10 };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
   }
 
   escolha.style.display = "none";
@@ -540,6 +543,10 @@ function exibirCopos() {
     var imagem_copo_700ml = document.createElement("img");
     imagem_copo_700ml.src = "imagens/copo700ml.jpg";
     imagem_copo.appendChild(imagem_copo_700ml);
+  }else if (meu_copo === "140ml") {
+    var imagem_copo_140ml = document.createElement("img");
+    imagem_copo_140ml.src = "imagens/copo140ml.jpeg";
+    imagem_copo.appendChild(imagem_copo_140ml);
   }
 }
 
