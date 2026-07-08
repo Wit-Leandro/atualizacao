@@ -107,6 +107,7 @@ window.addEventListener('load', function () {
   dic.push(nome, endereco, ncasa, fone, local)
   loadCounter();
   notificarHorarioEntrega();
+
   ///alert("Atendimento normal apenas na loja hoje\n das 14hs as 23hs")
   //alert("Hoje não teremos entregas delivery \n Apenas retirada na loja")
   //alert("\u{1F4CC}\nCONCLUA TODAS AS ETAPAS \nATÉ A ABA DE PAGAMENTOS \nPARA FINALIZAR SEU PEDIDO")
@@ -3170,7 +3171,7 @@ function mensagemPadrao(obs, obs2) {
     dic[2] +
     "\nRegião de entrega: " +
     dic[4] +
-    "\n`Valor total: R$" +
+    "\nValor total: R$" +
     vlr_total_whats.toFixed(2).replace(".", ",") +
     "\nDesconto aplicado: R$" + cd.toFixed(2).replace(".", ",") +
     "\n" +
@@ -3191,3 +3192,63 @@ function mensagemPadrao(obs, obs2) {
 
   window.open(linkWhatsApp);
 };
+
+const musica = document.getElementById("musicaFundo");
+
+const botao = document.getElementById("btnMusica");
+
+const texto = document.getElementById("textoMusica");
+
+let iniciou = false;
+
+
+// Primeira interação da página
+function iniciarMusica(){
+
+    if(iniciou) return;
+
+    iniciou = true;
+
+    musica.play().then(()=>{
+
+        botao.classList.add("tocando");
+
+        texto.innerHTML="Pausar";
+
+    });
+
+}
+
+document.addEventListener("click", iniciarMusica,{once:true});
+document.addEventListener("touchstart", iniciarMusica,{once:true});
+
+
+// Botão
+
+botao.onclick=function(e){
+
+    e.stopPropagation();
+
+    if(musica.paused){
+
+        musica.play();
+
+        texto.innerHTML="Pausar";
+
+        botao.classList.remove("pausado");
+
+        botao.classList.add("tocando");
+
+    }else{
+
+        musica.pause();
+
+        texto.innerHTML="Ouvir";
+
+        botao.classList.remove("tocando");
+
+        botao.classList.add("pausado");
+
+    }
+
+}

@@ -16,6 +16,7 @@
 </head>
 
 <body>
+
   <div class="container">
     <header id="oct_header">
       <div class="cabecalho">
@@ -56,6 +57,16 @@
     <div id="oct_hora" class="horas">
       <span class="bloquear" id="infAtend"></span> <br>
     </div>
+      <audio id="musicaFundo" loop>
+        <source src="music/tiochico.mp3" type="audio/mpeg">
+      </audio>
+
+      <div id="playerMusica">
+        <button id="btnMusica">
+          <span id="iconeMusica">🎵</span>
+          <span id="textoMusica">Música</span>
+        </button>
+      </div>
 
     <div id="ocutar">
       <div class="tab-container">
