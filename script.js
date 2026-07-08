@@ -2280,8 +2280,8 @@ function alterarQuantidade(valor, quantidadeId) {
 
   if (novaQuantidade < 0) novaQuantidade = 0;
 
-  if (quantidadeId === "quantidade25" && novaQuantidade > 2) {
-    alert("APENAS 2 POR AÇAI PARA ESSE COMPLEMENTO.");
+  if (quantidadeId === "quantidade25" && novaQuantidade > 1) {
+    alert("APENAS 1 POR AÇAI PARA ESSE COMPLEMENTO.");
     return; // Impede que a quantidade seja alterada
   }
 
