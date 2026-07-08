@@ -2661,7 +2661,6 @@ p.estilo_titulo2 {
 /* CONTAINER */
 .category {
   max-width: 340px;
-  background: radial-gradient(#cc82e1, #a92fca);
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   justify-content: center;
@@ -3456,7 +3455,7 @@ p.estilo_titulo2 {
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,.15);
-    width: 100%;
+    width: 90%;
 }
 
 #imagem_pontos img {
@@ -3538,7 +3537,13 @@ p.estilo_titulo2 {
     color:#fff;
     box-shadow:0 0 25px #25D366;
 }
-
+/* YouTube */
+.footer-redes .youtube:hover{
+    background:#FF0000;
+    border-color:#FF0000;
+    color:#fff;
+    box-shadow:0 0 25px #FF0000;
+}
 /* Instagram */
 .footer-redes .instagram:hover{
     background:linear-gradient(
@@ -3572,14 +3577,20 @@ p.estilo_titulo2 {
     letter-spacing:.5px;
 }
 
+
 /* Celulares e tablets */
 @media (hover: none) and (pointer: coarse) {
-
-    .footer-redes .whatsapp{
-        background:#25D366;
-        border-color:#25D366;
-        color:#fff;
-        box-shadow:0 0 20px #25D366;
+  .footer-redes .youtube{
+    background:#FF0000;
+    border-color:#FF0000;
+    color:#fff;
+    box-shadow:0 0 20px #FF0000;
+    }
+  .footer-redes .whatsapp{
+    background:#25D366;
+    border-color:#25D366;
+    color:#fff;
+    box-shadow:0 0 20px #25D366;
     }
 
     .footer-redes .instagram{
