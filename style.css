@@ -2834,7 +2834,6 @@ p.estilo_titulo2 {
 
 #final {
   display: none;
-  width: 340px;
   grid-row: 2;
 
   background: linear-gradient(145deg, #2a0033, #4b0066);
