@@ -765,15 +765,15 @@ btn_escolha_frutas.addEventListener("click", function () {
 });
 var result = 0;
 var procurar = [
-  "Leite_condensado 30ml",
-  "Calda_Avela 30ml",
-  "Creme_Nutella 30ml",
-  "Cr_Leite_Ninho 30ml",
-  "Granola 30ml",
-  "Amendoin 30ml",
-  "Leite_em_Po 30ml",
-  "Farofa_de_Paçoca 30ml",
-  "Sucrilhos 30ml",
+  "Leite_condensado 100ml",
+  "Calda_Avela 100ml",
+  "Creme_Nutella 100ml",
+  "Cr_Leite_Ninho 100ml",
+  "Granola 100ml",
+  "Amendoim 100ml",
+  "Leite_em_Po 100ml",
+  "Farofa_de_Paçoca 100ml",
+  "Sucrilhos 100ml",
 ];
 var procure_aqui = [];
 var btn_escolha_complemento_frutas = document.getElementById(
@@ -795,13 +795,13 @@ function procurarCobrar(find, proc) {
   if (milk_shake[0] === "T") {
     find.forEach(function (v) {
       if (proc.includes(v.toString())) {
-        valorCompra.push(4);
+        valorCompra.push(10);
       }
     });
   } else if (milk_shake[0] === "S") {
     find.forEach(function (v) {
       if (proc.includes(v.toString())) {
-        valorCompra.push(4);
+        valorCompra.push(10);
       }
     });
   }
@@ -811,7 +811,7 @@ function procurarCobrar(find, proc) {
 function procurarCobrarfrutas(find, proc) {
   find.forEach(function (v) {
     if (proc.includes(v.toString())) {
-      valorCompra.push(4);
+      valorCompra.push(10);
     }
     else {
       valorCompra.push(0)
