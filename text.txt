@@ -1,59 +1,21 @@
-const musica = document.getElementById("musicaFundo");
+const bebidas = {
 
-const botao = document.getElementById("btnMusica");
+    Agua500: {
+        nome: "Água 500ml",
+        preco: 4,
+        qtd: 0
+    },
 
-const texto = document.getElementById("textoMusica");
+    Refrigerante2L: {
+        nome: "Refrigerante 2L",
+        preco: 10,
+        qtd: 0
+    },
 
-let iniciou = false;
-
-
-// Primeira interação da página
-function iniciarMusica(){
-
-    if(iniciou) return;
-
-    iniciou = true;
-
-    musica.play().then(()=>{
-
-        botao.classList.add("tocando");
-
-        texto.innerHTML="Pausar";
-
-    });
-
-}
-
-document.addEventListener("click", iniciarMusica,{once:true});
-document.addEventListener("touchstart", iniciarMusica,{once:true});
-
-
-// Botão
-
-botao.onclick=function(e){
-
-    e.stopPropagation();
-
-    if(musica.paused){
-
-        musica.play();
-
-        texto.innerHTML="Pausar";
-
-        botao.classList.remove("pausado");
-
-        botao.classList.add("tocando");
-
-    }else{
-
-        musica.pause();
-
-        texto.innerHTML="Ouvir";
-
-        botao.classList.remove("tocando");
-
-        botao.classList.add("pausado");
-
+    RefrigeranteLata350: {
+        nome: "Refrigerante Lata 350ml",
+        preco: 6,
+        qtd: 0
     }
 
-}
+};

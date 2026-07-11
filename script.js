@@ -11,6 +11,65 @@ const cupons = {
     "TIOCHICO5": 5
 };
 
+// Bebidas e Preços
+const bebidas = {
+  AguaGas500: {
+    nome: "Água com Gás 500ml",
+    preco: 4,
+    qtd: 0
+  },
+  Agua500: {
+    nome: "Água sem Gás 500ml",
+    preco: 4,
+    qtd: 0
+  },
+  RefrigeranteCola2L: {
+    nome: "Refrigerante Conti Cola 2L",
+    preco: 10,
+    qtd: 0
+  },
+  RefrigeranteGuarana2L: {
+    nome: "Refrigerante Conti Guarana 2L",
+    preco: 10,
+    qtd: 0
+  },
+  RefrigeranteLaranja2L: {
+    nome: "Refrigerante Conti Laranja 2L",
+    preco: 10,
+    qtd: 0
+  },
+  RefrigeranteColaZero2L: {
+    nome: "Refrigerante Conti Cola Zero 2L",
+    preco: 10,
+    qtd: 0
+  },
+  RefrigeranteLataContCola350: {
+    nome: "Refrigerante Cont Cola Lata 350ml",
+    preco: 5,
+    qtd: 0
+  },
+  RefrigeranteLataCocaCola350: {
+    nome: "Refrigerante Coca Cola Lata 350ml",
+    preco: 6,
+    qtd: 0
+  },
+  RefrigeranteLataCocaColaZero350: {
+    nome: "Refrigerante Coca Cola Zero Lata 350ml",
+    preco: 6,
+    qtd: 0
+  },
+  RefrigerantePetiContCola600: {
+    nome: "Refrigerante Cont Cola Lata 600ml",
+    preco: 6,
+    qtd: 0
+  },
+  RefrigerantePetiContguarana600: {
+    nome: "Refrigerante Cont Guaraba Lata 600ml",
+    preco: 6,
+    qtd: 0
+  },         
+};
+
 //-------------------------------------
 var dic_desconto = [];
 var preco = [];
@@ -3153,4 +3212,61 @@ botao.onclick=function(e){
 
     }
 
+}
+
+function alterarQtdBebida(produto, valor){
+
+    bebidas[produto].qtd += valor;
+
+    if(bebidas[produto].qtd < 0){
+        bebidas[produto].qtd = 0;
+    }
+
+    document.getElementById("qtd_" + produto).innerText =
+        bebidas[produto].qtd;
+
+    atualizarTotalBebidas();
+}
+function atualizarTotalBebidas(){
+
+    let total = 0;
+
+    for(let produto in bebidas){
+
+        total += bebidas[produto].qtd * bebidas[produto].preco;
+
+    }
+
+    document.getElementById("total_bebidas").innerText =
+        total.toFixed(2).replace(".", ",");
+}
+
+function avancarBebidas(){
+
+    let valorTotal = 0;
+
+    for(let produto in bebidas){
+
+        if(bebidas[produto].qtd > 0){
+
+            valores.push(
+                `${bebidas[produto].nome} - ${bebidas[produto].qtd} Unidade(s)`
+            );
+
+            valorTotal += bebidas[produto].qtd * bebidas[produto].preco;
+
+        }
+
+    }
+    const pedido = { acai: "Bebidas" , limit: 10, valor: valorTotal };
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
+    escolha.style.display = "none";
+    mensagem.style.display = "block";
+    const getPedido = sessionStorage.getItem("pedido");
+    const objectPedido = JSON.parse(getPedido);
+    const userPedido = objectPedido.limit;
+    limite.push(userPedido);
+
+    ocutar.style.display = "none";
+    mensagem.style.display = "block";
 }

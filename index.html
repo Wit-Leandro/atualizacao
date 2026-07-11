@@ -69,30 +69,29 @@
       </div>
 
     <div id="ocutar">
-      <div class="tab-container">
-        <button class="tab" onclick="openCategory('evt','acai_tradicional')">PICOLE</button>
+      <div class="tab-container">        
         <button class="tab" onclick="openCategory('evt','acai_recheio')">AÇAI + RECHEIO</button>
+        <button class="tab" onclick="openCategory('evt','acai_tradicional')">PICOLE</button>
+        <button class="tab" onclick="openCategory('evt','shake')">MILK SHAKE</button>
       </div>
 
       <div class="tab-container">
 
         <button class="tab" onclick="openCategory('evt','salada')">SALADA DE FRUTAS</button>
-        <button class="tab" onclick="openCategory('evt','shake')">MILK SHAKE</button>
+        <button class="tab" onclick="openCategory('evt','novidade')">COMBOS</button>
+        <button class="tab" onclick="openCategory('evt','bebidas')">BEBIDAS</button>
+        
 
       </div>
 
       <div class="tab-container5">
-        <button class="tab5" onclick="openCategory('evt','pote_massa_trad')">POTES TRADICIONAIS</button>
-        <button class="tab5" onclick="openCategory('evt','pote_massa_esp')">POTES ESPECIAIS</button>
+        <button class="tab" onclick="openCategory('evt','loja_pontos')">PONTOS</button>
+        <button class="tab" onclick="openCategory('evt','pote_massa_trad')">POTES TRADICIONAIS</button>
+        <button class="tab" onclick="openCategory('evt','pote_massa_esp')">POTES ESPECIAIS</button>
       </div>
 
       <div class="tab-container10">
         <button class="tab10" onclick="openCategory('evt','massa4bolas')">POTE 4 BOLAS DE MASSA</button>
-      </div>
-
-      <div class="tab-container6">
-        <button class="tab6" onclick="openCategory('evt','novidade')">COMBOS FAMILIA</button>
-        <button class="tab6" onclick="openCategory('evt','loja_pontos')">TROCA PONTOS</button>
       </div>
 
       <div class="bloquear" id="welcome">
@@ -183,7 +182,7 @@
       </div>
 
       <div class="category" id="novidade">
-        <div id="bloquear" class="mais_pedidos">
+        <div id="bloquear" class="mais_pedidos cabecalho_bebidas">
           <h2 class="estilo_titulo2">Pedidos Prontos de Açaí</h2>
           <p>Escolha uma das nossas opções já montadas para uma compra rápida e prática.</p>
           <p>Os pedidos podem sofrer alterações conforme a disponibilidade dos complementos.</p>
@@ -273,6 +272,171 @@
         </div>
 
       </div>
+<!--BEBIDAS-->
+      <div class="category" id="bebidas">
+        <div class="mais_pedidos cabecalho_bebidas">
+          <h4 class="estilo_titulo2">BEBIDAS!</h4>
+          <h3 class="valor_total_picole">Total: R$ <span id="total_bebidas">0,00</span></h3>
+          <button class="btns2" onclick="avancarBebidas()">Avançar</button>
+        </div>
+        <div class="cx_itens">
+          <div class="descricao_picole">
+            <h3>Água com Gás 500ml</h3>
+            <p>R$ 4,00</p>
+          </div>
+          <div class="info_picole">
+            <div class="controle_picole">
+              <button onclick="alterarQtdBebida('AguaGas500',-1)">&#10134;</button>
+              <span id="qtd_AguaGas500">0</span>
+              <button onclick="alterarQtdBebida('AguaGas500',1)">&#10133;</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cx_itens">
+          <div class="descricao_picole">
+            <h3>Água sem Gás 500ml</h3>
+            <p>R$ 4,00</p>          
+          </div>
+            <div class="info_picole">
+              <div class="controle_picole">
+                <button onclick="alterarQtdBebida('Agua500',-1)">&#10134;</button>
+                <span id="qtd_Agua500">0</span>
+                <button onclick="alterarQtdBebida('Agua500',1)">&#10133;</button>
+              </div>
+            </div>
+          </div>
+
+        <div class="cx_itens">
+          <div class="descricao_picole">
+            <h3>Conti Cola 2L</h3>
+            <p>R$ 10,00</p>
+          </div>
+          <div class="info_picole">
+            <div class="controle_picole">
+              <button onclick="alterarQtdBebida('RefrigeranteCola2L',-1)">&#10134;</button>
+              <span id="qtd_RefrigeranteCola2L">0</span>
+              <button onclick="alterarQtdBebida('RefrigeranteCola2L',1)">&#10133;</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cx_itens">
+          <div class="descricao_picole">
+            <h3>Conti Guaraná 2L</h3>
+            <p>R$ 10,00</p>
+          </div>
+          <div class="info_picole">
+            <div class="controle_picole">
+              <button onclick="alterarQtdBebida('RefrigeranteGuarana2L',-1)">&#10134;</button>
+              <span id="qtd_RefrigeranteGuarana2L">0</span>
+              <button onclick="alterarQtdBebida('RefrigeranteGuarana2L',1)">&#10133;</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cx_itens">
+          <div class="descricao_picole">
+            <h3>Conti Laranja 2L</h3>
+            <p>R$ 10,00</p>
+          </div>
+          <div class="info_picole">
+            <div class="controle_picole">
+              <button onclick="alterarQtdBebida('RefrigeranteLaranja2L',-1)">&#10134;</button>
+              <span id="qtd_RefrigeranteLaranja2L">0</span>
+              <button onclick="alterarQtdBebida('RefrigeranteLaranja2L',1)">&#10133;</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cx_itens">
+          <div class="descricao_picole">
+            <h3>Conti Cola Zero 2L</h3>
+            <p>R$ 10,00</p>
+          </div>
+          <div class="info_picole">
+            <div class="controle_picole">
+              <button onclick="alterarQtdBebida('RefrigeranteColaZero2L',-1)">&#10134;</button>
+              <span id="qtd_RefrigeranteColaZero2L">0</span>
+              <button onclick="alterarQtdBebida('RefrigeranteColaZero2L',1)">&#10133;</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cx_itens">
+          <div class="descricao_picole">
+            <h3>Conti Cola Lata 350ml</h3>
+            <p>R$ 5,00</p>
+          </div>
+          <div class="info_picole">
+            <div class="controle_picole">
+              <button onclick="alterarQtdBebida('RefrigeranteLataContCola350',-1)">&#10134;</button>
+              <span id="qtd_RefrigeranteLataContCola350">0</span>
+              <button onclick="alterarQtdBebida('RefrigeranteLataContCola350',1)">&#10133;</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cx_itens">
+          <div class="descricao_picole">
+            <h3>Coca-Cola Lata 350ml</h3>
+            <p>R$ 6,00</p>
+          </div>
+          <div class="info_picole">
+            <div class="controle_picole">
+              <button onclick="alterarQtdBebida('RefrigeranteLataCocaCola350',-1)">&#10134;</button>
+              <span id="qtd_RefrigeranteLataCocaCola350">0</span>
+              <button onclick="alterarQtdBebida('RefrigeranteLataCocaCola350',1)">&#10133;</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cx_itens">
+          <div class="descricao_picole">
+            <h3>Coca-Cola Zero Lata 350ml</h3>
+            <p>R$ 6,00</p>
+          </div>
+          <div class="info_picole">
+            <div class="controle_picole">
+              <button onclick="alterarQtdBebida('RefrigeranteLataCocaColaZero350',-1)">&#10134;</button>
+              <span id="qtd_RefrigeranteLataCocaColaZero350">0</span>
+              <button onclick="alterarQtdBebida('RefrigeranteLataCocaColaZero350',1)">&#10133;</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cx_itens">
+          <div class="descricao_picole">
+            <h3>Conti Cola 600ml</h3>
+            <p>R$ 6,00</p>
+          </div>
+          <div class="info_picole">
+            <div class="controle_picole">
+              <button onclick="alterarQtdBebida('RefrigerantePetiContCola600',-1)">&#10134;</button>
+              <span id="qtd_RefrigerantePetiContCola600">0</span>
+              <button onclick="alterarQtdBebida('RefrigerantePetiContCola600',1)">&#10133;</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cx_itens">
+          <div class="descricao_picole">
+            <h3>Conti Guaraná 600ml</h3>
+              <p>R$ 6,00</p>
+          </div>
+          <div class="info_picole">
+            <div class="controle_picole">
+              <button onclick="alterarQtdBebida('RefrigerantePetiContguarana600',-1)">&#10134;</button>
+              <span id="qtd_RefrigerantePetiContguarana600">0</span>
+              <button onclick="alterarQtdBebida('RefrigerantePetiContguarana600',1)">&#10133;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+
+<!--LOJA DE PONTOS-->
       <div class="category" id="loja_pontos">
         <div class="mais_pedidos">
           <h2 class="estilo_titulo2">Loja de pontos</h2>
@@ -312,7 +476,7 @@
         
 
       </div>
-
+<!--MILK-SHAKE-->
       <div class="category" id="shake">
         <div class="mais_pedidos">
           <h4 class="titulo_shake">MILK SHAKE</h4>
@@ -332,7 +496,7 @@
 
       <div class="category" id="acai_tradicional">
         <div id="picoles_sabores" class="picoles_sabores">
-          <div class="mais_pedidos">
+          <div class="mais_pedidos cabecalho_bebidas">
             <h4 class="estilo_titulo2">"PICOLES ESPECIAIS!"</h4>
             <p class="estilo_titulo2">"R$7,00 cada"</p>
             <h3 class="valor_total_picole">Total: R$ <span id="total">0,00</span></h3>
