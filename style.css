@@ -3864,3 +3864,165 @@ p.estilo_titulo2 {
     border-radius: 0 0 15px 15px;
 
 }
+.loja-fechada {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 15px;
+}
+
+.fechada-card {
+
+  max-width: 550px;
+  width: 100%;
+
+  background: linear-gradient(145deg, #5d2487, #7d3ac1);
+
+  border-radius: 20px;
+
+  padding: 35px 25px;
+
+  text-align: center;
+
+  color: #fff;
+
+  box-shadow: 0 10px 35px rgba(0, 0, 0, .35);
+
+  border: 2px solid rgba(255, 255, 255, .15);
+
+  animation: flutuar 3s ease-in-out infinite;
+}
+
+.icone-fechado {
+
+  font-size: 65px;
+
+  margin-bottom: 15px;
+
+  animation: pulsar 2s infinite;
+}
+
+.fechada-card h2 {
+
+  font-size: 32px;
+
+  margin-bottom: 15px;
+
+  color: #fff;
+}
+
+.fechada-card p {
+
+  font-size: 17px;
+
+  line-height: 1.7;
+
+  margin-bottom: 15px;
+
+  color: #f3f3f3;
+}
+
+.texto-whats {
+
+  background: rgba(255, 255, 255, .12);
+
+  padding: 15px;
+
+  border-radius: 12px;
+}
+
+.btn-whatsapp {
+
+  display: inline-block;
+
+  margin-top: 15px;
+
+  background: #25D366;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  padding: 16px 30px;
+
+  border-radius: 50px;
+
+  font-size: 18px;
+
+  transition: .3s;
+
+  box-shadow: 0 0 20px rgba(37, 211, 102, .4);
+}
+
+.btn-whatsapp:hover {
+
+  transform: scale(1.06);
+
+  box-shadow: 0 0 30px rgba(37, 211, 102, .7);
+}
+
+@keyframes pulsar {
+
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes flutuar {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media(max-width:600px) {
+
+  .fechada-card {
+
+    padding: 25px 18px;
+  }
+
+  .fechada-card h2 {
+
+    font-size: 25px;
+  }
+
+  .fechada-card p {
+
+    font-size: 15px;
+  }
+
+  .btn-whatsapp {
+
+    width: 100%;
+
+    font-size: 17px;
+
+    padding: 15px;
+  }
+
+  .icone-fechado {
+
+    font-size: 55px;
+  }
+
+}

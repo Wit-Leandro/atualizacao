@@ -1,6 +1,6 @@
 // FECHAR LOJA = 1 || ABRIR LOJA = 2
 
-var loja = 1;
+var loja = 2;
 
 // HOJE TEM CUPOM = 2 || HOJE NÃO TEM CUPOM = 1
 
@@ -1252,9 +1252,9 @@ function horadia() {
     reshora.style.color = "red";
     reshora.innerHTML = " FECHADO ";
     open_close.innerHTML = " FECHADO ";
-    escolha.style.display = 'none'
-    container_fechado.style.display = 'block'
-    container_fechado.style.gridRow = 3
+    escolha.style.display = 'none';
+    container_fechado.style.display = 'block';
+    container_fechado.style.gridRow = 2;
     infatend.innerText = "\n * Fechado *";
     dsp.innerHTML = " Estamos fechados hoje, voltamos amanha as 10:45 ate breve!";
 
@@ -1282,11 +1282,12 @@ function horadia() {
   } else {
     if (loja == 1) { // Fechado regra antiga || 23h || hora >= 23
       reshora.style.color = "red";
-      reshora.innerHTML = " FECHADO ";
-      open_close.innerHTML = " FECHADO ";
+      reshora.innerHTML = " Bem Vindo(a) ";
+      open_close.innerHTML = " Bem vindo(a) ";
       escolha.style.display = 'none'
       container_fechado.style.display = 'block'
-      container_fechado.style.gridRow = 3
+      container_fechado.style.gridRow = 2;
+      oct_header.style.display == 'none';
       if (diaSemana != 1 && diaSemana != 6 && diaSemana != 0 && hora < 11) {
         infatend.innerText = "\nAbriremos as 10:45 ate breve!";
       } else if (diaSemana != 1 && diaSemana != 6 && diaSemana != 0 && hora >= 23) {
