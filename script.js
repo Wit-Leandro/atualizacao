@@ -1,6 +1,6 @@
 // FECHAR LOJA = 1 || ABRIR LOJA = 2
 
-var loja = 1;
+var loja = 2;
 
 // HOJE TEM CUPOM = 2 || HOJE NÃO TEM CUPOM = 1
 
