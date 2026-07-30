@@ -1601,7 +1601,9 @@ voltar_inicio.addEventListener('click', function () {
 
 /*-----COPIAR CNPJ------ */
 function copiarCnpj() {
-  var cop_cnpj = '43227642000130'
+  //var cop_cnpj = '43227642000130'
+  var cop_cnpj = '19991852936'
+
   navigator.clipboard.writeText(cop_cnpj).then(
     function () {
       alert("Pix copiado para a area de transferencia");
@@ -1748,7 +1750,9 @@ env_pix.addEventListener("click", function () {
   pagamentos.style.display = "none";
   agradece.style.display = 'block';
   var obs = "Pagamento Via PIX";
-  var obs2 = "Chave PIX: 43227642000130";
+  //var obs2 = "Chave PIX: 43227642000130";
+  var obs2 = "Chave PIX: 19991852936";
+
   mensagemPadrao(obs,obs2);
   
 });
@@ -1799,7 +1803,9 @@ function contagemValores() {
 }
 
 /*----GERAR QRCODE-------------- */
-const cnpjPixKey = "43227642000130"; // Substitua pelo seu CNPJ fixo
+//const cnpjPixKey = "43227642000130"; // Substitua pelo seu CNPJ fixo
+const cnpjPixKey = '19991852936';
+
 
 function padStart(str, targetLength, padString) {
   targetLength = targetLength >> 0; // Truncate if number, or convert non-number to 0;
