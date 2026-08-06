@@ -1,1 +1,13 @@
-var cop_cnpj = '19991852936'
+
+          Fini Bananas
+          Fini Ursinhos
+          Fini Dentaduras
+          Fini Minhocas
+          Fini Beijos
+          Fini Amoras
+          Fini Az. Morango Nata
+          Fini Tubes Twister
+          Fini Tubes P. Ligua
+          Fini Az. Uva
+          Fini Az. Morango Laranja
+          Fini Az. Silvestres Nata
